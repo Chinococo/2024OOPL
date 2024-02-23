@@ -1,12 +1,18 @@
-# Leistungsstarkes Game Framework
+# OOPL 雷電 base on Leistungsstarkes Game Framework
 
+![image](https://github.com/Chinococo/2024OOPL/assets/58754099/42b6bae8-836e-4830-9dfe-f2043de8df97)
+
+
+
+
+
+### 開發者原始資訊
 LGF (Leistungsstarkes Game Framework) 是一款基於陳偉凱老師的 Game Framework 加上些許功能的 Powerful Game Framework。
-
 專案不保證長期維護，有任何問題或者任何其他想要的 feature，請丟 issue，祝使用愉快 :D
+base on https://github.com/ntut-xuan/LeistungsstarkesGameFramework
 
 
-
-## 使用手冊與函式庫
+#### 使用手冊與函式庫
 
 你可以在這裡找到這份專案的使用手冊與函式庫。
 
@@ -17,7 +23,7 @@ LGF (Leistungsstarkes Game Framework) 是一款基於陳偉凱老師的 Game Fra
 
 
 
-## 銘謝
+#### 銘謝
 
 謝謝 國立臺北科技大學 陳偉凱教授 開發了這個遊戲框架
 

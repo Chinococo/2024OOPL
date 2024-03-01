@@ -14,6 +14,9 @@
     <Filter Include="MyGame">
       <UniqueIdentifier>{0c798913-b7d2-4e26-8241-0f83266cd626}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MyGame\Raiden">
+      <UniqueIdentifier>{f8db7c07-4f9a-409c-b121-af3766f1b21a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="RES\GAME.RC2">
@@ -54,6 +57,9 @@
     <ClCompile Include="Source\Game\mygame_run.cpp">
       <Filter>MyGame</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Game\Raiden\Background.cpp">
+      <Filter>MyGame\Raiden</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Library\audio.h">
@@ -88,6 +94,12 @@
     </ClInclude>
     <ClInclude Include="Source\Game\config.h">
       <Filter>MyGame</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Game\Raiden\Background.h">
+      <Filter>MyGame\Raiden</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Game\Raiden\Component.h">
+      <Filter>MyGame\Raiden</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

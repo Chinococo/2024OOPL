@@ -38,6 +38,9 @@
  *      3. Use ShowInitProgress(percent) to display loading progress.
 */
 
+#include "Raiden/Component.h"
+#include "Raiden/Background.h"
+#include <memory>
 
 namespace game_framework {
 	/////////////////////////////////////////////////////////////////////////////
@@ -89,6 +92,8 @@ namespace game_framework {
 	protected:
 		void OnMove();									// 移動遊戲元素
 		void OnShow();									// 顯示這個狀態的遊戲畫面
+	private:
+		std::vector<std::unique_ptr<Raiden::Component>> components;
 	};
 
 	/////////////////////////////////////////////////////////////////////////////

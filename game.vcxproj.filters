@@ -17,6 +17,9 @@
     <Filter Include="MyGame\Raiden">
       <UniqueIdentifier>{f8db7c07-4f9a-409c-b121-af3766f1b21a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MyGame\Raiden\Background">
+      <UniqueIdentifier>{47444806-7fee-495b-bde5-eecc7bffcb9b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="RES\GAME.RC2">
@@ -57,8 +60,8 @@
     <ClCompile Include="Source\Game\mygame_run.cpp">
       <Filter>MyGame</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Game\Raiden\Background.cpp">
-      <Filter>MyGame\Raiden</Filter>
+    <ClCompile Include="Source\Game\Raiden\Background\Background.cpp">
+      <Filter>MyGame\Raiden\Background</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -95,11 +98,11 @@
     <ClInclude Include="Source\Game\config.h">
       <Filter>MyGame</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Game\Raiden\Background.h">
-      <Filter>MyGame\Raiden</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Game\Raiden\Component.h">
       <Filter>MyGame\Raiden</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Game\Raiden\Background\Background.h">
+      <Filter>MyGame\Raiden\Background</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

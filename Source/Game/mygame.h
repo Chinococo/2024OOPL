@@ -39,7 +39,7 @@
 */
 
 #include "Raiden/Component.h"
-#include "Raiden/Background.h"
+#include "Raiden/Background/Background.h"
 #include <memory>
 
 namespace game_framework {

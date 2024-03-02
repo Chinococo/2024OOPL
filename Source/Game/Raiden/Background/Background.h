@@ -1,7 +1,9 @@
 #pragma once
-#include "Component.h"
-#include "../../Library/gameutil.h"
+#include "../Component.h"
+#include "../../../Library/gameutil.h"
 #include <ctime>
+#include <vector>
+#include <string>
 
 namespace Raiden
 {
@@ -12,6 +14,7 @@ namespace Raiden
 		void Init() override;
 		void Update() override;
 		void Show() override;
+		void Switch(std::size_t id);
 
 	private:
 		const int LEFT_MARGIN;            // Specifies the margin of the background from the left side of the screen.
@@ -20,5 +23,6 @@ namespace Raiden
 		clock_t scroll_clock;             // The clock used for calculating the interval.
 		game_framework::CMovingBitmap part1;
 		game_framework::CMovingBitmap part2;
+		std::vector<std::vector<std::string>> paths;
 	};
 }

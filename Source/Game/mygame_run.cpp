@@ -6,6 +6,8 @@
 #include "../Library/gameutil.h"
 #include "../Library/gamecore.h"
 #include "mygame.h"
+#include "Raiden/Component.hpp"
+#include "Raiden/Background/Background.hpp"
 
 using namespace game_framework;
 

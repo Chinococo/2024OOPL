@@ -1,5 +1,5 @@
 #pragma once
-#include "../Component.h"
+#include "../Component.hpp"
 #include "../../../Library/gameutil.h"
 #include <ctime>
 #include <vector>

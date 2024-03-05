@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "Background.h"
+#include "Background.hpp"
 #include "../../config.h"
 #include <ctime>
 #include <vector>
@@ -12,9 +12,9 @@ namespace Raiden
 	
 	void Background::Init()
 	{
-		paths.push_back({ "Resources/Backgrounds/Stage1Part1.bmp", "Resources/Backgrounds/Stage1Part2.bmp" });
-		// paths.push_back({ "Resources/Backgrounds/Stage2Part1.bmp", "Resources/Backgrounds/Stage2Part2.bmp" });
-		// paths.push_back({ "Resources/Backgrounds/Stage3Part1.bmp", "Resources/Backgrounds/Stage3Part2.bmp" });
+		paths.push_back({ "Resources/Background/Stage1Part1.bmp", "Resources/Background/Stage1Part2.bmp" });
+		// paths.push_back({ "Resources/Background/Stage2Part1.bmp", "Resources/Background/Stage2Part2.bmp" });
+		// paths.push_back({ "Resources/Background/Stage3Part1.bmp", "Resources/Background/Stage3Part2.bmp" });
 		Switch(0);
 	}
 

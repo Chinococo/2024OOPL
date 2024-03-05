@@ -38,8 +38,8 @@
  *      3. Use ShowInitProgress(percent) to display loading progress.
 */
 
-#include "Raiden/Component.h"
-#include "Raiden/Background/Background.h"
+#include "Raiden/Component.hpp"
+#include "Raiden/Background/Background.hpp"
 #include <memory>
 
 namespace game_framework {

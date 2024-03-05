@@ -15,10 +15,10 @@
       <UniqueIdentifier>{0c798913-b7d2-4e26-8241-0f83266cd626}</UniqueIdentifier>
     </Filter>
     <Filter Include="MyGame\Raiden">
-      <UniqueIdentifier>{f8db7c07-4f9a-409c-b121-af3766f1b21a}</UniqueIdentifier>
+      <UniqueIdentifier>{31427f32-e363-4891-b5f0-8c490c00281b}</UniqueIdentifier>
     </Filter>
     <Filter Include="MyGame\Raiden\Background">
-      <UniqueIdentifier>{47444806-7fee-495b-bde5-eecc7bffcb9b}</UniqueIdentifier>
+      <UniqueIdentifier>{ab898856-6bbd-4e24-a9b5-60ad31d0e75f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -98,10 +98,10 @@
     <ClInclude Include="Source\Game\config.h">
       <Filter>MyGame</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Game\Raiden\Component.h">
+    <ClInclude Include="Source\Game\Raiden\Component.hpp">
       <Filter>MyGame\Raiden</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Game\Raiden\Background\Background.h">
+    <ClInclude Include="Source\Game\Raiden\Background\Background.hpp">
       <Filter>MyGame\Raiden\Background</Filter>
     </ClInclude>
   </ItemGroup>

@@ -6,8 +6,7 @@
 #include "../Library/gameutil.h"
 #include "../Library/gamecore.h"
 #include "mygame.h"
-#include "Raiden/Component.hpp"
-#include "Raiden/Background/Background.hpp"
+#include "Raiden/Stage/StageManager.hpp"
 
 using namespace game_framework;
 
@@ -29,16 +28,13 @@ void CGameStateRun::OnBeginState()
 
 void CGameStateRun::OnMove()							// 移動遊戲元素
 {
-	for (const std::unique_ptr<Raiden::Component> &component : components)
-		component->Update();
+	if (stageManager.Update())
+		GotoGameState(GAME_STATE_OVER);
 }
 
 void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 {
-	components.push_back(std::make_unique<Raiden::Background>());
-
-	for (const std::unique_ptr<Raiden::Component> &component : components)
-		component->Init();
+	stageManager.Init();
 }
 
 void CGameStateRun::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
@@ -73,6 +69,5 @@ void CGameStateRun::OnRButtonUp(UINT nFlags, CPoint point)	// 處理滑鼠的動作
 
 void CGameStateRun::OnShow()
 {
-	for (const std::unique_ptr<Raiden::Component> &component : components)
-		component->Show();
+	stageManager.Show();
 }

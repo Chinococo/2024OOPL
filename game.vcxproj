@@ -246,6 +246,12 @@
     <ClCompile Include="Source\Game\mygame_over.cpp" />
     <ClCompile Include="Source\Game\mygame_run.cpp" />
     <ClCompile Include="Source\Game\Raiden\Background\Background.cpp" />
+    <ClCompile Include="Source\Game\Raiden\Stage\Stage.cpp" />
+    <ClCompile Include="Source\Game\Raiden\Stage\StageBrazil.cpp" />
+    <ClCompile Include="Source\Game\Raiden\Stage\StageJapan.cpp" />
+    <ClCompile Include="Source\Game\Raiden\Stage\StageManager.cpp" />
+    <ClCompile Include="Source\Game\Raiden\Stage\StageUSA.cpp" />
+    <ClCompile Include="Source\Game\Raiden\StatusPanel\StatusPanel.cpp" />
     <ClCompile Include="Source\Library\audio.cpp" />
     <ClCompile Include="Source\Library\gamecore.cpp" />
     <ClCompile Include="Source\Library\gameutil.cpp" />
@@ -260,7 +266,13 @@
     <ClInclude Include="Source\Game\config.h" />
     <ClInclude Include="Source\Game\mygame.h" />
     <ClInclude Include="Source\Game\Raiden\Background\Background.hpp" />
-    <ClInclude Include="Source\Game\Raiden\Component.hpp" />
+    <ClInclude Include="Source\Game\Raiden\Stage\Stage.hpp" />
+    <ClInclude Include="Source\Game\Raiden\Stage\StageBrazil.hpp" />
+    <ClInclude Include="Source\Game\Raiden\Stage\StageJapan.hpp" />
+    <ClInclude Include="Source\Game\Raiden\Stage\StageManager.hpp" />
+    <ClInclude Include="Source\Game\Raiden\Stage\StageUSA.hpp" />
+    <ClInclude Include="Source\Game\Raiden\StatusPanel\Status.hpp" />
+    <ClInclude Include="Source\Game\Raiden\StatusPanel\StatusPanel.hpp" />
     <ClInclude Include="Source\Library\audio.h" />
     <ClInclude Include="Source\Library\gamecore.h" />
     <ClInclude Include="Source\Library\gameutil.h" />

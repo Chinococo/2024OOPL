@@ -28,7 +28,7 @@ void CGameStateRun::OnBeginState()
 
 void CGameStateRun::OnMove()							// ²¾°Ê¹CÀ¸¤¸¯À
 {
-	if (stageManager.Update())
+	if (statusPanel.Update(stageManager.Update(), Raiden::Status()))
 		GotoGameState(GAME_STATE_OVER);
 }
 

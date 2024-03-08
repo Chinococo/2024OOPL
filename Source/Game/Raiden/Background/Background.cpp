@@ -1,10 +1,10 @@
-#include "stdafx.h"
-#include "Background.hpp"
-#include "../../config.h"
+#include <StdAfx.h>
 #include <ctime>
 #include <vector>
 #include <string>
 #include <exception>
+#include "../../config.h"
+#include "Background.hpp"
 
 namespace Raiden
 {

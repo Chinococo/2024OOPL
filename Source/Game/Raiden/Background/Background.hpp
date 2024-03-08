@@ -1,8 +1,8 @@
 #pragma once
-#include "../../../Library/gameutil.h"
 #include <ctime>
 #include <vector>
 #include <string>
+#include "../../../Library/gameutil.h"
 
 namespace Raiden
 {

@@ -39,6 +39,7 @@
 */
 
 #include "Raiden/Stage/StageManager.hpp"
+#include "Raiden/StatusPanel/StatusPanel.hpp"
 
 namespace game_framework {
 	/////////////////////////////////////////////////////////////////////////////
@@ -92,6 +93,7 @@ namespace game_framework {
 		void OnShow();									// 顯示這個狀態的遊戲畫面
 	private:
 		Raiden::StageManager stageManager;
+		Raiden::StatusPanel statusPanel;
 	};
 
 	/////////////////////////////////////////////////////////////////////////////

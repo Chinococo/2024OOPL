@@ -1,7 +1,7 @@
 #pragma once
-#include "Stage.hpp"
 #include <vector>
 #include <memory>
+#include "Stage.hpp"
 
 namespace Raiden
 {

@@ -8,6 +8,7 @@
 #include "mygame.h"
 #include "Raiden/Component.hpp"
 #include "Raiden/Background/Background.hpp"
+#include "Raiden/CollisionBox/CollisionBox.h"
 
 using namespace game_framework;
 
@@ -36,9 +37,10 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 {
 	components.push_back(std::make_unique<Raiden::Background>());
-
+	Raiden::CollisionBox test;
 	for (const std::unique_ptr<Raiden::Component> &component : components)
 		component->Init();
+	
 }
 
 void CGameStateRun::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)

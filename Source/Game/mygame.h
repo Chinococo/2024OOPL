@@ -38,8 +38,7 @@
  *      3. Use ShowInitProgress(percent) to display loading progress.
 */
 
-#include "Raiden/Stage/StageManager.hpp"
-#include "Raiden/StatusPanel/StatusPanel.hpp"
+#include "Raiden/AnimatedBitmap/AnimatedBitmap.hpp"
 
 namespace game_framework {
 	/////////////////////////////////////////////////////////////////////////////
@@ -92,8 +91,7 @@ namespace game_framework {
 		void OnMove();									// 移動遊戲元素
 		void OnShow();									// 顯示這個狀態的遊戲畫面
 	private:
-		Raiden::StageManager stageManager;
-		Raiden::StatusPanel statusPanel;
+		Raiden::AnimatedBitmap sprite;
 	};
 
 	/////////////////////////////////////////////////////////////////////////////

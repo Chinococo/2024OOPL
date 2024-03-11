@@ -32,6 +32,7 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 {
 	for (const std::unique_ptr<Raiden::Component> &component : components)
 		component->Update();
+	bullet.Update();
 }
 
 void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
@@ -40,6 +41,7 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	Raiden::CollisionBox test({ {0,0,100,200},{50,50,70,70} });
 	for (const std::unique_ptr<Raiden::Component> &component : components)
 		component->Init();
+	bullet.Init();
 	
 }
 
@@ -77,4 +79,5 @@ void CGameStateRun::OnShow()
 {
 	for (const std::unique_ptr<Raiden::Component> &component : components)
 		component->Show();
+	bullet.Show();
 }

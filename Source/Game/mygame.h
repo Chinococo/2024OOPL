@@ -40,6 +40,7 @@
 
 #include "Raiden/Component.hpp"
 #include "Raiden/Background/Background.hpp"
+#include "Raiden/bullet/bullet.h"
 #include <memory>
 
 namespace game_framework {
@@ -94,6 +95,7 @@ namespace game_framework {
 		void OnShow();									// 顯示這個狀態的遊戲畫面
 	private:
 		std::vector<std::unique_ptr<Raiden::Component>> components;
+		Raiden::Bullet bullet;
 	};
 
 	/////////////////////////////////////////////////////////////////////////////

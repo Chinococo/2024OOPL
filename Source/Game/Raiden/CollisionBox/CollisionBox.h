@@ -4,8 +4,10 @@ namespace Raiden {
 	class CollisionBox{
 	public:
 		CollisionBox(vector<tuple<int, int, int, int>>);
+		void Update(int, int);
+		void Show();
 	private:
-		HBITMAP CreateNewBitMap(HDC, int);
+		HBITMAP CreateCollisionBoxBitMap(HDC, int);
 		game_framework::CMovingBitmap _display;
 		vector<tuple<int, int, int, int>> _boxCollisionBox;
 		int width = 0;

@@ -21,7 +21,7 @@ namespace Raiden{
 			FILE* file = fopen(path.c_str(), "r");
 			if (file == NULL) { // Check if the file does not exist
 				HDC hdc = GetDC(NULL);
-				HBITMAP hBmp = CreateNewBitMap(hdc, 3); // Create a bitmap compatible with the device context
+				HBITMAP hBmp = CreateCollisionBoxBitMap(hdc, 3); // Create a bitmap compatible with the device context
 				if (hBmp != NULL) {
 					CImage image;
 					image.Attach(hBmp);
@@ -35,8 +35,17 @@ namespace Raiden{
 			else {
 				fclose(file);
 			}
+			_display.LoadBitmapByString({ path },RGB(255,255,255));
 		}
-		HBITMAP CollisionBox::CreateNewBitMap(HDC hdc, int borderWidth) {
+		void CollisionBox::Update(int top, int left)
+		{
+			_display.SetTopLeft(top, left);
+		}
+		void CollisionBox::Show()
+		{
+			_display.ShowBitmap();
+		}
+		HBITMAP CollisionBox::CreateCollisionBoxBitMap(HDC hdc, int borderWidth) {
 			HBITMAP hBmp = CreateCompatibleBitmap(hdc, width, height);
 			HDC hMemDC = CreateCompatibleDC(hdc);
 			SelectObject(hMemDC, hBmp);
@@ -68,5 +77,6 @@ namespace Raiden{
 			DeleteDC(hMemDC);
 			return hBmp;
 		}
+
 
 }

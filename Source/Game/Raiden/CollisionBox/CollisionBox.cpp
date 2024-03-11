@@ -5,18 +5,27 @@
 #include <iostream>
 #include <atlimage.h>
 #include "CollisionBox.h"
+#include <string>
 #pragma comment (lib,"Gdiplus.lib")
 namespace Raiden{
 		CollisionBox::CollisionBox(vector<tuple<int, int,int,int>> boxCollisionBox) {
 			this->_boxCollisionBox = boxCollisionBox;
-			FILE* file = fopen("Resources/CollisionBox/100x200.bmp", "r");
+			string path = "Resources/CollisionBox/";
+			for (auto item : _boxCollisionBox) {
+				path += to_string(abs(get<0>(item)- get<2>(item))) + "x" + to_string(abs(get<1>(item) - get<3>(item))) + "+";
+				width = max(width, max(get<0>(item), get<2>(item)));
+				height = max(height, max(get<1>(item), get<3>(item)));
+			}
+			path[path.size() - 1] = '.';
+			path += "bmp";
+			FILE* file = fopen(path.c_str(), "r");
 			if (file == NULL) { // Check if the file does not exist
 				HDC hdc = GetDC(NULL);
 				HBITMAP hBmp = CreateNewBitMap(hdc, 3); // Create a bitmap compatible with the device context
 				if (hBmp != NULL) {
 					CImage image;
 					image.Attach(hBmp);
-					CString str = L"Resources/CollisionBox/100x200.bmp";
+					CString str = path.c_str();
 					HRESULT result = image.Save(str); // Save the image to file
 					image.Detach();
 					DeleteObject(hBmp); // Clean up bitmap object
@@ -28,12 +37,6 @@ namespace Raiden{
 			}
 		}
 		HBITMAP CollisionBox::CreateNewBitMap(HDC hdc, int borderWidth) {
-			int width = 0;
-			int height = 0;
-			for (auto item : _boxCollisionBox) {
-				width = max(width, max(get<0>(item), get<2>(item)));
-				height = max(height, max(get<1>(item), get<3>(item)));
-			}
 			HBITMAP hBmp = CreateCompatibleBitmap(hdc, width, height);
 			HDC hMemDC = CreateCompatibleDC(hdc);
 			SelectObject(hMemDC, hBmp);

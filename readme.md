@@ -1,4 +1,4 @@
-# OOPL 雷電 base on Leistungsstarkes Game Framework
+# OOPL 雷電 based on Leistungsstarkes Game Framework
 
 ![image](https://github.com/Chinococo/2024OOPL/assets/58754099/42b6bae8-836e-4830-9dfe-f2043de8df97)
 

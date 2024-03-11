@@ -38,7 +38,8 @@
  *      3. Use ShowInitProgress(percent) to display loading progress.
 */
 
-#include "Raiden/AnimatedBitmap/AnimatedBitmap.hpp"
+#include "Raiden/Stage/Stage.hpp"
+#include "Raiden/Player/Player.hpp"
 
 namespace game_framework {
 	/////////////////////////////////////////////////////////////////////////////
@@ -67,6 +68,8 @@ namespace game_framework {
 		void OnShow();									// 顯示這個狀態的遊戲畫面
 	private:
 		CMovingBitmap logo;								// csie的logo
+		CMovingBitmap title_screen;
+		bool clicked = false;
 	};
 
 	/////////////////////////////////////////////////////////////////////////////
@@ -91,7 +94,8 @@ namespace game_framework {
 		void OnMove();									// 移動遊戲元素
 		void OnShow();									// 顯示這個狀態的遊戲畫面
 	private:
-		Raiden::AnimatedBitmap sprite;
+		Raiden::Stage stage;
+		Raiden::Player player;
 	};
 
 	/////////////////////////////////////////////////////////////////////////////

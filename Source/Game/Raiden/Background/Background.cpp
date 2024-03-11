@@ -8,7 +8,7 @@
 
 namespace Raiden
 {
-	Background::Background() : LEFT_MARGIN(-5), SCROLL_INTERVAL_MILLI(33) {}
+	Background::Background() : LEFT_MARGIN(-10) {}
 	
 	void Background::Init(std::vector<std::string> paths)
 	{
@@ -18,13 +18,8 @@ namespace Raiden
 		part2.SetTopLeft(LEFT_MARGIN, part1.GetTop() - part2.GetHeight());
 	}
 
-	void Background::Update(int scroll_step = 10)
+	void Background::Update(int scroll_step)
 	{
-		if ((std::clock() - scroll_clock) / CLOCKS_PER_SEC < SCROLL_INTERVAL_MILLI / 1000)
-			return;
-
-		scroll_clock = std::clock();
-
 		if (part1.GetTop() >= SIZE_Y)
 			part1.SetTopLeft(LEFT_MARGIN, part2.GetTop() - part1.GetHeight());
 

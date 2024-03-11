@@ -23,8 +23,11 @@
     <Filter Include="MyGame\Raiden\Stage">
       <UniqueIdentifier>{a8ed0a1a-c719-4884-8426-3a73754dd64f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="MyGame\Raiden\StatusPanel">
-      <UniqueIdentifier>{e097bfe6-028b-4bdd-9efe-94b0078fae7d}</UniqueIdentifier>
+    <Filter Include="MyGame\Raiden\AnimatedBitmap">
+      <UniqueIdentifier>{e0205c4e-633f-47d9-8694-6e56a54ad545}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyGame\Raiden\Player">
+      <UniqueIdentifier>{ce07d96f-7f60-486f-bbf6-113f860be48a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -72,20 +75,11 @@
     <ClCompile Include="Source\Game\Raiden\Stage\Stage.cpp">
       <Filter>MyGame\Raiden\Stage</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Game\Raiden\Stage\StageBrazil.cpp">
-      <Filter>MyGame\Raiden\Stage</Filter>
+    <ClCompile Include="Source\Game\Raiden\AnimatedBitmap\AnimatedBitmap.cpp">
+      <Filter>MyGame\Raiden\AnimatedBitmap</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Game\Raiden\Stage\StageJapan.cpp">
-      <Filter>MyGame\Raiden\Stage</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Game\Raiden\Stage\StageManager.cpp">
-      <Filter>MyGame\Raiden\Stage</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Game\Raiden\Stage\StageUSA.cpp">
-      <Filter>MyGame\Raiden\Stage</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Game\Raiden\StatusPanel\StatusPanel.cpp">
-      <Filter>MyGame\Raiden\StatusPanel</Filter>
+    <ClCompile Include="Source\Game\Raiden\Player\Player.cpp">
+      <Filter>MyGame\Raiden\Player</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -128,23 +122,11 @@
     <ClInclude Include="Source\Game\Raiden\Stage\Stage.hpp">
       <Filter>MyGame\Raiden\Stage</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Game\Raiden\Stage\StageBrazil.hpp">
-      <Filter>MyGame\Raiden\Stage</Filter>
+    <ClInclude Include="Source\Game\Raiden\AnimatedBitmap\AnimatedBitmap.hpp">
+      <Filter>MyGame\Raiden\AnimatedBitmap</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Game\Raiden\Stage\StageJapan.hpp">
-      <Filter>MyGame\Raiden\Stage</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Game\Raiden\Stage\StageManager.hpp">
-      <Filter>MyGame\Raiden\Stage</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Game\Raiden\Stage\StageUSA.hpp">
-      <Filter>MyGame\Raiden\Stage</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Game\Raiden\StatusPanel\StatusPanel.hpp">
-      <Filter>MyGame\Raiden\StatusPanel</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Game\Raiden\StatusPanel\Status.hpp">
-      <Filter>MyGame\Raiden\StatusPanel</Filter>
+    <ClInclude Include="Source\Game\Raiden\Player\Player.hpp">
+      <Filter>MyGame\Raiden\Player</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

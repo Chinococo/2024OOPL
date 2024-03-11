@@ -10,14 +10,14 @@ namespace Raiden
 	public:
 		struct Setting
 		{
-			std::vector<std::string> frames;
+			std::vector<std::string> paths;
 			int delay;
 			bool once;
 		};
 
+		void SetCenter(int left, int top);
 		void AddAnimation(Setting setting);
 		void SwitchAnimation(std::size_t index);
-		void Update();
 		void Show();
 
 	private:

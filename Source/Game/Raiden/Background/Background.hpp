@@ -15,9 +15,7 @@ namespace Raiden
 		void Show();
 
 	private:
-		const int LEFT_MARGIN;            // Specifies the margin of the background from the left side of the screen.
-		const int SCROLL_INTERVAL_MILLI;    // Specifies the duration of the interval between each scrolling step.
-		clock_t scroll_clock;             // The clock used for calculating the interval.
+		const int LEFT_MARGIN; // Specifies the margin of the background from the left side of the screen.
 		game_framework::CMovingBitmap part1;
 		game_framework::CMovingBitmap part2;
 	};

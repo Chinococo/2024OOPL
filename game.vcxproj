@@ -250,7 +250,6 @@
     <ClCompile Include="Source\Library\audio.cpp" />
     <ClCompile Include="Source\Library\gamecore.cpp" />
     <ClCompile Include="Source\Library\gameutil.cpp" />
-    <ClCompile Include="Test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Core\Game.h" />
@@ -264,7 +263,6 @@
     <ClInclude Include="Source\Game\Raiden\Background\Background.hpp" />
     <ClInclude Include="Source\Game\Raiden\CollisionBox\CollisionBox.h" />
     <ClInclude Include="Source\Game\Raiden\Component.hpp" />
-    <ClInclude Include="Source\Game\Raiden\Test\Test.h" />
     <ClInclude Include="Source\Library\audio.h" />
     <ClInclude Include="Source\Library\gamecore.h" />
     <ClInclude Include="Source\Library\gameutil.h" />

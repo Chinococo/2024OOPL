@@ -26,9 +26,6 @@
     <Filter Include="MyGame\Raiden\CollisionBox">
       <UniqueIdentifier>{fa8a6fd7-f2be-48e8-a9de-6214fae2013a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="MyGame\Raiden\test">
-      <UniqueIdentifier>{90d348e5-ffc3-4099-88bf-96c6c7e3f28f}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="RES\GAME.RC2">
@@ -75,9 +72,6 @@
     <ClCompile Include="Source\Game\Raiden\CollisionBox\CollisionBox.cpp">
       <Filter>MyGame\Raiden\CollisionBox</Filter>
     </ClCompile>
-    <ClCompile Include="Test.cpp">
-      <Filter>MyGame\Raiden\test</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Library\audio.h">
@@ -121,9 +115,6 @@
     </ClInclude>
     <ClInclude Include="Source\Game\Raiden\CollisionBox\CollisionBox.h">
       <Filter>MyGame\Raiden\CollisionBox</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Game\Raiden\Test\Test.h">
-      <Filter>MyGame\Raiden\test</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

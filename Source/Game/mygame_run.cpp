@@ -37,7 +37,7 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 {
 	components.push_back(std::make_unique<Raiden::Background>());
-	Raiden::CollisionBox test;
+	Raiden::CollisionBox test({ {0,0,100,200},{50,50,70,70} });
 	for (const std::unique_ptr<Raiden::Component> &component : components)
 		component->Init();
 	

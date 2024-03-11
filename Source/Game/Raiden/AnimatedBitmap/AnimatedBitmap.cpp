@@ -6,7 +6,7 @@ namespace Raiden
 {
 	void AnimatedBitmap::SetCenter(int center_x, int center_y)
 	{
-		sprite.SetTopLeft(center_x - (double)sprite.GetWidth() / 2, center_y - (double)sprite.GetHeight() / 2);
+		sprite.SetTopLeft(center_x - sprite.GetWidth() / 2, center_y - sprite.GetHeight() / 2);
 	}
 
 	void AnimatedBitmap::AddAnimation(AnimationSetting &&setting)

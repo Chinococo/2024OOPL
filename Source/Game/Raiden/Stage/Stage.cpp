@@ -7,10 +7,10 @@ namespace Raiden
 	void Stage::Update(const Player &player)
 	{
 		background.Update();
-		boss->Update();
+		boss->Update(player);
 
 		for (Enemy &enemy : enemies)
-			enemy.Update();
+			enemy.Update(player);
 	}
 
 	void Stage::Show()

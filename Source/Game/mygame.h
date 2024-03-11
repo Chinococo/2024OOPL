@@ -95,7 +95,8 @@ namespace game_framework {
 		void OnShow();									// 顯示這個狀態的遊戲畫面
 	private:
 		std::vector<std::unique_ptr<Raiden::Component>> components;
-		Raiden::Bullet bullet;
+		Raiden::Bullet bullet1;
+		Raiden::Bullet bullet2;
 	};
 
 	/////////////////////////////////////////////////////////////////////////////

@@ -13,7 +13,7 @@ namespace Raiden {
 	 *   - Update  : Update position of this object
 	 *   - Show   ：Display Object
 	 * Constructors：
-	 *   - Bullet：No Parmamter。
+	 *   - Bullet： Top and Left
 	 * Destructor：
 	 *   - ~Bullet:Free collisionBox;
 	*/
@@ -21,13 +21,15 @@ namespace Raiden {
 	{
 		public:
 			Bullet();
-			~Bullet();
-			void Init();
-			void Update();
+			void Init(int,int);
+			void Update(int deltaX, int deltaY);
 			void Show();
-
+			CollisionBox& GetCollisionBox();
+			bool IsCollisionBoxOverlap(Bullet&);
 		private:
-			CollisionBox* collisionBox;
+			CollisionBox collisionBox;
+			int top;
+			int left;
 	};
 
 }

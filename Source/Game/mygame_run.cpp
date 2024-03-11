@@ -32,16 +32,21 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 {
 	for (const std::unique_ptr<Raiden::Component> &component : components)
 		component->Update();
-	bullet.Update();
+	bullet1.Update(0,5);
+	bullet2.Update(0,-5);
+	bool check  = bullet1.IsCollisionBoxOverlap(bullet2);
+	if (check) {
+		printf("collison");
+	}
 }
 
 void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 {
 	components.push_back(std::make_unique<Raiden::Background>());
-	Raiden::CollisionBox test({ {0,0,100,200},{50,50,70,70} });
 	for (const std::unique_ptr<Raiden::Component> &component : components)
 		component->Init();
-	bullet.Init();
+	bullet1.Init(50,50);
+	bullet2.Init(50,300);
 	
 }
 
@@ -79,5 +84,6 @@ void CGameStateRun::OnShow()
 {
 	for (const std::unique_ptr<Raiden::Component> &component : components)
 		component->Show();
-	bullet.Show();
+	bullet1.Show();
+	bullet2.Show();
 }

@@ -8,7 +8,12 @@
 #include <string>
 #pragma comment (lib,"Gdiplus.lib")
 namespace Raiden{
-		CollisionBox::CollisionBox(vector<tuple<int, int,int,int>> boxCollisionBox) {
+		std::pair<int, int> addPairs(const std::pair<int, int>& pair1, const std::pair<int, int>& pair2) {
+			int sum_first = pair1.first + pair2.first;
+			int sum_second = pair1.second + pair2.second;
+			return std::make_pair(sum_first, sum_second);
+		}
+		void CollisionBox::Init(vector<tuple<int, int,int,int>> boxCollisionBox) {
 			this->_boxCollisionBox = boxCollisionBox;
 			string path = "Resources/CollisionBox/";
 			// To Get Largest Width and Height to Set Panel Size
@@ -39,6 +44,9 @@ namespace Raiden{
 				fclose(file);
 			}
 			_display.LoadBitmapByString({ path },RGB(255,255,255));
+		}
+		CollisionBox::CollisionBox()
+		{
 		}
 		void CollisionBox::Update(int top, int left)
 		{
@@ -79,6 +87,41 @@ namespace Raiden{
 			DeleteDC(hMemDC);
 			return hBmp;
 		}
+		bool CollisionBox::IsCollisionBoxOverlap(CollisionBox& othres) {
+			pair<int,int> thisTopLeft = this->GetTopLeft();
+			pair<int, int> otherTopLeft = othres.GetTopLeft();
+			vector<tuple<int, int, int, int>>  othersCollisionBox = othres.GetBoxCollisionBox();
+			
+			pair<int, int> TopLeft;
+			pair<int, int> RightBottom;
+			pair<int, int> thisBoxTopLeft, thisBoxRightBottom, otherBoxTopLeft, otherBoxRightBottom;
+			for(size_t i=0;i<_boxCollisionBox.size();i++)
+				for (size_t j = 0; j < othersCollisionBox.size(); j++) {
+					// 自己的其中一個碰撞箱
+					TopLeft = { get<0>(_boxCollisionBox[i]), get<1>(_boxCollisionBox[i]) };
+					thisBoxTopLeft = addPairs( thisTopLeft, TopLeft);
+					RightBottom = { get<2>(_boxCollisionBox[i]), get<3>(_boxCollisionBox[i]) };
+					thisBoxRightBottom = addPairs(thisTopLeft, RightBottom);
 
+					// 別人的其中一個碰撞箱
+					TopLeft = { get<0>(othersCollisionBox[j]), get<1>(othersCollisionBox[j]) };
+					otherBoxTopLeft = addPairs(otherTopLeft, TopLeft);
+					RightBottom = { get<2>(othersCollisionBox[j]), get<3>(othersCollisionBox[j]) };
+					otherBoxRightBottom = addPairs(otherTopLeft, RightBottom);
 
+					if (thisBoxTopLeft.first > otherBoxRightBottom.first || otherBoxTopLeft.first > thisBoxRightBottom.first)
+						continue;
+					if (thisBoxTopLeft.second > otherBoxRightBottom.second || otherBoxTopLeft.second > thisBoxRightBottom.second)
+						continue;
+					return true; 
+				}
+			return false;
+		}
+		pair<int, int>  CollisionBox::GetTopLeft() {
+			return { this->_display.GetLeft() , this->_display.GetTop() };
+		}
+		vector<tuple<int, int, int, int>>  CollisionBox::GetBoxCollisionBox() {
+			return this->_boxCollisionBox;
+		}
+		
 }

@@ -21,9 +21,13 @@ namespace Raiden {
 	*/
 	class CollisionBox{
 		public:
-			CollisionBox(vector<tuple<int, int, int, int>>);
+			CollisionBox();
+			void Init(vector<tuple<int, int, int, int>>);
 			void Update(int, int);
 			void Show();
+			bool IsCollisionBoxOverlap(CollisionBox&);
+			pair<int, int> GetTopLeft();
+			vector<tuple<int, int, int, int>> GetBoxCollisionBox();
 		private:
 			HBITMAP CreateCollisionBoxBitMap(HDC, int);
 			game_framework::CMovingBitmap _display;

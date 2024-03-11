@@ -17,6 +17,51 @@
     <Filter Include="MyGame\Raiden">
       <UniqueIdentifier>{5eadd975-ae6f-4427-a91a-691c633f3f1a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MyGame\Raiden\AnimatedBitmap">
+      <UniqueIdentifier>{24e8eb85-1b45-48e3-b3f2-7f5eb755b492}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyGame\Raiden\AnimationSetting">
+      <UniqueIdentifier>{e7730e3e-8cbd-40b9-817e-d4fca4f3f36b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyGame\Raiden\Background">
+      <UniqueIdentifier>{14e497c9-6f6b-4ddc-be16-523014433c59}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyGame\Raiden\BossBrazil">
+      <UniqueIdentifier>{16b313fe-98c2-4c11-bb80-fc0c540ce0fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyGame\Raiden\BossJapan">
+      <UniqueIdentifier>{f948e0ad-840f-43e4-9b76-89947f6f911f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyGame\Raiden\BossUSA">
+      <UniqueIdentifier>{1bc6bcb7-bba2-44c5-a964-9a3cc9c5841d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyGame\Raiden\Enemy">
+      <UniqueIdentifier>{3b047261-2512-49df-90b9-742ba25f7e33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyGame\Raiden\Fighter">
+      <UniqueIdentifier>{74d2d912-8ce9-463e-a579-ba17955e510c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyGame\Raiden\Manager">
+      <UniqueIdentifier>{0cb614f4-4025-468d-9337-07c1f18e3776}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyGame\Raiden\Player">
+      <UniqueIdentifier>{864dd87f-6607-43e2-8efe-b529a4e13b8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyGame\Raiden\Stage">
+      <UniqueIdentifier>{fcedd1cd-113b-493b-a81a-42e924807af1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyGame\Raiden\StageBrazil">
+      <UniqueIdentifier>{894919e8-7876-4129-8cd1-9cfa9d7ba12c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyGame\Raiden\StageJapan">
+      <UniqueIdentifier>{dffa17eb-0162-43fb-9d20-6cffb94a2688}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyGame\Raiden\StageUSA">
+      <UniqueIdentifier>{9aa674eb-0726-47e0-afe1-f45516e94826}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyGame\Raiden\StatusPanel">
+      <UniqueIdentifier>{f523ed6e-b6a9-4152-85f0-06f5283dd6ea}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="RES\GAME.RC2">
@@ -57,6 +102,51 @@
     <ClCompile Include="Source\Game\mygame_run.cpp">
       <Filter>MyGame</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Game\Raiden\AnimatedBitmap\AnimatedBitmap.cpp">
+      <Filter>MyGame\Raiden\AnimatedBitmap</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Game\Raiden\AnimationSetting\AnimationSetting.cpp">
+      <Filter>MyGame\Raiden\AnimationSetting</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Game\Raiden\Background\Background.cpp">
+      <Filter>MyGame\Raiden\Background</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Game\Raiden\BossBrazil\BossBrazil.cpp">
+      <Filter>MyGame\Raiden\BossBrazil</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Game\Raiden\BossJapan\BossJapan.cpp">
+      <Filter>MyGame\Raiden\BossJapan</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Game\Raiden\BossUSA\BossUSA.cpp">
+      <Filter>MyGame\Raiden\BossUSA</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Game\Raiden\Enemy\Enemy.cpp">
+      <Filter>MyGame\Raiden\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Game\Raiden\Fighter\Fighter.cpp">
+      <Filter>MyGame\Raiden\Fighter</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Game\Raiden\Manager\Manager.cpp">
+      <Filter>MyGame\Raiden\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Game\Raiden\StatusPanel\StatusPanel.cpp">
+      <Filter>MyGame\Raiden\StatusPanel</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Game\Raiden\StageUSA\StageUSA.cpp">
+      <Filter>MyGame\Raiden\StageUSA</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Game\Raiden\StageJapan\StageJapan.cpp">
+      <Filter>MyGame\Raiden\StageJapan</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Game\Raiden\StageBrazil\StageBrazil.cpp">
+      <Filter>MyGame\Raiden\StageBrazil</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Game\Raiden\Stage\Stage.cpp">
+      <Filter>MyGame\Raiden\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Game\Raiden\Player\Player.cpp">
+      <Filter>MyGame\Raiden\Player</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Library\audio.h">
@@ -91,6 +181,51 @@
     </ClInclude>
     <ClInclude Include="Source\Game\config.h">
       <Filter>MyGame</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Game\Raiden\AnimatedBitmap\AnimatedBitmap.h">
+      <Filter>MyGame\Raiden\AnimatedBitmap</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Game\Raiden\AnimationSetting\AnimationSetting.h">
+      <Filter>MyGame\Raiden\AnimationSetting</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Game\Raiden\Background\Background.h">
+      <Filter>MyGame\Raiden\Background</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Game\Raiden\BossBrazil\BossBrazil.h">
+      <Filter>MyGame\Raiden\BossBrazil</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Game\Raiden\BossJapan\BossJapan.h">
+      <Filter>MyGame\Raiden\BossJapan</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Game\Raiden\BossUSA\BossUSA.h">
+      <Filter>MyGame\Raiden\BossUSA</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Game\Raiden\Enemy\Enemy.h">
+      <Filter>MyGame\Raiden\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Game\Raiden\Fighter\Fighter.h">
+      <Filter>MyGame\Raiden\Fighter</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Game\Raiden\Manager\Manager.h">
+      <Filter>MyGame\Raiden\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Game\Raiden\StatusPanel\StatusPanel.h">
+      <Filter>MyGame\Raiden\StatusPanel</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Game\Raiden\StageUSA\StageUSA.h">
+      <Filter>MyGame\Raiden\StageUSA</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Game\Raiden\StageJapan\StageJapan.h">
+      <Filter>MyGame\Raiden\StageJapan</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Game\Raiden\StageBrazil\StageBrazil.h">
+      <Filter>MyGame\Raiden\StageBrazil</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Game\Raiden\Stage\Stage.h">
+      <Filter>MyGame\Raiden\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Game\Raiden\Player\Player.h">
+      <Filter>MyGame\Raiden\Player</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

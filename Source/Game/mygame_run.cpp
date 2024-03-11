@@ -27,18 +27,27 @@ void CGameStateRun::OnBeginState()
 
 void CGameStateRun::OnMove()							// 移動遊戲元素
 {
+	manager.Update();
 }
 
 void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 {
+	manager.Init();
+	keyMap[VK_UP] = Raiden::Key::UP;
+	keyMap[VK_DOWN] = Raiden::Key::DOWN;
+	keyMap[VK_LEFT] = Raiden::Key::LEFT;
+	keyMap[VK_RIGHT] = Raiden::Key::RIGHT;
+	keyMap[0x5A] = Raiden::Key::FIRE;
 }
 
 void CGameStateRun::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 {
+	keys.insert(keyMap[nChar]);
 }
 
 void CGameStateRun::OnKeyUp(UINT nChar, UINT nRepCnt, UINT nFlags)
 {
+	keys.erase(keyMap[nChar]);
 }
 
 void CGameStateRun::OnLButtonDown(UINT nFlags, CPoint point)  // 處理滑鼠的動作
@@ -63,4 +72,5 @@ void CGameStateRun::OnRButtonUp(UINT nFlags, CPoint point)	// 處理滑鼠的動作
 
 void CGameStateRun::OnShow()
 {
+	background.Show();
 }

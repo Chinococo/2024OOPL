@@ -48,10 +48,6 @@ namespace Raiden{
 		CollisionBox::CollisionBox()
 		{
 		}
-		void CollisionBox::Update(int top, int left)
-		{
-			display.SetTopLeft(top, left);
-		}
 		void CollisionBox::Show()
 		{
 			display.ShowBitmap();

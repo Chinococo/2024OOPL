@@ -13,7 +13,7 @@ namespace Raiden {
 	}
 	void Bullet::Update(int deltaX=0,int deltaY=0)
 	{
-		this->collisionBox.Update(this->GetLeft() + deltaX, this->GetTop() + deltaY);
+		this->collisionBox.SetTopLeft(this->GetLeft() + deltaX, this->GetTop() + deltaY);
 		pair<int, int> top_left = this->collisionBox.GetTopLeft();
 		this->SetTopLeft(top_left.first, top_left.second);
 	}

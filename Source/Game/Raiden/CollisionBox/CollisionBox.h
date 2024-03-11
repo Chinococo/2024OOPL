@@ -23,7 +23,6 @@ namespace Raiden {
 		public:
 			CollisionBox();
 			void Init(vector<tuple<int, int, int, int>>);
-			void Update(int, int);
 			void Show();
 			void SetTopLeft(int, int);
 			bool IsCollisionBoxOverlap(CollisionBox&);

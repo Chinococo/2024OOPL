@@ -6,7 +6,7 @@ namespace Raiden {
 	}
 	void Bullet::Init(int _left, int _top) {
 		LoadBitmapByString({ "Resources/1.bmp" });
-		this->collisionBox.Init({ { 0,0,this->GetWidth(),this->GetWidth() } });
+		this->collisionBox.Init({ { 0,0,this->GetWidth()+10,this->GetWidth()+10 } });
 		this->collisionBox.SetTopLeft(_left, _top);
 		this->SetTopLeft(_left, _top);
 		

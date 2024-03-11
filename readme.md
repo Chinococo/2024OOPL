@@ -61,11 +61,12 @@ base on https://github.com/ntut-xuan/LeistungsstarkesGameFramework
 2. 函式定義、for、if 的上下請留空白行。函式宣告則不需要。
 3. 請不要使用任何 using namespace。
 4. 請盡可能使用 const reference。
-5. 請盡可能不要重複程式碼。
-6. 標頭檔副檔名固定 .h，原始檔附檔名固定 .cpp。
-7. 資料結構不需初始化，讓編譯器採用預設建構子。
-8. int、double、bool、std::size_t 請初始化。
-9. 請使用 double 避免 float。
+5. 如果成員函式有機會是 const 請盡量標記。
+6. 請盡可能不要重複程式碼。
+7. 標頭檔副檔名固定 .h，原始檔附檔名固定 .cpp。
+8. 資料結構不需初始化，讓編譯器採用預設建構子。
+9. int、double、bool、std::size_t 請初始化。
+10. 請使用 double 避免 float。
 
 # 偵錯工具
 &lt;data> 放想要顯示的資料。

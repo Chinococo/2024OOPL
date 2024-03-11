@@ -5,7 +5,7 @@
 #include <vector>
 #include <string>
 #include <exception>
-
+#include <string>
 namespace Raiden
 {
 	Background::Background() : LEFT_MARGIN(-5), SCROLL_STEP(10), SCROLL_INTERVAL_MILLI(33) {}
@@ -20,9 +20,10 @@ namespace Raiden
 
 	void Background::Update()
 	{
-		if ((std::clock() - scroll_clock) / CLOCKS_PER_SEC < SCROLL_INTERVAL_MILLI / 1000)
+		if ((double)(std::clock() - scroll_clock) / CLOCKS_PER_SEC < (double)SCROLL_INTERVAL_MILLI / 1000)
 			return;
-
+		//std::wstring info = L"Output" + to_wstring((double)(std::clock() - scroll_clock) / CLOCKS_PER_SEC) + L"\n";
+		//OutputDebugStringW(info.c_str());
 		scroll_clock = std::clock();
 
 		if (part1.GetTop() >= SIZE_Y)

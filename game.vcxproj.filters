@@ -20,6 +20,15 @@
     <Filter Include="MyGame\Raiden\Background">
       <UniqueIdentifier>{ab898856-6bbd-4e24-a9b5-60ad31d0e75f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="NewFilter1">
+      <UniqueIdentifier>{c510dad6-8ee8-4c2b-8b35-2c59369ee8ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyGame\Raiden\CollisionBox">
+      <UniqueIdentifier>{fa8a6fd7-f2be-48e8-a9de-6214fae2013a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyGame\Raiden\Bullet">
+      <UniqueIdentifier>{abe900ec-af29-4732-98e6-e95e9996297e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="RES\GAME.RC2">
@@ -63,6 +72,12 @@
     <ClCompile Include="Source\Game\Raiden\Background\Background.cpp">
       <Filter>MyGame\Raiden\Background</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Game\Raiden\CollisionBox\CollisionBox.cpp">
+      <Filter>MyGame\Raiden\CollisionBox</Filter>
+    </ClCompile>
+    <ClCompile Include="bullet.cpp">
+      <Filter>MyGame\Raiden\Bullet</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Library\audio.h">
@@ -103,6 +118,12 @@
     </ClInclude>
     <ClInclude Include="Source\Game\Raiden\Background\Background.hpp">
       <Filter>MyGame\Raiden\Background</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Game\Raiden\CollisionBox\CollisionBox.h">
+      <Filter>MyGame\Raiden\CollisionBox</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Game\Raiden\bullet\bullet.h">
+      <Filter>MyGame\Raiden\Bullet</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -67,6 +67,7 @@ base on https://github.com/ntut-xuan/LeistungsstarkesGameFramework
 8. 資料結構不需初始化，讓編譯器採用預設建構子。
 9. int、double、bool、std::size_t 請初始化。
 10. 請使用 double 避免 float。
+11. 請使用 static_cast、dynamic_cast 避免 C-style () 括號強制轉型。
 
 # 偵錯工具
 &lt;data> 放想要顯示的資料。

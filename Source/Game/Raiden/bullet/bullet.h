@@ -17,7 +17,7 @@ namespace Raiden {
 	 * Destructor：
 	 *   - ~Bullet:Free collisionBox;
 	*/
-	class Bullet :game_framework::CMovingBitmap
+	class Bullet
 	{
 		public:
 			Bullet();
@@ -27,6 +27,7 @@ namespace Raiden {
 			CollisionBox& GetCollisionBox();
 			bool IsCollisionBoxOverlap(Bullet&);
 		private:
+			game_framework::CMovingBitmap sprite;
 			CollisionBox collisionBox;
 	};
 

@@ -38,9 +38,6 @@
  *      3. Use ShowInitProgress(percent) to display loading progress.
 */
 
-#include "Raiden/Stage/Stage.hpp"
-#include "Raiden/Player/Player.hpp"
-
 namespace game_framework {
 	/////////////////////////////////////////////////////////////////////////////
 	// Constants
@@ -93,9 +90,6 @@ namespace game_framework {
 	protected:
 		void OnMove();									// 移動遊戲元素
 		void OnShow();									// 顯示這個狀態的遊戲畫面
-	private:
-		Raiden::Stage stage;
-		Raiden::Player player;
 	};
 
 	/////////////////////////////////////////////////////////////////////////////

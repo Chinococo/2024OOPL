@@ -15,19 +15,7 @@
       <UniqueIdentifier>{0c798913-b7d2-4e26-8241-0f83266cd626}</UniqueIdentifier>
     </Filter>
     <Filter Include="MyGame\Raiden">
-      <UniqueIdentifier>{31427f32-e363-4891-b5f0-8c490c00281b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="MyGame\Raiden\Background">
-      <UniqueIdentifier>{ab898856-6bbd-4e24-a9b5-60ad31d0e75f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="MyGame\Raiden\Stage">
-      <UniqueIdentifier>{a8ed0a1a-c719-4884-8426-3a73754dd64f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="MyGame\Raiden\AnimatedBitmap">
-      <UniqueIdentifier>{e0205c4e-633f-47d9-8694-6e56a54ad545}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="MyGame\Raiden\Player">
-      <UniqueIdentifier>{ce07d96f-7f60-486f-bbf6-113f860be48a}</UniqueIdentifier>
+      <UniqueIdentifier>{5eadd975-ae6f-4427-a91a-691c633f3f1a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -69,18 +57,6 @@
     <ClCompile Include="Source\Game\mygame_run.cpp">
       <Filter>MyGame</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Game\Raiden\Background\Background.cpp">
-      <Filter>MyGame\Raiden\Background</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Game\Raiden\Stage\Stage.cpp">
-      <Filter>MyGame\Raiden\Stage</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Game\Raiden\AnimatedBitmap\AnimatedBitmap.cpp">
-      <Filter>MyGame\Raiden\AnimatedBitmap</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Game\Raiden\Player\Player.cpp">
-      <Filter>MyGame\Raiden\Player</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Library\audio.h">
@@ -115,18 +91,6 @@
     </ClInclude>
     <ClInclude Include="Source\Game\config.h">
       <Filter>MyGame</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Game\Raiden\Background\Background.hpp">
-      <Filter>MyGame\Raiden\Background</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Game\Raiden\Stage\Stage.hpp">
-      <Filter>MyGame\Raiden\Stage</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Game\Raiden\AnimatedBitmap\AnimatedBitmap.hpp">
-      <Filter>MyGame\Raiden\AnimatedBitmap</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Game\Raiden\Player\Player.hpp">
-      <Filter>MyGame\Raiden\Player</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

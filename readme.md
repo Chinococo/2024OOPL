@@ -49,7 +49,7 @@ base on https://github.com/ntut-xuan/LeistungsstarkesGameFramework
 
 # 命名規則
 
-函式、類、列舉：PascalCase
+函式、類、列舉、命名空間：PascalCase
 
 成員變數、區域變數、函式參數：snake_case
 

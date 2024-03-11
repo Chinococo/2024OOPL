@@ -11,7 +11,9 @@ namespace Raiden{
 		CollisionBox::CollisionBox(vector<tuple<int, int,int,int>> boxCollisionBox) {
 			this->_boxCollisionBox = boxCollisionBox;
 			string path = "Resources/CollisionBox/";
+			// To Get Largest Width and Height to Set Panel Size
 			for (auto item : _boxCollisionBox) {
+				// Make path string to save image
 				path += to_string(abs(get<0>(item)- get<2>(item))) + "x" + to_string(abs(get<1>(item) - get<3>(item))) + "+";
 				width = max(width, max(get<0>(item), get<2>(item)));
 				height = max(height, max(get<1>(item), get<3>(item)));
@@ -19,6 +21,7 @@ namespace Raiden{
 			path[path.size() - 1] = '.';
 			path += "bmp";
 			FILE* file = fopen(path.c_str(), "r");
+			//Check file exitst
 			if (file == NULL) { // Check if the file does not exist
 				HDC hdc = GetDC(NULL);
 				HBITMAP hBmp = CreateCollisionBoxBitMap(hdc, 3); // Create a bitmap compatible with the device context
@@ -50,13 +53,12 @@ namespace Raiden{
 			HDC hMemDC = CreateCompatibleDC(hdc);
 			SelectObject(hMemDC, hBmp);
 			SetBkColor(hMemDC, TRANSPARENT);
-
 			// Fill the entire bitmap with a transparent color
 			RECT rc = { 0, 0, width, height };
 			HBRUSH hbTransparent = ::CreateSolidBrush(RGB(255, 255, 255)); // White color for transparency
 			FillRect(hMemDC, &rc, hbTransparent);
 			DeleteObject(hbTransparent);
-
+			// Create by boxCollisionBox item 
 			for (auto box : _boxCollisionBox) {
 				// Draw the border
 				HBRUSH hbBorder = ::CreateSolidBrush(RGB(0, 255, 0)); // Green color for border

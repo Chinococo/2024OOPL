@@ -4,6 +4,10 @@ namespace Raiden {
 	Bullet::Bullet() {
 		
 	}
+	Bullet::~Bullet()
+	{
+		free(this->collisionBox);
+	}
 	void Bullet::Init() {
 		LoadBitmapByString({ "Resources/1.bmp" });
 		this->SetTopLeft(10, 50);

@@ -63,3 +63,9 @@ base on https://github.com/ntut-xuan/LeistungsstarkesGameFramework
 4. 請盡可能使用 const reference。
 5. 請盡可能不要重複程式碼。
 6. 標頭檔副檔名固定 .h，原始檔附檔名固定 .cpp。
+
+# 偵錯工具
+&lt;data> 放想要顯示的資料。
+```cpp
+OutputDebugStringW(std::to_wstring( <data> ) + L"\n");
+```

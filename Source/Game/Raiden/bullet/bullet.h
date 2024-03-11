@@ -28,8 +28,6 @@ namespace Raiden {
 			bool IsCollisionBoxOverlap(Bullet&);
 		private:
 			CollisionBox collisionBox;
-			int top;
-			int left;
 	};
 
 }

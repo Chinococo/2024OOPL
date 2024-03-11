@@ -34,10 +34,6 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 		component->Update();
 	bullet1.Update(0,5);
 	bullet2.Update(0,-5);
-	bool check  = bullet1.IsCollisionBoxOverlap(bullet2);
-	if (check) {
-		printf("collison");
-	}
 }
 
 void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
@@ -86,4 +82,8 @@ void CGameStateRun::OnShow()
 		component->Show();
 	bullet1.Show();
 	bullet2.Show();
+	bool check = bullet1.IsCollisionBoxOverlap(bullet2);
+	if (check) {
+		printf("collison");
+	}
 }

@@ -25,13 +25,14 @@ namespace Raiden {
 			void Init(vector<tuple<int, int, int, int>>);
 			void Update(int, int);
 			void Show();
+			void SetTopLeft(int, int);
 			bool IsCollisionBoxOverlap(CollisionBox&);
 			pair<int, int> GetTopLeft();
 			vector<tuple<int, int, int, int>> GetBoxCollisionBox();
 		private:
-			HBITMAP CreateCollisionBoxBitMap(HDC, int);
-			game_framework::CMovingBitmap _display;
-			vector<tuple<int, int, int, int>> _boxCollisionBox;
+			HBITMAP CreateCollisionBoxBitmap(HDC, int);
+			game_framework::CMovingBitmap display;
+			vector<tuple<int, int, int, int>> box_collision_box;
 			int width = 0;
 			int height = 0;
 		};

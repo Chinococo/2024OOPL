@@ -5,16 +5,17 @@ namespace Raiden {
 		
 	}
 	void Bullet::Init(int _left, int _top) {
-		this->left = _left;
-		this->top = _top;
 		LoadBitmapByString({ "Resources/1.bmp" });
-		this->SetTopLeft(left, top);
 		this->collisionBox.Init({ { 0,0,this->GetWidth(),this->GetWidth() } });
+		this->collisionBox.SetTopLeft(_left, _top);
+		this->SetTopLeft(_left, _top);
+		
 	}
 	void Bullet::Update(int deltaX=0,int deltaY=0)
 	{
-		this->SetTopLeft(this->GetLeft()+ deltaX, this->GetTop()+ deltaY);
-		this->collisionBox.Update(this->GetLeft(),this->GetTop());
+		this->collisionBox.Update(this->GetLeft() + deltaX, this->GetTop() + deltaY);
+		pair<int, int> top_left = this->collisionBox.GetTopLeft();
+		this->SetTopLeft(top_left.first, top_left.second);
 	}
 	void Bullet::Show()
 	{

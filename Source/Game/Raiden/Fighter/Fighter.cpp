@@ -8,13 +8,12 @@ namespace Raiden
 
 	void Fighter::Init()
 	{
-		// TODO
-		sprite.LoadBitmapByString({ "TODO" });
-		sprite.SetTopLeft(0, 0);
+		// TODO: write the position and the sprite image.
+		sprite.LoadBitmapByString({ "Resources/TestSprite/TestSpriteRed.bmp" });
 	}
 
 	void Fighter::Update(const Player &player)
 	{
-		// TODO
+		// TODO: write the position and the sprite image.
 	}
 }

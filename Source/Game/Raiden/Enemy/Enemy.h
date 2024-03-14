@@ -15,6 +15,6 @@ namespace Raiden
 
 	protected:
 		game_framework::CMovingBitmap sprite;
-		int health = 0;
+		int health = 10;
 	};
 }

@@ -6,6 +6,6 @@ namespace Raiden
 {
 	void TextGraphics::Write(int left, int top, std::string text)
 	{
-		// TODO
+		// TODO: write the logic of displaying texts.
 	}
 }

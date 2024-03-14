@@ -4,6 +4,11 @@
 
 namespace Raiden
 {
+	void AnimatedBitmap::SetTopLeft(int left, int top)
+	{
+		sprite.SetTopLeft(left, top);
+	}
+
 	void AnimatedBitmap::SetCenter(int center_x, int center_y)
 	{
 		sprite.SetTopLeft(center_x - sprite.GetWidth() / 2, center_y - sprite.GetHeight() / 2);

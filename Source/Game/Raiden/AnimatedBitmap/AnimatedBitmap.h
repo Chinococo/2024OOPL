@@ -8,6 +8,7 @@ namespace Raiden
 	class AnimatedBitmap
 	{
 	public:
+		void SetTopLeft(int left, int top);
 		void SetCenter(int center_x, int center_y);
 		void AddAnimation(AnimationSetting &&setting);
 		void ChangeAnimation(std::size_t animation_index);

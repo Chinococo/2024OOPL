@@ -17,7 +17,9 @@ namespace Raiden
 		int GetBombCount() const;
 
 	private:
+		const int MOVE_STEP = 10;
 		game_framework::CMovingBitmap sprite;
+		std::size_t sprite_index = 5;
 		int score = 0;
 		int high_score = 0;
 		int life_count = 3;

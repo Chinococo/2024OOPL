@@ -20,8 +20,6 @@ namespace Raiden
 
 	protected:
 		Background background;
-
-	private:
 		std::vector<Enemy> enemies;
 		std::unique_ptr<Boss> boss;
 	};

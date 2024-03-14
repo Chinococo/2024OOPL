@@ -7,19 +7,19 @@ namespace Raiden
 {
 	void StatusPanel::Init()
 	{
-		// TODO
-		lifeCounter.LoadBitmapByString({ "TODO" });
+		// TODO: fix the position of the counters and the sprite image.
+		lifeCounter.LoadBitmapByString({ "Resources/TestSprite/TestSpriteBlue.bmp" });
 		lifeCounter.SetTopLeft(0, 0);
-		bombCounter.LoadBitmapByString({ "TODO" });
+		bombCounter.LoadBitmapByString({ "Resources/TestSprite/TestSpriteBlue.bmp" });
 		bombCounter.SetTopLeft(0, 0);
 	}
 
 	void StatusPanel::Update(const Player &player)
 	{
-		// TODO
+		// TODO: fix the position of the counters and the sprite image.
 		scoreCounter.Write(0, 0, "SCORE: " + std::to_string(player.GetScore()) + " HIGH SCORE: " + std::to_string(player.GetHighScore()));
-		lifeCounter.SetFrameIndexOfBitmap(player.GetLifeCount());
-		bombCounter.SetFrameIndexOfBitmap(player.GetBombCount());
+		// lifeCounter.SetFrameIndexOfBitmap(player.GetLifeCount());
+		// bombCounter.SetFrameIndexOfBitmap(player.GetBombCount());
 	}
 
 	void StatusPanel::Show()

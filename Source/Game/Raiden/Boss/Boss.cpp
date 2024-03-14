@@ -8,7 +8,7 @@ namespace Raiden
 
 	void Boss::Update(const Player &player)
 	{
-		// TODO
+		// TODO: write the logic of bosses.
 	}
 
 	bool Boss::Dead() const

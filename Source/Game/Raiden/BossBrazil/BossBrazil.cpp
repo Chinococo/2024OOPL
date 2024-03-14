@@ -7,8 +7,8 @@ namespace Raiden
 
 	void BossBrazil::Init()
 	{
-		// TODO
-		sprite.LoadBitmapByString({ "TODO" });
+		// TODO: write the position and the sprite image.
+		sprite.LoadBitmapByString({ "Resources/TestSprite/TestSpritePurple.bmp" });
 		sprite.SetTopLeft(0, 0);
 	}
 }

@@ -9,6 +9,7 @@ namespace Raiden {
 		this->collisionBox.Init({{ 0,0,this->sprite.GetWidth(),this->sprite.GetWidth()}});
 		this->collisionBox.SetTopLeft(_left, _top);
 		this->sprite.SetTopLeft(_left, _top);
+		alive = true;
 		
 	}
 	void Bullet::Update(int deltaX=0,int deltaY=0)
@@ -29,4 +30,10 @@ namespace Raiden {
 	bool Bullet::IsCollisionBoxOverlap(Bullet& other) {
 		return this->collisionBox.IsCollisionBoxOverlap(other.GetCollisionBox());
 	}
+	bool Bullet::IsAlive() {
+		return alive;
+	}
+	//void Bullet::Destroy() {
+	//	this->alive = false;
+	//}
 }

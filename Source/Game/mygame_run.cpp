@@ -32,8 +32,8 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 {
 	for (const std::unique_ptr<Raiden::Component> &component : components)
 		component->Update();
-	bullet1.Update(0,5);
-	bullet2.Update(0,-5);
+	bullet[0]->Update(0, 5);
+	bullet[1]->Update(0, -5);
 }
 
 void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
@@ -41,9 +41,8 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	components.push_back(std::make_unique<Raiden::Background>());
 	for (const std::unique_ptr<Raiden::Component> &component : components)
 		component->Init();
-	bullet1.Init(50,50);
-	bullet2.Init(50,300);
-	
+	bullet.AddElement({ 50,50 });
+	bullet.AddElement({ 50,300 });
 }
 
 void CGameStateRun::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
@@ -78,12 +77,14 @@ void CGameStateRun::OnRButtonUp(UINT nFlags, CPoint point)	// 處理滑鼠的動作
 
 void CGameStateRun::OnShow()
 {
+
 	for (const std::unique_ptr<Raiden::Component> &component : components)
 		component->Show();
-	bullet1.Show();
-	bullet2.Show();
-	bool check = bullet1.IsCollisionBoxOverlap(bullet2);
+	bullet.Update();
+	bullet.Show();
+	bool check = bullet[0]->IsCollisionBoxOverlap(*bullet[1]);
 	if (check) {
-		printf("collison");
+		std::wstring info = L"collison";
+		OutputDebugStringW(info.c_str());
 	}
 }

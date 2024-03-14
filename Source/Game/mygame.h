@@ -42,6 +42,8 @@
 #include "Raiden/Background/Background.hpp"
 #include "Raiden/bullet/bullet.h"
 #include <memory>
+#include "Raiden/GameObjectPool/GameObjectPool.h" // GameObjectPool 的標頭檔案
+#include "Raiden/GameObjectPool/GameObjectPool.cpp"
 
 namespace game_framework {
 	/////////////////////////////////////////////////////////////////////////////
@@ -95,8 +97,7 @@ namespace game_framework {
 		void OnShow();									// 顯示這個狀態的遊戲畫面
 	private:
 		std::vector<std::unique_ptr<Raiden::Component>> components;
-		Raiden::Bullet bullet1;
-		Raiden::Bullet bullet2;
+		Raiden::GameObjectPool<Raiden::Bullet> bullet;
 	};
 
 	/////////////////////////////////////////////////////////////////////////////

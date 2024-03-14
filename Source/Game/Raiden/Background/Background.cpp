@@ -24,7 +24,7 @@ namespace Raiden
 	{
 		if (static_cast<double>(std::clock() - scroll_clock) / CLOCKS_PER_SEC < static_cast<double>(SCROLL_INTERVAL_MILLI) / 1000)
 			return;
-
+    
 		scroll_clock = std::clock();
 
 		if (part1.GetTop() >= SIZE_Y)

@@ -235,6 +235,7 @@
     <None Include="RES\GAME.RC2" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="bullet.cpp" />
     <ClCompile Include="Source\Core\game.cpp" />
     <ClCompile Include="Source\Core\gameDoc.cpp" />
     <ClCompile Include="Source\Core\gameView.cpp" />
@@ -262,6 +263,7 @@
     <ClCompile Include="Source\Game\Raiden\Stage\Stage.cpp" />
     <ClCompile Include="Source\Game\Raiden\StatusPanel\StatusPanel.cpp" />
     <ClCompile Include="Source\Game\Raiden\TextGraphics\TextGraphics.cpp" />
+    <ClCompile Include="Source\Game\Raiden\CollisionBox\CollisionBox.cpp" />
     <ClCompile Include="Source\Library\audio.cpp" />
     <ClCompile Include="Source\Library\gamecore.cpp" />
     <ClCompile Include="Source\Library\gameutil.cpp" />
@@ -294,6 +296,8 @@
     <ClInclude Include="Source\Game\Raiden\Stage\Stage.h" />
     <ClInclude Include="Source\Game\Raiden\StatusPanel\StatusPanel.h" />
     <ClInclude Include="Source\Game\Raiden\TextGraphics\TextGraphics.h" />
+    <ClInclude Include="Source\Game\Raiden\bullet\bullet.h" />
+    <ClInclude Include="Source\Game\Raiden\CollisionBox\CollisionBox.h" />
     <ClInclude Include="Source\Library\audio.h" />
     <ClInclude Include="Source\Library\gamecore.h" />
     <ClInclude Include="Source\Library\gameutil.h" />

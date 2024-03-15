@@ -83,6 +83,9 @@
     <Filter Include="MyGame\Raiden\Bullet">
       <UniqueIdentifier>{abe900ec-af29-4732-98e6-e95e9996297e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MyGame\Raiden\GameObjectPool">
+      <UniqueIdentifier>{03407798-2f88-47d1-8bcb-9ff90ad246cb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="RES\GAME.RC2">
@@ -178,6 +181,9 @@
     </ClCompile>
     <ClCompile Include="bullet.cpp">
       <Filter>MyGame\Raiden\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Game\Raiden\GameObjectPool\GameObjectPool.cpp">
+      <Filter>MyGame\Raiden\GameObjectPool</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -275,6 +281,9 @@
     </ClInclude>
     <ClInclude Include="Source\Game\Raiden\bullet\bullet.h">
       <Filter>MyGame\Raiden\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Game\Raiden\GameObjectPool\GameObjectPool.h">
+      <Filter>MyGame\Raiden\GameObjectPool</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -30,11 +30,17 @@ void CGameStateRun::OnBeginState()
 
 void CGameStateRun::OnMove()							// 移動遊戲元素
 {
+	bullet[0]->Update(0, 5);
+	bullet[1]->Update(0, -5);
 	manager.Update(keys);
 }
 
 void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 {
+	//Raiden::GameObjectPool<int> test;
+	//test.AddElement({ 10,10 });
+	bullet.AddElement({ 50,50 });
+	bullet.AddElement({ 50,300 });
 	manager.Init();
 	keyMap[VK_UP] = Raiden::Key::UP;
 	keyMap[VK_DOWN] = Raiden::Key::DOWN;
@@ -75,5 +81,12 @@ void CGameStateRun::OnRButtonUp(UINT nFlags, CPoint point)	// 處理滑鼠的動
 
 void CGameStateRun::OnShow()
 {
+	bullet.Update();
+	bullet.Show();
+	bool check = bullet[0]->IsCollisionBoxOverlap(*bullet[1]);
+	if (check) {
+		std::wstring info = L"collison";
+		OutputDebugStringW(info.c_str());
+	}
 	manager.Show();
 }

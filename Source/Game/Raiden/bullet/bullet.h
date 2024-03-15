@@ -24,9 +24,12 @@ namespace Raiden {
 			void Init(int,int);
 			void Update(int deltaX, int deltaY);
 			void Show();
+			//void Destroy();
 			CollisionBox& GetCollisionBox();
 			bool IsCollisionBoxOverlap(Bullet&);
+			bool IsAlive();
 		private:
+			bool alive = true;
 			game_framework::CMovingBitmap sprite;
 			CollisionBox collisionBox;
 	};

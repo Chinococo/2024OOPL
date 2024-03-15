@@ -264,6 +264,7 @@
     <ClCompile Include="Source\Game\Raiden\StatusPanel\StatusPanel.cpp" />
     <ClCompile Include="Source\Game\Raiden\TextGraphics\TextGraphics.cpp" />
     <ClCompile Include="Source\Game\Raiden\CollisionBox\CollisionBox.cpp" />
+    <ClCompile Include="Source\Game\Raiden\GameObjectPool\GameObjectPool.cpp" />
     <ClCompile Include="Source\Library\audio.cpp" />
     <ClCompile Include="Source\Library\gamecore.cpp" />
     <ClCompile Include="Source\Library\gameutil.cpp" />
@@ -298,6 +299,7 @@
     <ClInclude Include="Source\Game\Raiden\TextGraphics\TextGraphics.h" />
     <ClInclude Include="Source\Game\Raiden\bullet\bullet.h" />
     <ClInclude Include="Source\Game\Raiden\CollisionBox\CollisionBox.h" />
+    <ClInclude Include="Source\Game\Raiden\GameObjectPool\GameObjectPool.h" />
     <ClInclude Include="Source\Library\audio.h" />
     <ClInclude Include="Source\Library\gamecore.h" />
     <ClInclude Include="Source\Library\gameutil.h" />

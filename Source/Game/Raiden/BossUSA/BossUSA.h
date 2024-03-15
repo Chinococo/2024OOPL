@@ -8,5 +8,6 @@ namespace Raiden
 	public:
 		BossUSA(int health);
 		void Init() override;
+		void Update(const Player &player) override;
 	};
 }

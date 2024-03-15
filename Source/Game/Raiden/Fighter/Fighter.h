@@ -1,14 +1,22 @@
 #pragma once
-#include "../Enemy/Enemy.h"
+#include "../../../Library/gameutil.h"
 #include "../Player/Player.h"
+#include "../Collidable/Collidable.h"
 
 namespace Raiden
 {
-	class Fighter : public Enemy
+	class Fighter : public Collidable
 	{
 	public:
-		Fighter(int health);
-		void Init() override;
-		void Update(const Player &player) override;
+		void Init(int left, int top);
+		void Update(const Player &player);
+		void Show();
+		void Destroy();
+		bool IsAlive() const;
+
+	private:
+		game_framework::CMovingBitmap sprite;
+		int health = 10;
+		bool alive = true;
 	};
 }

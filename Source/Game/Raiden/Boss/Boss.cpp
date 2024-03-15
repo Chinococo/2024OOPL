@@ -4,11 +4,11 @@
 
 namespace Raiden
 {
-	Boss::Boss(int health) : Enemy(health) {}
+	Boss::Boss(int health) : health(health) {}
 
-	void Boss::Update(const Player &player)
+	void Boss::Show()
 	{
-		// TODO: write the logic of bosses.
+		sprite.ShowBitmap();
 	}
 
 	bool Boss::Dead() const

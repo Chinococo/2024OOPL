@@ -17,12 +17,6 @@
     <Filter Include="MyGame\Raiden">
       <UniqueIdentifier>{5eadd975-ae6f-4427-a91a-691c633f3f1a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="MyGame\Raiden\AnimatedBitmap">
-      <UniqueIdentifier>{24e8eb85-1b45-48e3-b3f2-7f5eb755b492}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="MyGame\Raiden\AnimationSetting">
-      <UniqueIdentifier>{e7730e3e-8cbd-40b9-817e-d4fca4f3f36b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="MyGame\Raiden\Background">
       <UniqueIdentifier>{14e497c9-6f6b-4ddc-be16-523014433c59}</UniqueIdentifier>
     </Filter>
@@ -34,9 +28,6 @@
     </Filter>
     <Filter Include="MyGame\Raiden\BossUSA">
       <UniqueIdentifier>{1bc6bcb7-bba2-44c5-a964-9a3cc9c5841d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="MyGame\Raiden\Enemy">
-      <UniqueIdentifier>{3b047261-2512-49df-90b9-742ba25f7e33}</UniqueIdentifier>
     </Filter>
     <Filter Include="MyGame\Raiden\Fighter">
       <UniqueIdentifier>{74d2d912-8ce9-463e-a579-ba17955e510c}</UniqueIdentifier>
@@ -77,11 +68,14 @@
     <Filter Include="MyGame\Raiden\CollisionBox">
       <UniqueIdentifier>{fa8a6fd7-f2be-48e8-a9de-6214fae2013a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="MyGame\Raiden\Bullet">
-      <UniqueIdentifier>{abe900ec-af29-4732-98e6-e95e9996297e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="MyGame\Raiden\GameObjectPool">
       <UniqueIdentifier>{03407798-2f88-47d1-8bcb-9ff90ad246cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyGame\Raiden\Bullet">
+      <UniqueIdentifier>{d8daae60-e242-4d00-8752-5e152709c9d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyGame\Raiden\Collidable">
+      <UniqueIdentifier>{aea2ea51-c9a5-4288-a532-dbf8eb81f195}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -123,9 +117,6 @@
     <ClCompile Include="Source\Game\mygame_run.cpp">
       <Filter>MyGame</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Game\Raiden\AnimatedBitmap\AnimatedBitmap.cpp">
-      <Filter>MyGame\Raiden\AnimatedBitmap</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Game\Raiden\Background\Background.cpp">
       <Filter>MyGame\Raiden\Background</Filter>
     </ClCompile>
@@ -137,9 +128,6 @@
     </ClCompile>
     <ClCompile Include="Source\Game\Raiden\BossUSA\BossUSA.cpp">
       <Filter>MyGame\Raiden\BossUSA</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Game\Raiden\Enemy\Enemy.cpp">
-      <Filter>MyGame\Raiden\Enemy</Filter>
     </ClCompile>
     <ClCompile Include="Source\Game\Raiden\Fighter\Fighter.cpp">
       <Filter>MyGame\Raiden\Fighter</Filter>
@@ -180,8 +168,11 @@
     <ClCompile Include="Source\Game\Raiden\GameObjectPool\GameObjectPool.cpp">
       <Filter>MyGame\Raiden\GameObjectPool</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Game\Raiden\bullet\bullet.cpp">
+    <ClCompile Include="Source\Game\Raiden\Bullet\Bullet.cpp">
       <Filter>MyGame\Raiden\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Game\Raiden\Collidable\Collidable.cpp">
+      <Filter>MyGame\Raiden\Collidable</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -218,12 +209,6 @@
     <ClInclude Include="Source\Game\config.h">
       <Filter>MyGame</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Game\Raiden\AnimatedBitmap\AnimatedBitmap.h">
-      <Filter>MyGame\Raiden\AnimatedBitmap</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Game\Raiden\AnimationSetting\AnimationSetting.h">
-      <Filter>MyGame\Raiden\AnimationSetting</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Game\Raiden\Background\Background.h">
       <Filter>MyGame\Raiden\Background</Filter>
     </ClInclude>
@@ -235,9 +220,6 @@
     </ClInclude>
     <ClInclude Include="Source\Game\Raiden\BossUSA\BossUSA.h">
       <Filter>MyGame\Raiden\BossUSA</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Game\Raiden\Enemy\Enemy.h">
-      <Filter>MyGame\Raiden\Enemy</Filter>
     </ClInclude>
     <ClInclude Include="Source\Game\Raiden\Fighter\Fighter.h">
       <Filter>MyGame\Raiden\Fighter</Filter>
@@ -281,8 +263,11 @@
     <ClInclude Include="Source\Game\Raiden\GameObjectPool\GameObjectPool.h">
       <Filter>MyGame\Raiden\GameObjectPool</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Game\Raiden\bullet\bullet.h">
+    <ClInclude Include="Source\Game\Raiden\Bullet\Bullet.h">
       <Filter>MyGame\Raiden\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Game\Raiden\Collidable\Collidable.h">
+      <Filter>MyGame\Raiden\Collidable</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

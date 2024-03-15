@@ -1,9 +1,7 @@
 ﻿#pragma once
 #include "../../../Library/gameutil.h"
 #include "../CollisionBox/CollisionBox.h"
-
-namespace Raiden
-{
+namespace Raiden {
 	/*
 	 * Class Name：Bullet
 	 * Class Purpose：Display bullet
@@ -22,17 +20,18 @@ namespace Raiden
 	class Bullet
 	{
 	public:
-		void Init(int left, int top);
-		void Update(int delta_x, int delta_y);
+		Bullet();
+		void Init(int, int);
+		void Update(int deltaX, int deltaY);
 		void Show();
-		void Destroy();
-		const CollisionBox &GetCollisionBox();
-		bool IsCollisionBoxOverlap(const Bullet &);
+		//void Destroy();
+		CollisionBox& GetCollisionBox();
+		bool IsCollisionBoxOverlap(Bullet&);
 		bool IsAlive();
-
 	private:
 		bool alive = true;
 		game_framework::CMovingBitmap sprite;
-		CollisionBox collision_box;
+		CollisionBox collisionBox;
 	};
+
 }

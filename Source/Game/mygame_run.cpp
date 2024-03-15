@@ -1,4 +1,4 @@
-#include "stdafx.h"
+﻿#include "stdafx.h"
 #include "../Core/Resource.h"
 #include <mmsystem.h>
 #include <ddraw.h>
@@ -6,8 +6,6 @@
 #include "../Library/gameutil.h"
 #include "../Library/gamecore.h"
 #include "mygame.h"
-#include "Raiden/Component.hpp"
-#include "Raiden/Background/Background.hpp"
 #include "Raiden/CollisionBox/CollisionBox.h"
 
 using namespace game_framework;

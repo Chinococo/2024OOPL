@@ -79,6 +79,7 @@ void CGameStateRun::OnRButtonUp(UINT nFlags, CPoint point)	// 處理滑鼠的動
 
 void CGameStateRun::OnShow()
 {
+	manager.Show();
 	bullet.Update();
 	bullet.Show();
 	bool check = bullet[0]->IsCollisionBoxOverlap(*bullet[1]);
@@ -86,5 +87,4 @@ void CGameStateRun::OnShow()
 		std::wstring info = L"collison";
 		OutputDebugStringW(info.c_str());
 	}
-	manager.Show();
 }

@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "Source/Game/Raiden/bullet/bullet.h"
+#include "bullet.h"
 namespace Raiden {
 	Bullet::Bullet() {
 		

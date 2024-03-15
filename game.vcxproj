@@ -235,7 +235,6 @@
     <None Include="RES\GAME.RC2" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="bullet.cpp" />
     <ClCompile Include="Source\Core\game.cpp" />
     <ClCompile Include="Source\Core\gameDoc.cpp" />
     <ClCompile Include="Source\Core\gameView.cpp" />
@@ -252,6 +251,7 @@
     <ClCompile Include="Source\Game\Raiden\BossJapan\BossJapan.cpp" />
     <ClCompile Include="Source\Game\Raiden\BossUSA\BossUSA.cpp" />
     <ClCompile Include="Source\Game\Raiden\Boss\Boss.cpp" />
+    <ClCompile Include="Source\Game\Raiden\bullet\bullet.cpp" />
     <ClCompile Include="Source\Game\Raiden\Enemy\Enemy.cpp" />
     <ClCompile Include="Source\Game\Raiden\Fighter\Fighter.cpp" />
     <ClCompile Include="Source\Game\Raiden\Manager\Manager.cpp" />
@@ -285,6 +285,7 @@
     <ClInclude Include="Source\Game\Raiden\BossJapan\BossJapan.h" />
     <ClInclude Include="Source\Game\Raiden\BossUSA\BossUSA.h" />
     <ClInclude Include="Source\Game\Raiden\Boss\Boss.h" />
+    <ClInclude Include="Source\Game\Raiden\bullet\bullet.h" />
     <ClInclude Include="Source\Game\Raiden\Enemy\Enemy.h" />
     <ClInclude Include="Source\Game\Raiden\Fighter\Fighter.h" />
     <ClInclude Include="Source\Game\Raiden\Key\Key.h" />
@@ -297,7 +298,6 @@
     <ClInclude Include="Source\Game\Raiden\Stage\Stage.h" />
     <ClInclude Include="Source\Game\Raiden\StatusPanel\StatusPanel.h" />
     <ClInclude Include="Source\Game\Raiden\TextGraphics\TextGraphics.h" />
-    <ClInclude Include="Source\Game\Raiden\bullet\bullet.h" />
     <ClInclude Include="Source\Game\Raiden\CollisionBox\CollisionBox.h" />
     <ClInclude Include="Source\Game\Raiden\GameObjectPool\GameObjectPool.h" />
     <ClInclude Include="Source\Library\audio.h" />

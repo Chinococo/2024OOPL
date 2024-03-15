@@ -176,6 +176,7 @@
     </ClCompile>
     <ClCompile Include="Source\Game\Raiden\TextGraphics\TextGraphics.cpp">
       <Filter>MyGame\Raiden\TextGraphics</Filter>
+	</ClCompile>  
     <ClCompile Include="Source\Game\Raiden\CollisionBox\CollisionBox.cpp">
       <Filter>MyGame\Raiden\CollisionBox</Filter>
     </ClCompile>
@@ -276,6 +277,7 @@
     </ClInclude>
     <ClInclude Include="Source\Game\Raiden\TextGraphics\TextGraphics.h">
       <Filter>MyGame\Raiden\TextGraphics</Filter>
+	</ClInclude>  
     <ClInclude Include="Source\Game\Raiden\CollisionBox\CollisionBox.h">
       <Filter>MyGame\Raiden\CollisionBox</Filter>
     </ClInclude>

@@ -104,6 +104,7 @@ namespace game_framework {
 		Raiden::Manager manager;
 		std::map<UINT, Raiden::Key> keyMap;
 		std::set<Raiden::Key> keys;
+		Raiden::TextGraphics text_graphics;
 	};
 
 	/////////////////////////////////////////////////////////////////////////////

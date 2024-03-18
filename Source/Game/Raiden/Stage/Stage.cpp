@@ -8,18 +8,14 @@ namespace Raiden
 	{
 		background.Update();
 		boss->Update(player);
-
-		for (Enemy &enemy : enemies)
-			enemy.Update(player);
+		UpdateDerived(player);
 	}
 
 	void Stage::Show()
 	{
 		background.Show();
 		boss->Show();
-		
-		for (Enemy &enemy : enemies)
-			enemy.Show();
+		ShowDerived();
 	}
 
 	bool Stage::Over() const

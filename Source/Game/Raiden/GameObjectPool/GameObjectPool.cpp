@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "GameObjectPool.h"
+#include "../Fighter/Fighter.h"
 #include <vector>
 namespace Raiden {
 
@@ -49,4 +50,6 @@ namespace Raiden {
 			pool[i]->Show();
 		}
 	}
+
+	template class GameObjectPool<Fighter>;
 }

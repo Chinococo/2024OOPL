@@ -35,6 +35,7 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 
 void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 {
+
 	//Raiden::GameObjectPool<int> test;
 	//test.AddElement({ 10,10 });
 	bullet.AddElement({ 50,50 });
@@ -87,4 +88,5 @@ void CGameStateRun::OnShow()
 		std::wstring info = L"collison";
 		OutputDebugStringW(info.c_str());
 	}
+	text_graphics.Write(50,50,"FUCK You");
 }

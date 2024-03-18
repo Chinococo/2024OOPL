@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameSetting>
+  <ResourcesRootPath>
+    Resources/
+  </ResourcesRootPath>
+  <Sprite>
+    <Enemies>
+      <Enemy>
+        <Position>
+          <x>100</x>
+          <y>50</y>
+        </Position>
+        <Image>enemy1.png</Image>
+      </Enemy>
+      <Enemy>
+        <Position>
+          <x>200</x>
+          <y>100</y>
+        </Position>
+        <Image>enemy2.png</Image>
+      </Enemy>
+    </Enemies>
+  </Sprite>
+</GameSetting>

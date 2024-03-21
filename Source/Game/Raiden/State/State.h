@@ -8,7 +8,8 @@ namespace Raiden
 	public:
 		virtual ~State() = default;
 		virtual void Init() = 0;
-		virtual void Update(Control &&control) = 0;
+		virtual void KeyUp(Control &control) = 0;
+		virtual void Update(Control &control) = 0;
 		virtual void Show() = 0;
 		virtual bool Over() = 0;
 	};

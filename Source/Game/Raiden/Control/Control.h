@@ -5,7 +5,7 @@
 
 namespace Raiden
 {
-	enum ControlMode
+	enum class ControlMode
 	{
 		KEYBOARD,
 		MOUSE

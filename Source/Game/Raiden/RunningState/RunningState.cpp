@@ -10,9 +10,14 @@ namespace Raiden
 		status_panel.Init(text_graphics);
 	}
 
-	void RunningState::Update(Control &&control)
+	void RunningState::KeyUp(Control &control)
 	{
-		player.Update(std::move(control));
+		// Do nothing
+	}
+
+	void RunningState::Update(Control &control)
+	{
+		player.Update(control);
 		stage_manager.Update(player);
 		status_panel.Update(player, text_graphics);
 	}

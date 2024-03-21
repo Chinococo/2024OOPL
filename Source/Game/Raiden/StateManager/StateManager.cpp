@@ -12,12 +12,24 @@ namespace Raiden
 		ChangeState(0);
 	}
 
-	void StateManager::Update(Control &&control)
+	void StateManager::MouseMove(CPoint &&point)
+	{
+		control.point = std::move(point);
+	}
+
+	void StateManager::KeyUp(Key key)
+	{
+		control.keys = std::set<Key>{ key };
+		states[state_index]->KeyUp(control);
+	}
+
+	void StateManager::Update(const std::set<Key> &keys)
 	{
 		if (states[state_index]->Over())
 			ChangeState(state_index + 1);
 
-		states[state_index]->Update(std::move(control));
+		control.keys = keys;
+		states[state_index]->Update(control);
 	}
 
 	void StateManager::Show()

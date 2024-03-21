@@ -28,7 +28,7 @@ void CGameStateRun::OnBeginState()
 
 void CGameStateRun::OnMove()							// 移動遊戲元素
 {
-	state_manager.Update({ keys, {0, 0}, Raiden::ControlMode::KEYBOARD });
+	state_manager.Update(keys);
 }
 
 void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
@@ -49,6 +49,7 @@ void CGameStateRun::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 void CGameStateRun::OnKeyUp(UINT nChar, UINT nRepCnt, UINT nFlags)
 {
 	keys.erase(key_map[nChar]);
+	state_manager.KeyUp(key_map[nChar]);
 }
 
 void CGameStateRun::OnLButtonDown(UINT nFlags, CPoint point)  // 處理滑鼠的動作
@@ -61,6 +62,7 @@ void CGameStateRun::OnLButtonUp(UINT nFlags, CPoint point)	// 處理滑鼠的動
 
 void CGameStateRun::OnMouseMove(UINT nFlags, CPoint point)	// 處理滑鼠的動作
 {
+	state_manager.MouseMove(std::move(point));
 }
 
 void CGameStateRun::OnRButtonDown(UINT nFlags, CPoint point)  // 處理滑鼠的動作

@@ -9,7 +9,7 @@ namespace Raiden
 	{
 	public:
 		void Init();
-		void Update(Control &&control);
+		void Update(const Control &control);
 		void Show();
 		int GetScore() const;
 		int GetHighScore() const;
@@ -17,6 +17,8 @@ namespace Raiden
 		int GetBombCount() const;
 
 	private:
+		void UpdateByKeyboard(const std::set<Key> &keys);
+		void UpdateByMouse(CPoint point);
 		const int MOVE_STEP = 10;
 		game_framework::CMovingBitmap sprite;
 		std::size_t sprite_index = 5;

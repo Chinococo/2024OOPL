@@ -5,6 +5,7 @@
 #include "../StatusPanel/StatusPanel.h"
 #include "../TextGraphics/TextGraphics.h"
 #include "../Control/Control.h"
+#include "../Key/Key.h"
 
 namespace Raiden
 {
@@ -12,7 +13,8 @@ namespace Raiden
 	{
 	public:
 		void Init() override;
-		void Update(Control &&control) override;
+		void KeyUp(Control &control) override;
+		void Update(Control &control) override;
 		void Show() override;
 		bool Over() override;
 

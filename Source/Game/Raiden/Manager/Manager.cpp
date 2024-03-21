@@ -7,27 +7,28 @@ namespace Raiden
 {
 	void Manager::Init()
 	{
-		stageManager.Init();
+		stage_manager.Init();
 		player.Init();
-		statusPanel.Init();
+		status_panel.Init(text_graphics);
 	}
 
 	void Manager::Update(const std::set<Key> &keys)
 	{
 		player.Update(keys);
-		stageManager.Update(player);
-		statusPanel.Update(player);
+		stage_manager.Update(player);
+		status_panel.Update(player, text_graphics);
 	}
 
 	void Manager::Show()
 	{
-		stageManager.Show();
+		stage_manager.Show();
 		player.Show();
-		statusPanel.Show();
+		status_panel.Show();
+		text_graphics.Show();
 	}
 
 	bool Manager::Over() const
 	{
-		return stageManager.Over();
+		return stage_manager.Over();
 	}
 }

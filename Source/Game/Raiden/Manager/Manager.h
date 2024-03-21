@@ -3,6 +3,7 @@
 #include "../Player/Player.h"
 #include "../StatusPanel/StatusPanel.h"
 #include "../Key/Key.h"
+#include "../TextGraphics/TextGraphics.h"
 #include <set>
 
 namespace Raiden
@@ -16,8 +17,9 @@ namespace Raiden
 		bool Over() const;
 
 	private:
-		StageManager stageManager;
+		StageManager stage_manager;
 		Player player;
-		StatusPanel statusPanel;
+		StatusPanel status_panel;
+		TextGraphics text_graphics;
 	};
 }

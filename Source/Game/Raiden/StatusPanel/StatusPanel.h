@@ -8,13 +8,13 @@ namespace Raiden
 	class StatusPanel
 	{
 	public:
-		void Init();
-		void Update(const Player &player);
+		void Init(TextGraphics &text_graphics);
+		void Update(const Player &player, TextGraphics &text_graphics);
 		void Show();
 
 	private:
-		TextGraphics scoreCounter;
-		game_framework::CMovingBitmap lifeCounter;
-		game_framework::CMovingBitmap bombCounter;
+		int score_counter_id;
+		game_framework::CMovingBitmap life_counter;
+		game_framework::CMovingBitmap bomb_counter;
 	};
 }

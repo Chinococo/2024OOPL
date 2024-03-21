@@ -1,11 +1,24 @@
 #pragma once
 #include <string>
+#include <map>
+#include <vector>
+#include <atltypes.h>
 
 namespace Raiden
 {
+	/**
+	 * 先用 Register 註冊一個位置並取得專屬 id。
+	 * 之後就需要依靠這個專屬 id 來辨認、修改字串。
+	 */
 	class TextGraphics
 	{
 	public:
-		void Write(int left, int top, std::string text);
+		std::size_t Register(int left, int top, std::string text);
+		void UpdateText(std::size_t id, std::string text);
+		void Show() const;
+
+	private:
+		std::vector<CPoint> points;
+		std::vector<std::string> texts;
 	};
 }

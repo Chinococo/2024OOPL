@@ -88,5 +88,4 @@ void CGameStateRun::OnShow()
 		std::wstring info = L"collison";
 		OutputDebugStringW(info.c_str());
 	}
-	text_graphics.Write(50,50,"FUCK You");
 }

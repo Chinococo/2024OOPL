@@ -1,20 +1,20 @@
 #pragma once
+#include "../State/State.h"
 #include "../StageManager/StageManager.h"
 #include "../Player/Player.h"
 #include "../StatusPanel/StatusPanel.h"
-#include "../Key/Key.h"
 #include "../TextGraphics/TextGraphics.h"
-#include <set>
+#include "../Control/Control.h"
 
 namespace Raiden
 {
-	class Manager
+	class RunningState : public State
 	{
 	public:
-		void Init();
-		void Update(const std::set<Key> &keys);
-		void Show();
-		bool Over() const;
+		void Init() override;
+		void Update(Control &&control) override;
+		void Show() override;
+		bool Over() override;
 
 	private:
 		StageManager stage_manager;

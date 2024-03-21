@@ -31,3 +31,7 @@
 #define RESOLUTION_X     1920           
 //! 全螢幕用，請設定成目前視窗的解析度 (height)。
 #define RESOLUTION_Y     1080          
+//! 背景動畫延遲 (毫秒)
+#define BACKGROUND_ANIMATION_DELAY_MILLI 500
+//! 背景位置偏差
+#define BACKGROUND_MARGIN -10

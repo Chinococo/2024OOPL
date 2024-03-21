@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "GameObjectPool.h"
 #include "../Fighter/Fighter.h"
+#include "../Bullet/Bullet.h"
 #include <vector>
 
 namespace Raiden
@@ -64,4 +65,5 @@ namespace Raiden
 	}
 
 	template class GameObjectPool<Fighter>;
+	template class GameObjectPool<Bullet>;
 }

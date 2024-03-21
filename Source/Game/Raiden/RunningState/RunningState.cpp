@@ -1,25 +1,23 @@
-#include <StdAfx.h>
-#include "Manager.h"
-#include "../Key/Key.h"
-#include <set>
+#include "stdafx.h"
+#include "RunningState.h"
 
 namespace Raiden
 {
-	void Manager::Init()
+	void RunningState::Init()
 	{
 		stage_manager.Init();
 		player.Init();
 		status_panel.Init(text_graphics);
 	}
 
-	void Manager::Update(const std::set<Key> &keys)
+	void RunningState::Update(Control &&control)
 	{
-		player.Update(keys);
+		player.Update(std::move(control));
 		stage_manager.Update(player);
 		status_panel.Update(player, text_graphics);
 	}
 
-	void Manager::Show()
+	void RunningState::Show()
 	{
 		stage_manager.Show();
 		player.Show();
@@ -27,7 +25,7 @@ namespace Raiden
 		text_graphics.Show();
 	}
 
-	bool Manager::Over() const
+	bool RunningState::Over()
 	{
 		return stage_manager.Over();
 	}

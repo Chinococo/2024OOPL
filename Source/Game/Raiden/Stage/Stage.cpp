@@ -7,7 +7,7 @@ namespace Raiden
 	void Stage::Update(const Player &player)
 	{
 		background.Update();
-		boss->Update(player);
+		boss->Update(player, background.Over());
 		UpdateDerived(player);
 	}
 

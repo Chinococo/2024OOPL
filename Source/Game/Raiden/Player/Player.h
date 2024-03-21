@@ -1,6 +1,6 @@
 #pragma once
 #include "../../../Library/gameutil.h"
-#include "../Key/Key.h"
+#include "../Control/Control.h"
 #include <set>
 
 namespace Raiden
@@ -9,7 +9,7 @@ namespace Raiden
 	{
 	public:
 		void Init();
-		void Update(const std::set<Key> &keys);
+		void Update(Control &&control);
 		void Show();
 		int GetScore() const;
 		int GetHighScore() const;

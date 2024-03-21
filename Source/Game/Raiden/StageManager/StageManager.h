@@ -17,6 +17,6 @@ namespace Raiden
 	private:
 		std::vector<std::unique_ptr<Stage>> stages;
 		std::size_t stage_index = 0;
-		void Change(std::size_t stage_index);
+		void ChangeStage(std::size_t stage_index);
 	};
 }

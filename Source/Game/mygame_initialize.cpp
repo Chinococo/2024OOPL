@@ -34,12 +34,12 @@ void CGameStateInit::OnInit()
 	//
 	std::vector<string> paths;
 
-	for (int i = 1; i <= 6; i++)
+	for (int i = 1; i <= 4; i++)
 		paths.push_back("Resources/Background/TitleScreen" + std::to_string(i) + ".bmp");
 
 	title_screen.LoadBitmapByString(paths);
-	title_screen.SetTopLeft(-10, -10);
-	title_screen.SetAnimation(100, true);
+	title_screen.SetTopLeft(BACKGROUND_MARGIN, BACKGROUND_MARGIN);
+	title_screen.SetAnimation(BACKGROUND_ANIMATION_DELAY_MILLI, true);
 	title_screen.ToggleAnimation();
 	logo.LoadBitmapByString({ "Resources/Background/NTUTLogo.bmp" });
 	logo.SetTopLeft(SIZE_X - logo.GetWidth() - 18, SIZE_Y - logo.GetHeight() - 23);

@@ -12,7 +12,7 @@ namespace Raiden
 		sprite.SetTopLeft(0, 0);
 	}
 
-	void BossJapan::Update(const Player &player)
+	void BossJapan::Update(const Player &player, bool start_attack)
 	{
 		// TODO: write the logic of bosses.
 	}

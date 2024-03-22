@@ -5,26 +5,28 @@
 
 namespace Raiden
 {
-	void StatusPanel::Init()
+	void StatusPanel::Init(TextGraphics &text_graphics)
 	{
 		// TODO: fix the position of the counters and the sprite image.
-		lifeCounter.LoadBitmapByString({ "Resources/TestSprite/TestSpriteBlue.bmp" });
-		lifeCounter.SetTopLeft(0, 0);
-		bombCounter.LoadBitmapByString({ "Resources/TestSprite/TestSpriteBlue.bmp" });
-		bombCounter.SetTopLeft(0, 0);
+		score_counter_id = text_graphics.Register(0, 0, "SCORE: 0    HIGH SCORE: 0");
+		life_counter.LoadBitmapByString({ "Resources/TestSprite/TestSpriteBlue.bmp" });
+		life_counter.SetTopLeft(0, 0);
+		bomb_counter.LoadBitmapByString({ "Resources/TestSprite/TestSpriteBlue.bmp" });
+		bomb_counter.SetTopLeft(0, 0);
 	}
 
-	void StatusPanel::Update(const Player &player)
+	void StatusPanel::Update(const Player &player, TextGraphics &text_graphics)
 	{
 		// TODO: fix the position of the counters and the sprite image.
-		scoreCounter.Write(0, 0, "SCORE: " + std::to_string(player.GetScore()) + " HIGH SCORE: " + std::to_string(player.GetHighScore()));
+		std::string text = "SCORE: " + std::to_string(player.GetScore()) + "    HIGH SCORE: " + std::to_string(player.GetHighScore());
+		text_graphics.UpdateText(score_counter_id, text);
 		// lifeCounter.SetFrameIndexOfBitmap(player.GetLifeCount());
 		// bombCounter.SetFrameIndexOfBitmap(player.GetBombCount());
 	}
 
 	void StatusPanel::Show()
 	{
-		lifeCounter.ShowBitmap();
-		bombCounter.ShowBitmap();
+		life_counter.ShowBitmap();
+		bomb_counter.ShowBitmap();
 	}
 }

@@ -1,4 +1,4 @@
-#include <StdAfx.h>
+#include "stdafx.h"
 #include "Player.h"
 #include <set>
 #include <vector>
@@ -18,14 +18,12 @@ namespace Raiden
 		sprite.SetTopLeft(0, 0);
 	}
 
-	void Player::Update(const std::set<Key> &keys)
+	void Player::Update(const Control &control)
 	{
-		int new_left = sprite.GetLeft() + (keys.count(Key::RIGHT) - keys.count(Key::LEFT)) * MOVE_STEP;
-		int new_top = sprite.GetTop() + (keys.count(Key::DOWN) - keys.count(Key::UP)) * MOVE_STEP;
-
-		sprite.SetTopLeft(new_left, new_top);
-
-		// TODO
+		if (control.mode == ControlMode::KEYBOARD)
+			UpdateByKeyboard(control.keys);
+		else
+			UpdateByMouse(control.point);
 	}
 
 	void Player::Show()
@@ -51,5 +49,22 @@ namespace Raiden
 	int Player::GetBombCount() const
 	{
 		return bomb_count;
+	}
+
+	void Player::UpdateByKeyboard(const std::set<Key> &keys)
+	{
+		int left = sprite.GetLeft() + (keys.count(Key::RIGHT) - keys.count(Key::LEFT)) * MOVE_STEP;
+		int top = sprite.GetTop() + (keys.count(Key::DOWN) - keys.count(Key::UP)) * MOVE_STEP;
+
+		sprite.SetTopLeft(left, top);
+
+		// TODO
+	}
+
+	void Player::UpdateByMouse(CPoint point)
+	{
+		sprite.SetTopLeft(point.x - sprite.GetWidth() / 2, point.y - sprite.GetWidth() / 2);
+
+		// TODO
 	}
 }

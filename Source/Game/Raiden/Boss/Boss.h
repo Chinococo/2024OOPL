@@ -10,7 +10,7 @@ namespace Raiden
 		Boss(int health);
 		virtual ~Boss() = default;
 		virtual void Init() = 0;
-		virtual void Update(const Player &player) = 0;
+		virtual void Update(const Player &player, bool start_attack) = 0;
 		void Show();
 		bool Dead() const;
 

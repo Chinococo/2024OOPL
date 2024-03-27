@@ -25,19 +25,30 @@ namespace Raiden
 			return;
 
 		move_clock = std::clock();
+
 		std::clock_t elapsed_time = move_clock - start_move_time;
-		double alpha = min(1, static_cast<double>(elapsed_time) / move_interval_milli);
-		int left = static_cast<int>((1 - alpha) * positions[position_index].x + alpha * positions[position_index + 1].x);
-		int top = static_cast<int>((1 - alpha) * positions[position_index].y + alpha * positions[position_index + 1].y);
+		double elapsed_time_sec = static_cast<double>(elapsed_time) / CLOCKS_PER_SEC;
+		double move_interval_sec = static_cast<double>(move_interval_milli) / 1000;
+
+		// The completeness of the current position index. The range is [0, 1].
+		double completeness = min(1, elapsed_time_sec / move_interval_sec);
+
+		// Stay at the last position.
+		if (position_index == positions.size() - 2 && completeness == 1)
+			return;
+
+		int left = static_cast<int>((1 - completeness) * positions[position_index].x + completeness * positions[position_index + 1].x);
+		int top = static_cast<int>((1 - completeness) * positions[position_index].y + completeness * positions[position_index + 1].y);
 
 		sprite.SetTopLeft(left, top);
 
-		if (static_cast<double>(move_clock - start_move_time) / CLOCKS_PER_SEC < static_cast<double>(move_interval_milli) / 1000)
+		// Stay at the current position index.
+		if (completeness < 1)
 			return;
 
 		start_move_time = std::clock();
 
-		// Stay at the last position.
+		// Stay at the last position index.
 		position_index = position_index < positions.size() - 2 ? position_index + 1 : position_index;
 	}
 

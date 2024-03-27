@@ -50,4 +50,9 @@ namespace Raiden
 	{
 		return part1.GetTop() >= 0;
 	}
+
+	int Background::GetScrolledDistance()
+	{
+		return part1.GetTop() - SIZE_Y + part1.GetHeight();
+	}
 }

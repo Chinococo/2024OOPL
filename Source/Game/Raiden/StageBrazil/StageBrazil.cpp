@@ -9,16 +9,18 @@ namespace Raiden
 		background.Init({ "Resources/Background/StageBrazil.bmp", "Resources/Background/StageComplement.bmp" });
 		boss = std::make_unique<BossBrazil>(1000);
 		boss->Init();
-		fighterPool.AddElement({ 50, 50 });
+		fighter_pool.AddElement();
 	}
 
-	void StageBrazil::UpdateDerived(const Player &player)
+	void StageBrazil::UpdateDerived(const Player &player, int scrolled_distance)
 	{
 		// TODO: perform stage logic here.
+		fighter_pool.Update();
+		fighter_pool[0]->Update(player, scrolled_distance);
 	}
 
 	void StageBrazil::ShowDerived()
 	{
-		fighterPool.Show();
+		fighter_pool.Show();
 	}
 }

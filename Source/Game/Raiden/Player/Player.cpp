@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "Player.h"
+#include "../../config.h"
 #include <set>
 #include <vector>
 #include <string>
@@ -55,6 +56,13 @@ namespace Raiden
 	{
 		int left = sprite.GetLeft() + (keys.count(Key::RIGHT) - keys.count(Key::LEFT)) * MOVE_STEP;
 		int top = sprite.GetTop() + (keys.count(Key::DOWN) - keys.count(Key::UP)) * MOVE_STEP;
+
+		left = max(0, left);
+		top = max(0, top);
+
+		const double OFFSET = 1.5;
+		left = min(SIZE_X - static_cast<int>(sprite.GetWidth() * OFFSET), left);
+		top = min(SIZE_Y - static_cast<int>(sprite.GetHeight() * OFFSET), top);
 
 		sprite.SetTopLeft(left, top);
 

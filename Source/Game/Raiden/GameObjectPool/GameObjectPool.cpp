@@ -2,46 +2,34 @@
 #include "GameObjectPool.h"
 #include "../Fighter/Fighter.h"
 #include "../Bullet/Bullet.h"
-#include <vector>
 
 namespace Raiden
 {
 	template<typename T>
-	GameObjectPool<T>::~GameObjectPool()
+	void GameObjectPool<T>::AddElement()
 	{
-		for (size_t i = 0; i < pool.size(); i++)
-			delete pool[i];
+		std::shared_ptr<T> temp;
 
-		while (recovery.size()) {
-			delete recovery.front();
-			recovery.pop();
-		}
-	}
-
-	template<typename T>
-	void GameObjectPool<T>::AddElement(std::pair<int,int> position)
-	{
-		if (this->recovery.size() > 0)
+		if (recovery.size() > 0)
 		{
-			T * temp = recovery.front();
-			temp->Init(position.first, position.second);
-			pool.push_back(temp);
+			temp = recovery.front();
 			recovery.pop();
 		}
 		else
 		{
-			T * temp = new T();
-			temp->Init(position.first, position.second);
-			pool.push_back(temp);
+			temp = std::make_shared<T>();
 		}
+
+		temp->Init();
+		pool.push_back(temp);
 	}
 
 	template<typename T>
 	void GameObjectPool<T>::Update()
 	{
-		for (size_t i = 0; i < pool.size(); )
+		for (std::size_t i = 0; i < pool.size(); )
 		{
-			if (!(bool)pool[i]->IsAlive())
+			if (!static_cast<bool>(pool[i]->IsAlive()))
 			{
 				recovery.push(pool[i]);
 				pool.erase(pool.begin() + i);
@@ -52,16 +40,16 @@ namespace Raiden
 	}
 
 	template<typename T>
-	T* GameObjectPool<T>::operator[](size_t index)
+	void GameObjectPool<T>::Show()
 	{
-		return pool[index];
+		for (std::size_t i = 0; i < pool.size(); i++)
+			pool[i]->Show();
 	}
 
 	template<typename T>
-	void GameObjectPool<T>::Show()
+	std::shared_ptr<T> GameObjectPool<T>::operator[](std::size_t index)
 	{
-		for (size_t i = 0; i < pool.size(); i++)
-			pool[i]->Show();
+		return pool[index];
 	}
 
 	template class GameObjectPool<Fighter>;

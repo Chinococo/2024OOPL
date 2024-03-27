@@ -10,10 +10,11 @@ namespace Raiden
 	{
 	public:
 		void Init() override;
-		void UpdateDerived(const Player &player) override;
+		void UpdateDerived(const Player &player, int scrolled_distance) override;
 		void ShowDerived() override;
 
 	private:
-		GameObjectPool<Fighter> fighterPool;
+		GameObjectPool<Fighter> fighter_pool;
+
 	};
 }

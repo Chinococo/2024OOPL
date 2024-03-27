@@ -1,39 +1,45 @@
 #include "stdafx.h"
 #include "Bullet.h"
-namespace Raiden {
-	Bullet::Bullet() {
 
-	}
-	void Bullet::Init(int _left, int _top) {
-		this->sprite.LoadBitmapByString({ "Resources/1.bmp" });
-		this->collisionBox.Init({ { 0,0,this->sprite.GetWidth(),this->sprite.GetWidth()} });
-		this->collisionBox.SetTopLeft(_left, _top);
-		this->sprite.SetTopLeft(_left, _top);
-		alive = true;
-
-	}
-	void Bullet::Update(int deltaX = 0, int deltaY = 0)
+namespace Raiden
+{
+	void Bullet::Init()
 	{
-		this->collisionBox.SetTopLeft(this->sprite.GetLeft() + deltaX, this->sprite.GetTop() + deltaY);
-		pair<int, int> top_left = this->collisionBox.GetTopLeft();
-		this->sprite.SetTopLeft(top_left.first, top_left.second);
+		sprite.LoadBitmapByString({ "Resources/1.bmp" });
+		collisionBox.Init({ { 0, 0, sprite.GetWidth(), sprite.GetWidth() } });
+		alive = true;
 	}
+
+	void Bullet::Update(int delta_x = 0, int delta_y = 0)
+	{
+		collisionBox.SetTopLeft(sprite.GetLeft() + delta_x, sprite.GetTop() + delta_y);
+		std::pair<int, int> top_left = collisionBox.GetTopLeft();
+		sprite.SetTopLeft(top_left.first, top_left.second);
+	}
+
 	void Bullet::Show()
 	{
-		this->sprite.ShowBitmap();
-		this->collisionBox.Show();
+		sprite.ShowBitmap();
+		collisionBox.Show();
 	}
-	CollisionBox& Bullet::GetCollisionBox()
+
+	CollisionBox &Bullet::GetCollisionBox()
 	{
 		return collisionBox;
 	}
-	bool Bullet::IsCollisionBoxOverlap(Bullet& other) {
-		return this->collisionBox.IsCollisionBoxOverlap(other.GetCollisionBox());
+
+	bool Bullet::IsCollisionBoxOverlap(Bullet &other)
+	{
+		return collisionBox.IsCollisionBoxOverlap(other.GetCollisionBox());
 	}
-	bool Bullet::IsAlive() {
+
+	void Bullet::Destroy()
+	{
+		alive = false;
+	}
+
+	bool Bullet::IsAlive()
+	{
 		return alive;
 	}
-	//void Bullet::Destroy() {
-	//	this->alive = false;
-	//}
 }

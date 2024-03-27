@@ -8,7 +8,7 @@ namespace Raiden
 	{
 		background.Update();
 		boss->Update(player, background.Over());
-		UpdateDerived(player);
+		UpdateDerived(player, background.GetScrolledDistance());
 	}
 
 	void Stage::Show()

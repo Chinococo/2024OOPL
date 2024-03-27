@@ -15,6 +15,9 @@ namespace Raiden
 		void Show();
 		void Destroy();
 		bool IsAlive() const;
+		bool IsAttacking() const;
+		int GetLeft();
+		int GetTop();
 
 	private:
 		game_framework::CMovingBitmap sprite;
@@ -26,5 +29,6 @@ namespace Raiden
 		std::clock_t move_clock;
 		std::clock_t move_interval_milli = 1000;
 		int appear_distance = 0;
+		std::vector<bool> attack_positions;
 	};
 }

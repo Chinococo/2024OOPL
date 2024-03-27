@@ -10,9 +10,20 @@ namespace Raiden
 		alive = true;
 	}
 
-	void Bullet::Update(int delta_x = 0, int delta_y = 0)
+	void Bullet::SetTopLeft(int left, int top)
 	{
-		collisionBox.SetTopLeft(sprite.GetLeft() + delta_x, sprite.GetTop() + delta_y);
+		sprite.SetTopLeft(left, top);
+	}
+
+	void Bullet::ApplyForce(int left, int top)
+	{
+		delta_left = left;
+		delta_top = top;
+	}
+
+	void Bullet::Update()
+	{
+		collisionBox.SetTopLeft(sprite.GetLeft() + delta_left, sprite.GetTop() + delta_top);
 		std::pair<int, int> top_left = collisionBox.GetTopLeft();
 		sprite.SetTopLeft(top_left.first, top_left.second);
 	}

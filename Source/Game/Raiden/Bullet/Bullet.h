@@ -23,7 +23,9 @@ namespace Raiden
 	{
 	public:
 		void Init();
-		void Update(int delta_x, int delta_y);
+		void SetTopLeft(int left, int top);
+		void ApplyForce(int left, int top);
+		void Update();
 		void Show();
 		CollisionBox &GetCollisionBox();
 		bool IsCollisionBoxOverlap(Bullet &);
@@ -34,5 +36,7 @@ namespace Raiden
 		bool alive = true;
 		game_framework::CMovingBitmap sprite;
 		CollisionBox collisionBox;
+		int delta_left = 0;
+		int delta_top = 0;
 	};
 }

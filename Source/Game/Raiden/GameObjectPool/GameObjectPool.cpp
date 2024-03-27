@@ -6,7 +6,7 @@
 namespace Raiden
 {
 	template<typename T>
-	void GameObjectPool<T>::AddElement()
+	int GameObjectPool<T>::AddElement()
 	{
 		std::shared_ptr<T> temp;
 
@@ -22,6 +22,7 @@ namespace Raiden
 
 		temp->Init();
 		pool.push_back(temp);
+		return pool.size() - 1;
 	}
 
 	template<typename T>

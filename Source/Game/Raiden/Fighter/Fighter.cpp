@@ -12,7 +12,10 @@ namespace Raiden
 
 		// === TODO: integrate these with XMLReader later. ===
 		for (int i = 10; i <= 500; i += 50)
+		{
 			positions.push_back({ i, i });
+			attack_positions.push_back(i % 2 == 0);
+		}
 
 		move_interval_milli = 300;
 		appear_distance = 0;
@@ -65,5 +68,20 @@ namespace Raiden
 	bool Fighter::IsAlive() const
 	{
 		return alive;
+	}
+
+	bool Fighter::IsAttacking() const
+	{
+		return attack_positions[position_index];
+	}
+
+	int Fighter::GetLeft()
+	{
+		return sprite.GetLeft();
+	}
+
+	int Fighter::GetTop()
+	{
+		return sprite.GetTop();
 	}
 }

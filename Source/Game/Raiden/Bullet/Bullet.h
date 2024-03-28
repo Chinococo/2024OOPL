@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include "../../../Library/gameutil.h"
 #include "../CollisionBox/CollisionBox.h"
+#include <atltypes.h>
 
 namespace Raiden
 {
@@ -23,8 +24,8 @@ namespace Raiden
 	{
 	public:
 		void Init();
-		void SetTopLeft(int left, int top);
-		void ApplyForce(int left, int top);
+		void SetTopLeft(CPoint &&point);
+		void ApplyForce(CPoint &&force);
 		void Update();
 		void Show();
 		CollisionBox &GetCollisionBox();

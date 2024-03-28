@@ -7,7 +7,7 @@ namespace Raiden
 {
 	/**
 	 * The T should atleast have three methods:
-	 * 1. void Init(int left, int top);
+	 * 1. void Init();
 	 * 2. bool IsAlive() const;
 	 * 3. void Show();
 	 */

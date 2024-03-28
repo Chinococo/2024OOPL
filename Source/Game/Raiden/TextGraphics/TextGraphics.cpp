@@ -6,9 +6,9 @@
 
 namespace Raiden
 {
-	std::size_t TextGraphics::Register(int left, int top, std::string text)
+	std::size_t TextGraphics::Register(CPoint &&point, std::string text)
 	{
-		points.push_back({ left, top });
+		points.push_back(std::move(point));
 		texts.push_back(text);
 		return points.size() - 1;
 	}

@@ -10,15 +10,15 @@ namespace Raiden
 		alive = true;
 	}
 
-	void Bullet::SetTopLeft(int left, int top)
+	void Bullet::SetTopLeft(CPoint &&point)
 	{
-		sprite.SetTopLeft(left, top);
+		sprite.SetTopLeft(std::move(point.x), std::move(point.y));
 	}
 
-	void Bullet::ApplyForce(int left, int top)
+	void Bullet::ApplyForce(CPoint &&force)
 	{
-		delta_left = left;
-		delta_top = top;
+		delta_left = std::move(force.x);
+		delta_top = std::move(force.y);
 	}
 
 	void Bullet::Update()

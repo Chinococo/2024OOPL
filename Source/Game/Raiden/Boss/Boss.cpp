@@ -4,8 +4,6 @@
 
 namespace Raiden
 {
-	Boss::Boss(int health) : health(health) {}
-
 	void Boss::Show()
 	{
 		sprite.ShowBitmap();

@@ -1,6 +1,8 @@
 #pragma once
 #include "../../../Library/gameutil.h"
-namespace Raiden {
+
+namespace Raiden
+{
 	/*
 	 * Class Name¡GCollisionBox
 	 * Class Purpose¡GDisplay CollisionBox and Create CollisionBox image
@@ -19,20 +21,22 @@ namespace Raiden {
 	 * Destructor¡G
 	 *  None
 	*/
-	class CollisionBox{
-		public:
-			CollisionBox();
-			void Init(vector<tuple<int, int, int, int>>);
-			void Show();
-			void SetTopLeft(int, int);
-			bool IsCollisionBoxOverlap(CollisionBox&);
-			pair<int, int> GetTopLeft();
-			vector<tuple<int, int, int, int>> GetBoxCollisionBox();
-		private:
-			HBITMAP CreateCollisionBoxBitmap(HDC, int);
-			game_framework::CMovingBitmap display;
-			vector<tuple<int, int, int, int>> box_collision_box;
-			int width = 0;
-			int height = 0;
-		};
+	class CollisionBox
+	{
+	public:
+		CollisionBox();
+		void Init(std::vector<std::tuple<int, int, int, int>>);
+		void Show();
+		void SetTopLeft(int, int);
+		bool IsCollisionBoxOverlap(CollisionBox &);
+		std::pair<int, int> GetTopLeft();
+		std::vector<std::tuple<int, int, int, int>> GetBoxCollisionBox();
+
+	private:
+		HBITMAP CreateCollisionBoxBitmap(HDC, int);
+		game_framework::CMovingBitmap display;
+		std::vector<std::tuple<int, int, int, int>> box_collision_box;
+		int width = 0;
+		int height = 0;
+	};
 }

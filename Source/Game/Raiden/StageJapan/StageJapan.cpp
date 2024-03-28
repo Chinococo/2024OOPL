@@ -14,7 +14,7 @@ namespace Raiden
 			fighter_pool.AddElement();
 	}
 
-	void StageJapan::UpdateDerived(const Player &player, int scrolled_distance)
+	void StageJapan::UpdateDerived(const Player &player)
 	{
 		// TODO: perform stage logic here.
 		fighter_pool.Update();
@@ -28,7 +28,7 @@ namespace Raiden
 				continue;
 			}
 
-			fighter_pool[i]->Update(player, scrolled_distance);
+			fighter_pool[i]->Update(player, background.GetScrolledDistance());
 
 			if (fighter_pool[i]->IsAttacking())
 			{

@@ -11,7 +11,7 @@ namespace Raiden
 	{
 	public:
 		void Init() override;
-		void UpdateDerived(const Player &player, int scrolled_distance) override;
+		void UpdateDerived(const Player &player) override;
 		void ShowDerived() override;
 
 	private:

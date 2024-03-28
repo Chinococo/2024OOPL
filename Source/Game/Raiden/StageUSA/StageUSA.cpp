@@ -1,4 +1,4 @@
-#include <StdAfx.h>
+#include "stdafx.h"
 #include "StageUSA.h"
 #include "../BossUSA/BossUSA.h"
 
@@ -12,11 +12,11 @@ namespace Raiden
 		fighter_pool.AddElement();
 	}
 
-	void StageUSA::UpdateDerived(const Player &player, int scrolled_distance)
+	void StageUSA::UpdateDerived(const Player &player)
 	{
 		// TODO: perform stage logic here.
 		fighter_pool.Update();
-		fighter_pool[0]->Update(player, scrolled_distance);
+		fighter_pool[0]->Update(player, background.GetScrolledDistance());
 	}
 
 	void StageUSA::ShowDerived()

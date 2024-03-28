@@ -1,4 +1,4 @@
-#include <StdAfx.h>
+#include "stdafx.h"
 #include "Stage.h"
 #include "../Player/Player.h"
 
@@ -8,7 +8,7 @@ namespace Raiden
 	{
 		background.Update();
 		boss->Update(player, background.Over());
-		UpdateDerived(player, background.GetScrolledDistance());
+		UpdateDerived(player);
 	}
 
 	void Stage::Show()

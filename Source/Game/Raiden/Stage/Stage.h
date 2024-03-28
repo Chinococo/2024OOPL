@@ -17,7 +17,7 @@ namespace Raiden
 		bool Over() const;
 
 	protected:
-		virtual void UpdateDerived(const Player &player, int scrolled_distance) = 0;
+		virtual void UpdateDerived(const Player &player) = 0;
 		virtual void ShowDerived() = 0;
 		Background background;
 		std::unique_ptr<Boss> boss;

@@ -1,4 +1,4 @@
-#include <StdAfx.h>
+#include "stdafx.h"
 #include "StageManager.h"
 #include "../StageJapan/StageJapan.h"
 #include "../StageBrazil/StageBrazil.h"

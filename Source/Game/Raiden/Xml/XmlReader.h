@@ -1,7 +1,7 @@
 #pragma once
 #include <map>
+#include <vector>
 #include "tinyxml2.h"
-#include "../Enemy/Enemy.h"
 namespace Raiden{
 	class Enemy_temp {
 	public:
@@ -29,7 +29,7 @@ namespace Raiden{
 	{
 	public:
 		void ParseResourcesRootPath(tinyxml2::XMLElement* root, std::map<std::string, std::string>& settings);
-		void ParseEnemies(tinyxml2::XMLElement* root, vector<Enemy_temp>& Enemys);
+		void ParseEnemies(tinyxml2::XMLElement* root, std::vector<Enemy_temp>& Enemys);
 		void ParseFigter(tinyxml2::XMLElement* root, std::vector<Figter_temp>& Figter);
 	};
 }

@@ -40,6 +40,8 @@
 
 #include "Raiden/Key/Key.h"
 #include "Raiden/StateManager/StateManager.h"
+#include "Raiden/GameObjectPool/GameObjectPool.h"
+#include "Raiden/Bullet/Bullet.h"
 #include <map>
 #include <set>
 #include <memory>
@@ -97,6 +99,7 @@ namespace game_framework {
 		void OnMove();									// 移動遊戲元素
 		void OnShow();									// 顯示這個狀態的遊戲畫面
 	private:
+		Raiden::GameObjectPool<Raiden::Bullet> bullet;
 		Raiden::StateManager state_manager;
 		std::map<UINT, Raiden::Key> key_map;
 		std::set<Raiden::Key> keys;

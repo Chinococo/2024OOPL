@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "XmlReader.h"
-#include "../Enemy/Enemy.h"
 #include<string>
 #include <list>
 using namespace tinyxml2;

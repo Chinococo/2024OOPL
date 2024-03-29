@@ -13,7 +13,7 @@ namespace Raiden
 	class TextGraphics
 	{
 	public:
-		std::size_t Register(int left, int top, std::string text);
+		std::size_t Register(CPoint &&point, std::string text);
 		void UpdateText(std::size_t id, std::string text);
 		void Show() const;
 

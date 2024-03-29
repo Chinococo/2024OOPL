@@ -1,4 +1,4 @@
-#include <StdAfx.h>
+#include "stdafx.h"
 #include "Stage.h"
 #include "../Player/Player.h"
 

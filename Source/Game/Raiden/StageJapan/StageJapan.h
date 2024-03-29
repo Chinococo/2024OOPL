@@ -3,6 +3,7 @@
 #include "../Player/Player.h"
 #include "../GameObjectPool/GameObjectPool.h"
 #include "../Fighter/Fighter.h"
+#include "../Bullet/Bullet.h"
 
 namespace Raiden
 {
@@ -14,6 +15,9 @@ namespace Raiden
 		void ShowDerived() override;
 
 	private:
-		GameObjectPool<Fighter> fighterPool;
+		const int FIGHTER_COUNT = 1;
+		GameObjectPool<Fighter> fighter_pool;
+		GameObjectPool<Bullet> bullet_pool;
+		int bullet_count = 0;
 	};
 }

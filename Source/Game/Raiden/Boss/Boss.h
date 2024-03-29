@@ -7,7 +7,6 @@ namespace Raiden
 	class Boss
 	{
 	public:
-		Boss(int health);
 		virtual ~Boss() = default;
 		virtual void Init() = 0;
 		virtual void Update(const Player &player, bool start_attack) = 0;

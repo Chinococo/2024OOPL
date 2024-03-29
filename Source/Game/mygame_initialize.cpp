@@ -51,6 +51,7 @@ void CGameStateInit::OnBeginState()
 
 void CGameStateInit::OnKeyUp(UINT nChar, UINT nRepCnt, UINT nFlags)
 {
+	clicked = nChar == 0x5A;
 }
 
 void CGameStateInit::OnLButtonDown(UINT nFlags, CPoint point)

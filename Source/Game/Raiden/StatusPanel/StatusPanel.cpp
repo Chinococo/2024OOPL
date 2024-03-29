@@ -1,4 +1,4 @@
-#include <StdAfx.h>
+#include "stdafx.h"
 #include "StatusPanel.h"
 #include "../Player/Player.h"
 #include <string>

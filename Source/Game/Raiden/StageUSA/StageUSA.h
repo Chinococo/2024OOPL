@@ -14,6 +14,6 @@ namespace Raiden
 		void ShowDerived() override;
 
 	private:
-		GameObjectPool<Fighter> fighterPool;
+		GameObjectPool<Fighter> fighter_pool;
 	};
 }

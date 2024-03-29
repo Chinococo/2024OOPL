@@ -13,4 +13,7 @@ namespace Raiden
 	{
 		return health == 0;
 	}
+	Boss::Boss(int health) {
+		this->health = health;
+	}
 }

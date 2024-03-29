@@ -28,17 +28,8 @@ namespace Raiden{
 			FILE* file = fopen(path.c_str(), "r");
 			//Check file exitst
 			if (file == NULL) { // Check if the file does not exist
-				HDC hdc = GetDC(NULL);
-				HBITMAP h_bmp = CreateCollisionBoxBitmap(hdc, 3); // Create a bitmap compatible with the device context
-				if (h_bmp != NULL) {
-					CImage image;
-					image.Attach(h_bmp);
-					CString str = path.c_str();
-					HRESULT result = image.Save(str); // Save the image to file
-					image.Detach();
-					DeleteObject(h_bmp); // Clean up bitmap object
-				}
-				ReleaseDC(NULL, hdc);
+				
+				CreateCollisionBoxBitmap(3,path); // Create a bitmap compatible with the device context
 			}
 			else {
 				fclose(file);
@@ -56,37 +47,62 @@ namespace Raiden{
 		{
 			this->display.SetTopLeft(left, top);
 		}
-		HBITMAP CollisionBox::CreateCollisionBoxBitmap(HDC hdc, int border_width) {
+		// 創建位圖並填充背景色
+		HBITMAP CreateAndFillBitmap(int width, int height, int transparentColorRGB) {
+			HDC hdc = GetDC(NULL);
 			HBITMAP h_bmp = CreateCompatibleBitmap(hdc, width, height);
 			HDC h_mem_dc = CreateCompatibleDC(hdc);
 			SelectObject(h_mem_dc, h_bmp);
-			SetBkColor(h_mem_dc, TRANSPARENT);
-			// Fill the entire bitmap with a transparent color
+			SetBkColor(h_mem_dc, transparentColorRGB);
 			RECT rc = { 0, 0, width, height };
-			HBRUSH hb_transparent = ::CreateSolidBrush(RGB(255, 255, 255)); // White color for transparency
+			HBRUSH hb_transparent = ::CreateSolidBrush(transparentColorRGB);
 			FillRect(h_mem_dc, &rc, hb_transparent);
 			DeleteObject(hb_transparent);
-			// Create by boxCollisionBox item 
-			for (auto box : box_collision_box) {
-				// Draw the border
-				HBRUSH hb_border = ::CreateSolidBrush(RGB(0, 255, 0)); // Green color for border
-				// Draw the top border
-				RECT rc_top = {get<0>(box),get<1>(box),get<2>(box),get<1>(box)+border_width};
-				FillRect(h_mem_dc, &rc_top, hb_border);
-				// Draw the bottom border
-				RECT rc_bottom = { get<0>(box),get<3>(box) - border_width, get<2>(box),get<3>(box)};
-				FillRect(h_mem_dc, &rc_bottom, hb_border);
-				// Draw the left border
-				RECT rc_left = { get<0>(box),get<1>(box), get<0>(box)+border_width, get<3>(box)};
-				FillRect(h_mem_dc, &rc_left, hb_border);
-				// Draw the right border
-				RECT rc_right = { get<2>(box) - border_width, get<1>(box),get<2>(box), get<3>(box) };
-				FillRect(h_mem_dc, &rc_right, hb_border);
-				DeleteObject(hb_border);
-			}
 			DeleteDC(h_mem_dc);
+			ReleaseDC(NULL, hdc);
 			return h_bmp;
 		}
+
+		// 繪製碰撞框的邊界
+		void  CollisionBox::DrawBorder(HDC h_mem_dc, RECT rc, int borderWidth, COLORREF borderColor) {
+			HBRUSH hb_border = ::CreateSolidBrush(borderColor);
+			FillRect(h_mem_dc, &rc, hb_border);
+			DeleteObject(hb_border);
+		}
+
+
+		// 創建碰撞框位圖
+		void CollisionBox::CreateCollisionBoxBitmap(int borderWidth, std::string path) {
+			HBITMAP h_bmp = CreateAndFillBitmap(width, height, RGB(255, 255, 255));
+			HDC h_mem_dc = CreateCompatibleDC(NULL);
+			SelectObject(h_mem_dc, h_bmp);
+			for (auto box : box_collision_box) {
+				// Seeting border by borderWidth
+				RECT rc_top = { get<0>(box), get<1>(box), get<2>(box), get<1>(box) + borderWidth };
+				RECT rc_bottom = { get<0>(box), get<3>(box) - borderWidth, get<2>(box), get<3>(box) };
+				RECT rc_left = { get<0>(box), get<1>(box), get<0>(box) + borderWidth, get<3>(box) };
+				RECT rc_right = { get<2>(box) - borderWidth, get<1>(box), get<2>(box), get<3>(box) };
+				// Draw Border
+				DrawBorder(h_mem_dc, rc_top, borderWidth, RGB(0, 255, 0));
+				DrawBorder(h_mem_dc, rc_bottom, borderWidth, RGB(0, 255, 0));	
+				DrawBorder(h_mem_dc, rc_left, borderWidth, RGB(0, 255, 0));
+				DrawBorder(h_mem_dc, rc_right, borderWidth, RGB(0, 255, 0));
+			}
+			SaveBitmapToFile(h_bmp, path);
+		}
+
+		void CollisionBox::SaveBitmapToFile(HBITMAP h_bmp, const std::string& path)
+		{
+			if (h_bmp != NULL) {
+				CImage image;
+				image.Attach(h_bmp);
+				CString str = path.c_str();
+				HRESULT result = image.Save(str);
+				image.Detach();
+				DeleteObject(h_bmp);
+			}
+		}
+
 		bool CollisionBox::IsCollisionBoxOverlap(CollisionBox& othres) {
 			pair<int,int> this_top_left = this->GetTopLeft();
 			pair<int, int> other_top_left = othres.GetTopLeft();

@@ -29,9 +29,11 @@ namespace Raiden {
 			pair<int, int> GetTopLeft();
 			vector<tuple<int, int, int, int>> GetBoxCollisionBox();
 		private:
-			HBITMAP CreateCollisionBoxBitmap(HDC, int);
+			void CreateCollisionBoxBitmap(int,std::string);
 			game_framework::CMovingBitmap display;
 			vector<tuple<int, int, int, int>> box_collision_box;
+			void CollisionBox::SaveBitmapToFile(HBITMAP , const std::string&);
+			void CollisionBox::DrawBorder(HDC, RECT, int, COLORREF);
 			int width = 0;
 			int height = 0;
 		};

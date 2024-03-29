@@ -6,6 +6,9 @@
 #include "../Library/gameutil.h"
 #include "../Library/gamecore.h"
 #include "mygame.h"
+#include "Raiden/CollisionBox/CollisionBox.h"
+#include "Raiden/Xml/XmlReader.h"
+#include "Raiden/Xml/tinyxml2.h"
 #include "Raiden/Control/Control.h"
 
 using namespace game_framework;
@@ -33,6 +36,26 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 
 void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 {
+	tinyxml2::XMLDocument doc;
+	if (doc.LoadFile("Resources/GameSetting.xml") == tinyxml2::XML_SUCCESS) {
+		Raiden::XmlReader reader;
+		// Parse XML
+		std::map<std::string, std::string> settings;
+		std::vector<Raiden::Enemy_temp> Enemys;
+		std::vector<Raiden::Figter_temp> Figter;
+		tinyxml2::XMLElement* root = doc.FirstChildElement("GameSetting");
+		if (root) {
+			reader.ParseResourcesRootPath(root, settings);
+			reader.ParseEnemies(root, Enemys);
+			reader.ParseFigter(root, Figter);
+		}
+	}
+	
+
+	//Raiden::GameObjectPool<int> test;
+	//test.AddElement({ 10,10 });
+	bullet.AddElement({ 50,50 });
+	bullet.AddElement({ 50,300 });
 	state_manager.Init();
 	key_map[VK_UP] = Raiden::Key::UP;
 	key_map[VK_DOWN] = Raiden::Key::DOWN;

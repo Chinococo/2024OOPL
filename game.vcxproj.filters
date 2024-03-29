@@ -68,6 +68,9 @@
     <Filter Include="MyGame\Raiden\GameObjectPool">
       <UniqueIdentifier>{03407798-2f88-47d1-8bcb-9ff90ad246cb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MyGame\Raiden\Xml">
+      <UniqueIdentifier>{65ad3199-3332-48a4-a3d0-7f7e9a814067}</UniqueIdentifier>
+    </Filter>  
     <Filter Include="MyGame\Raiden\Bullet">
       <UniqueIdentifier>{d8daae60-e242-4d00-8752-5e152709c9d7}</UniqueIdentifier>
     </Filter>
@@ -180,6 +183,12 @@
     <ClCompile Include="Source\Game\Raiden\Bullet\Bullet.cpp">
       <Filter>MyGame\Raiden\Bullet</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Game\Raiden\Xml\tinyxml2.cpp">
+      <Filter>MyGame\Raiden\Xml</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Game\Raiden\Xml\XmlReader.cpp">
+      <Filter>MyGame\Raiden\Xml</Filter>
+    </ClCompile>
     <ClCompile Include="Source\Game\Raiden\Collidable\Collidable.cpp">
       <Filter>MyGame\Raiden\Collidable</Filter>
     </ClCompile>
@@ -281,6 +290,12 @@
     <ClInclude Include="Source\Game\Raiden\Bullet\Bullet.h">
       <Filter>MyGame\Raiden\Bullet</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Game\Raiden\Xml\tinyxml2.h">
+      <Filter>MyGame\Raiden\Xml</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Game\Raiden\Xml\XmlReader.h">
+      <Filter>MyGame\Raiden\Xml</Filter>
+    </ClInclude>
     <ClInclude Include="Source\Game\Raiden\Collidable\Collidable.h">
       <Filter>MyGame\Raiden\Collidable</Filter>
     </ClInclude>
@@ -304,5 +319,10 @@
     <ResourceCompile Include="Source\Core\game.rc">
       <Filter>MFC</Filter>
     </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="Resources\GameSetting.xml">
+      <Filter>Resource Files</Filter>
+    </Xml>
   </ItemGroup>
 </Project>

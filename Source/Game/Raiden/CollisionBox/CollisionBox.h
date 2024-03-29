@@ -21,24 +21,19 @@ namespace Raiden
 	 * Destructor¡G
 	 *  None
 	*/
-	class CollisionBox
-	{
+	class CollisionBox {
 	public:
-		CollisionBox();
-		void Init(std::vector<std::tuple<int, int, int, int>>);
+		CollisionBox() {};
+		void Init(vector<tuple<int, int, int, int>>);
 		void Show();
 		void SetTopLeft(int, int);
-		bool IsCollisionBoxOverlap(CollisionBox &);
-		std::pair<int, int> GetTopLeft();
-		std::vector<std::tuple<int, int, int, int>> GetBoxCollisionBox();
-
+		bool IsCollisionBoxOverlap(CollisionBox&);
+		pair<int, int> GetTopLeft();
+		vector<tuple<int, int, int, int>> GetBoxCollisionBox();
 	private:
-    void CreateCollisionBoxBitmap(int,std::string);
 		HBITMAP CreateCollisionBoxBitmap(HDC, int);
 		game_framework::CMovingBitmap display;
-		std::vector<std::tuple<int, int, int, int>> box_collision_box;
-    void CollisionBox::SaveBitmapToFile(HBITMAP , const std::string&);
-		void CollisionBox::DrawBorder(HDC, RECT, int, COLORREF);
+		vector<tuple<int, int, int, int>> box_collision_box;
 		int width = 0;
 		int height = 0;
 	};

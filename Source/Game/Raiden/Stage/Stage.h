@@ -1,10 +1,8 @@
 #pragma once
 #include "../Player/Player.h"
 #include "../Background/Background.h"
-#include "../Enemy/Enemy.h"
 #include "../Boss/Boss.h"
 #include <set>
-#include <vector>
 #include <memory>
 
 namespace Raiden
@@ -19,8 +17,9 @@ namespace Raiden
 		bool Over() const;
 
 	protected:
+		virtual void UpdateDerived(const Player &player) = 0;
+		virtual void ShowDerived() = 0;
 		Background background;
-		std::vector<Enemy> enemies;
 		std::unique_ptr<Boss> boss;
 	};
 }

@@ -1,15 +1,21 @@
 #pragma once
-#include "../Enemy/Enemy.h"
+#include "../../../Library/gameutil.h"
 #include "../Player/Player.h"
 
 namespace Raiden
 {
-	class Boss : public Enemy
+	class Boss
 	{
 	public:
 		Boss(int health);
 		virtual ~Boss() = default;
-		void Update(const Player &player) override;
+		virtual void Init() = 0;
+		virtual void Update(const Player &player, bool start_attack) = 0;
+		void Show();
 		bool Dead() const;
+
+	protected:
+		game_framework::CMovingBitmap sprite;
+		int health = 1000;
 	};
 }

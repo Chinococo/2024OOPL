@@ -11,4 +11,9 @@ namespace Raiden
 		sprite.LoadBitmapByString({ "Resources/TestSprite/TestSpritePurple.bmp" });
 		sprite.SetTopLeft(0, 0);
 	}
+
+	void BossBrazil::Update(const Player &player, bool start_attack)
+	{
+		// TODO: write the logic of bosses.
+	}
 }

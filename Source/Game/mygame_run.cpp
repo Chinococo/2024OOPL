@@ -99,4 +99,6 @@ void CGameStateRun::OnRButtonUp(UINT nFlags, CPoint point)	// 處理滑鼠的動
 void CGameStateRun::OnShow()
 {
 	state_manager.Show();
+	//bullet.Update();
+	bullet.Show();
 }

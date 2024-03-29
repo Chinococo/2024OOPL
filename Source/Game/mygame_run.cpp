@@ -54,8 +54,8 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 
 	//Raiden::GameObjectPool<int> test;
 	//test.AddElement({ 10,10 });
-	bullet.AddElement({ 50,50 });
-	bullet.AddElement({ 50,300 });
+	//bullet.AddElement({ 50,50 });
+	//bullet.AddElement({ 50,300 });
 	state_manager.Init();
 	key_map[VK_UP] = Raiden::Key::UP;
 	key_map[VK_DOWN] = Raiden::Key::DOWN;
@@ -100,5 +100,5 @@ void CGameStateRun::OnShow()
 {
 	state_manager.Show();
 	//bullet.Update();
-	bullet.Show();
+	//bullet.Show();
 }

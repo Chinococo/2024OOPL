@@ -8,7 +8,7 @@ namespace Raiden
 	void StatusPanel::Init(TextGraphics &text_graphics)
 	{
 		// TODO: fix the position of the counters and the sprite image.
-		score_counter_id = text_graphics.Register(0, 0, "SCORE: 0    HIGH SCORE: 0");
+		score_counter_id = text_graphics.Register({ 0, 0 }, "SCORE: 0    HIGH SCORE: 0");
 		life_counter.LoadBitmapByString({ "Resources/TestSprite/TestSpriteBlue.bmp" });
 		life_counter.SetTopLeft(0, 0);
 		bomb_counter.LoadBitmapByString({ "Resources/TestSprite/TestSpriteBlue.bmp" });

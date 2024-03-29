@@ -29,26 +29,31 @@ namespace Raiden
 			width = max(width, max(get<0>(item), get<2>(item)));
 			height = max(height, max(get<1>(item), get<3>(item)));
 		}
-		void CollisionBox::Init(vector<tuple<int, int,int,int>> box_collision_box) {
-			this->box_collision_box = box_collision_box;
-			string path = "Resources/CollisionBox/";
-			// To Get Largest Width and Height to Set Panel Size
-			for (auto item : box_collision_box) {
-				// Make path string to save image
-				path += to_string(abs(get<0>(item)- get<2>(item))) + "x" + to_string(abs(get<1>(item) - get<3>(item))) + "+";
-				width = max(width, max(get<0>(item), get<2>(item)));
-				height = max(height, max(get<1>(item), get<3>(item)));
-			}
-			path[path.size() - 1] = '.';
-			path += "bmp";
-			FILE* file = fopen(path.c_str(), "r");
-			//Check file exitst
-			if (file == NULL) { // Check if the file does not exist
-				
-				CreateCollisionBoxBitmap(3,path); // Create a bitmap compatible with the device context
-			}
-			else {
-				fclose(file);
+
+		path[path.size() - 1] = '.';
+		path += "bmp";
+
+		FILE *file = fopen(path.c_str(), "r");
+
+		//Check file exitst
+		if (file == NULL) // Check if the file does not exist
+		{
+			HDC hdc = GetDC(NULL);
+			HBITMAP h_bmp = CreateCollisionBoxBitmap(hdc, 3); // Create a bitmap compatible with the device context
+
+			if (h_bmp != NULL)
+			{
+				CImage image;
+				image.Attach(h_bmp);
+
+				CString str = path.c_str();
+
+				// Save the image to file
+				HRESULT result = image.Save(str);
+				image.Detach();
+
+				// Clean up bitmap object
+				DeleteObject(h_bmp);
 			}
 
 			ReleaseDC(NULL, hdc);

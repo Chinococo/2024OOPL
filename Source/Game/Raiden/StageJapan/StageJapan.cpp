@@ -33,8 +33,8 @@ namespace Raiden
 			if (fighter_pool[i]->IsAttacking())
 			{
 				int bullet_index = bullet_pool.AddElement();
-				bullet_pool[bullet_index]->SetTopLeft(fighter_pool[i]->GetLeft(), fighter_pool[i]->GetTop());
-				bullet_pool[bullet_index]->ApplyForce(0, 1);
+				bullet_pool[bullet_index]->SetTopLeft({ fighter_pool[i]->GetLeft(), fighter_pool[i]->GetTop() });
+				bullet_pool[bullet_index]->ApplyForce({ 0, 1 });
 				bullet_count++;
 			}
 		}

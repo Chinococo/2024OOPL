@@ -15,7 +15,8 @@ namespace Raiden
 	class GameObjectPool
 	{
 	public:
-		int AddElement();
+		template<typename... Args>
+		int AddElement(Args... args);
 		void Update();
 		void Show();
 		std::shared_ptr<T> operator[](std::size_t index);

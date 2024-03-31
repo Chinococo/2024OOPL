@@ -70,7 +70,7 @@
     </Filter>
     <Filter Include="MyGame\Raiden\Xml">
       <UniqueIdentifier>{65ad3199-3332-48a4-a3d0-7f7e9a814067}</UniqueIdentifier>
-    </Filter>  
+    </Filter>
     <Filter Include="MyGame\Raiden\Bullet">
       <UniqueIdentifier>{d8daae60-e242-4d00-8752-5e152709c9d7}</UniqueIdentifier>
     </Filter>
@@ -91,6 +91,12 @@
     </Filter>
     <Filter Include="MyGame\Raiden\StateManager">
       <UniqueIdentifier>{82520d74-4828-42a9-be70-e74c95ae6dc2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyGame\Raiden\PlayerData">
+      <UniqueIdentifier>{527f2afa-dbb7-49bd-a3fb-6a426036097b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyGame\Raiden\FighterData">
+      <UniqueIdentifier>{9fbada0d-05ff-4db7-b4a0-9c84e192eae5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -200,6 +206,9 @@
     </ClCompile>
     <ClCompile Include="Source\Game\Raiden\StateManager\StateManager.cpp">
       <Filter>MyGame\Raiden\StateManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Game\Raiden\State\State.cpp">
+      <Filter>MyGame\Raiden\State</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -313,6 +322,12 @@
     </ClInclude>
     <ClInclude Include="Source\Game\Raiden\StateManager\StateManager.h">
       <Filter>MyGame\Raiden\StateManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Game\Raiden\PlayerData\PlayerData.h">
+      <Filter>MyGame\Raiden\PlayerData</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Game\Raiden\FighterData\FighterData.h">
+      <Filter>MyGame\Raiden\FighterData</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

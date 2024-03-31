@@ -12,7 +12,7 @@ namespace Raiden
 	class RunningState : public State
 	{
 	public:
-		void Init() override;
+		void InitDerived() override;
 		void KeyUp(Control &control) override;
 		void Update(Control &control) override;
 		void Show() override;

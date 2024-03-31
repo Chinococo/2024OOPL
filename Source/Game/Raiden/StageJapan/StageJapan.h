@@ -15,7 +15,6 @@ namespace Raiden
 		void ShowDerived() override;
 
 	private:
-		const int FIGHTER_COUNT = 1;
 		GameObjectPool<Fighter> fighter_pool;
 		GameObjectPool<Bullet> bullet_pool;
 		int bullet_count = 0;

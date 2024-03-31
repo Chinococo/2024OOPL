@@ -3,10 +3,10 @@
 
 namespace Raiden
 {
-	void RunningState::Init()
+	void RunningState::InitDerived()
 	{
 		stage_manager.Init();
-		player.Init();
+		player.Init(xml_reader.ParsePlayerData());
 		status_panel.Init(text_graphics);
 	}
 

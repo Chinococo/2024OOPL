@@ -4,19 +4,19 @@
 #include <set>
 #include <vector>
 #include <string>
+#include <tuple>
 
 namespace Raiden
 {
-	void Player::Init()
+	void Player::Init(PlayerData &&player_data)
 	{
-		std::vector<std::string> paths;
+		int color_mask_red = std::get<0>(player_data.color_mask);
+		int color_mask_green = std::get<1>(player_data.color_mask);
+		int color_mask_blue = std::get<2>(player_data.color_mask);
 
-		for (int i = 0; i <= 10; i++)
-			paths.push_back("Resources/Player/Player" + std::to_string(i) + ".bmp");
-
-		sprite.LoadBitmapByString(paths, RGB(0, 0, 255));
+		sprite.LoadBitmapByString(player_data.sprites, RGB(color_mask_red, color_mask_green, color_mask_blue));
 		sprite.SetFrameIndexOfBitmap(sprite_index);
-		sprite.SetTopLeft(0, 0);
+		sprite.SetTopLeft(player_data.init_position.x, player_data.init_position.y);
 	}
 
 	void Player::Update(const Control &control)

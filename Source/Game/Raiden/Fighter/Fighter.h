@@ -2,6 +2,7 @@
 #include "../../../Library/gameutil.h"
 #include "../Player/Player.h"
 #include "../Collidable/Collidable.h"
+#include "../FighterData/FighterData.h"
 #include <vector>
 #include <ctime>
 
@@ -10,7 +11,7 @@ namespace Raiden
 	class Fighter : public Collidable
 	{
 	public:
-		void Init();
+		void Init(FighterData &&fighter_data);
 		void Update(const Player &player, int scrolled_distance);
 		void Show();
 		void Destroy();

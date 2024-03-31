@@ -5,122 +5,171 @@
 
 namespace Raiden
 {
-	std::map<std::string, std::string> XmlReader::ParseResourcesRootPath(tinyxml2::XMLElement* root)
+	void XmlReader::Init()
 	{
-		std::string key = "ResourcesRootPath";
-
-		tinyxml2::XMLElement* resource_path_elem = root->FirstChildElement(key.c_str());
-
-		if (!resource_path_elem)
-			throw std::invalid_argument("Invalid resource path data.");
-
-		std::string resource_path = resource_path_elem->GetText();
-
-		if (resource_path.empty())
-			throw std::invalid_argument("The resource path is empty.");
-
-		std::map<std::string, std::string> settings;
-		settings[key] = resource_path;
-
-		return settings;
+		game_setting_elem = LoadXml("GameSetting");
+		stage_elems["StageJapan"] = LoadXml("StageJapan");
+		stage_elems["StageBrazil"] = LoadXml("StageBrazil");
+		stage_elems["StageUSA"] = LoadXml("StageUSA");
 	}
 
-	std::vector<Enemy_temp> XmlReader::ParseEnemies(tinyxml2::XMLElement* root)
+	tinyxml2::XMLElement *XmlReader::LoadXml(std::string file_name)
 	{
-		tinyxml2::XMLElement* sprite_elem = root->FirstChildElement("Sprite");
+		std::string file = "Resources/" + file_name + ".xml";
 
-		if (!sprite_elem)
-			throw std::invalid_argument("Invalid sprite data.");
+		tinyxml2::XMLDocument doc;
 
-		tinyxml2::XMLElement* enemies_elem = sprite_elem->FirstChildElement("Enemies");
+		if (doc.LoadFile(file.c_str()) != tinyxml2::XML_SUCCESS)
+			throw std::runtime_error("Invalid XML file: " + file_name + ".");
 
-		if (!enemies_elem)
-			throw std::invalid_argument("Invalid enemies.");
-
-		tinyxml2::XMLElement* enemy_elem = enemies_elem->FirstChildElement("Enemy");
-
-		std::vector<Enemy_temp> enemies;
-
-		while (enemy_elem)
-		{
-			tinyxml2::XMLElement* position_elem = enemy_elem->FirstChildElement("Position");
-
-			if (!position_elem)
-				continue;
-
-			int left = 0;
-			int top = 0;
-			int tick = 0;
-			int position_index = 0;
-
-			tinyxml2::XMLElement* left_elem = position_elem->FirstChildElement("Left");
-			tinyxml2::XMLElement* top_elem = position_elem->FirstChildElement("Top");
-
-			// Create and add new Enemy_temp object only if all elements exist
-			if (left_elem && top_elem /* && start_move_time_elem && tick_elem && position_index_elem */ )
-			{
-				left_elem->QueryIntText(&left);
-				top_elem->QueryIntText(&top);
-
-				// Add EnemyX data to the vector
-				enemies.push_back(Enemy_temp(left, top));
-			}
-
-			enemy_elem = enemy_elem->NextSiblingElement("Enemy");
-		}
-
-		return enemies;
+		return doc.RootElement();
 	}
 
-	std::vector<Figter_temp> XmlReader::ParseFigter(tinyxml2::XMLElement* root)
+	tinyxml2::XMLElement *XmlReader::ParseXmlChild(tinyxml2::XMLElement *elem, std::string tag)
 	{
-		tinyxml2::XMLElement* sprite_elem = root->FirstChildElement("Sprite");
+		auto child_elem = elem->FirstChildElement(tag.c_str());
 
-		if (!sprite_elem)
-			throw std::invalid_argument("Invalid sprite data.");
+		if (!child_elem)
+			throw std::runtime_error("Invalid XML child element: " + tag + ".");
 
-		tinyxml2::XMLElement* fighters_elem = sprite_elem->FirstChildElement("Fighters");
+		return child_elem;
+	}
 
-		if (!fighters_elem)
-			throw std::invalid_argument("Invalid fighters data.");
+	tinyxml2::XMLElement *XmlReader::ParseXmlNext(tinyxml2::XMLElement *elem, std::string tag)
+	{
+		auto next_elem = elem->NextSiblingElement(tag.c_str());
 
-		tinyxml2::XMLElement* fighter_elem = fighters_elem->FirstChildElement("Fighter");
+		if (!next_elem)
+			throw std::runtime_error("Invalid XML next element: " + tag + ".");
 
-		std::vector<Figter_temp> fighters;
+		return next_elem;
+	}
 
-		while (fighter_elem)
+	std::vector<tinyxml2::XMLElement *> XmlReader::ParseXmlList(tinyxml2::XMLElement *elem, std::string tag)
+	{
+		auto current_elem = ParseXmlChild(elem, tag);
+
+		std::vector<tinyxml2::XMLElement *> list;
+
+		while (current_elem)
 		{
-			tinyxml2::XMLElement* position_elem = fighter_elem->FirstChildElement("Position");
+			list.push_back(current_elem);
 
-			if (!position_elem)
-				continue;
-
-			int left = 0;
-			int top = 0;
-			int start_move_time = 0;
-			int tick = 0;
-			int position_index = 0;
-
-			tinyxml2::XMLElement* left_elem = position_elem->FirstChildElement("Left");
-			tinyxml2::XMLElement* top_elem = position_elem->FirstChildElement("Top");
-			tinyxml2::XMLElement* start_move_time_elem = position_elem->FirstChildElement("StartMoveTime");
-			tinyxml2::XMLElement* tick_elem = position_elem->FirstChildElement("Tick");
-			tinyxml2::XMLElement* position_index_elem = position_elem->FirstChildElement("PositionIndex");
-
-			if (left_elem && top_elem && start_move_time_elem && tick_elem && position_index_elem)
-			{
-				left_elem->QueryIntText(&left);
-				top_elem->QueryIntText(&top);
-				start_move_time_elem->QueryIntText(&start_move_time);
-				tick_elem->QueryIntText(&tick);
-				position_index_elem->QueryIntText(&position_index);
-
-				fighters.push_back(Figter_temp(left, top, start_move_time, tick, position_index)); // Add EnemyX data to the vector
-			}
-			
-			fighter_elem = fighter_elem->NextSiblingElement("Fighter");
+			current_elem = ParseXmlNext(current_elem, tag);
 		}
 
-		return fighters;
+		return list;
+	}
+
+	tinyxml2::XMLElement *XmlReader::ParseXmlDown(tinyxml2::XMLElement *elem, std::vector<std::string> tags)
+	{
+		for (const auto &tag : tags)
+			elem = ParseXmlChild(elem, tag);
+		
+		return elem;
+	}
+
+	int XmlReader::ParseXmlInt(tinyxml2::XMLElement *elem)
+	{
+		int content = 0;
+		elem->QueryIntText(&content);
+
+		return content;
+	}
+
+	std::string XmlReader::ParseXmlText(tinyxml2::XMLElement *elem)
+	{
+		return elem->GetText();
+	}
+
+	PlayerData XmlReader::ParsePlayerData()
+	{
+		auto path_elem = ParsePathElem(ParseXmlDown(game_setting_elem, { "Player", "Path" }));
+		auto color_mask_elem = ParseXmlDown(game_setting_elem, { "Player", "ColorMask" });
+		auto sprite_elems = ParseXmlList(ParseXmlDown(game_setting_elem, { "Player", "Sprites" }), "Sprite");
+		auto init_position_elem = ParseXmlDown(game_setting_elem, { "Player", "InitPosition" });
+
+		PlayerData player_data;
+		player_data.color_mask = ParseColorMaskElem(color_mask_elem);
+		player_data.sprites = ParseSpriteElems(path_elem, sprite_elems);
+		player_data.init_position = ParsePositionElem(init_position_elem);
+
+		return player_data;
+	}
+
+	std::vector<FighterData> XmlReader::ParseFightersData(std::string stage)
+	{
+		auto path_elem = ParseXmlDown(game_setting_elem, { "Fighters", "Path" });
+		auto color_mask_elem = ParseXmlDown(game_setting_elem, { "Fighters", "ColorMask" });
+		auto sprite_elems = ParseXmlList(ParseXmlDown(game_setting_elem, { "Fighters", "Sprites" }), "Sprite");
+		auto fighter_elems = ParseXmlList(ParseXmlChild(stage_elems[stage], "Fighters"), "Fighter");
+
+		auto path = ParsePathElem(path_elem);
+		auto color_mask = ParseColorMaskElem(color_mask_elem);
+		auto sprites = ParseSpriteElems(path, sprite_elems);
+
+		std::vector<FighterData> fighters_data;
+
+		for (const auto &fighter_elem : fighter_elems)
+		{
+			auto appear_distance_elem = ParseXmlChild(fighter_elem, "AppearDistance");
+			auto move_interval_milli_elem = ParseXmlChild(fighter_elem, "MoveIntervalMilli");
+			auto position_elems = ParseXmlList(ParseXmlChild(fighter_elem, "Positions"), "Position");
+
+			FighterData fighter_data;
+			fighter_data.appear_distance = ParseXmlInt(appear_distance_elem);
+			fighter_data.move_interval_milli = ParseXmlInt(move_interval_milli_elem);
+			fighter_data.color_mask = color_mask;
+			fighter_data.sprites = sprites;
+			fighter_data.positions = ParsePositionElems(position_elems);
+
+			fighters_data.push_back(fighter_data);
+		}
+
+		return fighters_data;
+	}
+
+	std::string XmlReader::ParsePathElem(tinyxml2::XMLElement *path_elem)
+	{
+		auto root_path_elem = ParseXmlChild(game_setting_elem, "RootPath");
+
+		return ParseXmlText(root_path_elem) + ParseXmlText(path_elem);
+	}
+
+	std::tuple<int, int, int> XmlReader::ParseColorMaskElem(tinyxml2::XMLElement *color_mask_elem)
+	{
+		auto red_elem = ParseXmlChild(color_mask_elem, "Red");
+		auto green_elem = ParseXmlChild(color_mask_elem, "Green");
+		auto blue_elem = ParseXmlChild(color_mask_elem, "Blue");
+
+		return std::make_tuple(ParseXmlInt(red_elem), ParseXmlInt(green_elem), ParseXmlInt(blue_elem));
+	}
+
+	std::vector<std::string> XmlReader::ParseSpriteElems(std::string path, std::vector<tinyxml2::XMLElement *> sprite_elems)
+	{
+		std::vector<std::string> sprites;
+
+		for (const auto &sprite_elem : sprite_elems)
+			sprites.push_back(path + ParseXmlText(sprite_elem));
+
+		return sprites;
+	}
+
+	CPoint XmlReader::ParsePositionElem(tinyxml2::XMLElement *position_elem)
+	{
+		auto left_elem = ParseXmlChild(position_elem, "Left");
+		auto top_elem = ParseXmlChild(position_elem, "Top");
+
+		return { ParseXmlInt(left_elem), ParseXmlInt(top_elem) };
+	}
+
+	std::vector<CPoint> XmlReader::ParsePositionElems(std::vector<tinyxml2::XMLElement *> position_elems)
+	{
+		std::vector<CPoint> positions;
+
+		for (const auto &position_elem : position_elems)
+			positions.push_back(ParsePositionElem(position_elem));
+
+		return positions;
 	}
 }

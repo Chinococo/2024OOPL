@@ -10,6 +10,8 @@ namespace Raiden
 		boss = std::make_unique<BossJapan>(1000);
 		boss->Init();
 
+		
+
 		for (int i = 0; i < FIGHTER_COUNT; i++)
 			fighter_pool.AddElement();
 	}

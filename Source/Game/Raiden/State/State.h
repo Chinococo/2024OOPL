@@ -1,5 +1,6 @@
 #pragma once
 #include "../Control/Control.h"
+#include "../Xml/XmlReader.h"
 
 namespace Raiden
 {
@@ -7,10 +8,14 @@ namespace Raiden
 	{
 	public:
 		virtual ~State() = default;
-		virtual void Init() = 0;
+		void Init();
+		virtual void InitDerived() = 0;
 		virtual void KeyUp(Control &control) = 0;
 		virtual void Update(Control &control) = 0;
 		virtual void Show() = 0;
 		virtual bool Over() = 0;
+
+	protected:
+		XmlReader xml_reader;
 	};
 }

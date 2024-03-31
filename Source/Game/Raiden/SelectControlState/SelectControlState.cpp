@@ -6,7 +6,7 @@
 
 namespace Raiden
 {
-	void SelectControlState::Init()
+	void SelectControlState::InitDerived()
 	{
 		std::vector<std::string> paths;
 		paths.push_back("Resources/Background/TitleScreenSelectControl.bmp");

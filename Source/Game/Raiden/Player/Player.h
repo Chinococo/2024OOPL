@@ -1,6 +1,7 @@
 #pragma once
 #include "../../../Library/gameutil.h"
 #include "../Control/Control.h"
+#include "../PlayerData/PlayerData.h"
 #include <set>
 
 namespace Raiden
@@ -8,7 +9,7 @@ namespace Raiden
 	class Player
 	{
 	public:
-		void Init();
+		void Init(PlayerData &&player_data);
 		void Update(const Control &control);
 		void Show();
 		int GetScore() const;

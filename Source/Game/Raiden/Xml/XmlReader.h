@@ -1,10 +1,12 @@
 #pragma once
+#include "tinyxml2.h"
 #include <map>
 #include <vector>
-#include "tinyxml2.h"
-namespace Raiden{
-	class Enemy_temp {
-	public:
+
+namespace Raiden
+{
+	struct Enemy_temp
+	{
 		int x;
 		int y;
 		int startMoveTime;
@@ -15,8 +17,9 @@ namespace Raiden{
 		Enemy_temp(int x_, int y_) :
 			x(x_), y(y_) {}
 	};
-	class Figter_temp {
-	public:
+
+	struct Figter_temp
+	{
 		int x;
 		int y;
 		int startMoveTime;
@@ -25,11 +28,12 @@ namespace Raiden{
 		Figter_temp(int x_, int y_, int startMoveTime_, int tick_, int positionIndex_) :
 			x(x_), y(y_), startMoveTime(startMoveTime_), tick(tick_), positionIndex(positionIndex_) {}
 	};
-	class XmlReader
+
+	struct XmlReader
 	{
 	public:
-		void ParseResourcesRootPath(tinyxml2::XMLElement* root, std::map<std::string, std::string>& settings);
-		void ParseEnemies(tinyxml2::XMLElement* root, std::vector<Enemy_temp>& Enemys);
-		void ParseFigter(tinyxml2::XMLElement* root, std::vector<Figter_temp>& Figter);
+		std::map<std::string, std::string> ParseResourcesRootPath(tinyxml2::XMLElement* root);
+		std::vector<Enemy_temp> ParseEnemies(tinyxml2::XMLElement* root);
+		std::vector<Figter_temp> ParseFigter(tinyxml2::XMLElement* root);
 	};
 }

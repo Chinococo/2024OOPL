@@ -45,9 +45,9 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 		std::vector<Raiden::Figter_temp> Figter;
 		tinyxml2::XMLElement* root = doc.FirstChildElement("GameSetting");
 		if (root) {
-			reader.ParseResourcesRootPath(root, settings);
-			reader.ParseEnemies(root, Enemys);
-			reader.ParseFigter(root, Figter);
+			settings = reader.ParseResourcesRootPath(root);
+			Enemys = reader.ParseEnemies(root);
+			Figter = reader.ParseFigter(root);
 		}
 	}
 	

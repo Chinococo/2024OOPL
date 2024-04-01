@@ -4,12 +4,16 @@
 
 namespace Raiden
 {
-	void StageBrazil::Init()
+	void StageBrazil::InitDerived(StageData &&stage_data)
 	{
-		background.Init({ "Resources/Background/StageBrazil.bmp", "Resources/Background/StageComplement.bmp" });
 		boss = std::make_unique<BossBrazil>(1000);
 		boss->Init();
-		fighter_pool.AddElement();
+		
+		for (auto &fighter_data : stage_data.fighters_data)
+		{
+			int index = fighter_pool.AddElement();
+			fighter_pool[index]->Init(std::move(fighter_data));
+		}
 	}
 
 	void StageBrazil::UpdateDerived(const Player &player)

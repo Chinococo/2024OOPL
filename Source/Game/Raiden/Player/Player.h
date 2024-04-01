@@ -1,7 +1,7 @@
 #pragma once
 #include "../../../Library/gameutil.h"
 #include "../Control/Control.h"
-#include "../PlayerData/PlayerData.h"
+#include "../Data/PlayerData.h"
 #include <set>
 
 namespace Raiden

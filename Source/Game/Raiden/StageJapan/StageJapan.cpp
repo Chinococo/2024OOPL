@@ -4,16 +4,16 @@
 
 namespace Raiden
 {
-	void StageJapan::Init()
+	void StageJapan::InitDerived(StageData &&stage_data)
 	{
-		background.Init({ "Resources/Background/StageJapan.bmp", "Resources/Background/StageComplement.bmp" });
 		boss = std::make_unique<BossJapan>(1000);
 		boss->Init();
 
-		
-
-		for (int i = 0; i < FIGHTER_COUNT; i++)
-			fighter_pool.AddElement();
+		for (auto &fighter_data : stage_data.fighters_data)
+		{
+			int index = fighter_pool.AddElement();
+			fighter_pool[index]->Init(std::move(fighter_data));
+		}
 	}
 
 	void StageJapan::UpdateDerived(const Player &player)
@@ -22,7 +22,7 @@ namespace Raiden
 		fighter_pool.Update();
 		bullet_pool.Update();
 
-		for (int i = 0; i < FIGHTER_COUNT; i++)
+		for (std::size_t i = 0; i < fighter_pool.GetSize(); i++)
 		{
 			if (!fighter_pool[i]->IsAlive())
 			{
@@ -37,11 +37,10 @@ namespace Raiden
 				int bullet_index = bullet_pool.AddElement();
 				bullet_pool[bullet_index]->SetTopLeft({ fighter_pool[i]->GetLeft(), fighter_pool[i]->GetTop() });
 				bullet_pool[bullet_index]->ApplyForce({ 0, 1 });
-				bullet_count++;
 			}
 		}
 
-		for (int i = 0; i < bullet_count; i++)
+		for (std::size_t i = 0; i < bullet_pool.GetSize(); i++)
 		{
 			if (!bullet_pool[i]->IsAlive())
 			{

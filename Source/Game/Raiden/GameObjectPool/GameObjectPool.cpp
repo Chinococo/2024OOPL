@@ -49,6 +49,12 @@ namespace Raiden
 	}
 
 	template<typename T>
+	std::size_t GameObjectPool<T>::GetSize() const
+	{
+		return pool.size();
+	}
+
+	template<typename T>
 	std::shared_ptr<T> GameObjectPool<T>::operator[](std::size_t index)
 	{
 		return pool[index];

@@ -8,18 +8,15 @@ namespace Raiden
 {
 	void SelectControlState::InitDerived()
 	{
-		std::vector<std::string> paths;
-		paths.push_back("Resources/Background/TitleScreenSelectControl.bmp");
+		auto title_screen_data = xml_reader.ParseTitleScreen();
 
-		for (int i = 4; i <= 6; i++)
-			paths.push_back("Resources/Background/TitleScreen" + std::to_string(i) + ".bmp");
+		background.LoadBitmapByString(title_screen_data.sprites);
+		background.SetTopLeft(title_screen_data.left_margin, title_screen_data.left_margin);
+		background.SetAnimation(title_screen_data.animation_delay_milli, true);
 
-		background.LoadBitmapByString(paths);
-		background.SetTopLeft(BACKGROUND_MARGIN, BACKGROUND_MARGIN);
-		background.SetAnimation(BACKGROUND_ANIMATION_DELAY_MILLI, true);
-		selection_line.LoadBitmapByString({ "Resources/Background/SelectionLine.bmp" });
-		selection_line_position.push_back({ 130, 480 });
-		selection_line_position.push_back({ 320, 480 });
+		selection_line.LoadBitmapByString(title_screen_data.selection_line_data.sprites);
+		selection_line_position.push_back(title_screen_data.selection_line_data.positions[0]);
+		selection_line_position.push_back(title_screen_data.selection_line_data.positions[1]);
 		selection_line.SetTopLeft(selection_line_position[selection_index].x, selection_line_position[selection_index].y);
 	}
 

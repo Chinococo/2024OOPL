@@ -10,13 +10,12 @@ namespace Raiden
 	class StageJapan : public Stage
 	{
 	public:
-		void Init() override;
+		void InitDerived(StageData &&stage_data) override;
 		void UpdateDerived(const Player &player) override;
 		void ShowDerived() override;
 
 	private:
 		GameObjectPool<Fighter> fighter_pool;
 		GameObjectPool<Bullet> bullet_pool;
-		int bullet_count = 0;
 	};
 }

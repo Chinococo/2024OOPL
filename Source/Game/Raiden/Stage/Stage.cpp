@@ -4,6 +4,12 @@
 
 namespace Raiden
 {
+	void Stage::Init(StageData &&stage_data)
+	{
+		background.Init(stage_data.background_data);
+		InitDerived(std::move(stage_data));
+	}
+
 	void Stage::Update(const Player &player)
 	{
 		background.Update();

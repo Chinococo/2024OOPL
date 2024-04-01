@@ -2,7 +2,7 @@
 #include "../../../Library/gameutil.h"
 #include "../Player/Player.h"
 #include "../Collidable/Collidable.h"
-#include "../FighterData/FighterData.h"
+#include "../Data/FighterData.h"
 #include <vector>
 #include <ctime>
 

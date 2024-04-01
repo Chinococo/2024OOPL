@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GameSetting>
 	<RootPath>Resources/</RootPath>
+	<Background>
+		<Path>Background/</Path>
+		<ScrollStep>3</ScrollStep>
+		<ScollIntervalMilli>33</ScollIntervalMilli>
+		<LeftMargin>-10</LeftMargin>
+	</Background>
 	<NTUTLogo>
 		<Sprites>
 			<Sprite>NTUTLogo.bmp</Sprite>
 		<Sprites>
 	</NTUTLogo>
 	<TitleScreen>
+		<AnimationDelayMilli>300</AnimationDelayMilli>
 		<Sprites>
 			<Sprite>TitleScreen0.bmp</Sprite>
 			<Sprite>TitleScreen1.bmp</Sprite>
@@ -18,6 +25,16 @@
 		</Sprites>
 	</TitleScreen>
 	<SelectionLine>
+		<Positions>
+			<Position>
+				<Left>130</Left>
+				<Top>480</Top>
+			</Position>
+			<Position>
+				<Left>320</Left>
+				<Top>480</Top>
+			</Position>
+		</Positions>
 		<Sprites>
 			<Sprite>SelectionLine.bmp</Sprite>
 		</Sprites>

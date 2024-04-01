@@ -290,10 +290,13 @@
     <ClInclude Include="Source\Game\Raiden\Bullet\Bullet.h" />
     <ClInclude Include="Source\Game\Raiden\Collidable\Collidable.h" />
     <ClInclude Include="Source\Game\Raiden\Control\Control.h" />
-    <ClInclude Include="Source\Game\Raiden\FighterData\FighterData.h" />
+    <ClInclude Include="Source\Game\Raiden\Data\BackgroundData.h" />
+    <ClInclude Include="Source\Game\Raiden\Data\FighterData.h" />
+    <ClInclude Include="Source\Game\Raiden\Data\PlayerData.h" />
+    <ClInclude Include="Source\Game\Raiden\Data\StageData.h" />
+    <ClInclude Include="Source\Game\Raiden\Data\TitleScreenData.h" />
     <ClInclude Include="Source\Game\Raiden\Fighter\Fighter.h" />
     <ClInclude Include="Source\Game\Raiden\Key\Key.h" />
-    <ClInclude Include="Source\Game\Raiden\PlayerData\PlayerData.h" />
     <ClInclude Include="Source\Game\Raiden\Player\Player.h" />
     <ClInclude Include="Source\Game\Raiden\RunningState\RunningState.h" />
     <ClInclude Include="Source\Game\Raiden\SelectControlState\SelectControlState.h" />

@@ -92,11 +92,8 @@
     <Filter Include="MyGame\Raiden\StateManager">
       <UniqueIdentifier>{82520d74-4828-42a9-be70-e74c95ae6dc2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="MyGame\Raiden\PlayerData">
-      <UniqueIdentifier>{527f2afa-dbb7-49bd-a3fb-6a426036097b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="MyGame\Raiden\FighterData">
-      <UniqueIdentifier>{9fbada0d-05ff-4db7-b4a0-9c84e192eae5}</UniqueIdentifier>
+    <Filter Include="MyGame\Raiden\Data">
+      <UniqueIdentifier>{e0bc7ad9-c90f-4f79-b1e7-2a56966d7052}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -323,11 +320,20 @@
     <ClInclude Include="Source\Game\Raiden\StateManager\StateManager.h">
       <Filter>MyGame\Raiden\StateManager</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Game\Raiden\PlayerData\PlayerData.h">
-      <Filter>MyGame\Raiden\PlayerData</Filter>
+    <ClInclude Include="Source\Game\Raiden\Data\PlayerData.h">
+      <Filter>MyGame\Raiden\Data</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Game\Raiden\FighterData\FighterData.h">
-      <Filter>MyGame\Raiden\FighterData</Filter>
+    <ClInclude Include="Source\Game\Raiden\Data\TitleScreenData.h">
+      <Filter>MyGame\Raiden\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Game\Raiden\Data\StageData.h">
+      <Filter>MyGame\Raiden\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Game\Raiden\Data\BackgroundData.h">
+      <Filter>MyGame\Raiden\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Game\Raiden\Data\FighterData.h">
+      <Filter>MyGame\Raiden\Data</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

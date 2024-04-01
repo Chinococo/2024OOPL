@@ -5,8 +5,8 @@ namespace Raiden
 {
 	void RunningState::InitDerived()
 	{
-		stage_manager.Init();
-		player.Init(xml_reader.ParsePlayerData());
+		stage_manager.Init(xml_reader.ParseStages());
+		player.Init(xml_reader.ParsePlayer());
 		status_panel.Init(text_graphics);
 	}
 

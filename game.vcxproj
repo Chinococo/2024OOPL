@@ -321,7 +321,10 @@
     <ResourceCompile Include="Source\Core\game.rc" />
   </ItemGroup>
   <ItemGroup>
-    <Xml Include="Resources\GameSetting.xml" />
+    <Xml Include="Resources\Xml\GameSetting.xml" />
+    <Xml Include="Resources\Xml\StageBrazil.xml" />
+    <Xml Include="Resources\Xml\StageJapan.xml" />
+    <Xml Include="Resources\Xml\StageUSA.xml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

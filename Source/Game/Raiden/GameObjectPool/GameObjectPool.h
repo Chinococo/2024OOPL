@@ -15,8 +15,7 @@ namespace Raiden
 	class GameObjectPool
 	{
 	public:
-		template<typename... Args>
-		int AddElement(Args... args);
+		int AddElement();
 		void Update();
 		void Show();
 		std::size_t GetSize() const;

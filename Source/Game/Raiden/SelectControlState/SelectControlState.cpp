@@ -2,6 +2,7 @@
 #include "SelectControlState.h"
 #include "../Key/Key.h"
 #include "../../config.h"
+#include "../Xml/XmlReader.h"
 #include <string>
 
 namespace Raiden

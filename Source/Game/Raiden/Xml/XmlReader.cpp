@@ -15,7 +15,7 @@ namespace Raiden
 
 	tinyxml2::XMLElement *XmlReader::LoadXml(std::string file_name) const
 	{
-		std::string file = "Resources/" + file_name + ".xml";
+		std::string file = "Resources/Xml/" + file_name + ".xml";
 
 		tinyxml2::XMLDocument doc;
 

@@ -342,7 +342,16 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <Xml Include="Resources\GameSetting.xml">
+    <Xml Include="Resources\Xml\GameSetting.xml">
+      <Filter>Resource Files</Filter>
+    </Xml>
+    <Xml Include="Resources\Xml\StageBrazil.xml">
+      <Filter>Resource Files</Filter>
+    </Xml>
+    <Xml Include="Resources\Xml\StageJapan.xml">
+      <Filter>Resource Files</Filter>
+    </Xml>
+    <Xml Include="Resources\Xml\StageUSA.xml">
       <Filter>Resource Files</Filter>
     </Xml>
   </ItemGroup>

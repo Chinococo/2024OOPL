@@ -32,6 +32,29 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 
 void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 {
+<<<<<<< HEAD
+=======
+	tinyxml2::XMLDocument doc;
+	if (doc.LoadFile("Resources/GameSetting.xml") == tinyxml2::XML_SUCCESS) {
+		Raiden::XmlReader reader;
+		// Parse XML
+		std::map<std::string, std::string> settings;
+		std::vector<Raiden::Enemy_temp> Enemys;
+		std::vector<Raiden::Figter_temp> Figter;
+		tinyxml2::XMLElement* root = doc.FirstChildElement("GameSetting");
+		if (root) {
+			settings = reader.ParseResourcesRootPath(root);
+			Enemys = reader.ParseEnemies(root);
+			Figter = reader.ParseFigter(root);
+		}
+	}
+	
+
+	//Raiden::GameObjectPool<int> test;
+	//test.AddElement({ 10,10 });
+	//bullet.AddElement({ 50,50 });
+	//bullet.AddElement({ 50,300 });
+>>>>>>> 270bab55184543893d8e0d7123c895ef7023b5be
 	state_manager.Init();
 
 	key_map[VK_UP] = Raiden::Key::UP;

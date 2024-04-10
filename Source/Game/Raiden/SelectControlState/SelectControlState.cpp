@@ -9,8 +9,8 @@ namespace Raiden
 {
 	void SelectControlState::InitDerived()
 	{
+		background.ToggleAnimation();
 		auto title_screen_data = xml_reader.ParseTitleScreen();
-
 		background.LoadBitmapByString(title_screen_data.sprites);
 		background.SetTopLeft(title_screen_data.left_margin, title_screen_data.left_margin);
 		background.SetAnimation(title_screen_data.animation_delay_milli, true);
@@ -34,7 +34,6 @@ namespace Raiden
 
 		if (control.keys.count(Key::FIRE))
 		{
-			background.ToggleAnimation();
 			mode_selected = true;
 			control.mode = selection_index ? ControlMode::MOUSE : ControlMode::KEYBOARD;
 		}

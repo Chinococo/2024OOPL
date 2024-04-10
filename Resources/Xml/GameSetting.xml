@@ -18,10 +18,10 @@
 			<Sprite>TitleScreen0.bmp</Sprite>
 			<Sprite>TitleScreen1.bmp</Sprite>
 			<Sprite>TitleScreen2.bmp</Sprite>
-			<Sprite>TitleScreenSelectControl.bmp</Sprite>
 			<Sprite>TitleScreen3.bmp</Sprite>
 			<Sprite>TitleScreen4.bmp</Sprite>
 			<Sprite>TitleScreen5.bmp</Sprite>
+      <Sprite>TitleScreenSelectControl.bmp</Sprite>
 		</Sprites>
 	</TitleScreen>
 	<SelectionLine>

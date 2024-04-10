@@ -2,6 +2,8 @@
 #include "../../../Library/gameutil.h"
 #include "../Control/Control.h"
 #include "../Data/PlayerData.h"
+#include "../GameObjectPool/GameObjectPool.h"
+#include "../Bullet/Bullet.h"
 #include <set>
 
 namespace Raiden
@@ -9,7 +11,7 @@ namespace Raiden
 	class Player
 	{
 	public:
-		void Init(PlayerData &&player_data);
+		void Init(PlayerData &&player_data, Raiden::GameObjectPool<Raiden::Bullet>& bullet);
 		void Update(const Control &control);
 		void Show();
 		int GetScore() const;
@@ -27,5 +29,6 @@ namespace Raiden
 		int high_score = 0;
 		int life_count = 3;
 		int bomb_count = 3;
+		Raiden::GameObjectPool<Raiden::Bullet> bullets;
 	};
 }

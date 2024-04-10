@@ -6,7 +6,7 @@ namespace Raiden
 	void RunningState::InitDerived()
 	{
 		stage_manager.Init(xml_reader.ParseStages());
-		player.Init(xml_reader.ParsePlayer());
+		player.Init(xml_reader.ParsePlayer(),bullets);
 		status_panel.Init(text_graphics);
 	}
 
@@ -19,6 +19,7 @@ namespace Raiden
 	{
 		player.Update(control);
 		stage_manager.Update(player);
+		bullets.Update();
 		status_panel.Update(player, text_graphics);
 	}
 
@@ -28,6 +29,7 @@ namespace Raiden
 		player.Show();
 		status_panel.Show();
 		text_graphics.Show();
+		bullets.Show();
 	}
 
 	bool RunningState::Over()

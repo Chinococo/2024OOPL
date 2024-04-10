@@ -6,7 +6,8 @@
 #include "../TextGraphics/TextGraphics.h"
 #include "../Control/Control.h"
 #include "../Key/Key.h"
-
+#include "../GameObjectPool/GameObjectPool.h"
+#include "../Bullet/Bullet.h"
 namespace Raiden
 {
 	class RunningState : public State
@@ -23,5 +24,6 @@ namespace Raiden
 		Player player;
 		StatusPanel status_panel;
 		TextGraphics text_graphics;
+		Raiden::GameObjectPool<Raiden::Bullet> bullets;
 	};
 }

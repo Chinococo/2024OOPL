@@ -10,7 +10,7 @@
 	<NTUTLogo>
 		<Sprites>
 			<Sprite>NTUTLogo.bmp</Sprite>
-		<Sprites>
+		</Sprites>
 	</NTUTLogo>
 	<TitleScreen>
 		<AnimationDelayMilli>300</AnimationDelayMilli>

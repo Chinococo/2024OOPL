@@ -20,6 +20,32 @@ CGameStateInit::CGameStateInit(CGame *g) : CGameState(g)
 
 void CGameStateInit::OnInit()
 {
+	//測試
+	tinyxml2::XMLDocument doc;
+	if (doc.LoadFile("Resources\\Xml\\GameSetting.xml") == tinyxml2::XML_SUCCESS) {
+		Raiden::XmlReader reader;
+		// Parse XML
+		std::map<std::string, std::string> settings;
+		tinyxml2::XMLElement* root = doc.FirstChildElement("GameSetting");
+		if (root) {
+			tinyxml2::XMLElement* background = root->FirstChildElement("Background");
+			if (background) {
+				tinyxml2::XMLElement* path = background->FirstChildElement("Path");
+				if (path) {
+					std::string test = path->GetText();
+					// Now test should contain "Background/"
+				}
+			}
+		}
+	}
+
+
+
+
+
+
+
+
 	//
 	// 當圖很多時，OnInit載入所有的圖要花很多時間。為避免玩遊戲的人
 	//     等的不耐煩，遊戲會出現「Loading ...」，顯示Loading的進度。

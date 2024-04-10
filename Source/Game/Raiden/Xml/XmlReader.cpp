@@ -16,13 +16,13 @@ namespace Raiden
 	tinyxml2::XMLElement *XmlReader::LoadXml(std::string file_name) const
 	{
 		std::string file = "Resources/Xml/" + file_name + ".xml";
+		auto p = std::make_unique<int[]>(5);
+		tinyxml2::XMLDocument* doc = new tinyxml2::XMLDocument();
 
-		tinyxml2::XMLDocument doc;
-
-		if (doc.LoadFile(file.c_str()) != tinyxml2::XML_SUCCESS)
+		if (doc->LoadFile(file.c_str()) != tinyxml2::XML_SUCCESS)
 			throw std::runtime_error("Invalid XML file: " + file_name + ".");
 
-		return doc.RootElement();
+		return doc->FirstChildElement(file_name.c_str());
 	}
 
 	tinyxml2::XMLElement *XmlReader::ParseXmlChild(tinyxml2::XMLElement *elem, std::string tag) const
@@ -34,7 +34,6 @@ namespace Raiden
 
 		return child_elem;
 	}
-
 	tinyxml2::XMLElement *XmlReader::ParseXmlNext(tinyxml2::XMLElement *elem, std::string tag) const
 	{
 		auto next_elem = elem->NextSiblingElement(tag.c_str());
@@ -54,8 +53,13 @@ namespace Raiden
 		while (current_elem)
 		{
 			list.push_back(current_elem);
-
-			current_elem = ParseXmlNext(current_elem, tag);
+			try {
+				current_elem = ParseXmlNext(current_elem, tag);
+			}catch(const std::runtime_error e){
+				//沒有下一個元素
+				break;
+			}
+			
 		}
 
 		return list;
@@ -84,7 +88,7 @@ namespace Raiden
 
 	PlayerData XmlReader::ParsePlayer() const
 	{
-		auto path_elem = ParseXmlChild(game_setting_elem, { "Player", "Path" });
+		auto path_elem = ParseXmlDown(game_setting_elem,{ "Player", "Path" });
 		auto color_mask_elem = ParseXmlDown(game_setting_elem, { "Player", "ColorMask" });
 		auto sprite_elems = ParseXmlList(ParseXmlDown(game_setting_elem, { "Player", "Sprites" }), "Sprite");
 		auto init_position_elem = ParseXmlDown(game_setting_elem, { "Player", "InitPosition" });
@@ -99,10 +103,10 @@ namespace Raiden
 
 	TitleScreenData XmlReader::ParseTitleScreen() const
 	{
-		auto path_elem = ParseXmlChild(game_setting_elem, { "Background", "Path" });
+		auto path_elem = ParseXmlDown(game_setting_elem,{ "Background", "Path" });
 		auto animation_delay_milli_elem = ParseXmlDown(game_setting_elem, { "TitleScreen", "AnimationDelayMilli" });
 		auto left_margin_elem = ParseXmlDown(game_setting_elem, { "Background", "LeftMargin" });
-		auto sprite_elems = ParseXmlList(ParseXmlDown(game_setting_elem, { "Background", "Sprites" }), "Sprite");
+		auto sprite_elems = ParseXmlList(ParseXmlDown(game_setting_elem, { "TitleScreen", "Sprites" }), "Sprite");
 
 		auto selection_line_sprite_elems = ParseXmlList(ParseXmlDown(game_setting_elem, { "SelectionLine", "Sprites" }), "Sprite");
 		auto selection_line_position_elems = ParseXmlList(ParseXmlDown(game_setting_elem, { "SelectionLine", "Positions" }), "Position");
@@ -138,7 +142,7 @@ namespace Raiden
 
 	BackgroundData XmlReader::ParseStageBackground(std::string stage)
 	{
-		auto path_elem = ParseXmlChild(game_setting_elem, { "Background", "Path" });
+		auto path_elem = ParseXmlDown(game_setting_elem,{ "Background", "Path" });
 		auto scroll_step_elem = ParseXmlDown(game_setting_elem, { "Background", "ScrollStep" });
 		auto scroll_interval_milli_elem = ParseXmlDown(game_setting_elem, { "Background", "ScollIntervalMilli" });
 		auto sprite_elems = ParseXmlList(ParseXmlDown(stage_elems[stage], { "Background", "Sprites" }), "Sprite");
@@ -153,9 +157,9 @@ namespace Raiden
 
 	std::vector<FighterData> XmlReader::ParseFighters(std::string stage)
 	{
-		auto path_elem = ParseXmlDown(game_setting_elem, { "Fighters", "Path" });
-		auto color_mask_elem = ParseXmlDown(game_setting_elem, { "Fighters", "ColorMask" });
-		auto sprite_elems = ParseXmlList(ParseXmlDown(game_setting_elem, { "Fighters", "Sprites" }), "Sprite");
+		auto path_elem = ParseXmlDown(stage_elems[stage], { "Fighters", "Path" });
+		auto color_mask_elem = ParseXmlDown(stage_elems[stage], { "Fighters", "ColorMask" });
+		auto sprite_elems = ParseXmlList(ParseXmlDown(stage_elems[stage], { "Fighters", "Sprites" }), "Sprite");
 		auto fighter_elems = ParseXmlList(ParseXmlChild(stage_elems[stage], "Fighters"), "Fighter");
 
 		auto color_mask = ParseColorMaskElem(color_mask_elem);

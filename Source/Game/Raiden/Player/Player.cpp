@@ -29,6 +29,7 @@ namespace Raiden
 
 	void Player::Show()
 	{
+		sprite.SetFrameIndexOfBitmap(sprite_index);
 		sprite.ShowBitmap();
 	}
 
@@ -57,6 +58,16 @@ namespace Raiden
 		int left = sprite.GetLeft() + (keys.count(Key::RIGHT) - keys.count(Key::LEFT)) * MOVE_STEP;
 		int top = sprite.GetTop() + (keys.count(Key::DOWN) - keys.count(Key::UP)) * MOVE_STEP;
 
+		if ((keys.count(Key::RIGHT) - keys.count(Key::LEFT)) != 0) 
+			sprite_index +=  (keys.count(Key::RIGHT) - keys.count(Key::LEFT));
+
+		else 
+			if (sprite_index < 5)
+				sprite_index += 1;
+			else if (sprite_index > 5) 
+				sprite_index -= 1;
+			
+		sprite_index = min(10, max(0, sprite_index));
 		left = max(0, left);
 		top = max(0, top);
 

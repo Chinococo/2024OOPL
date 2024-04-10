@@ -31,5 +31,7 @@ namespace Raiden
 		std::clock_t move_interval_milli = 1000;
 		int appear_distance = 0;
 		std::vector<bool> attack_positions;
+		const float M_PI = 3.1415926f;
+		int last_distance = 0;
 	};
 }

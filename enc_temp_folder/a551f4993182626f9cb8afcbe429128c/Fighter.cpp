@@ -23,6 +23,8 @@ namespace Raiden
 		if (scrolled_distance < appear_distance) {
 			return;
 		}
+			
+
 		move_clock = std::clock();
 
 		std::clock_t elapsed_time = move_clock - start_move_time;

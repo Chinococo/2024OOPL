@@ -12,6 +12,7 @@ namespace Raiden
 
 		sprite.LoadBitmapByString(fighter_data.sprites, RGB(color_mask_red, color_mask_green, color_mask_blue));
 		positions = fighter_data.positions;
+		attack_positions = std::vector<bool>(fighter_data.positions.size(), false);
 		appear_distance = fighter_data.appear_distance;
 		move_interval_milli = fighter_data.move_interval_milli;
 		alive = true;

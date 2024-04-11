@@ -82,7 +82,7 @@ namespace Raiden
 		if (keys.count(Key::FIRE)) {
 			int index = bullets->AddElement();
 			auto test = *bullets;
-			test[index]->Init();
+			test[index]->Init(true);
 			test[index]->SetTopLeft({ left,top });
 			test[index]->ApplyForce({ 0,-3 });
 			

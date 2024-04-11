@@ -3,8 +3,9 @@
 #include "../../config.h"
 namespace Raiden
 {
-	void Bullet::Init()
+	void Bullet::Init(bool friendly)
 	{
+		this->friendly = friendly;
 		sprite.LoadBitmapByString({ "Resources/1.bmp" });
 		collisionBox.Init({ { 0, 0, sprite.GetWidth(), sprite.GetWidth() } });
 		alive = true;

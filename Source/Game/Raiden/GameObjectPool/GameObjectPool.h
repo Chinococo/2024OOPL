@@ -16,7 +16,6 @@ namespace Raiden
 	{
 	public:
 		int AddElement();
-		//int AddElement(CPoint point, CPoint force);
 		void Update();
 		void Show();
 		std::size_t GetSize() const;

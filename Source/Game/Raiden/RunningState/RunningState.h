@@ -24,6 +24,6 @@ namespace Raiden
 		Player player;
 		StatusPanel status_panel;
 		TextGraphics text_graphics;
-		Raiden::GameObjectPool<Raiden::Bullet> bullets;
+		GameObjectPool<Bullet> bullets;
 	};
 }

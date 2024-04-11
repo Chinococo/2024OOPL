@@ -8,12 +8,12 @@
 
 namespace Raiden
 {
-	void Player::Init(PlayerData &&player_data,Raiden::GameObjectPool<Raiden::Bullet>& bullet)
+	void Player::Init(PlayerData &&player_data,Raiden::GameObjectPool<Raiden::Bullet>&& bullet)
 	{
 		int color_mask_red = std::get<0>(player_data.color_mask);
 		int color_mask_green = std::get<1>(player_data.color_mask);
 		int color_mask_blue = std::get<2>(player_data.color_mask);
-		bullets = bullet;
+		bullets = std::move(bullet);
 		sprite.LoadBitmapByString(player_data.sprites, RGB(color_mask_red, color_mask_green, color_mask_blue));
 		sprite.SetFrameIndexOfBitmap(sprite_index);
 		sprite.SetTopLeft(player_data.init_position.x, player_data.init_position.y);
@@ -77,7 +77,14 @@ namespace Raiden
 
 		sprite.SetTopLeft(left, top);
 
-		// TODO
+		if (keys.count(Key::FIRE)) {
+			int index = bullets.AddElement();
+			bullets[index]->Init();
+			bullets[index]->SetTopLeft({ left,top });
+			bullets[index]->ApplyForce({ 0,-3 });
+			
+
+		}
 	}
 
 	void Player::UpdateByMouse(CPoint point)

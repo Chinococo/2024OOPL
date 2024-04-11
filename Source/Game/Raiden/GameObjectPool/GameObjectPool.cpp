@@ -5,6 +5,9 @@
 
 namespace Raiden
 {
+	template class GameObjectPool<Fighter>;
+	template class GameObjectPool<Bullet>;
+
 	template<typename T>
 	int GameObjectPool<T>::AddElement()
 	{
@@ -23,27 +26,6 @@ namespace Raiden
 		pool.push_back(temp);
 		return pool.size() - 1;
 	}
-	//¤l¼u±M¥Î
-	/*
-	template<>
-	int GameObjectPool<Bullet>::AddElement(CPoint point,CPoint force)
-	{
-		std::shared_ptr<Bullet> temp;
-
-		if (recovery.size() > 0)
-		{
-			temp = recovery.front();
-			recovery.pop();
-		}
-		else
-		{
-			temp = std::make_shared<Bullet>();
-		}
-		temp->ApplyForce(std::move(force));
-		temp->SetTopLeft(std::move(point));
-		pool.push_back(temp);
-		return pool.size() - 1;
-	}*/
 	template<typename T>
 	void GameObjectPool<T>::Update()
 	{
@@ -78,6 +60,5 @@ namespace Raiden
 		return pool[index];
 	}
 
-	template class GameObjectPool<Fighter>;
-	template class GameObjectPool<Bullet>;
+	
 }

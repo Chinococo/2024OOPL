@@ -21,6 +21,7 @@ namespace Raiden
 		int GetTop();
 
 	private:
+		void Move(int left, int top);
 		game_framework::CMovingBitmap sprite;
 		int health = 10;
 		bool alive = true;

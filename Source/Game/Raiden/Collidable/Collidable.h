@@ -9,6 +9,9 @@ namespace Raiden
 		virtual ~Collidable() = default;
 		CollisionBox &GetCollisionBox();
 		bool IsCollisionBoxOverlap(Collidable &other);
+		void InitCollisionBox(int width, int height);
+		void UpdateCollisionBox(int left, int top);
+		void ShowCollisionBox();
 
 	private:
 		CollisionBox collision_box;

@@ -11,6 +11,7 @@ namespace Raiden
 		int color_mask_blue = std::get<2>(fighter_data.color_mask);
 
 		sprite.LoadBitmapByString(fighter_data.sprites, RGB(color_mask_red, color_mask_green, color_mask_blue));
+		InitCollisionBox(sprite.GetWidth(), sprite.GetHeight());
 		positions = fighter_data.positions;
 		attack_positions = std::vector<bool>(fighter_data.positions.size(), false);
 		appear_distance = fighter_data.appear_distance;
@@ -34,7 +35,7 @@ namespace Raiden
 		// Stay at the last position.
 		if (position_index == positions.size() - 2 && completeness == 1) {
 			sprite.SetFrameIndexOfBitmap(12);
-			sprite.SetTopLeft(sprite.GetLeft(), sprite.GetTop() + (scrolled_distance-last_distance)+3);
+			Move(sprite.GetLeft(), sprite.GetTop() + (scrolled_distance-last_distance)+3);
 			last_distance = scrolled_distance;
 			return;
 		}
@@ -45,7 +46,7 @@ namespace Raiden
 		double angle = atan2(-(positions[position_index + 1].y - positions[position_index].y),
 			positions[position_index + 1].x - positions[position_index].x);
 		
-		sprite.SetTopLeft(left, top);
+		Move(left, top);
 		last_distance = scrolled_distance;
 		// Stay at the current position index.
 		if (completeness < 1)
@@ -62,7 +63,8 @@ namespace Raiden
 
 	void Fighter::Show()
 	{
-		sprite.ShowBitmap();
+		sprite.ShowBitmap(2);
+		ShowCollisionBox();
 	}
 
 	void Fighter::Destroy()
@@ -88,5 +90,11 @@ namespace Raiden
 	int Fighter::GetTop()
 	{
 		return sprite.GetTop();
+	}
+
+	void Fighter::Move(int left, int top)
+	{
+		sprite.SetTopLeft(left, top);
+		UpdateCollisionBox(left, top);
 	}
 }

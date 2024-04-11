@@ -16,6 +16,7 @@ namespace Raiden
 	{
 	public:
 		int AddElement();
+		//int AddElement(CPoint point, CPoint force);
 		void Update();
 		void Show();
 		std::size_t GetSize() const;
@@ -24,5 +25,6 @@ namespace Raiden
 	private:
 		std::vector<std::shared_ptr<T>> pool;
 		std::queue<std::shared_ptr<T>> recovery;
+
 	};
 }

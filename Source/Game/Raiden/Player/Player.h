@@ -11,7 +11,7 @@ namespace Raiden
 	class Player
 	{
 	public:
-		void Init(PlayerData &&player_data, Raiden::GameObjectPool<Raiden::Bullet> &&bullet);
+		void Init(PlayerData&& player_data, std::shared_ptr<Raiden::GameObjectPool<Raiden::Bullet>>& bullet);
 		void Update(const Control &control);
 		void Show();
 		int GetScore() const;
@@ -29,6 +29,6 @@ namespace Raiden
 		int high_score = 0;
 		int life_count = 3;
 		int bomb_count = 3;
-		GameObjectPool<Bullet> bullets;
+		std::shared_ptr<Raiden::GameObjectPool<Raiden::Bullet>> bullets;
 	};
 }

@@ -6,7 +6,7 @@ namespace Raiden
 	void RunningState::InitDerived()
 	{
 		stage_manager.Init(xml_reader.ParseStages());
-		player.Init(xml_reader.ParsePlayer(), std::move(bullets));
+		player.Init(xml_reader.ParsePlayer(), bullets);
 		status_panel.Init(text_graphics);
 	}
 
@@ -19,9 +19,12 @@ namespace Raiden
 	{
 		player.Update(control);
 		stage_manager.Update(player);
-		bullets.Update();
-		for (size_t i = 0; i < bullets.GetSize(); i++)
-			bullets[i]->Update();
+		bullets->Update();
+		for (size_t i = 0; i < bullets->GetSize(); i++) {
+			auto test = *bullets;
+			test[i]->Update();
+		}
+			
 		status_panel.Update(player, text_graphics);
 	}
 
@@ -31,7 +34,7 @@ namespace Raiden
 		player.Show();
 		status_panel.Show();
 		text_graphics.Show();
-		bullets.Show();
+		bullets->Show();
 	}
 
 	bool RunningState::Over()

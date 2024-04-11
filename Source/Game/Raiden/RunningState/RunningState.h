@@ -24,6 +24,6 @@ namespace Raiden
 		Player player;
 		StatusPanel status_panel;
 		TextGraphics text_graphics;
-		GameObjectPool<Bullet> bullets;
+		std::shared_ptr<GameObjectPool<Bullet>> bullets = std::shared_ptr<GameObjectPool<Bullet>>(new GameObjectPool<Bullet>());
 	};
 }

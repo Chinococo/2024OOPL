@@ -262,6 +262,7 @@
     <ClCompile Include="Source\Game\Raiden\StageUSA\StageUSA.cpp" />
     <ClCompile Include="Source\Game\Raiden\Stage\Stage.cpp" />
     <ClCompile Include="Source\Game\Raiden\StateManager\StateManager.cpp" />
+    <ClCompile Include="Source\Game\Raiden\State\State.cpp" />
     <ClCompile Include="Source\Game\Raiden\StatusPanel\StatusPanel.cpp" />
     <ClCompile Include="Source\Game\Raiden\TextGraphics\TextGraphics.cpp" />
     <ClCompile Include="Source\Game\Raiden\CollisionBox\CollisionBox.cpp" />
@@ -289,6 +290,11 @@
     <ClInclude Include="Source\Game\Raiden\Bullet\Bullet.h" />
     <ClInclude Include="Source\Game\Raiden\Collidable\Collidable.h" />
     <ClInclude Include="Source\Game\Raiden\Control\Control.h" />
+    <ClInclude Include="Source\Game\Raiden\Data\BackgroundData.h" />
+    <ClInclude Include="Source\Game\Raiden\Data\FighterData.h" />
+    <ClInclude Include="Source\Game\Raiden\Data\PlayerData.h" />
+    <ClInclude Include="Source\Game\Raiden\Data\StageData.h" />
+    <ClInclude Include="Source\Game\Raiden\Data\TitleScreenData.h" />
     <ClInclude Include="Source\Game\Raiden\Fighter\Fighter.h" />
     <ClInclude Include="Source\Game\Raiden\Key\Key.h" />
     <ClInclude Include="Source\Game\Raiden\Player\Player.h" />
@@ -315,7 +321,10 @@
     <ResourceCompile Include="Source\Core\game.rc" />
   </ItemGroup>
   <ItemGroup>
-    <Xml Include="Resources\GameSetting.xml" />
+    <Xml Include="Resources\Xml\GameSetting.xml" />
+    <Xml Include="Resources\Xml\StageBrazil.xml" />
+    <Xml Include="Resources\Xml\StageJapan.xml" />
+    <Xml Include="Resources\Xml\StageUSA.xml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

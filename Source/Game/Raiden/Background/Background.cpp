@@ -9,15 +9,15 @@
 
 namespace Raiden
 {
-	Background::Background() : SCROLL_STEP(3), SCROLL_INTERVAL_MILLI(33) {}
-
-	void Background::Init(std::vector<std::string> &&paths)
+	void Background::Init(BackgroundData background_data)
 	{
-		part1.LoadBitmapByString({ paths[0] });
-		part2.LoadBitmapByString({ paths[1] });
+		scroll_step = background_data.scroll_step;
+		scroll_interval_milli = background_data.scroll_interval_milli;
+
+		part1.LoadBitmapByString({ background_data.sprites[0] });
+		part2.LoadBitmapByString({ background_data.sprites[1] });
 		part1.SetTopLeft(BACKGROUND_MARGIN, SIZE_Y - part1.GetHeight());
 		part2.SetTopLeft(BACKGROUND_MARGIN, part1.GetTop() - part2.GetHeight());
-		this->paths = std::move(paths);
 	}
 
 	void Background::Update()
@@ -25,7 +25,7 @@ namespace Raiden
 		if (Over())
 			return;
 
-		if (static_cast<double>(std::clock() - scroll_clock) / CLOCKS_PER_SEC < static_cast<double>(SCROLL_INTERVAL_MILLI) / 1000)
+		if (static_cast<double>(std::clock() - scroll_clock) / CLOCKS_PER_SEC < static_cast<double>(scroll_interval_milli) / 1000)
 			return;
     
 		scroll_clock = std::clock();
@@ -36,8 +36,8 @@ namespace Raiden
 		if (part2.GetTop() >= SIZE_Y)
 			part2.SetTopLeft(BACKGROUND_MARGIN, part1.GetTop() - part2.GetHeight());
 
-		part1.SetTopLeft(BACKGROUND_MARGIN, part1.GetTop() + SCROLL_STEP);
-		part2.SetTopLeft(BACKGROUND_MARGIN, part2.GetTop() + SCROLL_STEP);
+		part1.SetTopLeft(BACKGROUND_MARGIN, part1.GetTop() + scroll_step);
+		part2.SetTopLeft(BACKGROUND_MARGIN, part2.GetTop() + scroll_step);
 	}
 
 	void Background::Show()

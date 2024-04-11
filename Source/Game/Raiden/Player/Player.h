@@ -1,6 +1,9 @@
 #pragma once
 #include "../../../Library/gameutil.h"
 #include "../Control/Control.h"
+#include "../Data/PlayerData.h"
+#include "../GameObjectPool/GameObjectPool.h"
+#include "../Bullet/Bullet.h"
 #include <set>
 
 namespace Raiden
@@ -8,7 +11,7 @@ namespace Raiden
 	class Player
 	{
 	public:
-		void Init();
+		void Init(PlayerData&& player_data, std::shared_ptr<Raiden::GameObjectPool<Raiden::Bullet>>& bullet);
 		void Update(const Control &control);
 		void Show();
 		int GetScore() const;
@@ -21,10 +24,11 @@ namespace Raiden
 		void UpdateByMouse(CPoint point);
 		const int MOVE_STEP = 10;
 		game_framework::CMovingBitmap sprite;
-		std::size_t sprite_index = 5;
+		int sprite_index = 5;
 		int score = 0;
 		int high_score = 0;
 		int life_count = 3;
 		int bomb_count = 3;
+		std::shared_ptr<Raiden::GameObjectPool<Raiden::Bullet>> bullets;
 	};
 }

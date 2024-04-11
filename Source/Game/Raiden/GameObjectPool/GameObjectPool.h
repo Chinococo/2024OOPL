@@ -18,10 +18,12 @@ namespace Raiden
 		int AddElement();
 		void Update();
 		void Show();
+		std::size_t GetSize() const;
 		std::shared_ptr<T> operator[](std::size_t index);
 
 	private:
 		std::vector<std::shared_ptr<T>> pool;
 		std::queue<std::shared_ptr<T>> recovery;
+
 	};
 }

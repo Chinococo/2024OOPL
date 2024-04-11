@@ -1,10 +1,11 @@
 #include "stdafx.h"
 #include "Bullet.h"
-
+#include "../../config.h"
 namespace Raiden
 {
-	void Bullet::Init()
+	void Bullet::Init(bool friendly)
 	{
+		this->friendly = friendly;
 		sprite.LoadBitmapByString({ "Resources/1.bmp" });
 		collisionBox.Init({ { 0, 0, sprite.GetWidth(), sprite.GetWidth() } });
 		alive = true;
@@ -26,6 +27,14 @@ namespace Raiden
 		collisionBox.SetTopLeft(sprite.GetLeft() + delta_left, sprite.GetTop() + delta_top);
 		std::pair<int, int> top_left = collisionBox.GetTopLeft();
 		sprite.SetTopLeft(top_left.first, top_left.second);
+		if (top_left.first < 0 || top_left.first >= RESOLUTION_X) {
+			alive = false;
+			return;
+		}
+		if (top_left.second < 0 || top_left.second >= RESOLUTION_Y) {
+			alive = false;
+			return;
+		}
 	}
 
 	void Bullet::Show()

@@ -70,7 +70,7 @@
     </Filter>
     <Filter Include="MyGame\Raiden\Xml">
       <UniqueIdentifier>{65ad3199-3332-48a4-a3d0-7f7e9a814067}</UniqueIdentifier>
-    </Filter>  
+    </Filter>
     <Filter Include="MyGame\Raiden\Bullet">
       <UniqueIdentifier>{d8daae60-e242-4d00-8752-5e152709c9d7}</UniqueIdentifier>
     </Filter>
@@ -91,6 +91,9 @@
     </Filter>
     <Filter Include="MyGame\Raiden\StateManager">
       <UniqueIdentifier>{82520d74-4828-42a9-be70-e74c95ae6dc2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyGame\Raiden\Data">
+      <UniqueIdentifier>{e0bc7ad9-c90f-4f79-b1e7-2a56966d7052}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -200,6 +203,9 @@
     </ClCompile>
     <ClCompile Include="Source\Game\Raiden\StateManager\StateManager.cpp">
       <Filter>MyGame\Raiden\StateManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Game\Raiden\State\State.cpp">
+      <Filter>MyGame\Raiden\State</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -314,6 +320,21 @@
     <ClInclude Include="Source\Game\Raiden\StateManager\StateManager.h">
       <Filter>MyGame\Raiden\StateManager</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Game\Raiden\Data\PlayerData.h">
+      <Filter>MyGame\Raiden\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Game\Raiden\Data\TitleScreenData.h">
+      <Filter>MyGame\Raiden\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Game\Raiden\Data\StageData.h">
+      <Filter>MyGame\Raiden\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Game\Raiden\Data\BackgroundData.h">
+      <Filter>MyGame\Raiden\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Game\Raiden\Data\FighterData.h">
+      <Filter>MyGame\Raiden\Data</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Source\Core\game.rc">
@@ -321,7 +342,16 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <Xml Include="Resources\GameSetting.xml">
+    <Xml Include="Resources\Xml\GameSetting.xml">
+      <Filter>Resource Files</Filter>
+    </Xml>
+    <Xml Include="Resources\Xml\StageBrazil.xml">
+      <Filter>Resource Files</Filter>
+    </Xml>
+    <Xml Include="Resources\Xml\StageJapan.xml">
+      <Filter>Resource Files</Filter>
+    </Xml>
+    <Xml Include="Resources\Xml\StageUSA.xml">
       <Filter>Resource Files</Filter>
     </Xml>
   </ItemGroup>

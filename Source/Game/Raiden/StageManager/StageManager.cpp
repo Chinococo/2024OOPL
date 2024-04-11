@@ -8,12 +8,14 @@
 
 namespace Raiden
 {
-	void StageManager::Init()
+	void StageManager::Init(std::vector<StageData> &&stages_data)
 	{
 		stages.clear();
 		stages.push_back(std::make_unique<StageJapan>());
 		stages.push_back(std::make_unique<StageBrazil>());
 		stages.push_back(std::make_unique<StageUSA>());
+		this->stages_data = stages_data;
+
 		ChangeStage(0);
 	}
 
@@ -41,6 +43,6 @@ namespace Raiden
 			return;
 		
 		this->stage_index = stage_index;
-		stages[stage_index]->Init();
+		stages[stage_index]->Init(std::move(stages_data[stage_index]));
 	}
 }

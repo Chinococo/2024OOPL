@@ -23,7 +23,7 @@ namespace Raiden
 	class Bullet
 	{
 	public:
-		void Init();
+		void Init(bool friendly);
 		void SetTopLeft(CPoint &&point);
 		void ApplyForce(CPoint &&force);
 		void Update();
@@ -39,5 +39,6 @@ namespace Raiden
 		CollisionBox collisionBox;
 		int delta_left = 0;
 		int delta_top = 0;
+		bool friendly;
 	};
 }

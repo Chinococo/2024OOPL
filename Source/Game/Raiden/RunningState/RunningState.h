@@ -6,13 +6,14 @@
 #include "../TextGraphics/TextGraphics.h"
 #include "../Control/Control.h"
 #include "../Key/Key.h"
-
+#include "../GameObjectPool/GameObjectPool.h"
+#include "../Bullet/Bullet.h"
 namespace Raiden
 {
 	class RunningState : public State
 	{
 	public:
-		void Init() override;
+		void InitDerived() override;
 		void KeyUp(Control &control) override;
 		void Update(Control &control) override;
 		void Show() override;
@@ -23,5 +24,6 @@ namespace Raiden
 		Player player;
 		StatusPanel status_panel;
 		TextGraphics text_graphics;
+		std::shared_ptr<GameObjectPool<Bullet>> bullets = std::shared_ptr<GameObjectPool<Bullet>>(new GameObjectPool<Bullet>());
 	};
 }

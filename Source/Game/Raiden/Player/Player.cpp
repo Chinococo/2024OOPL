@@ -4,20 +4,22 @@
 #include <set>
 #include <vector>
 #include <string>
+#include <tuple>
 
 namespace Raiden
 {
-	void Player::Init()
+	void Player::Init(PlayerData && player_data, std::shared_ptr<Raiden::GameObjectPool<Raiden::Bullet>>& bullet)
 	{
-		std::vector<std::string> paths;
-
-		for (int i = 0; i <= 10; i++)
-			paths.push_back("Resources/Player/Player" + std::to_string(i) + ".bmp");
-
-		sprite.LoadBitmapByString(paths, RGB(0, 0, 255));
+		int color_mask_red = std::get<0>(player_data.color_mask);
+		int color_mask_green = std::get<1>(player_data.color_mask);
+		int color_mask_blue = std::get<2>(player_data.color_mask);
+		bullets = bullet;
+		sprite.LoadBitmapByString(player_data.sprites, RGB(color_mask_red, color_mask_green, color_mask_blue));
 		sprite.SetFrameIndexOfBitmap(sprite_index);
-		sprite.SetTopLeft(0, 0);
+		sprite.SetTopLeft(player_data.init_position.x, player_data.init_position.y);
 	}
+
+	
 
 	void Player::Update(const Control &control)
 	{
@@ -29,6 +31,7 @@ namespace Raiden
 
 	void Player::Show()
 	{
+		sprite.SetFrameIndexOfBitmap(sprite_index);
 		sprite.ShowBitmap();
 	}
 
@@ -57,6 +60,16 @@ namespace Raiden
 		int left = sprite.GetLeft() + (keys.count(Key::RIGHT) - keys.count(Key::LEFT)) * MOVE_STEP;
 		int top = sprite.GetTop() + (keys.count(Key::DOWN) - keys.count(Key::UP)) * MOVE_STEP;
 
+		if ((keys.count(Key::RIGHT) - keys.count(Key::LEFT)) != 0) 
+			sprite_index +=  (keys.count(Key::RIGHT) - keys.count(Key::LEFT));
+
+		else 
+			if (sprite_index < 5)
+				sprite_index += 1;
+			else if (sprite_index > 5) 
+				sprite_index -= 1;
+			
+		sprite_index = min(10, max(0, sprite_index));
 		left = max(0, left);
 		top = max(0, top);
 
@@ -66,7 +79,15 @@ namespace Raiden
 
 		sprite.SetTopLeft(left, top);
 
-		// TODO
+		if (keys.count(Key::FIRE)) {
+			int index = bullets->AddElement();
+			auto test = *bullets;
+			test[index]->Init(true);
+			test[index]->SetTopLeft({ left,top });
+			test[index]->ApplyForce({ 0,-3 });
+			
+
+		}
 	}
 
 	void Player::UpdateByMouse(CPoint point)

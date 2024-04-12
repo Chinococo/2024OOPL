@@ -8,7 +8,7 @@
 
 namespace Raiden
 {
-	void StageManager::Init(std::vector<StageData>&& stages_data, std::shared_ptr<GameObjectPool<Fighter>>& fighters)
+	void StageManager::Init(std::vector<StageData>&& stages_data, std::shared_ptr<GameObjectPool<Fighter>> fighters)
 	{
 		stages.clear();
 		stages.push_back(std::make_unique<StageJapan>());

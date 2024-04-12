@@ -85,8 +85,6 @@ namespace Raiden
 			test[index]->Init(true);
 			test[index]->SetTopLeft({ left,top });
 			test[index]->ApplyForce({ 0,-3 });
-			
-
 		}
 	}
 

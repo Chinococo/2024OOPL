@@ -8,6 +8,7 @@
 #include "../Key/Key.h"
 #include "../GameObjectPool/GameObjectPool.h"
 #include "../Bullet/Bullet.h"
+#include "../Fighter/Fighter.h"
 namespace Raiden
 {
 	class RunningState : public State
@@ -25,5 +26,6 @@ namespace Raiden
 		StatusPanel status_panel;
 		TextGraphics text_graphics;
 		std::shared_ptr<GameObjectPool<Bullet>> bullets = std::shared_ptr<GameObjectPool<Bullet>>(new GameObjectPool<Bullet>());
+		std::shared_ptr<GameObjectPool<Fighter>> fighters = std::shared_ptr<GameObjectPool<Fighter>>(new GameObjectPool<Fighter>());
 	};
 }

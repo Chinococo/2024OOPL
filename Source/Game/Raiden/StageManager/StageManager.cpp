@@ -8,14 +8,14 @@
 
 namespace Raiden
 {
-	void StageManager::Init(std::vector<StageData> &&stages_data)
+	void StageManager::Init(std::vector<StageData>&& stages_data, std::shared_ptr<GameObjectPool<Fighter>>& fighters)
 	{
 		stages.clear();
 		stages.push_back(std::make_unique<StageJapan>());
 		stages.push_back(std::make_unique<StageBrazil>());
 		stages.push_back(std::make_unique<StageUSA>());
 		this->stages_data = stages_data;
-
+		this->fighters = fighters;
 		ChangeStage(0);
 	}
 

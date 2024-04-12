@@ -6,7 +6,6 @@ namespace Raiden
 {
 	void Stage::Init(StageData &&stage_data,shared_ptr<GameObjectPool<Fighter>>fighters)
 	{
-		this->
 		background.Init(stage_data.background_data);
 		InitDerived(std::move(stage_data), fighters);
 	}

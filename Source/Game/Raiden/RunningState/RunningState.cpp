@@ -29,7 +29,7 @@ namespace Raiden
 					bullets->operator[](i)->Destroy();
 					player.Damage();
 					if (player.GetLifeCount() <= 0) {
-						//text_graphics.Register({ SIZE_X - 100 , SIZE_Y }, "You Are Dead");//¥¢±Ñ
+						text_graphics.Register({ SIZE_X/2 - 100 , SIZE_Y/2 }, "You Are Dead");//¥¢±Ñ
 					}
 				}
 				

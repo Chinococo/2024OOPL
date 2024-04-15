@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "StageUSA.h"
 #include "../BossUSA/BossUSA.h"
-
+#include "../../config.h"
 namespace Raiden
 {
 	void StageUSA::InitDerived(StageData &&stage_data, shared_ptr<GameObjectPool<Fighter>>fighters, shared_ptr<GameObjectPool<Bullet>>bullets)
@@ -47,6 +47,15 @@ namespace Raiden
 			if (!bullet_pool->operator[](i)->IsAlive())
 			{
 				bullet_pool->operator[](i)->Destroy();
+				continue;
+			}
+			if (fighter_pool->operator[](i)->GetLeft() < 0 || fighter_pool->operator[](i)->GetLeft() >= RESOLUTION_X) {
+				fighter_pool->operator[](i)->Destroy();
+				continue;
+			}
+
+			if (fighter_pool->operator[](i)->GetTop() < 0 || fighter_pool->operator[](i)->GetTop() >= RESOLUTION_Y) {
+				fighter_pool->operator[](i)->Destroy();
 				continue;
 			}
 

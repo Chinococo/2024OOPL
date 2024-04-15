@@ -17,6 +17,7 @@ namespace Raiden
 		sprite.LoadBitmapByString(player_data.sprites, RGB(color_mask_red, color_mask_green, color_mask_blue));
 		sprite.SetFrameIndexOfBitmap(sprite_index);
 		sprite.SetTopLeft(player_data.init_position.x, player_data.init_position.y);
+		InitCollisionBox(sprite.GetWidth(), sprite.GetHeight());
 	}
 
 	
@@ -33,6 +34,7 @@ namespace Raiden
 	{
 		sprite.SetFrameIndexOfBitmap(sprite_index);
 		sprite.ShowBitmap();
+		ShowCollisionBox();
 	}
 
 	int Player::GetScore() const
@@ -78,7 +80,7 @@ namespace Raiden
 		top = min(SIZE_Y - static_cast<int>(sprite.GetHeight() * OFFSET), top);
 
 		sprite.SetTopLeft(left, top);
-
+		UpdateCollisionBox(left, top);
 		if (keys.count(Key::FIRE)) {
 			int index = bullets->AddElement();
 			auto test = *bullets;

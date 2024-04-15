@@ -60,5 +60,15 @@ namespace Raiden
 		return pool[index];
 	}
 
+	template<typename T>
+	void GameObjectPool<T>::Clear()
+	{
+		for (std::size_t i = 0; i < pool.size(); i++ )
+		{
+			recovery.push(pool[0]);
+			pool.erase(pool.begin());	
+		}
+	}
+
 	
 }

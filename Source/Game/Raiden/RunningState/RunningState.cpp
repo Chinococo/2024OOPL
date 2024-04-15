@@ -62,6 +62,21 @@ namespace Raiden
 			CollisionEvent();
 			status_panel.Update(player, text_graphics);
 		}
+		else {
+			if (control.mode == ControlMode::KEYBOARD){
+				if (control.keys.count(Key::RESET)) {
+					player.Init(xml_reader.ParsePlayer(), bullets);
+					//fighters->Clear();
+					//bullets->Clear();
+					//text_graphics.Clear();
+					//status_panel.Init(text_graphics);
+					//InitDerived();
+				}
+			}
+			else{
+				// To-do
+			}
+		}
 	}
 
 	void RunningState::Show()

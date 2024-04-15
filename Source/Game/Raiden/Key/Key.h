@@ -8,6 +8,7 @@ namespace Raiden
 		DOWN,
 		LEFT,
 		RIGHT,
-		FIRE
+		FIRE,
+		RESET
 	};
 }

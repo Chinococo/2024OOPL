@@ -31,4 +31,9 @@ namespace Raiden
 
 		game_framework::CDDraw::ReleaseBackCDC();
 	}
+	void TextGraphics::Clear()
+	{
+		points.clear();
+		texts.clear();
+	}
 }

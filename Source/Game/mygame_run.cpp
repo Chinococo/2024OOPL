@@ -33,12 +33,12 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 {
 	state_manager.Init();
-
 	key_map[VK_UP] = Raiden::Key::UP;
 	key_map[VK_DOWN] = Raiden::Key::DOWN;
 	key_map[VK_LEFT] = Raiden::Key::LEFT;
 	key_map[VK_RIGHT] = Raiden::Key::RIGHT;
 	key_map[0x5A] = Raiden::Key::FIRE;
+	key_map[0x52] = Raiden::Key::RESET;
 }
 
 void CGameStateRun::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)

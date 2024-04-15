@@ -101,7 +101,7 @@ namespace Raiden
 	void Player::UpdateByMouse(CPoint point)
 	{
 		sprite.SetTopLeft(point.x - sprite.GetWidth() / 2, point.y - sprite.GetWidth() / 2);
-
+		UpdateCollisionBox(point.x - sprite.GetWidth() / 2, point.y - sprite.GetWidth() / 2);
 		// TODO
 	}
 }

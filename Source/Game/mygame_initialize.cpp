@@ -33,14 +33,9 @@ void CGameStateInit::OnInit()
 	// 此OnInit動作會接到CGameStaterRun::OnInit()，所以進度還沒到100%
 	//
 	std::vector<string> paths;
-
-	for (int i = 1; i <= 4; i++)
-		paths.push_back("Resources/Background/TitleScreen" + std::to_string(i) + ".bmp");
-
+	paths.push_back("Resources/Background/TitleScreen0.bmp");
 	title_screen.LoadBitmapByString(paths);
 	title_screen.SetTopLeft(BACKGROUND_MARGIN, BACKGROUND_MARGIN);
-	title_screen.SetAnimation(BACKGROUND_ANIMATION_DELAY_MILLI, true);
-	title_screen.ToggleAnimation();
 	logo.LoadBitmapByString({ "Resources/Background/NTUTLogo.bmp" });
 	logo.SetTopLeft(SIZE_X - logo.GetWidth() - 18, SIZE_Y - logo.GetHeight() - 23);
 }
@@ -64,9 +59,7 @@ void CGameStateInit::OnShow()
 	title_screen.ShowBitmap();
 	logo.ShowBitmap();
 
-	if (!clicked)
-		title_screen.ToggleAnimation();
-
-	if (title_screen.IsAnimationDone())
+	if (clicked!=false) {
 		GotoGameState(GAME_STATE_RUN);		// 切換至GAME_STATE_RUN
+	}
 }

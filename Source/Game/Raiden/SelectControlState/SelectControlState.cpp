@@ -46,6 +46,9 @@ namespace Raiden
 
 	void SelectControlState::Show()
 	{
+		int frameIndex = background.GetFrameIndexOfBitmap();
+		std::string frameIndexStr = std::to_string(frameIndex);
+		OutputDebugStringA(frameIndexStr.c_str());
 		background.ShowBitmap();
 
 		if (!mode_selected)

@@ -14,7 +14,7 @@ namespace Raiden
 		for (auto &fighter_data : stage_data.fighters_data)
 		{
 			int index = fighter_pool->AddElement();
-			fighter_pool->operator[](index)->Init(std::move(fighter_data));
+			fighter_pool->operator[](index)->Init(std::move(fighter_data), bullets);
 		}
 	}
 

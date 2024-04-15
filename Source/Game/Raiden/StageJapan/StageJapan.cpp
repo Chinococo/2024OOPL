@@ -14,7 +14,7 @@ namespace Raiden
 		for (auto &fighter_data : stage_data.fighters_data)
 		{
 			int index = fighter_pool->AddElement();
-			fighter_pool->operator[](index)->Init(std::move(fighter_data));
+			fighter_pool->operator[](index)->Init(std::move(fighter_data), bullets);
 		}
 	}
 
@@ -31,7 +31,17 @@ namespace Raiden
 				fighter_pool->operator[](i)->Destroy();
 				continue;
 			}
-
+			
+			if (fighter_pool->operator[](i)->GetLeft() < 0 || fighter_pool->operator[](i)->GetLeft() >= RESOLUTION_X) {
+				fighter_pool->operator[](i)->Destroy();
+				continue;
+			}
+			
+			if (fighter_pool->operator[](i)->GetTop() < 0 || fighter_pool->operator[](i)->GetTop() >= RESOLUTION_Y) {
+				fighter_pool->operator[](i)->Destroy();
+				continue;
+			}
+			
 			fighter_pool->operator[](i)->Update(player, background.GetScrolledDistance());
 
 			if (fighter_pool->operator[](i)->IsAttacking())

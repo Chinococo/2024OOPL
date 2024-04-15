@@ -4,7 +4,7 @@
 #include "../GameObjectPool/GameObjectPool.h"
 #include "../Fighter/Fighter.h"
 #include "../Bullet/Bullet.h"
-
+#include "../../config.h"
 namespace Raiden
 {
 	class StageJapan : public Stage

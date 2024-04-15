@@ -32,9 +32,11 @@ namespace Raiden
 
 	void Player::Show()
 	{
-		sprite.SetFrameIndexOfBitmap(sprite_index);
-		sprite.ShowBitmap();
-		ShowCollisionBox();
+		if (life_count > 0) {
+			sprite.SetFrameIndexOfBitmap(sprite_index);
+			sprite.ShowBitmap();
+			ShowCollisionBox();
+		}
 	}
 
 	int Player::GetScore() const
@@ -55,6 +57,11 @@ namespace Raiden
 	int Player::GetBombCount() const
 	{
 		return bomb_count;
+	}
+
+	void Player::Damage()
+	{
+		life_count -= 1;
 	}
 
 	void Player::UpdateByKeyboard(const std::set<Key> &keys)

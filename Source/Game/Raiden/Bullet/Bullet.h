@@ -29,10 +29,10 @@ namespace Raiden
 		void Update();
 		void Show();
 		CollisionBox &GetCollisionBox();
-		bool IsCollisionBoxOverlap(Bullet &);
+		bool IsCollisionBoxOverlap(CollisionBox& other);
 		void Destroy();
 		bool IsAlive();
-
+		bool IsFriendly();
 	private:
 		bool alive = true;
 		game_framework::CMovingBitmap sprite;

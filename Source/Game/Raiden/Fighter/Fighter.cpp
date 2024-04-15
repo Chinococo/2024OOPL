@@ -43,7 +43,7 @@ namespace Raiden
 		if (std::clock() - shoot_clock > 1000)
 		{
 			int index = bullets->AddElement();
-			bullets->operator[](index)->Init(true);
+			bullets->operator[](index)->Init(false);
 			bullets->operator[](index)->SetTopLeft({ sprite.GetLeft(),sprite.GetTop()});
 			if(position_index == positions.size() - 2 && completeness == 1)
 				bullets->operator[](index)->ApplyForce({ 0,3 });

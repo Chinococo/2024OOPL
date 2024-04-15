@@ -21,7 +21,6 @@ namespace Raiden
 	protected:
 		virtual void InitDerived(StageData &&stage_data,shared_ptr<GameObjectPool<Fighter>> fighters) = 0;
 		virtual void UpdateDerived(const Player &player) = 0;
-		virtual void ShowDerived() = 0;
 		Background background;
 		std::unique_ptr<Boss> boss;
 	};

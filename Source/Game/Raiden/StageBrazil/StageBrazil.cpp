@@ -23,9 +23,4 @@ namespace Raiden
 		fighter_pool->Update();
 		fighter_pool->operator[](0)->Update(player, background.GetScrolledDistance());
 	}
-
-	void StageBrazil::ShowDerived()
-	{
-		fighter_pool->Show();
-	}
 }

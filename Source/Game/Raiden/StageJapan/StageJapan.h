@@ -12,7 +12,6 @@ namespace Raiden
 	public:
 		void InitDerived(StageData &&stage_data,shared_ptr<GameObjectPool<Fighter>>fighters) override;
 		void UpdateDerived(const Player &player) override;
-		void ShowDerived() override;
 
 	private:
 		shared_ptr<GameObjectPool<Fighter>> fighter_pool;

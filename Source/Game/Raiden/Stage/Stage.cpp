@@ -21,7 +21,6 @@ namespace Raiden
 	{
 		background.Show();
 		boss->Show();
-		ShowDerived();
 	}
 
 	bool Stage::Over() const

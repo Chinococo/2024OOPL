@@ -35,6 +35,7 @@ namespace Raiden
 		status_panel.Show();
 		text_graphics.Show();
 		bullets->Show();
+		fighters->Show();
 	}
 
 	bool RunningState::Over()

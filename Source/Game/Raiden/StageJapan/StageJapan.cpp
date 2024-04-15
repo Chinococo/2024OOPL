@@ -52,10 +52,4 @@ namespace Raiden
 			bullet_pool[i]->Update();
 		}
 	}
-
-	void StageJapan::ShowDerived()
-	{
-		fighter_pool->Show();
-		bullet_pool.Show();
-	}
 }

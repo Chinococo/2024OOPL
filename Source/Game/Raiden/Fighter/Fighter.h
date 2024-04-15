@@ -34,5 +34,6 @@ namespace Raiden
 		std::vector<bool> attack_positions;
 		const float M_PI = 3.1415926f;
 		int last_distance = 0;
+		bool IsAppear = false;
 	};
 }

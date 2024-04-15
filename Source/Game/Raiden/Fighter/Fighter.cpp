@@ -24,6 +24,7 @@ namespace Raiden
 		if (scrolled_distance < appear_distance) {
 			return;
 		}
+		IsAppear = true;
 		move_clock = std::clock();
 
 		std::clock_t elapsed_time = move_clock - start_move_time;
@@ -63,8 +64,10 @@ namespace Raiden
 
 	void Fighter::Show()
 	{
-		sprite.ShowBitmap(2);
-		ShowCollisionBox();
+		if (IsAppear) {
+			sprite.ShowBitmap(2);
+			ShowCollisionBox();
+		}
 	}
 
 	void Fighter::Destroy()

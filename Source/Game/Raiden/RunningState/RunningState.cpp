@@ -51,25 +51,29 @@ namespace Raiden
 
 	void RunningState::Update(Control &control)
 	{
-		player.Update(control);
-		stage_manager.Update(player);
-		bullets->Update();
-		for (size_t i = 0; i < bullets->GetSize(); i++) {
-			auto test = *bullets;
-			test[i]->Update();
+		if (player.GetLifeCount() > 0) {
+			player.Update(control);
+			stage_manager.Update(player);
+			bullets->Update();
+			for (size_t i = 0; i < bullets->GetSize(); i++) {
+				auto test = *bullets;
+				test[i]->Update();
+			}
+			CollisionEvent();
+			status_panel.Update(player, text_graphics);
 		}
-		CollisionEvent();
-		status_panel.Update(player, text_graphics);
 	}
 
 	void RunningState::Show()
 	{
-		stage_manager.Show();
-		player.Show();
-		status_panel.Show();
-		text_graphics.Show();
-		bullets->Show();
-		fighters->Show();
+			stage_manager.Show();
+			player.Show();
+			status_panel.Show();
+			text_graphics.Show();
+			bullets->Show();
+			fighters->Show();
+			text_graphics.Show();
+	
 	}
 
 	bool RunningState::Over()

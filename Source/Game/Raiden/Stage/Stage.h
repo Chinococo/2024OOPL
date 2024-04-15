@@ -13,13 +13,13 @@ namespace Raiden
 	{
 	public:
 		virtual ~Stage() = default;
-		void Init(StageData &&stage_data,shared_ptr<GameObjectPool<Fighter>>fighters);
+		void Init(StageData &&stage_data,shared_ptr<GameObjectPool<Fighter>>fighters,shared_ptr<GameObjectPool<Bullet>>bullets);
 		void Update(const Player &player);
 		void Show();
 		bool Over() const;
 
 	protected:
-		virtual void InitDerived(StageData &&stage_data,shared_ptr<GameObjectPool<Fighter>> fighters) = 0;
+		virtual void InitDerived(StageData &&stage_data,shared_ptr<GameObjectPool<Fighter>> fighters, std::shared_ptr<GameObjectPool<Bullet>> bullets) = 0;
 		virtual void UpdateDerived(const Player &player) = 0;
 		Background background;
 		std::unique_ptr<Boss> boss;

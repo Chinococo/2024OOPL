@@ -10,11 +10,11 @@ namespace Raiden
 	class StageBrazil : public Stage
 	{
 	public:
-		void InitDerived(StageData &&stage_data, shared_ptr<GameObjectPool<Fighter>>fighters) override;
+		void InitDerived(StageData &&stage_data, shared_ptr<GameObjectPool<Fighter>>fighters,shared_ptr<GameObjectPool<Bullet>>bullets) override;
 		void UpdateDerived(const Player &player) override;
 
 	private:
 		shared_ptr<GameObjectPool<Fighter>> fighter_pool;
-		GameObjectPool<Bullet> bullet_pool;
+		shared_ptr<GameObjectPool<Bullet>> bullet_pool;
 	};
 }

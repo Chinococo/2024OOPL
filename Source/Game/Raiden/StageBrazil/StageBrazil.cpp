@@ -4,9 +4,10 @@
 
 namespace Raiden
 {
-	void StageBrazil::InitDerived(StageData &&stage_data, shared_ptr<GameObjectPool<Fighter>>fighters)
+	void StageBrazil::InitDerived(StageData &&stage_data, shared_ptr<GameObjectPool<Fighter>>fighters,shared_ptr<GameObjectPool<Bullet>>bullets)
 	{
 		this->fighter_pool = fighters;
+		this->bullet_pool = bullets;
 		boss = std::make_unique<BossBrazil>(1000);
 		boss->Init();
 		

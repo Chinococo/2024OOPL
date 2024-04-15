@@ -4,9 +4,10 @@
 
 namespace Raiden
 {
-	void StageUSA::InitDerived(StageData &&stage_data, shared_ptr<GameObjectPool<Fighter>>fighters)
+	void StageUSA::InitDerived(StageData &&stage_data, shared_ptr<GameObjectPool<Fighter>>fighters, shared_ptr<GameObjectPool<Bullet>>bullets)
 	{
 		this->fighter_pool = fighters;
+		this->bullet_pool = bullets;
 		boss = std::make_unique<BossUSA>(1000);
 		boss->Init();
 		
@@ -21,7 +22,7 @@ namespace Raiden
 	{
 		// TODO: perform stage logic here.
 		fighter_pool->Update();
-		bullet_pool.Update();
+		bullet_pool->Update();
 
 		for (std::size_t i = 0; i < fighter_pool->GetSize(); i++)
 		{
@@ -35,21 +36,21 @@ namespace Raiden
 
 			if (fighter_pool->operator[](i)->IsAttacking())
 			{
-				int bullet_index = bullet_pool.AddElement();
-				bullet_pool[bullet_index]->SetTopLeft({ fighter_pool->operator[](i)->GetLeft(), fighter_pool->operator[](i)->GetTop() });
-				bullet_pool[bullet_index]->ApplyForce({ 0, 1 });
+				int bullet_index = bullet_pool->AddElement();
+				bullet_pool->operator[](bullet_index)->SetTopLeft({ fighter_pool->operator[](i)->GetLeft(), fighter_pool->operator[](i)->GetTop() });
+				bullet_pool->operator[](bullet_index)->ApplyForce({ 0, 1 });
 			}
 		}
 
-		for (std::size_t i = 0; i < bullet_pool.GetSize(); i++)
+		for (std::size_t i = 0; i < bullet_pool->GetSize(); i++)
 		{
-			if (!bullet_pool[i]->IsAlive())
+			if (!bullet_pool->operator[](i)->IsAlive())
 			{
-				bullet_pool[i]->Destroy();
+				bullet_pool->operator[](i)->Destroy();
 				continue;
 			}
 
-			bullet_pool[i]->Update();
+			bullet_pool->operator[](i)->Update();
 		}
 	}
 }

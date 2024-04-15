@@ -11,7 +11,7 @@ namespace Raiden
 	class StageManager
 	{
 	public:
-		void Init(std::vector<StageData> &&stages_data, std::shared_ptr<GameObjectPool<Fighter>> fighters);
+		void Init(std::vector<StageData>&& stages_data, std::shared_ptr<GameObjectPool<Fighter>> fighters, std::shared_ptr<GameObjectPool<Bullet>> bullets);
 		void Update(const Player &player);
 		void Show();
 		bool Over() const;
@@ -22,5 +22,6 @@ namespace Raiden
 		std::size_t stage_index = 0;
 		std::vector<StageData> stages_data;
 		std::shared_ptr<GameObjectPool<Fighter>> fighters;
+		std::shared_ptr<GameObjectPool<Bullet>> bullets;
 	};
 }

@@ -27,7 +27,7 @@ namespace Raiden
 
 	void StatusPanel::Show()
 	{
-		life_counter.ShowBitmap();
-		bomb_counter.ShowBitmap();
+		//life_counter.ShowBitmap();
+		//bomb_counter.ShowBitmap();
 	}
 }

@@ -3,6 +3,36 @@
 #include "../../config.h"
 namespace Raiden
 {
+	void RunningState::CollisionEvent()
+	{
+		auto player_collision_boxfighters = player.GetCollisionBox();
+		for (size_t i = 0; i < bullets->GetSize(); i++) {
+			if (bullets->operator[](i)->IsFriendly()) {//我方子彈
+				for (size_t j = 0; j < fighters->GetSize(); j++) {
+					if (fighters->operator[](j)->IsAlive()) {
+						auto fighter_collision_boxfighters = fighters->operator[](j)->GetCollisionBox();
+						if (bullets->operator[](i)->IsCollisionBoxOverlap(fighter_collision_boxfighters)) {
+							bullets->operator[](i)->Destroy();
+							fighters->operator[](j)->Destroy();
+							break;
+						}
+					}
+				}
+			}
+			else {//敵方子彈
+				if (player.GetLifeCount() > 0) {
+					if (bullets->operator[](i)->IsCollisionBoxOverlap(player_collision_boxfighters)) {
+						bullets->operator[](i)->Destroy();
+						player.Damage();
+						if (player.GetLifeCount() <= 0) {
+							//text_graphics.Register({ SIZE_X - 100 , SIZE_Y }, "You Are Dead");//失敗
+						}
+					}
+				}
+
+			}
+		}
+	}
 	void RunningState::InitDerived()
 	{
 		stage_manager.Init(xml_reader.ParseStages(), fighters,bullets);
@@ -24,40 +54,8 @@ namespace Raiden
 			auto test = *bullets;
 			test[i]->Update();
 		}
+		CollisionEvent();
 		status_panel.Update(player, text_graphics);
-
-		for (size_t i = 0; i < bullets->GetSize();i++) {
-			if (bullets->operator[](i)->IsFriendly()) {//我方子彈
-				for (size_t j = 0; j < fighters->GetSize(); j++) {
-					if (fighters->operator[](j)->IsAlive()) {
-						auto fighter_collision_boxfighters = fighters->operator[](j)->GetCollisionBox();
-						if (bullets->operator[](i)->IsCollisionBoxOverlap(fighter_collision_boxfighters)) {
-							bullets->operator[](i)->Destroy();
-							fighters->operator[](j)->Destroy();
-							break;
-						}
-					}
-				}
-			}else {//敵方子彈
-				if (player.GetLifeCount() > 0) {
-					auto player_collision_boxfighters = player.GetCollisionBox();
-					if (bullets->operator[](i)->IsCollisionBoxOverlap(player_collision_boxfighters)) {
-						bullets->operator[](i)->Destroy();
-						player.Damage();
-							if (player.GetLifeCount() <= 0) {
-								text_graphics.Register({ SIZE_X - 100 , SIZE_Y }, "You Are Dead");
-							}
-
-						break;
-					}
-				}
-				
-			}
-		}
-
-
-
-
 	}
 
 	void RunningState::Show()

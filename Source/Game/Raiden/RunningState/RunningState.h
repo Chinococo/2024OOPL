@@ -14,6 +14,7 @@ namespace Raiden
 	class RunningState : public State
 	{
 	public:
+		void CollisionEvent();
 		void InitDerived() override;
 		void KeyUp(Control &control) override;
 		void Update(Control &control) override;

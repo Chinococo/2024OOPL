@@ -9,26 +9,30 @@ namespace Raiden
 		for (size_t i = 0; i < bullets->GetSize(); i++) {
 			if (bullets->operator[](i)->IsFriendly()) {//我方子彈
 				for (size_t j = 0; j < fighters->GetSize(); j++) {
-					if (fighters->operator[](j)->IsAlive()) {
-						auto fighter_collision_boxfighters = fighters->operator[](j)->GetCollisionBox();
-						if (bullets->operator[](i)->IsCollisionBoxOverlap(fighter_collision_boxfighters)) {
-							bullets->operator[](i)->Destroy();
-							fighters->operator[](j)->Destroy();
-							break;
-						}
+					if (!fighters->operator[](j)->IsAlive()) {
+						continue;
 					}
+					auto fighter_collision_boxfighters = fighters->operator[](j)->GetCollisionBox();
+					if (bullets->operator[](i)->IsCollisionBoxOverlap(fighter_collision_boxfighters)) {
+						bullets->operator[](i)->Destroy();
+						fighters->operator[](j)->Destroy();
+						break;
+					}
+					
 				}
 			}
 			else {//敵方子彈
-				if (player.GetLifeCount() > 0) {
-					if (bullets->operator[](i)->IsCollisionBoxOverlap(player_collision_boxfighters)) {
-						bullets->operator[](i)->Destroy();
-						player.Damage();
-						if (player.GetLifeCount() <= 0) {
-							//text_graphics.Register({ SIZE_X - 100 , SIZE_Y }, "You Are Dead");//失敗
-						}
+				if (player.GetLifeCount() <= 0) {
+					break;
+				}
+				if (bullets->operator[](i)->IsCollisionBoxOverlap(player_collision_boxfighters)) {
+					bullets->operator[](i)->Destroy();
+					player.Damage();
+					if (player.GetLifeCount() <= 0) {
+						//text_graphics.Register({ SIZE_X - 100 , SIZE_Y }, "You Are Dead");//失敗
 					}
 				}
+				
 
 			}
 		}

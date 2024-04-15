@@ -48,9 +48,9 @@ namespace Raiden
 		return collisionBox;
 	}
 
-	bool Bullet::IsCollisionBoxOverlap(Bullet &other)
+	bool Bullet::IsCollisionBoxOverlap(CollisionBox& other)
 	{
-		return collisionBox.IsCollisionBoxOverlap(other.GetCollisionBox());
+		return collisionBox.IsCollisionBoxOverlap(other);
 	}
 
 	void Bullet::Destroy()
@@ -61,5 +61,9 @@ namespace Raiden
 	bool Bullet::IsAlive()
 	{
 		return alive;
+	}
+	bool Bullet::IsFriendly()
+	{
+		return friendly;
 	}
 }

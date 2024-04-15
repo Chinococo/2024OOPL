@@ -17,6 +17,7 @@ namespace Raiden
 		sprite.LoadBitmapByString(player_data.sprites, RGB(color_mask_red, color_mask_green, color_mask_blue));
 		sprite.SetFrameIndexOfBitmap(sprite_index);
 		sprite.SetTopLeft(player_data.init_position.x, player_data.init_position.y);
+		InitCollisionBox(sprite.GetWidth(), sprite.GetHeight());
 	}
 
 	
@@ -31,8 +32,11 @@ namespace Raiden
 
 	void Player::Show()
 	{
-		sprite.SetFrameIndexOfBitmap(sprite_index);
-		sprite.ShowBitmap();
+		if (life_count > 0) {
+			sprite.SetFrameIndexOfBitmap(sprite_index);
+			sprite.ShowBitmap();
+			ShowCollisionBox();
+		}
 	}
 
 	int Player::GetScore() const
@@ -53,6 +57,11 @@ namespace Raiden
 	int Player::GetBombCount() const
 	{
 		return bomb_count;
+	}
+
+	void Player::Damage()
+	{
+		life_count -= 1;
 	}
 
 	void Player::UpdateByKeyboard(const std::set<Key> &keys)
@@ -78,15 +87,13 @@ namespace Raiden
 		top = min(SIZE_Y - static_cast<int>(sprite.GetHeight() * OFFSET), top);
 
 		sprite.SetTopLeft(left, top);
-
+		UpdateCollisionBox(left, top);
 		if (keys.count(Key::FIRE)) {
 			int index = bullets->AddElement();
 			auto test = *bullets;
 			test[index]->Init(true);
 			test[index]->SetTopLeft({ left,top });
 			test[index]->ApplyForce({ 0,-3 });
-			
-
 		}
 	}
 

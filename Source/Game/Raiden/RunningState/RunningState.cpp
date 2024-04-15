@@ -1,11 +1,45 @@
 #include "stdafx.h"
 #include "RunningState.h"
-
+#include "../../config.h"
 namespace Raiden
 {
+	void RunningState::CollisionEvent()
+	{
+		auto player_collision_boxfighters = player.GetCollisionBox();
+		for (size_t i = 0; i < bullets->GetSize(); i++) {
+			if (bullets->operator[](i)->IsFriendly()) {//我方子彈
+				for (size_t j = 0; j < fighters->GetSize(); j++) {
+					if (!fighters->operator[](j)->IsAlive()) {
+						continue;
+					}
+					auto fighter_collision_boxfighters = fighters->operator[](j)->GetCollisionBox();
+					if (bullets->operator[](i)->IsCollisionBoxOverlap(fighter_collision_boxfighters)) {
+						bullets->operator[](i)->Destroy();
+						fighters->operator[](j)->Destroy();
+						break;
+					}
+					
+				}
+			}
+			else {//敵方子彈
+				if (player.GetLifeCount() <= 0) {
+					break;
+				}
+				if (bullets->operator[](i)->IsCollisionBoxOverlap(player_collision_boxfighters)) {
+					bullets->operator[](i)->Destroy();
+					player.Damage();
+					if (player.GetLifeCount() <= 0) {
+						//text_graphics.Register({ SIZE_X - 100 , SIZE_Y }, "You Are Dead");//失敗
+					}
+				}
+				
+
+			}
+		}
+	}
 	void RunningState::InitDerived()
 	{
-		stage_manager.Init(xml_reader.ParseStages());
+		stage_manager.Init(xml_reader.ParseStages(), fighters,bullets);
 		player.Init(xml_reader.ParsePlayer(), bullets);
 		status_panel.Init(text_graphics);
 	}
@@ -24,7 +58,7 @@ namespace Raiden
 			auto test = *bullets;
 			test[i]->Update();
 		}
-			
+		CollisionEvent();
 		status_panel.Update(player, text_graphics);
 	}
 
@@ -35,6 +69,7 @@ namespace Raiden
 		status_panel.Show();
 		text_graphics.Show();
 		bullets->Show();
+		fighters->Show();
 	}
 
 	bool RunningState::Over()

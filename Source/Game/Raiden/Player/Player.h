@@ -4,11 +4,12 @@
 #include "../Data/PlayerData.h"
 #include "../GameObjectPool/GameObjectPool.h"
 #include "../Bullet/Bullet.h"
+#include "../Collidable/Collidable.h"
 #include <set>
 
 namespace Raiden
 {
-	class Player
+	class Player : public Collidable
 	{
 	public:
 		void Init(PlayerData&& player_data, std::shared_ptr<Raiden::GameObjectPool<Raiden::Bullet>>& bullet);
@@ -18,7 +19,7 @@ namespace Raiden
 		int GetHighScore() const;
 		int GetLifeCount() const;
 		int GetBombCount() const;
-
+		void Damage();
 	private:
 		void UpdateByKeyboard(const std::set<Key> &keys);
 		void UpdateByMouse(CPoint point);

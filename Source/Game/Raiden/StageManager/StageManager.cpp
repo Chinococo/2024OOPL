@@ -8,14 +8,15 @@
 
 namespace Raiden
 {
-	void StageManager::Init(std::vector<StageData> &&stages_data)
+	void StageManager::Init(std::vector<StageData>&& stages_data, std::shared_ptr<GameObjectPool<Fighter>> fighters, std::shared_ptr<GameObjectPool<Bullet>> bullets)
 	{
+		this->fighters = fighters;
+		this->bullets = bullets;
 		stages.clear();
 		stages.push_back(std::make_unique<StageJapan>());
 		stages.push_back(std::make_unique<StageBrazil>());
 		stages.push_back(std::make_unique<StageUSA>());
 		this->stages_data = stages_data;
-
 		ChangeStage(0);
 	}
 
@@ -43,6 +44,6 @@ namespace Raiden
 			return;
 		
 		this->stage_index = stage_index;
-		stages[stage_index]->Init(std::move(stages_data[stage_index]));
+		stages[stage_index]->Init(std::move(stages_data[stage_index]), fighters, bullets);
 	}
 }

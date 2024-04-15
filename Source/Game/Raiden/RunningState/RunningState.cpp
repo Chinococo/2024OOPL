@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "RunningState.h"
-
+#include "../../config.h"
 namespace Raiden
 {
 	void RunningState::InitDerived()
@@ -39,12 +39,19 @@ namespace Raiden
 					}
 				}
 			}else {//¼Ä¤è¤l¼u
-				auto player_collision_boxfighters = player.GetCollisionBox();
-				if (bullets->operator[](i)->IsCollisionBoxOverlap(player_collision_boxfighters)) {
-					bullets->operator[](i)->Destroy();
-					player.Damage();
-					break;
+				if (player.GetLifeCount() > 0) {
+					auto player_collision_boxfighters = player.GetCollisionBox();
+					if (bullets->operator[](i)->IsCollisionBoxOverlap(player_collision_boxfighters)) {
+						bullets->operator[](i)->Destroy();
+						player.Damage();
+							if (player.GetLifeCount() <= 0) {
+								text_graphics.Register({ SIZE_X - 100 , SIZE_Y }, "You Are Dead");
+							}
+
+						break;
+					}
 				}
+				
 			}
 		}
 

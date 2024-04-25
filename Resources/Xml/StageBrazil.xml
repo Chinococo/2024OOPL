@@ -87,7 +87,7 @@
 	<Boss>
 		<Path>Boss/</Path>
 		<Sprites>
-			<Sprite>BossJapan.bmp</Sprite>
+			<Sprite>BossBrazil.bmp</Sprite>
 		</Sprites>
 		<Positions>
 			<Position>
@@ -111,5 +111,19 @@
 				<Top>120</Top>
 			</Position>
 		</Positions>
+		<AttackPeriods>
+			<AttackPeriod>
+				<BulletType>Straight</BulletType>
+				<StartTimeMilli>0</StartTimeMilli>
+				<EndTimeMilli>1000</EndTimeMilli>
+				<IntervalMilli>200</IntervalMilli>
+			</AttackPeriod>
+			<AttackPeriod>
+				<BulletType>Straight</BulletType>
+				<StartTimeMilli>0</StartTimeMilli>
+				<EndTimeMilli>1000</EndTimeMilli>
+				<IntervalMilli>200</IntervalMilli>
+			</AttackPeriod>
+		</AttackPeriods>
 	</Boss>
 </StageBrazil>

@@ -37,7 +37,7 @@ namespace Raiden
 		// Data readers
 		BackgroundData ParseStageBackground(std::string stage);
 		std::vector<FighterData> ParseFighters(std::string stage);
-		BossData ParseBoss(std::string stage) const;
+		BossData ParseBoss(std::string stage);
 		std::vector<AttackPeriodData> ParseAttackPeriods(std::vector<tinyxml2::XMLElement*> attack_period_elems) const;
 		AttackPeriodData ParseAttackPeriod(tinyxml2::XMLElement* attack_period_elem) const;
 

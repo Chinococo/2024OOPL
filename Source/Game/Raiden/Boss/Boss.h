@@ -1,6 +1,7 @@
 #pragma once
 #include "../../../Library/gameutil.h"
 #include "../Player/Player.h"
+#include "../Data/BossData.h"
 
 namespace Raiden
 {
@@ -8,8 +9,8 @@ namespace Raiden
 	{
 	public:
 		virtual ~Boss() = default;
-		virtual void Init() = 0;
-		virtual void Update(const Player &player, bool start_attack) = 0;
+		virtual void Init(BossData boss_data) = 0;
+		virtual void Update(const Player &player) = 0;
 		Boss(int);
 		void Show();
 		bool Dead() const;

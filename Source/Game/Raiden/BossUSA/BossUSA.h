@@ -7,7 +7,7 @@ namespace Raiden
 	{
 	public:
 		BossUSA(int health) : Boss(health) {};
-		void Init() override;
-		void Update(const Player &player, bool start_attack) override;
+		void Init(BossData boss_data) override;
+		void Update(const Player &player) override;
 	};
 }

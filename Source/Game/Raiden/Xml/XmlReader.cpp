@@ -133,6 +133,7 @@ namespace Raiden
 			StageData stage_data;
 			stage_data.background_data = ParseStageBackground(stage);
 			stage_data.fighters_data = ParseFighters(stage);
+			stage_data.boss_data = ParseBoss(stage);
 
 			stages_data.push_back(stage_data);
 		}
@@ -186,7 +187,7 @@ namespace Raiden
 		return fighters_data;
 	}
 
-	BossData XmlReader::ParseBoss(std::string stage) const {
+	BossData XmlReader::ParseBoss(std::string stage) {
 		// Parse XML and get boss element under stage element
 		tinyxml2::XMLElement* const boss_elem = ParseXmlChild(stage_elems[stage], "Boss");
 

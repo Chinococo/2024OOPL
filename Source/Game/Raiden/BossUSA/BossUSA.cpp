@@ -3,7 +3,7 @@
 
 namespace Raiden
 {
-	void BossUSA::Init()
+	void BossUSA::Init(BossData boss_data)
 	{
 		// TODO: write the position and the sprite image.
 		sprite.LoadBitmapByString({ "Resources/TestSprite/TestSpritePurple.bmp" });
@@ -11,7 +11,7 @@ namespace Raiden
 		health = 1000;
 	}
 
-	void BossUSA::Update(const Player &player, bool start_attack)
+	void BossUSA::Update(const Player &player)
 	{
 		// TODO: write the logic of bosses.
 	}

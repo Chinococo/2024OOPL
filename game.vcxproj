@@ -290,7 +290,9 @@
     <ClInclude Include="Source\Game\Raiden\Bullet\Bullet.h" />
     <ClInclude Include="Source\Game\Raiden\Collidable\Collidable.h" />
     <ClInclude Include="Source\Game\Raiden\Control\Control.h" />
+    <ClInclude Include="Source\Game\Raiden\Data\AttackPeriodData.h" />
     <ClInclude Include="Source\Game\Raiden\Data\BackgroundData.h" />
+    <ClInclude Include="Source\Game\Raiden\Data\BossData.h" />
     <ClInclude Include="Source\Game\Raiden\Data\FighterData.h" />
     <ClInclude Include="Source\Game\Raiden\Data\PlayerData.h" />
     <ClInclude Include="Source\Game\Raiden\Data\StageData.h" />

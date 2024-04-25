@@ -186,10 +186,39 @@ namespace Raiden
 		return fighters_data;
 	}
 
+	BossData XmlReader::ParseBoss(std::string stage) const {
+		// Parse XML and get boss element under stage element
+		tinyxml2::XMLElement* const boss_elem = ParseXmlChild(stage_elems[stage], "Boss");
+
+		// Parse XML and get path under boss element
+		tinyxml2::XMLElement* const path_elem = ParseXmlChild(boss_elem, "Path");
+		const std::string path = ParsePathElem(path_elem);
+
+		// Parse XML and get path of sprites under boss element
+		tinyxml2::XMLElement* const sprites_elem = ParseXmlChild(boss_elem, "Sprites");
+		const std::vector<tinyxml2::XMLElement*> sprite_elems = ParseXmlList(sprites_elem, "Sprite");
+		const std::vector<std::string> sprite_paths = ParseSpriteElems(path, sprite_elems);
+
+		// Parse XML and get positions under boss element
+		tinyxml2::XMLElement* const positions_elem = ParseXmlChild(boss_elem, "Positions");
+		const std::vector<tinyxml2::XMLElement*> position_elems = ParseXmlList(positions_elem, "Position");
+		const std::vector<CPoint> positions = ParsePositionElems(position_elems);
+
+		// Parse XML and get attack periods under boss element
+		tinyxml2::XMLElement* const attack_periods_elem = ParseXmlChild(boss_elem, "AttackPeriods");
+		const std::vector<tinyxml2::XMLElement*> attack_period_elems = ParseXmlList(attack_periods_elem, "AttackPeriod");
+		const std::vector<AttackPeriodData> attack_periods = ParseAttackPeriods(attack_period_elems);
+
+		return {
+			sprite_paths,
+			positions,
+			attack_periods
+		};
+	}
+
 	std::string XmlReader::ParsePathElem(tinyxml2::XMLElement *path_elem) const
 	{
 		auto root_path_elem = ParseXmlChild(game_setting_elem, "RootPath");
-
 		return ParseXmlText(root_path_elem) + ParseXmlText(path_elem);
 	}
 
@@ -228,5 +257,39 @@ namespace Raiden
 			positions.push_back(ParsePositionElem(position_elem));
 
 		return positions;
+	}
+
+	std::vector<AttackPeriodData> XmlReader::ParseAttackPeriods(std::vector<tinyxml2::XMLElement*> attack_period_elems) const {
+		std::vector<AttackPeriodData> attack_periods;
+		
+		for (tinyxml2::XMLElement* const attack_period_elem : attack_period_elems)
+			attack_periods.push_back(ParseAttackPeriod(attack_period_elem));
+
+		return attack_periods;
+	}
+
+	AttackPeriodData XmlReader::ParseAttackPeriod(tinyxml2::XMLElement* attack_period_elem) const {
+		// Parse bullet type
+		tinyxml2::XMLElement* const bullet_type_elem = ParseXmlChild(attack_period_elem, "BulletType");
+		const int bullet_type = ParseXmlInt(bullet_type_elem);
+
+		// Parse start time in milliseconds
+		tinyxml2::XMLElement* const start_time_milli_elem = ParseXmlChild(attack_period_elem, "StartTimeMilli");
+		const int start_time_milli = ParseXmlInt(start_time_milli_elem);
+
+		// Parse end time in milliseconds
+		tinyxml2::XMLElement* const end_time_milli_elem = ParseXmlChild(attack_period_elem, "EndTimeMilli");
+		const int end_time_milli= ParseXmlInt(end_time_milli_elem);
+
+		// Parse interval in milliseconds
+		tinyxml2::XMLElement* const interval_milli_elem = ParseXmlChild(attack_period_elem, "IntervalMilli");
+		const int interval_milli= ParseXmlInt(interval_milli_elem);
+
+		return {
+			bullet_type,
+			start_time_milli,
+			end_time_milli,
+			interval_milli
+		};
 	}
 }

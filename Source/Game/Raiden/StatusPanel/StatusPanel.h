@@ -14,6 +14,7 @@ namespace Raiden
 
 	private:
 		int score_counter_id;
+		int life_score_id; // temporary
 		game_framework::CMovingBitmap life_counter;
 		game_framework::CMovingBitmap bomb_counter;
 	};

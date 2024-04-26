@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<StageBrazil>
+<StageUSA>
 	<Background>
 		<Sprites>
 			<Sprite>StageUSA.bmp</Sprite>
@@ -126,4 +126,4 @@
 			</AttackPeriod>
 		</AttackPeriods>
 	</Boss>
-</StageBrazil>
+</StageUSA>

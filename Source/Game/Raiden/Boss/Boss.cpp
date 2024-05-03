@@ -7,6 +7,17 @@ namespace Raiden
 	void Boss::Show()
 	{
 		sprite.ShowBitmap();
+		this->ShowCollisionBox();
+	}
+
+	void Boss::Damage(int damage)
+	{
+		health -= damage;
+	}
+
+	bool Boss::IsAlive() const
+	{
+		return health > 0;
 	}
 
 	bool Boss::Dead() const

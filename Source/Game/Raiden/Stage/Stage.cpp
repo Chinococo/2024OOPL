@@ -29,4 +29,8 @@ namespace Raiden
 	{
 		return boss->Dead();
 	}
+	std::shared_ptr<Boss> Stage::GetBoss()
+	{
+		return boss;
+	}
 }

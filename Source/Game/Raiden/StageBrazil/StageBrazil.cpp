@@ -8,7 +8,8 @@ namespace Raiden
 	{
 		this->fighter_pool = fighters;
 		this->bullet_pool = bullets;
-		boss = std::make_unique<BossBrazil>(1000);
+		this->boss = boss;
+		boss = std::make_shared<BossBrazil>(1000);
 		boss->Init(stage_data.boss_data);
 		
 		for (auto &fighter_data : stage_data.fighters_data)

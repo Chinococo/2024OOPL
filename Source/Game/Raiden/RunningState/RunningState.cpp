@@ -18,6 +18,14 @@ namespace Raiden {
 						break;
 					}
 				}
+				if (this->boss != nullptr && this->boss->IsAlive()) {
+					auto boss_collision_boxfighters = this->boss->GetCollisionBox();
+					if (bullets->operator[](i)->IsCollisionBoxOverlap(boss_collision_boxfighters)) {
+						bullets->operator[](i)->Destroy();
+						this->boss->Damage(1);
+						break;
+					}
+				}
 			}
 			else {//¼Ä¤è¤l¼u
 				if (player.GetLifeCount() <= 0) {
@@ -35,7 +43,7 @@ namespace Raiden {
 	}
 
 	void RunningState::InitDerived() {
-		stage_manager.Init(xml_reader.ParseStages(), fighters, bullets);
+		stage_manager.Init(xml_reader.ParseStages(), fighters, bullets, boss);
 		player.Init(xml_reader.ParsePlayer(), bullets);
 		status_panel.Init(text_graphics);
 	}
@@ -48,6 +56,7 @@ namespace Raiden {
 		if (player.GetLifeCount() > 0) {
 			player.Update(control);
 			stage_manager.Update(player);
+			boss = stage_manager.GetBoss();
 			bullets->Update();
 			for (size_t i = 0; i < bullets->GetSize(); i++) {
 				auto test = *bullets;

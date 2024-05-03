@@ -15,6 +15,8 @@ namespace Raiden
 		void Update(const Player &player);
 		Boss(int);
 		void Show();
+		void Damage(int);
+		bool IsAlive() const;
 		bool Dead() const;
 	protected:
 		void MoveTo(int left, int top);

@@ -8,6 +8,6 @@ namespace Raiden
 	public:
 		BossJapan(int health) : Boss(health) {};
 		void Init(BossData boss_data) override;
-		void Update(const Player &player) override;
+		void Attack(const Player &player) override;
 	};
 }

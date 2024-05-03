@@ -86,6 +86,11 @@
 	</Fighters>
 	<Boss>
 		<Path>Boss/</Path>
+		<ColorMask>
+			<Red>255</Red>
+			<Green>255</Green>
+			<Blue>255</Blue>
+		</ColorMask>
 		<Sprites>
 			<Sprite>BossUSA.bmp</Sprite>
 		</Sprites>

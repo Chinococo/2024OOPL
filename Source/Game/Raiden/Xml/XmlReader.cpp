@@ -200,6 +200,10 @@ namespace Raiden
 		const std::vector<tinyxml2::XMLElement*> sprite_elems = ParseXmlList(sprites_elem, "Sprite");
 		const std::vector<std::string> sprite_paths = ParseSpriteElems(path, sprite_elems);
 
+		// Parse XML and get color mask under boss element
+		tinyxml2::XMLElement* const color_mask_elem = ParseXmlChild(boss_elem, "ColorMask");
+		const std::tuple<int, int, int> color_mask = ParseColorMaskElem(color_mask_elem);
+
 		// Parse XML and get positions under boss element
 		tinyxml2::XMLElement* const positions_elem = ParseXmlChild(boss_elem, "Positions");
 		const std::vector<tinyxml2::XMLElement*> position_elems = ParseXmlList(positions_elem, "Position");
@@ -212,6 +216,7 @@ namespace Raiden
 
 		return {
 			sprite_paths,
+			color_mask,
 			positions,
 			attack_periods
 		};

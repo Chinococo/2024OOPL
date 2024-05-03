@@ -1,10 +1,9 @@
 #include "stdafx.h"
 #include "RunningState.h"
 #include "../../config.h"
-namespace Raiden
-{
-	void RunningState::CollisionEvent()
-	{
+
+namespace Raiden {
+	void RunningState::CollisionEvent() {
 		auto player_collision_boxfighters = player.GetCollisionBox();
 		for (size_t i = 0; i < bullets->GetSize(); i++) {
 			if (bullets->operator[](i)->IsFriendly()) {//我方子彈
@@ -18,7 +17,6 @@ namespace Raiden
 						fighters->operator[](j)->Destroy();
 						break;
 					}
-					
 				}
 			}
 			else {//敵方子彈
@@ -26,32 +24,27 @@ namespace Raiden
 					break;
 				}
 				if (bullets->operator[](i)->IsCollisionBoxOverlap(player_collision_boxfighters)) {
-						bullets->operator[](i)->Destroy();
-						player.Damage();
-						if (player.GetLifeCount() <= 0) {
-							text_graphics.Register({ SIZE_X / 2 - 100 , SIZE_Y / 2 }, "You Are Dead");//失敗
-						}
-					
+					bullets->operator[](i)->Destroy();
+					player.Damage();
+					if (player.GetLifeCount() <= 0) {
+						text_graphics.Register({ SIZE_X / 2 - 100 , SIZE_Y / 2 }, "You Are Dead");//失敗
+					}
 				}
-				
-
 			}
 		}
 	}
-	void RunningState::InitDerived()
-	{
-		stage_manager.Init(xml_reader.ParseStages(), fighters,bullets);
+
+	void RunningState::InitDerived() {
+		stage_manager.Init(xml_reader.ParseStages(), fighters, bullets);
 		player.Init(xml_reader.ParsePlayer(), bullets);
 		status_panel.Init(text_graphics);
 	}
 
-	void RunningState::KeyUp(Control &control)
-	{
+	void RunningState::KeyUp(Control &control) {
 		// Do nothing
 	}
 
-	void RunningState::Update(Control &control)
-	{
+	void RunningState::Update(Control &control) {
 		if (player.GetLifeCount() > 0) {
 			player.Update(control);
 			stage_manager.Update(player);
@@ -64,7 +57,7 @@ namespace Raiden
 			status_panel.Update(player, text_graphics);
 		}
 		else {
-			if (control.mode == ControlMode::KEYBOARD){
+			if (control.mode == ControlMode::KEYBOARD) {
 				if (control.keys.count(Key::RESET)) {
 					player.Init(xml_reader.ParsePlayer(), bullets);
 					//fighters->Clear();
@@ -74,26 +67,23 @@ namespace Raiden
 					//InitDerived();
 				}
 			}
-			else{
+			else {
 				// To-do
 			}
 		}
 	}
 
-	void RunningState::Show()
-	{
-			stage_manager.Show();
-			player.Show();
-			status_panel.Show();
-			text_graphics.Show();
-			bullets->Show();
-			fighters->Show();
-			text_graphics.Show();
-	
+	void RunningState::Show() {
+		stage_manager.Show();
+		player.Show();
+		status_panel.Show();
+		text_graphics.Show();
+		bullets->Show();
+		fighters->Show();
+		text_graphics.Show();
 	}
 
-	bool RunningState::Over()
-	{
+	bool RunningState::Over() {
 		return stage_manager.Over();
 	}
 }

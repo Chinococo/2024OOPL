@@ -11,7 +11,7 @@ namespace Raiden
 		health = 1000;
 	}
 
-	void BossUSA::Update(const Player &player)
+	void BossUSA::Attack(const Player &player)
 	{
 		// TODO: write the logic of bosses.
 	}

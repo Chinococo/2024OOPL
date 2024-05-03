@@ -6,6 +6,7 @@
 #include "../Bullet/Bullet.h"
 #include "../Collidable/Collidable.h"
 #include <set>
+#include <ctime>
 
 namespace Raiden
 {
@@ -31,5 +32,6 @@ namespace Raiden
 		int life_count = 3;
 		int bomb_count = 3;
 		std::shared_ptr<Raiden::GameObjectPool<Raiden::Bullet>> bullets;
+		std::clock_t fire_cooldown_clock;
 	};
 }

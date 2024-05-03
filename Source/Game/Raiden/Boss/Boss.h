@@ -11,7 +11,7 @@ namespace Raiden
 	{
 	public:
 		virtual ~Boss() = default;
-		virtual void Init(BossData boss_data) = 0;
+		void Init(BossData boss_data);
 		void Update(const Player &player);
 		Boss(int);
 		void Show();

@@ -23,7 +23,7 @@ namespace Raiden
 	{
 		// TODO: perform stage logic here.
 		fighter_pool->Update();
-		fighter_pool->operator[](0)->Update(player, background.GetScrolledDistance());
+		//fighter_pool->operator[](0)->Update(player, background.GetScrolledDistance());
 		for (std::size_t i = 0; i < fighter_pool->GetSize(); i++)
 		{
 			if (!fighter_pool->operator[](i)->IsAlive())

@@ -44,9 +44,6 @@ namespace Raiden
 	{
 		return health == 0;
 	}
-	Boss::Boss(int health) {
-		this->health = health;
-	}
 
 	void Boss::MoveTo(int left, int top)
 	{

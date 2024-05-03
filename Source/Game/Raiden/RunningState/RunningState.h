@@ -31,5 +31,6 @@ namespace Raiden
 		std::shared_ptr<GameObjectPool<Bullet>> bullets = std::shared_ptr<GameObjectPool<Bullet>>(new GameObjectPool<Bullet>());
 		std::shared_ptr<GameObjectPool<Fighter>> fighters = std::shared_ptr<GameObjectPool<Fighter>>(new GameObjectPool<Fighter>());
 		std::shared_ptr<Boss> boss;
+		std::size_t death_message_id;
 	}; 
 }

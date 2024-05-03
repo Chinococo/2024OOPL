@@ -34,9 +34,7 @@ namespace Raiden {
 				if (bullets->operator[](i)->IsCollisionBoxOverlap(player_collision_boxfighters)) {
 					bullets->operator[](i)->Destroy();
 					player.Damage();
-					if (player.GetLifeCount() <= 0) {
-						text_graphics.Register({ SIZE_X / 2 - 100 , SIZE_Y / 2 }, "You Are Dead");//¥¢±Ñ
-					}
+					text_graphics.UpdateText(death_message_id, player.GetLifeCount() > 0 ? "" : "YOU ARE DEAD");
 				}
 			}
 		}
@@ -46,6 +44,7 @@ namespace Raiden {
 		stage_manager.Init(xml_reader.ParseStages(), fighters, bullets, boss);
 		player.Init(xml_reader.ParsePlayer(), bullets);
 		status_panel.Init(text_graphics);
+		death_message_id = text_graphics.Register({ SIZE_X / 2 - 100 , SIZE_Y / 2 }, ""); // ¥¢±Ñ
 	}
 
 	void RunningState::KeyUp(Control &control) {
@@ -69,6 +68,7 @@ namespace Raiden {
 			if (control.mode == ControlMode::KEYBOARD) {
 				if (control.keys.count(Key::RESET)) {
 					player.Init(xml_reader.ParsePlayer(), bullets);
+					text_graphics.UpdateText(death_message_id, "");
 					//fighters->Clear();
 					//bullets->Clear();
 					//text_graphics.Clear();

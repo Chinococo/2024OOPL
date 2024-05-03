@@ -13,7 +13,6 @@ namespace Raiden
 		virtual ~Boss() = default;
 		void Init(BossData boss_data);
 		void Update(const Player &player);
-		Boss(int);
 		void Show();
 		void Damage(int);
 		bool IsAlive() const;

@@ -1,35 +1,45 @@
 #include "stdafx.h"
+#include "../../../Library/gameutil.h"
 #include "StatusPanel.h"
-#include "../Player/Player.h"
-#include "../../config.h"
-#include <string>
 
-namespace Raiden
-{
-	void StatusPanel::Init(TextGraphics &text_graphics)
-	{
-		// TODO: fix the position of the counters and the sprite image.
-		score_counter_id = text_graphics.Register({ 0, 0 }, "SCORE: 0    HIGH SCORE: 0");
-		life_score_id = text_graphics.Register({ 0, 30 }, "Life Count: 0");
-		life_counter.LoadBitmapByString({ "Resources/TestSprite/TestSpriteBlue.bmp" });
-		life_counter.SetTopLeft(0, SIZE_Y - life_counter.GetHeight());
-		bomb_counter.LoadBitmapByString({ "Resources/TestSprite/TestSpriteBlue.bmp" });
-		bomb_counter.SetTopLeft(SIZE_X - bomb_counter.GetWidth(), SIZE_Y - bomb_counter.GetHeight());
+namespace Raiden {
+	StatusPanel::StatusDatum::StatusDatum(const std::string text, const std::string image_path, const int initial_count, const CPoint position)
+		: text(text), image_path(image_path), count(initial_count), position(position) {}
+	void StatusPanel::InitializeStatus() {
+		const std::string image_path = "Resources/StatusPanel/RedDot20x20.bmp";
+		const int initial_count = 5;
+		this->status_data.insert({ StatusType::LIFE, StatusDatum("LIFE", image_path, initial_count, CPoint(0, 0)) });
+		this->status_data.insert({ StatusType::SCORE, StatusDatum("SCORE", image_path, initial_count, CPoint(200, 0)) });
+		this->status_data.insert({ StatusType::BOMB_COUNT, StatusDatum("BOMB COUNT", image_path, initial_count, CPoint(400, 0)) });
 	}
-
-	void StatusPanel::Update(const Player &player, TextGraphics &text_graphics)
-	{
-		// TODO: fix the position of the counters and the sprite image.
-		std::string text = "SCORE: " + std::to_string(player.GetScore()) + "    HIGH SCORE: " + std::to_string(player.GetHighScore());
-		text_graphics.UpdateText(score_counter_id, text);
-		text_graphics.UpdateText(life_score_id, " Life Count: " + std::to_string(player.GetLifeCount()));
-		// lifeCounter.SetFrameIndexOfBitmap(player.GetLifeCount());
-		// bombCounter.SetFrameIndexOfBitmap(player.GetBombCount());
+	void StatusPanel::SetStatusCount(const StatusType status_type, const int count) {
+		this->status_data.at(status_type).count = count;
 	}
-
-	void StatusPanel::Show()
-	{
-		//life_counter.ShowBitmap();
-		//bomb_counter.ShowBitmap();
+	void StatusPanel::DecreaseStatusCount(const StatusType status_type) {
+		int& status_count = this->status_data.at(status_type).count;
+		if (status_count > 0) {
+			status_count--;
+		}
+	}
+	void StatusPanel::ShowStatus(TextGraphics& text_graphics) {
+		for (std::pair<const StatusType, StatusDatum>& status_pair : this->status_data) {
+			StatusDatum& status_datum = status_pair.second;
+			// Compute text position
+			const CPoint& text_position = status_datum.position;
+			text_graphics.RegisterText(text_position, status_datum.text);
+			// Compute leftmost bitmap position
+			const CPoint text_bitmap_margin(0, text_graphics.GetTextSize());
+			const CPoint bitmap_position = text_position + text_bitmap_margin;
+			// Load bitmap
+			game_framework::CMovingBitmap bitmap;
+			bitmap.LoadBitmapByString({ status_datum.image_path }, RGB(255, 255, 255));
+			// Store image width in advance
+			const int image_width = bitmap.GetWidth();
+			// Show same bitmaps sequentially
+			for (int i = 0; i < status_datum.count; i++) {
+				bitmap.SetTopLeft(bitmap_position.x + i * image_width, bitmap_position.y);
+				bitmap.ShowBitmap();
+			}
+		}
 	}
 }

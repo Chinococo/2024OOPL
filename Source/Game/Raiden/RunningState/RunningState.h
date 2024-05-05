@@ -24,6 +24,7 @@ namespace Raiden
 		bool Over() override;
 
 	private:
+		void UpdateStatusPanel();
 		StageManager stage_manager;
 		Player player;
 		StatusPanel status_panel;

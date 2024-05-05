@@ -34,7 +34,7 @@ namespace Raiden {
 				if (bullets->operator[](i)->IsCollisionBoxOverlap(player_collision_boxfighters)) {
 					bullets->operator[](i)->Destroy();
 					player.Damage();
-					text_graphics.UpdateText(death_message_id, player.GetLifeCount() > 0 ? "" : "YOU ARE DEAD");
+					text_graphics.RegisterText(death_message_id, player.GetLifeCount() > 0 ? "" : "YOU ARE DEAD");
 				}
 			}
 		}
@@ -43,8 +43,8 @@ namespace Raiden {
 	void RunningState::InitDerived() {
 		stage_manager.Init(xml_reader.ParseStages(), fighters, bullets, boss);
 		player.Init(xml_reader.ParsePlayer(), bullets);
-		status_panel.Init(text_graphics);
-		death_message_id = text_graphics.Register({ SIZE_X / 2 - 100 , SIZE_Y / 2 }, ""); // ¥¢±Ñ
+		status_panel.InitializeStatus();
+		death_message_id = text_graphics.RegisterText({ SIZE_X / 2 - 100 , SIZE_Y / 2 }, ""); // ¥¢±Ñ
 	}
 
 	void RunningState::KeyUp(Control &control) {
@@ -62,13 +62,13 @@ namespace Raiden {
 				test[i]->Update();
 			}
 			CollisionEvent();
-			status_panel.Update(player, text_graphics);
+			this->UpdateStatusPanel();
 		}
 		else {
 			if (control.mode == ControlMode::KEYBOARD) {
 				if (control.keys.count(Key::RESET)) {
 					player.Init(xml_reader.ParsePlayer(), bullets);
-					text_graphics.UpdateText(death_message_id, "");
+					text_graphics.ChangeText(death_message_id, "");
 					//fighters->Clear();
 					//bullets->Clear();
 					//text_graphics.Clear();
@@ -82,14 +82,19 @@ namespace Raiden {
 		}
 	}
 
+	void RunningState::UpdateStatusPanel() {
+		status_panel.SetStatusCount(StatusType::LIFE, player.GetLifeCount());
+		status_panel.SetStatusCount(StatusType::SCORE, player.GetScore());
+		status_panel.SetStatusCount(StatusType::BOMB_COUNT, player.GetBombCount());
+	}
+
 	void RunningState::Show() {
 		stage_manager.Show();
 		player.Show();
-		status_panel.Show();
-		text_graphics.Show();
 		bullets->Show();
 		fighters->Show();
-		text_graphics.Show();
+		status_panel.ShowStatus(text_graphics);
+		text_graphics.ShowTexts();
 	}
 
 	bool RunningState::Over() {

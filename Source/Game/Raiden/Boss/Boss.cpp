@@ -21,7 +21,7 @@ namespace Raiden
 		positions = boss_data.positions;
 
 		// Setting initial health value
-		health = 1000;
+		health = 200;
 	}
 
 	void Boss::Show()

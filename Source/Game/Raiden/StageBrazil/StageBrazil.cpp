@@ -8,8 +8,9 @@ namespace Raiden
 	{
 		this->fighter_pool = fighters;
 		this->bullet_pool = bullets;
-		boss = std::make_unique<BossBrazil>(1000);
-		boss->Init();
+		this->boss = boss;
+		boss = std::make_shared<BossBrazil>();
+		boss->Init(stage_data.boss_data);
 		
 		for (auto &fighter_data : stage_data.fighters_data)
 		{
@@ -22,7 +23,7 @@ namespace Raiden
 	{
 		// TODO: perform stage logic here.
 		fighter_pool->Update();
-		fighter_pool->operator[](0)->Update(player, background.GetScrolledDistance());
+		//fighter_pool->operator[](0)->Update(player, background.GetScrolledDistance());
 		for (std::size_t i = 0; i < fighter_pool->GetSize(); i++)
 		{
 			if (!fighter_pool->operator[](i)->IsAlive())

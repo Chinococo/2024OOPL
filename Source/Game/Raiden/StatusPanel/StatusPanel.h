@@ -1,20 +1,27 @@
 #pragma once
-#include "../../../Library/gameutil.h"
-#include "../Player/Player.h"
 #include "../TextGraphics/TextGraphics.h"
+#include <map>
 
-namespace Raiden
-{
-	class StatusPanel
-	{
+namespace Raiden {
+	enum class StatusType {
+		LIFE,
+		SCORE,
+		BOMB_COUNT
+	};
+	class StatusPanel {
 	public:
-		void Init(TextGraphics &text_graphics);
-		void Update(const Player &player, TextGraphics &text_graphics);
-		void Show();
-
+		void InitializeStatus();
+		void SetStatusCount(const StatusType, const int);
+		void DecreaseStatusCount(const StatusType);
+		void ShowStatus(TextGraphics& text_graphics);
 	private:
-		int score_counter_id;
-		game_framework::CMovingBitmap life_counter;
-		game_framework::CMovingBitmap bomb_counter;
+		struct StatusDatum {
+			StatusDatum(const std::string text, const std::string image_path, const int initial_count, const CPoint position);
+			const std::string text;
+			const std::string image_path;
+			int count;
+			const CPoint position;
+		};
+		std::map<const StatusType, StatusDatum> status_data;
 	};
 }

@@ -1,10 +1,9 @@
 #include "stdafx.h"
 #include "RunningState.h"
 #include "../../config.h"
-namespace Raiden
-{
-	void RunningState::CollisionEvent()
-	{
+
+namespace Raiden {
+	void RunningState::CollisionEvent() {
 		auto player_collision_boxfighters = player.GetCollisionBox();
 		for (size_t i = 0; i < bullets->GetSize(); i++) {
 			if (bullets->operator[](i)->IsFriendly()) {//我方子彈
@@ -18,7 +17,14 @@ namespace Raiden
 						fighters->operator[](j)->Destroy();
 						break;
 					}
-					
+				}
+				if (this->boss != nullptr && this->boss->IsAlive()) {
+					auto boss_collision_boxfighters = this->boss->GetCollisionBox();
+					if (bullets->operator[](i)->IsCollisionBoxOverlap(boss_collision_boxfighters)) {
+						bullets->operator[](i)->Destroy();
+						this->boss->Damage(1);
+						break;
+					}
 				}
 			}
 			else {//敵方子彈
@@ -26,47 +32,43 @@ namespace Raiden
 					break;
 				}
 				if (bullets->operator[](i)->IsCollisionBoxOverlap(player_collision_boxfighters)) {
-						bullets->operator[](i)->Destroy();
-						player.Damage();
-						if (player.GetLifeCount() <= 0) {
-							text_graphics.Register({ SIZE_X / 2 - 100 , SIZE_Y / 2 }, "You Are Dead");//失敗
-						}
-					
+					bullets->operator[](i)->Destroy();
+					player.Damage();
+					text_graphics.RegisterText(death_message_id, player.GetLifeCount() > 0 ? "" : "YOU ARE DEAD");
 				}
-				
-
 			}
 		}
 	}
-	void RunningState::InitDerived()
-	{
-		stage_manager.Init(xml_reader.ParseStages(), fighters,bullets);
+
+	void RunningState::InitDerived() {
+		stage_manager.Init(xml_reader.ParseStages(), fighters, bullets, boss);
 		player.Init(xml_reader.ParsePlayer(), bullets);
-		status_panel.Init(text_graphics);
+		status_panel.InitializeStatus();
+		death_message_id = text_graphics.RegisterText({ SIZE_X / 2 - 100 , SIZE_Y / 2 }, ""); // 失敗
 	}
 
-	void RunningState::KeyUp(Control &control)
-	{
+	void RunningState::KeyUp(Control &control) {
 		// Do nothing
 	}
 
-	void RunningState::Update(Control &control)
-	{
+	void RunningState::Update(Control &control) {
 		if (player.GetLifeCount() > 0) {
 			player.Update(control);
 			stage_manager.Update(player);
+			boss = stage_manager.GetBoss();
 			bullets->Update();
 			for (size_t i = 0; i < bullets->GetSize(); i++) {
 				auto test = *bullets;
 				test[i]->Update();
 			}
 			CollisionEvent();
-			status_panel.Update(player, text_graphics);
+			this->UpdateStatusPanel();
 		}
 		else {
-			if (control.mode == ControlMode::KEYBOARD){
+			if (control.mode == ControlMode::KEYBOARD) {
 				if (control.keys.count(Key::RESET)) {
 					player.Init(xml_reader.ParsePlayer(), bullets);
+					text_graphics.ChangeText(death_message_id, "");
 					//fighters->Clear();
 					//bullets->Clear();
 					//text_graphics.Clear();
@@ -74,26 +76,28 @@ namespace Raiden
 					//InitDerived();
 				}
 			}
-			else{
+			else {
 				// To-do
 			}
 		}
 	}
 
-	void RunningState::Show()
-	{
-			stage_manager.Show();
-			player.Show();
-			status_panel.Show();
-			text_graphics.Show();
-			bullets->Show();
-			fighters->Show();
-			text_graphics.Show();
-	
+	void RunningState::UpdateStatusPanel() {
+		status_panel.SetStatusCount(StatusType::LIFE, player.GetLifeCount());
+		status_panel.SetStatusCount(StatusType::SCORE, player.GetScore());
+		status_panel.SetStatusCount(StatusType::BOMB_COUNT, player.GetBombCount());
 	}
 
-	bool RunningState::Over()
-	{
+	void RunningState::Show() {
+		stage_manager.Show();
+		player.Show();
+		bullets->Show();
+		fighters->Show();
+		status_panel.ShowStatus(text_graphics);
+		text_graphics.ShowTexts();
+	}
+
+	bool RunningState::Over() {
 		return stage_manager.Over();
 	}
 }

@@ -9,12 +9,27 @@
 	<Fighters>
 		<Path>Fighter/</Path>
 		<ColorMask>
-			<Red>0</Red>
-			<Green>0</Green>
-			<Blue>0</Blue>
+			<Red>57</Red>
+			<Green>24</Green>
+			<Blue>8</Blue>
 		</ColorMask>
 		<Sprites>
-			<Sprite>Fighter0.bmp</Sprite>
+			<Sprite>0.bmp</Sprite>
+			<Sprite>1.bmp</Sprite>
+			<Sprite>2.bmp</Sprite>
+			<Sprite>3.bmp</Sprite>
+			<Sprite>4.bmp</Sprite>
+			<Sprite>5.bmp</Sprite>
+			<Sprite>6.bmp</Sprite>
+			<Sprite>7.bmp</Sprite>
+			<Sprite>8.bmp</Sprite>
+			<Sprite>9.bmp</Sprite>
+			<Sprite>10.bmp</Sprite>
+			<Sprite>11.bmp</Sprite>
+			<Sprite>12.bmp</Sprite>
+			<Sprite>13.bmp</Sprite>
+			<Sprite>14.bmp</Sprite>
+			<Sprite>15.bmp</Sprite>
 		</Sprites>
 		<Fighter>
 			<AppearDistance>200</AppearDistance>
@@ -69,4 +84,51 @@
 			</Positions>
 		</Fighter>
 	</Fighters>
+	<Boss>
+		<Path>Boss/</Path>
+		<ColorMask>
+			<Red>255</Red>
+			<Green>255</Green>
+			<Blue>255</Blue>
+		</ColorMask>
+		<Sprites>
+			<Sprite>BossJapan.bmp</Sprite>
+		</Sprites>
+		<Positions>
+			<Position>
+				<Left>200</Left>
+				<Top>0</Top>
+			</Position>
+			<Position>
+				<Left>200</Left>
+				<Top>30</Top>
+			</Position>
+			<Position>
+				<Left>200</Left>
+				<Top>60</Top>
+			</Position>
+			<Position>
+				<Left>200</Left>
+				<Top>90</Top>
+			</Position>
+			<Position>
+				<Left>200</Left>
+				<Top>120</Top>
+			</Position>
+		</Positions>
+		<AttackPeriods>
+			<AttackPeriod>
+				<BulletType>Straight</BulletType>
+				<StartTimeMilli>0</StartTimeMilli>
+				<EndTimeMilli>1000</EndTimeMilli>
+				<IntervalMilli>200</IntervalMilli>
+			</AttackPeriod>
+			<AttackPeriod>
+				<BulletType>Straight</BulletType>
+				<StartTimeMilli>0</StartTimeMilli>
+				<EndTimeMilli>1000</EndTimeMilli>
+				<IntervalMilli>200</IntervalMilli>
+			</AttackPeriod>
+		</AttackPeriods>
+	</Boss>
 </StageJapan>

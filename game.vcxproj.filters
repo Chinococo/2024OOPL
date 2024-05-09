@@ -335,6 +335,12 @@
     <ClInclude Include="Source\Game\Raiden\Data\FighterData.h">
       <Filter>MyGame\Raiden\Data</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Game\Raiden\Data\BossData.h">
+      <Filter>MyGame\Raiden\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Game\Raiden\Data\AttackPeriodData.h">
+      <Filter>MyGame\Raiden\Data</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Source\Core\game.rc">

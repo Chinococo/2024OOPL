@@ -9,6 +9,8 @@
 #include "../GameObjectPool/GameObjectPool.h"
 #include "../Bullet/Bullet.h"
 #include "../Fighter/Fighter.h"
+#include "../Boss/Boss.h"
+#include "../BossJapan/BossJapan.h"
 namespace Raiden
 {
 	class RunningState : public State
@@ -22,11 +24,14 @@ namespace Raiden
 		bool Over() override;
 
 	private:
+		void UpdateStatusPanel();
 		StageManager stage_manager;
 		Player player;
 		StatusPanel status_panel;
 		TextGraphics text_graphics;
 		std::shared_ptr<GameObjectPool<Bullet>> bullets = std::shared_ptr<GameObjectPool<Bullet>>(new GameObjectPool<Bullet>());
 		std::shared_ptr<GameObjectPool<Fighter>> fighters = std::shared_ptr<GameObjectPool<Fighter>>(new GameObjectPool<Fighter>());
-	};
+		std::shared_ptr<Boss> boss;
+		std::size_t death_message_id;
+	}; 
 }

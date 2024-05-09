@@ -4,36 +4,29 @@
 #include "../../../Library/gameutil.h"
 #include "../../../Library/gamecore.h"
 
-namespace Raiden
-{
-	std::size_t TextGraphics::Register(CPoint &&point, std::string text)
-	{
-		points.push_back(std::move(point));
-		texts.push_back(text);
-		return points.size() - 1;
+namespace Raiden {
+	TextGraphics::TextDatum::TextDatum(const CPoint position, const std::string text)
+		: position(position), text(text) {}
+	std::size_t TextGraphics::RegisterText(const CPoint position, const std::string text) {
+		this->text_data.push_back({ position, text });
+		return this->text_data.size() - 1;
 	}
-
-	void TextGraphics::UpdateText(std::size_t id, std::string text)
-	{
-		if (id < 0 || id >= points.size())
-			return;
-
-		texts[id] = text;
+	void TextGraphics::ChangePosition(const std::size_t index, const CPoint position) {
+		this->text_data.at(index).position = position;
 	}
-
-	void TextGraphics::Show() const
-	{
-		CDC *p_dc = game_framework::CDDraw::GetBackCDC();
-		game_framework::CTextDraw::ChangeFontLog(p_dc, 30, "Times New Roman", RGB(255, 255, 255));
-
-		for (std::size_t i = 0; i < points.size(); i++)
-			game_framework::CTextDraw::Print(p_dc, points[i].x, points[i].y, texts[i]);
-
+	void TextGraphics::ChangeText(const std::size_t index, const std::string text) {
+		this->text_data.at(index).text = text;
+	}
+	void TextGraphics::ShowTexts() const {
+		CDC* const cdc = game_framework::CDDraw::GetBackCDC();
+		game_framework::CTextDraw::ChangeFontLog(cdc, this->text_size, "Times New Roman", RGB(255, 255, 255));
+		for (const TextDatum& text_datum : text_data) {
+			const CPoint& position = text_datum.position;
+			game_framework::CTextDraw::Print(cdc, position.x, position.y, text_datum.text);
+		}
 		game_framework::CDDraw::ReleaseBackCDC();
 	}
-	void TextGraphics::Clear()
-	{
-		points.clear();
-		texts.clear();
+	int TextGraphics::GetTextSize() const {
+		return this->text_size;
 	}
 }

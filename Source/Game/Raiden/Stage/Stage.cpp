@@ -13,18 +13,24 @@ namespace Raiden
 	void Stage::Update(const Player &player)
 	{
 		background.Update();
-		boss->Update(player, background.Over());
+		if (background.Over())
+			boss->Update(player);
 		UpdateDerived(player);
 	}
 
 	void Stage::Show()
 	{
 		background.Show();
-		boss->Show();
+		if (background.Over())
+			boss->Show();
 	}
 
 	bool Stage::Over() const
 	{
 		return boss->Dead();
+	}
+	std::shared_ptr<Boss> Stage::GetBoss()
+	{
+		return boss;
 	}
 }

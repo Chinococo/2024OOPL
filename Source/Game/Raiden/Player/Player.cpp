@@ -89,12 +89,15 @@ namespace Raiden
 
 		sprite.SetTopLeft(left, top);
 		UpdateCollisionBox(left, top);
-		if (keys.count(Key::FIRE)) {
+
+		int fire_cooldown_milli = static_cast<int>(static_cast<double>(std::clock() - fire_cooldown_clock) / CLOCKS_PER_SEC * 1000);
+		if (keys.count(Key::FIRE) && fire_cooldown_milli >= 100) {
 			int index = bullets->AddElement();
 			auto test = *bullets;
 			test[index]->Init(true);
 			test[index]->SetTopLeft({ left,top });
 			test[index]->ApplyForce({ 0,-3 });
+			fire_cooldown_clock = std::clock();
 		}
 	}
 

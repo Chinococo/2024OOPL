@@ -6,8 +6,6 @@ namespace Raiden
 	class BossUSA : public Boss
 	{
 	public:
-		BossUSA(int health) : Boss(health) {};
-		void Init() override;
-		void Update(const Player &player, bool start_attack) override;
+		void Attack(const Player &player) override;
 	};
 }

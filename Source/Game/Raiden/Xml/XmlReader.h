@@ -3,6 +3,7 @@
 #include "../Data/TitleScreenData.h"
 #include "../Data/PlayerData.h"
 #include "../Data/StageData.h"
+#include "../Data/BossData.h"
 #include <map>
 #include <vector>
 
@@ -36,6 +37,9 @@ namespace Raiden
 		// Data readers
 		BackgroundData ParseStageBackground(std::string stage);
 		std::vector<FighterData> ParseFighters(std::string stage);
+		BossData ParseBoss(std::string stage);
+		std::vector<AttackPeriodData> ParseAttackPeriods(std::vector<tinyxml2::XMLElement*> attack_period_elems) const;
+		AttackPeriodData ParseAttackPeriod(tinyxml2::XMLElement* attack_period_elem) const;
 
 		// Document root elements
 		tinyxml2::XMLElement *game_setting_elem;

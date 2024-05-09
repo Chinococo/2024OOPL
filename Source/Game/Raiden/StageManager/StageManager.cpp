@@ -8,10 +8,11 @@
 
 namespace Raiden
 {
-	void StageManager::Init(std::vector<StageData>&& stages_data, std::shared_ptr<GameObjectPool<Fighter>> fighters, std::shared_ptr<GameObjectPool<Bullet>> bullets)
+	void StageManager::Init(std::vector<StageData>&& stages_data, std::shared_ptr<GameObjectPool<Fighter>> fighters, std::shared_ptr<GameObjectPool<Bullet>> bullets, std::shared_ptr<Boss> boss)
 	{
 		this->fighters = fighters;
 		this->bullets = bullets;
+		this->boss = boss;
 		stages.clear();
 		stages.push_back(std::make_unique<StageJapan>());
 		stages.push_back(std::make_unique<StageBrazil>());
@@ -22,6 +23,7 @@ namespace Raiden
 
 	void StageManager::Update(const Player &player)
 	{
+		this->boss = stages[stage_index]->GetBoss();
 		if (stages[stage_index]->Over())
 			ChangeStage(stage_index + 1);
 		
@@ -36,6 +38,11 @@ namespace Raiden
 	bool StageManager::Over() const
 	{
 		return stage_index == stages.size() - 1 && stages[stage_index]->Over();
+	}
+
+	std::shared_ptr<Boss> StageManager::GetBoss()
+	{
+		return boss;
 	}
 
 	void StageManager::ChangeStage(std::size_t stage_index)

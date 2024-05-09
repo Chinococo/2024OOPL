@@ -9,6 +9,7 @@ namespace Raiden {
 		void ChangePosition(const std::size_t, const CPoint);
 		void ChangeText(const std::size_t, const std::string);
 		void ShowTexts() const;
+		void ClearTextData();
 		int GetTextSize() const;
 	private:
 		struct TextDatum {

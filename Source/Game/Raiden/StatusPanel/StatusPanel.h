@@ -23,5 +23,7 @@ namespace Raiden {
 			const CPoint position;
 		};
 		std::map<const StatusType, StatusDatum> status_data;
+		game_framework::CMovingBitmap display;
+		vector<string> image_paths;
 	};
 }

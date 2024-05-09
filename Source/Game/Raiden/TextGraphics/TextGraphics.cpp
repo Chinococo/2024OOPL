@@ -26,6 +26,9 @@ namespace Raiden {
 		}
 		game_framework::CDDraw::ReleaseBackCDC();
 	}
+	void TextGraphics::ClearTextData() {
+		this->text_data.clear();
+	}
 	int TextGraphics::GetTextSize() const {
 		return this->text_size;
 	}

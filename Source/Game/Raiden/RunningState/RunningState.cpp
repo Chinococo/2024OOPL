@@ -95,6 +95,7 @@ namespace Raiden {
 		fighters->Show();
 		status_panel.ShowStatus(text_graphics);
 		text_graphics.ShowTexts();
+		text_graphics.ClearTextData();
 	}
 
 	bool RunningState::Over() {

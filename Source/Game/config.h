@@ -14,7 +14,7 @@
 // 遊戲畫面預設的背景顏色(黑色)
 #define DEFAULT_BG_COLOR	 RGB(0, 0, 0)	
 //! 每33ms跑一次Move及Show(每秒30次)
-#define GAME_CYCLE_TIME		 15		    
+#define GAME_CYCLE_TIME		 30		    
 //! 是否在debug mode顯示cycle time
 #define SHOW_GAME_CYCLE_TIME false		
 //! 是否允許以 Ctrl-Q 暫停遊戲

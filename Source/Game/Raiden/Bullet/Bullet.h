@@ -1,8 +1,8 @@
 ﻿#pragma once
 #include "../../../Library/gameutil.h"
 #include "../CollisionBox/CollisionBox.h"
+#include "../Player/Player.h"
 #include <atltypes.h>
-
 namespace Raiden
 {
 	/*
@@ -21,6 +21,7 @@ namespace Raiden
 	 *   - ~Bullet:Free collisionBox;
 	*/
 	enum bullet_type{ straight_bullet,simple_track_bullet,track_bullet};
+	
 	class Bullet
 	{
 	public:
@@ -35,6 +36,7 @@ namespace Raiden
 		void Destroy();
 		bool IsAlive();
 		bool IsFriendly();
+
 	private:
 		bool alive = true;
 		game_framework::CMovingBitmap sprite;

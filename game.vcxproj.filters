@@ -290,9 +290,6 @@
     <ClInclude Include="Source\Game\Raiden\CollisionBox\CollisionBox.h">
       <Filter>MyGame\Raiden\CollisionBox</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Game\Raiden\GameObjectPool\GameObjectPool.h">
-      <Filter>MyGame\Raiden\GameObjectPool</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Game\Raiden\Bullet\Bullet.h">
       <Filter>MyGame\Raiden\Bullet</Filter>
     </ClInclude>
@@ -340,6 +337,9 @@
     </ClInclude>
     <ClInclude Include="Source\Game\Raiden\Data\AttackPeriodData.h">
       <Filter>MyGame\Raiden\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Game\Raiden\GameObjectPool\GameObjectPool.h">
+      <Filter>MyGame\Raiden\Player</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

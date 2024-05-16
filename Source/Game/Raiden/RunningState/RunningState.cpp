@@ -59,7 +59,7 @@ namespace Raiden {
 			bullets->Update();
 			for (size_t i = 0; i < bullets->GetSize(); i++) {
 				auto test = *bullets;
-				test[i]->Update();
+				test[i]->Update(/*player,fighters->GetPoolVec()*/);
 			}
 			CollisionEvent();
 			this->UpdateStatusPanel();

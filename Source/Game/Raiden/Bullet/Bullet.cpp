@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Bullet.h"
 #include "../../config.h"
+
 namespace Raiden
 {
 	void Bullet::Init(bool friendly)
@@ -28,12 +29,26 @@ namespace Raiden
 		delta_top = std::move(force.y);
 	}
 
+
+
+
+
 	void Bullet::Update()
 	{
 		collisionBox.SetTopLeft(sprite.GetLeft() + delta_left, sprite.GetTop() + delta_top);
 		std::pair<int, int> top_left = collisionBox.GetTopLeft();
 		sprite.SetTopLeft(top_left.first, top_left.second);
 	}
+
+	
+	
+	/*
+	void Bullet::Update(Player& player, std::vector<std::shared_ptr<Fighter>>& fighters)
+	{
+		collisionBox.SetTopLeft(sprite.GetLeft() + delta_left, sprite.GetTop() + delta_top);
+		std::pair<int, int> top_left = collisionBox.GetTopLeft();
+		sprite.SetTopLeft(top_left.first, top_left.second);
+	}*/
 
 	void Bullet::Show()
 	{

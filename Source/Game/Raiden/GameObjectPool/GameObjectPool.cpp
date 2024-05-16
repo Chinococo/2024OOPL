@@ -70,5 +70,11 @@ namespace Raiden
 		}
 	}
 
+	template<typename T>
+	std::vector<std::shared_ptr<T>> GameObjectPool<T>::GetPoolVec()
+	{
+		return pool;
+	}
+
 	
 }

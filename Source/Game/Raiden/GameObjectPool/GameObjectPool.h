@@ -21,6 +21,7 @@ namespace Raiden
 		std::size_t GetSize() const;
 		std::shared_ptr<T> operator[](std::size_t index);
 		void Clear();
+		std::vector<std::shared_ptr<T>> GetPoolVec();
 
 	private:
 		std::vector<std::shared_ptr<T>> pool;

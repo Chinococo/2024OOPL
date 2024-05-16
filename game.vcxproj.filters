@@ -95,6 +95,9 @@
     <Filter Include="MyGame\Raiden\Data">
       <UniqueIdentifier>{e0bc7ad9-c90f-4f79-b1e7-2a56966d7052}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MyGame\Raiden\Item">
+      <UniqueIdentifier>{fb038422-e856-4363-85cf-326a1eb3fd03}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="RES\GAME.RC2">
@@ -206,6 +209,9 @@
     </ClCompile>
     <ClCompile Include="Source\Game\Raiden\State\State.cpp">
       <Filter>MyGame\Raiden\State</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Game\Raiden\Item\Item.cpp">
+      <Filter>MyGame\Raiden\Item</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -340,6 +346,9 @@
     </ClInclude>
     <ClInclude Include="Source\Game\Raiden\GameObjectPool\GameObjectPool.h">
       <Filter>MyGame\Raiden\GameObjectPool</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Game\Raiden\Item\Item.h">
+      <Filter>MyGame\Raiden\Item</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -253,6 +253,7 @@
     <ClCompile Include="Source\Game\Raiden\Bullet\Bullet.cpp" />
     <ClCompile Include="Source\Game\Raiden\Collidable\Collidable.cpp" />
     <ClCompile Include="Source\Game\Raiden\Fighter\Fighter.cpp" />
+    <ClCompile Include="Source\Game\Raiden\Item\Item.cpp" />
     <ClCompile Include="Source\Game\Raiden\Player\Player.cpp" />
     <ClCompile Include="Source\Game\Raiden\RunningState\RunningState.cpp" />
     <ClCompile Include="Source\Game\Raiden\SelectControlState\SelectControlState.cpp" />
@@ -298,6 +299,7 @@
     <ClInclude Include="Source\Game\Raiden\Data\StageData.h" />
     <ClInclude Include="Source\Game\Raiden\Data\TitleScreenData.h" />
     <ClInclude Include="Source\Game\Raiden\Fighter\Fighter.h" />
+    <ClInclude Include="Source\Game\Raiden\Item\Item.h" />
     <ClInclude Include="Source\Game\Raiden\Key\Key.h" />
     <ClInclude Include="Source\Game\Raiden\Player\Player.h" />
     <ClInclude Include="Source\Game\Raiden\RunningState\RunningState.h" />

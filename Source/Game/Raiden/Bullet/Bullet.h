@@ -20,6 +20,7 @@ namespace Raiden
 	 * Destructor：
 	 *   - ~Bullet:Free collisionBox;
 	*/
+	enum bullet_type{ straight_bullet,simple_track_bullet,track_bullet};
 	class Bullet
 	{
 	public:

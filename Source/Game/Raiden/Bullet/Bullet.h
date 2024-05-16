@@ -29,8 +29,8 @@ namespace Raiden
 		void SetTopLeft(CPoint &&point);
 		void ApplyForce(CPoint &&force);
 		void Update();
-		void Update(CPoint &&player_pos,vector<CPoint>& fighter_pos);
-		void UpdatePlayerBullet(vector<CPoint>& fighter_pos);
+		void Update(CPoint &&player_pos,vector<CPoint>& enemy);
+		void UpdatePlayerBullet(vector<CPoint>& enemy);
 		void UpdateFighterBullet(CPoint &player_pos);
 		void Show();
 		CollisionBox &GetCollisionBox();

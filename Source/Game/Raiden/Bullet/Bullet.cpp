@@ -35,11 +35,11 @@ namespace Raiden
 		sprite.SetTopLeft(top_left.first, top_left.second);
 	}
 
-	void Bullet::Update(CPoint && player_pos, vector<CPoint>& fighter_pos)
+	void Bullet::Update(CPoint && player_pos, vector<CPoint>& enemy)
 	{
-		if (clock() - last_track_time  > 300) {
+		if (clock() - last_track_time  > 1000) {
 			if (this->friendly) {
-				UpdatePlayerBullet(fighter_pos);
+				UpdatePlayerBullet(enemy);
 			}
 			else {
 				UpdateFighterBullet(player_pos);
@@ -52,10 +52,10 @@ namespace Raiden
 		
 	}
 
-	void Bullet::UpdatePlayerBullet(vector<CPoint>& fighter_pos)
+	void Bullet::UpdatePlayerBullet(vector<CPoint>& enemy)
 	{
 		if (bullet_type::track_bullet == type) {
-			if (fighter_pos.empty()) return;
+			if (enemy.empty()) return;
 
 			int bullet_x = this->sprite.GetLeft();
 			int bullet_y = this->sprite.GetTop();
@@ -63,7 +63,7 @@ namespace Raiden
 			double min_distance = 1e9 + 7;
 			CPoint* nearest_fighter = nullptr;
 
-			for (auto& fighter : fighter_pos) {
+			for (auto& fighter : enemy) {
 				int dx = fighter.x - bullet_x;
 				int dy = fighter.y - bullet_y;
 				double distance = std::sqrt(dx * dx + dy * dy);
@@ -83,8 +83,8 @@ namespace Raiden
 					double unit_dx = dx / distance;
 					double unit_dy = dy / distance;
 
-					int force_x = static_cast<int>(unit_dx * 3);
-					int force_y = static_cast<int>(unit_dy * 3);
+					int force_x = static_cast<int>(unit_dx * 5);
+					int force_y = static_cast<int>(unit_dy * 5);
 
 					this->ApplyForce({ force_x, force_y });
 				}
@@ -95,7 +95,25 @@ namespace Raiden
 
 	void Bullet::UpdateFighterBullet(CPoint& player_pos)
 	{
-		
+		if (bullet_type::track_bullet == type) {
+			int bullet_x = this->sprite.GetLeft();
+			int bullet_y = this->sprite.GetTop();
+
+			int dx = player_pos.x - bullet_x;
+			int dy = player_pos.y - bullet_y;
+			double distance = std::sqrt(dx * dx + dy * dy);
+
+			if (distance != 0 && dy>0) {
+				// Normalize the vector and scale by 3
+				double unit_dx = dx / distance;
+				double unit_dy = dy / distance;
+
+				int force_x = static_cast<int>(unit_dx * 5);
+				int force_y = static_cast<int>(unit_dy * 5);
+
+				this->ApplyForce(CPoint(force_x, force_y));
+			}
+		}
 	}
 
 	

@@ -59,7 +59,13 @@ namespace Raiden {
 			bullets->Update();
 			for (size_t i = 0; i < bullets->GetSize(); i++) {
 				auto test = *bullets;
-				test[i]->Update(player.GetTopLeft(),fighters->GetPoolVecPos());
+				auto enemy = fighters->GetPoolVecPos();
+				/*
+				if (boss->IsAlive()) {
+					enemy.push_back(boss->GetTopLeft());
+				}
+				*/
+				test[i]->Update(player.GetTopLeft(), enemy);
 			}
 			CollisionEvent();
 			this->UpdateStatusPanel();

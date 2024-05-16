@@ -23,6 +23,8 @@ namespace Raiden
 		void Clear();
 		std::vector<std::shared_ptr<T>> GetPoolVec();
 
+		std::vector<CPoint> GetPoolVecPos();
+
 	private:
 		std::vector<std::shared_ptr<T>> pool;
 		std::queue<std::shared_ptr<T>> recovery;

@@ -339,7 +339,7 @@
       <Filter>MyGame\Raiden\Data</Filter>
     </ClInclude>
     <ClInclude Include="Source\Game\Raiden\GameObjectPool\GameObjectPool.h">
-      <Filter>MyGame\Raiden\Player</Filter>
+      <Filter>MyGame\Raiden\GameObjectPool</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

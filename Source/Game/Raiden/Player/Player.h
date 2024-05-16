@@ -21,6 +21,7 @@ namespace Raiden
 		int GetLifeCount() const;
 		int GetBombCount() const;
 		void Damage();
+		CPoint GetTopLeft();
 	private:
 		void UpdateByKeyboard(const std::set<Key> &keys);
 		void UpdateByMouse(CPoint point);

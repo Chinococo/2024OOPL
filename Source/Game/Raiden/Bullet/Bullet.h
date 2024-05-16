@@ -1,7 +1,6 @@
 ﻿#pragma once
 #include "../../../Library/gameutil.h"
 #include "../CollisionBox/CollisionBox.h"
-#include "../Player/Player.h"
 #include <atltypes.h>
 namespace Raiden
 {
@@ -20,7 +19,7 @@ namespace Raiden
 	 * Destructor：
 	 *   - ~Bullet:Free collisionBox;
 	*/
-	enum bullet_type{ straight_bullet,simple_track_bullet,track_bullet};
+	enum bullet_type{ straight_bullet,track_bullet};
 	
 	class Bullet
 	{
@@ -30,12 +29,17 @@ namespace Raiden
 		void SetTopLeft(CPoint &&point);
 		void ApplyForce(CPoint &&force);
 		void Update();
+		void Update(CPoint &&player_pos,vector<CPoint>& fighter_pos);
+		void UpdatePlayerBullet(vector<CPoint>& fighter_pos);
+		void UpdateFighterBullet(CPoint &player_pos);
 		void Show();
 		CollisionBox &GetCollisionBox();
 		bool IsCollisionBoxOverlap(CollisionBox& other);
 		void Destroy();
 		bool IsAlive();
 		bool IsFriendly();
+		int GetLeft();
+		int GetTop();
 
 	private:
 		bool alive = true;
@@ -45,5 +49,6 @@ namespace Raiden
 		int delta_top = 0;
 		bool friendly;
 		int type=0;
+		time_t last_track_time = clock();
 	};
 }

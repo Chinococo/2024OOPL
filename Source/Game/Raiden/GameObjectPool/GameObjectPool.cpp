@@ -76,5 +76,16 @@ namespace Raiden
 		return pool;
 	}
 
+	template<typename T>
+	std::vector<CPoint> GameObjectPool<T>::GetPoolVecPos()
+	{
+		std::vector<CPoint> pos;
+		for (auto temp : pool)
+		{
+			pos.push_back(CPoint(temp->GetLeft(), temp->GetTop()));
+		}
+		return pos;
+	}
+
 	
 }

@@ -11,6 +11,12 @@ namespace Raiden
 		alive = true;
 	}
 
+	void Bullet::Init(bool friendly, int type)
+	{
+		this->friendly = friendly;
+		this->type = type;
+	}
+
 	void Bullet::SetTopLeft(CPoint &&point)
 	{
 		sprite.SetTopLeft(std::move(point.x), std::move(point.y));

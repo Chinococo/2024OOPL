@@ -25,6 +25,7 @@ namespace Raiden
 	{
 	public:
 		void Init(bool friendly);
+		void Init(bool friendly,int type);
 		void SetTopLeft(CPoint &&point);
 		void ApplyForce(CPoint &&force);
 		void Update();
@@ -41,5 +42,6 @@ namespace Raiden
 		int delta_left = 0;
 		int delta_top = 0;
 		bool friendly;
+		int type=0;
 	};
 }

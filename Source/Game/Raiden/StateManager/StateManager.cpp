@@ -34,7 +34,8 @@ namespace Raiden
 
 	void StateManager::Show()
 	{
-		states[state_index]->Show();
+		if(state_index< states.size())
+			states[state_index]->Show();
 	}
 
 	void StateManager::ChangeState(std::size_t state_index)

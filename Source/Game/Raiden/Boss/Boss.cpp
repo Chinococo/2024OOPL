@@ -41,8 +41,16 @@ namespace Raiden
 		return health > 0;
 	}
 
+	bool Boss::IsAppear() const
+	{
+		return position_index <= positions.size() - 2;
+	}
+
 	bool Boss::Dead() const
 	{
+		std::wstring health_str = std::to_wstring(health);
+		health_str += L"\n";
+		OutputDebugStringW(health_str.c_str());
 		return health == 0;
 	}
 

@@ -16,6 +16,7 @@ namespace Raiden
 		void Show();
 		void Damage(int);
 		bool IsAlive() const;
+		bool IsAppear() const;
 		bool Dead() const;
 		CPoint GetTopLeft();
 	protected:

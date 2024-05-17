@@ -10,6 +10,7 @@
 #include "../Bullet/Bullet.h"
 #include "../Fighter/Fighter.h"
 #include "../Boss/Boss.h"
+#include "../Item/Item.h"
 #include "../BossJapan/BossJapan.h"
 namespace Raiden
 {
@@ -33,5 +34,6 @@ namespace Raiden
 		std::shared_ptr<GameObjectPool<Fighter>> fighters = std::shared_ptr<GameObjectPool<Fighter>>(new GameObjectPool<Fighter>());
 		std::shared_ptr<Boss> boss;
 		std::size_t death_message_id;
+		std::vector<Item*> items;
 	}; 
 }

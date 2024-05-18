@@ -11,12 +11,14 @@ namespace Raiden
 	{
 	public:
 		virtual ~Boss() = default;
-		void Init(BossData boss_data);
+		void Init(BossData boss_data,std::shared_ptr<Raiden::GameObjectPool<Raiden::Bullet>>& bullet);
 		void Update(const Player &player);
 		void Show();
 		void Damage(int);
 		bool IsAlive() const;
+		bool IsAppear() const;
 		bool Dead() const;
+		CPoint GetTopLeft();
 	protected:
 		void MoveTo(int left, int top);
 		void Move();
@@ -27,5 +29,7 @@ namespace Raiden
 		std::size_t position_index = 0;
 		std::clock_t start_move_time;
 		int move_interval_milli = 1000;
+		time_t bullet_interval = clock();
+		std::shared_ptr<Raiden::GameObjectPool<Raiden::Bullet>> bullets;
 	};
 }

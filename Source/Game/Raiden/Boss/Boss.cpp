@@ -4,7 +4,7 @@
 
 namespace Raiden
 {
-	void Boss::Init(BossData boss_data)
+	void Boss::Init(BossData boss_data,std::shared_ptr<Raiden::GameObjectPool<Raiden::Bullet>>& bullet)
 	{
 		// Extracting color mask values from the boss_data tuple
 		int color_mask_red = std::get<0>(boss_data.color_mask); // Red component of color mask
@@ -22,6 +22,7 @@ namespace Raiden
 
 		// Setting initial health value
 		health = 200;
+		bullets = bullet;
 	}
 
 	void Boss::Show()
@@ -40,9 +41,22 @@ namespace Raiden
 		return health > 0;
 	}
 
+	bool Boss::IsAppear() const
+	{
+		return position_index <= positions.size() - 2;
+	}
+
 	bool Boss::Dead() const
 	{
+		std::wstring health_str = std::to_wstring(health);
+		health_str += L"\n";
+		OutputDebugStringW(health_str.c_str());
 		return health == 0;
+	}
+
+	CPoint Boss::GetTopLeft()
+	{
+		return CPoint(this->sprite.GetLeft(), this->sprite.GetTop());
 	}
 
 	void Boss::MoveTo(int left, int top)
@@ -85,6 +99,10 @@ namespace Raiden
 	void Boss::Update(const Player &player)
 	{
 		Move();
-		Attack(player);
+		if (clock() - bullet_interval > 1000) {
+			Attack(player);
+			bullet_interval = clock();
+		}
+			
 	}
 }

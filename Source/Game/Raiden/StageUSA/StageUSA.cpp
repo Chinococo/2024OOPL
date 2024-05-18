@@ -9,7 +9,7 @@ namespace Raiden
 		this->fighter_pool = fighters;
 		this->bullet_pool = bullets;
 		boss = std::make_shared<BossUSA>();
-		boss->Init(stage_data.boss_data);
+		boss->Init(stage_data.boss_data, bullets);
 		
 		for (auto &fighter_data : stage_data.fighters_data)
 		{

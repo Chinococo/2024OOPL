@@ -65,6 +65,11 @@ namespace Raiden
 		life_count -= 1;
 	}
 
+	CPoint Player::GetTopLeft()
+	{
+		return CPoint(this->sprite.GetLeft(), this->sprite.GetTop());
+	}
+
 	void Player::UpdateByKeyboard(const std::set<Key> &keys)
 	{
 		int left = sprite.GetLeft() + (keys.count(Key::RIGHT) - keys.count(Key::LEFT)) * MOVE_STEP;
@@ -94,7 +99,7 @@ namespace Raiden
 		if (keys.count(Key::FIRE) && fire_cooldown_milli >= 100) {
 			int index = bullets->AddElement();
 			auto test = *bullets;
-			test[index]->Init(true);
+			test[index]->Init(true,bullet_type::track_bullet);
 			test[index]->SetTopLeft({ left,top });
 			test[index]->ApplyForce({ 0,-3 });
 			fire_cooldown_clock = std::clock();

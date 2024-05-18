@@ -2,7 +2,6 @@
 #include "../../../Library/gameutil.h"
 #include "../CollisionBox/CollisionBox.h"
 #include <atltypes.h>
-
 namespace Raiden
 {
 	/*
@@ -20,19 +19,28 @@ namespace Raiden
 	 * Destructor：
 	 *   - ~Bullet:Free collisionBox;
 	*/
+	enum bullet_type{ straight_bullet,track_bullet};
+	
 	class Bullet
 	{
 	public:
 		void Init(bool friendly);
+		void Init(bool friendly,int type);
 		void SetTopLeft(CPoint &&point);
 		void ApplyForce(CPoint &&force);
 		void Update();
+		void Update(CPoint &&player_pos,vector<CPoint>& enemy);
+		void UpdatePlayerBullet(vector<CPoint>& enemy);
+		void UpdateFighterBullet(CPoint &player_pos);
 		void Show();
 		CollisionBox &GetCollisionBox();
 		bool IsCollisionBoxOverlap(CollisionBox& other);
 		void Destroy();
 		bool IsAlive();
 		bool IsFriendly();
+		int GetLeft();
+		int GetTop();
+
 	private:
 		bool alive = true;
 		game_framework::CMovingBitmap sprite;
@@ -40,5 +48,7 @@ namespace Raiden
 		int delta_left = 0;
 		int delta_top = 0;
 		bool friendly;
+		int type=0;
+		time_t last_track_time = clock();
 	};
 }

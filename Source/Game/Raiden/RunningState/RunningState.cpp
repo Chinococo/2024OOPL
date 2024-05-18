@@ -13,12 +13,14 @@ namespace Raiden {
 					}
 					auto fighter_collision_boxfighters = fighters->operator[](j)->GetCollisionBox();
 					if (bullets->operator[](i)->IsCollisionBoxOverlap(fighter_collision_boxfighters)) {
+						items.push_back(new Item());
+						items[items.size() - 1]->Init(CPoint(fighters->operator[](j)->GetLeft(), fighters->operator[](j)->GetTop() ));
 						bullets->operator[](i)->Destroy();
 						fighters->operator[](j)->Destroy();
 						break;
 					}
 				}
-				if (this->boss != nullptr && this->boss->IsAlive()) {
+				if (this->boss != nullptr && this->boss->IsAppear()) {
 					auto boss_collision_boxfighters = this->boss->GetCollisionBox();
 					if (bullets->operator[](i)->IsCollisionBoxOverlap(boss_collision_boxfighters)) {
 						bullets->operator[](i)->Destroy();
@@ -33,9 +35,19 @@ namespace Raiden {
 				}
 				if (bullets->operator[](i)->IsCollisionBoxOverlap(player_collision_boxfighters)) {
 					bullets->operator[](i)->Destroy();
-					player.Damage();
+					//player.Damage();
 					text_graphics.RegisterText(death_message_id, player.GetLifeCount() > 0 ? "" : "YOU ARE DEAD");
 				}
+				for (size_t i = 0; i < items.size();) {
+					CollisionBox& item_CollisionBox = items[i]->GetCollisionBox();
+
+					if (item_CollisionBox.IsCollisionBoxOverlap(player_collision_boxfighters)) {
+						items.erase(items.begin() + i);
+					}
+					i++;
+				}
+
+				
 			}
 		}
 	}
@@ -59,7 +71,16 @@ namespace Raiden {
 			bullets->Update();
 			for (size_t i = 0; i < bullets->GetSize(); i++) {
 				auto test = *bullets;
-				test[i]->Update();
+				auto enemy = fighters->GetPoolVecPos();
+				/*
+				if (boss->IsAlive()) {
+					enemy.push_back(boss->GetTopLeft());
+				}
+				*/
+				test[i]->Update(player.GetTopLeft(), enemy);
+			}
+			for (size_t i = 0; i < items.size();i++) {
+				items[i]->Update();
 			}
 			CollisionEvent();
 			this->UpdateStatusPanel();
@@ -96,6 +117,9 @@ namespace Raiden {
 		status_panel.ShowStatus(text_graphics);
 		text_graphics.ShowTexts();
 		text_graphics.ClearTextData();
+		for (size_t i = 0; i < items.size(); i++) {
+			items[i]->Show();
+		}
 	}
 
 	bool RunningState::Over() {

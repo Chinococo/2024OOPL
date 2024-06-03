@@ -20,7 +20,7 @@ namespace Raiden {
 						break;
 					}
 				}
-				if (this->boss != nullptr && this->boss->IsAppear()) {
+				if (this->boss != nullptr) {
 					auto boss_collision_boxfighters = this->boss->GetCollisionBox();
 					if (bullets->operator[](i)->IsCollisionBoxOverlap(boss_collision_boxfighters)) {
 						bullets->operator[](i)->Destroy();

@@ -17,86 +17,95 @@
     <Filter Include="MyGame\Raiden">
       <UniqueIdentifier>{5eadd975-ae6f-4427-a91a-691c633f3f1a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="MyGame\Raiden\Background">
-      <UniqueIdentifier>{14e497c9-6f6b-4ddc-be16-523014433c59}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="MyGame\Raiden\BossBrazil">
-      <UniqueIdentifier>{16b313fe-98c2-4c11-bb80-fc0c540ce0fc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="MyGame\Raiden\BossJapan">
-      <UniqueIdentifier>{f948e0ad-840f-43e4-9b76-89947f6f911f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="MyGame\Raiden\BossUSA">
-      <UniqueIdentifier>{1bc6bcb7-bba2-44c5-a964-9a3cc9c5841d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="MyGame\Raiden\Fighter">
-      <UniqueIdentifier>{74d2d912-8ce9-463e-a579-ba17955e510c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="MyGame\Raiden\Player">
-      <UniqueIdentifier>{864dd87f-6607-43e2-8efe-b529a4e13b8d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="MyGame\Raiden\Stage">
       <UniqueIdentifier>{fcedd1cd-113b-493b-a81a-42e924807af1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="MyGame\Raiden\StageBrazil">
-      <UniqueIdentifier>{894919e8-7876-4129-8cd1-9cfa9d7ba12c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="MyGame\Raiden\StageJapan">
-      <UniqueIdentifier>{dffa17eb-0162-43fb-9d20-6cffb94a2688}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="MyGame\Raiden\StageUSA">
-      <UniqueIdentifier>{9aa674eb-0726-47e0-afe1-f45516e94826}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="MyGame\Raiden\StatusPanel">
-      <UniqueIdentifier>{f523ed6e-b6a9-4152-85f0-06f5283dd6ea}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="MyGame\Raiden\Key">
-      <UniqueIdentifier>{488c6d75-f092-42ec-aade-8929c805e3f5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="MyGame\Raiden\Boss">
-      <UniqueIdentifier>{7a50e654-0337-4f10-924d-93f261e84009}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="MyGame\Raiden\StageManager">
-      <UniqueIdentifier>{8f77286a-3f48-4636-b5f2-c225602f9c4d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="MyGame\Raiden\TextGraphics">
-      <UniqueIdentifier>{93aba92d-2733-4ef1-8e38-fd9e94e0a417}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="MyGame\Raiden\CollisionBox">
-      <UniqueIdentifier>{fa8a6fd7-f2be-48e8-a9de-6214fae2013a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="MyGame\Raiden\GameObjectPool">
-      <UniqueIdentifier>{03407798-2f88-47d1-8bcb-9ff90ad246cb}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="MyGame\Raiden\Xml">
-      <UniqueIdentifier>{65ad3199-3332-48a4-a3d0-7f7e9a814067}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="MyGame\Raiden\Bullet">
-      <UniqueIdentifier>{d8daae60-e242-4d00-8752-5e152709c9d7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="MyGame\Raiden\Collidable">
-      <UniqueIdentifier>{aea2ea51-c9a5-4288-a532-dbf8eb81f195}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="MyGame\Raiden\Control">
-      <UniqueIdentifier>{0e8e3466-1b5d-434e-86ec-fd66d0f9fece}</UniqueIdentifier>
     </Filter>
     <Filter Include="MyGame\Raiden\State">
       <UniqueIdentifier>{942bbf59-1e21-4ee0-ad68-6d570d730f16}</UniqueIdentifier>
     </Filter>
-    <Filter Include="MyGame\Raiden\RunningState">
-      <UniqueIdentifier>{c6c37e91-d0a6-48fa-bb10-0b4cc9fb6097}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="MyGame\Raiden\SelectControlState">
-      <UniqueIdentifier>{eaa2d6a3-e7a7-4d11-81fe-c74b906b9ace}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="MyGame\Raiden\StateManager">
-      <UniqueIdentifier>{82520d74-4828-42a9-be70-e74c95ae6dc2}</UniqueIdentifier>
-    </Filter>
     <Filter Include="MyGame\Raiden\Data">
       <UniqueIdentifier>{e0bc7ad9-c90f-4f79-b1e7-2a56966d7052}</UniqueIdentifier>
     </Filter>
-    <Filter Include="MyGame\Raiden\Item">
+    <Filter Include="MyGame\Raiden\Stage\StageBrazil">
+      <UniqueIdentifier>{894919e8-7876-4129-8cd1-9cfa9d7ba12c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyGame\Raiden\Stage\StageJapan">
+      <UniqueIdentifier>{dffa17eb-0162-43fb-9d20-6cffb94a2688}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyGame\Raiden\Stage\StageManager">
+      <UniqueIdentifier>{8f77286a-3f48-4636-b5f2-c225602f9c4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyGame\Raiden\Stage\StageUSA">
+      <UniqueIdentifier>{9aa674eb-0726-47e0-afe1-f45516e94826}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyGame\Raiden\State\StateManager">
+      <UniqueIdentifier>{82520d74-4828-42a9-be70-e74c95ae6dc2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyGame\Raiden\Tool">
+      <UniqueIdentifier>{1c0e8b56-1560-4bb6-b893-60e2279e42ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyGame\Raiden\Tool\Xml">
+      <UniqueIdentifier>{65ad3199-3332-48a4-a3d0-7f7e9a814067}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyGame\Raiden\Tool\StatusPanel">
+      <UniqueIdentifier>{f523ed6e-b6a9-4152-85f0-06f5283dd6ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyGame\Raiden\Tool\TextGraphics">
+      <UniqueIdentifier>{93aba92d-2733-4ef1-8e38-fd9e94e0a417}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyGame\Raiden\GameLoop">
+      <UniqueIdentifier>{513bbeaa-fcb0-403f-bcac-a8d6bafd4d27}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyGame\Raiden\GameLoop\RunningState">
+      <UniqueIdentifier>{c6c37e91-d0a6-48fa-bb10-0b4cc9fb6097}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyGame\Raiden\GameLoop\SelectControlState">
+      <UniqueIdentifier>{eaa2d6a3-e7a7-4d11-81fe-c74b906b9ace}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyGame\Raiden\Interactive Object">
+      <UniqueIdentifier>{737d0c1a-1830-40b2-a43b-dc64f7a9b4d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyGame\Raiden\Interactive Object\Item">
       <UniqueIdentifier>{fb038422-e856-4363-85cf-326a1eb3fd03}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyGame\Raiden\Interactive Object\CollisionBox">
+      <UniqueIdentifier>{fa8a6fd7-f2be-48e8-a9de-6214fae2013a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyGame\Raiden\Interactive Object\Collidable">
+      <UniqueIdentifier>{aea2ea51-c9a5-4288-a532-dbf8eb81f195}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyGame\Raiden\Interactive Object\Bullet">
+      <UniqueIdentifier>{d8daae60-e242-4d00-8752-5e152709c9d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyGame\Raiden\Interactive Object\Boss">
+      <UniqueIdentifier>{7a50e654-0337-4f10-924d-93f261e84009}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyGame\Raiden\Interactive Object\Boss\BossBrazil">
+      <UniqueIdentifier>{16b313fe-98c2-4c11-bb80-fc0c540ce0fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyGame\Raiden\Interactive Object\Boss\BossJapan">
+      <UniqueIdentifier>{f948e0ad-840f-43e4-9b76-89947f6f911f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyGame\Raiden\Interactive Object\Boss\BossUSA">
+      <UniqueIdentifier>{1bc6bcb7-bba2-44c5-a964-9a3cc9c5841d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyGame\Raiden\Interactive Object\Player">
+      <UniqueIdentifier>{864dd87f-6607-43e2-8efe-b529a4e13b8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyGame\Raiden\Tool\GameObjectPool">
+      <UniqueIdentifier>{03407798-2f88-47d1-8bcb-9ff90ad246cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyGame\Raiden\Tool\Control">
+      <UniqueIdentifier>{0e8e3466-1b5d-434e-86ec-fd66d0f9fece}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyGame\Raiden\Stage\Background">
+      <UniqueIdentifier>{14e497c9-6f6b-4ddc-be16-523014433c59}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyGame\Raiden\GameLoop\Key">
+      <UniqueIdentifier>{488c6d75-f092-42ec-aade-8929c805e3f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyGame\Raiden\Interactive Object\Fighter">
+      <UniqueIdentifier>{74d2d912-8ce9-463e-a579-ba17955e510c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -139,79 +148,79 @@
       <Filter>MyGame</Filter>
     </ClCompile>
     <ClCompile Include="Source\Game\Raiden\Background\Background.cpp">
-      <Filter>MyGame\Raiden\Background</Filter>
+      <Filter>MyGame\Raiden\Stage\Background</Filter>
     </ClCompile>
     <ClCompile Include="Source\Game\Raiden\BossBrazil\BossBrazil.cpp">
-      <Filter>MyGame\Raiden\BossBrazil</Filter>
+      <Filter>MyGame\Raiden\Interactive Object\Boss\BossBrazil</Filter>
     </ClCompile>
     <ClCompile Include="Source\Game\Raiden\BossJapan\BossJapan.cpp">
-      <Filter>MyGame\Raiden\BossJapan</Filter>
+      <Filter>MyGame\Raiden\Interactive Object\Boss\BossJapan</Filter>
     </ClCompile>
     <ClCompile Include="Source\Game\Raiden\BossUSA\BossUSA.cpp">
-      <Filter>MyGame\Raiden\BossUSA</Filter>
+      <Filter>MyGame\Raiden\Interactive Object\Boss\BossUSA</Filter>
     </ClCompile>
     <ClCompile Include="Source\Game\Raiden\Fighter\Fighter.cpp">
-      <Filter>MyGame\Raiden\Fighter</Filter>
+      <Filter>MyGame\Raiden\Interactive Object\Fighter</Filter>
     </ClCompile>
     <ClCompile Include="Source\Game\Raiden\StatusPanel\StatusPanel.cpp">
-      <Filter>MyGame\Raiden\StatusPanel</Filter>
+      <Filter>MyGame\Raiden\Tool\StatusPanel</Filter>
     </ClCompile>
     <ClCompile Include="Source\Game\Raiden\StageUSA\StageUSA.cpp">
-      <Filter>MyGame\Raiden\StageUSA</Filter>
+      <Filter>MyGame\Raiden\Stage\StageUSA</Filter>
     </ClCompile>
     <ClCompile Include="Source\Game\Raiden\StageJapan\StageJapan.cpp">
-      <Filter>MyGame\Raiden\StageJapan</Filter>
+      <Filter>MyGame\Raiden\Stage\StageJapan</Filter>
     </ClCompile>
     <ClCompile Include="Source\Game\Raiden\StageBrazil\StageBrazil.cpp">
-      <Filter>MyGame\Raiden\StageBrazil</Filter>
+      <Filter>MyGame\Raiden\Stage\StageBrazil</Filter>
     </ClCompile>
     <ClCompile Include="Source\Game\Raiden\Stage\Stage.cpp">
       <Filter>MyGame\Raiden\Stage</Filter>
     </ClCompile>
     <ClCompile Include="Source\Game\Raiden\Player\Player.cpp">
-      <Filter>MyGame\Raiden\Player</Filter>
+      <Filter>MyGame\Raiden\Interactive Object\Player</Filter>
     </ClCompile>
     <ClCompile Include="Source\Game\Raiden\StageManager\StageManager.cpp">
-      <Filter>MyGame\Raiden\StageManager</Filter>
+      <Filter>MyGame\Raiden\Stage\StageManager</Filter>
     </ClCompile>
     <ClCompile Include="Source\Game\Raiden\Boss\Boss.cpp">
-      <Filter>MyGame\Raiden\Boss</Filter>
+      <Filter>MyGame\Raiden\Interactive Object\Boss</Filter>
     </ClCompile>
     <ClCompile Include="Source\Game\Raiden\TextGraphics\TextGraphics.cpp">
-      <Filter>MyGame\Raiden\TextGraphics</Filter>
+      <Filter>MyGame\Raiden\Tool\TextGraphics</Filter>
     </ClCompile>
     <ClCompile Include="Source\Game\Raiden\CollisionBox\CollisionBox.cpp">
-      <Filter>MyGame\Raiden\CollisionBox</Filter>
+      <Filter>MyGame\Raiden\Interactive Object\CollisionBox</Filter>
     </ClCompile>
     <ClCompile Include="Source\Game\Raiden\GameObjectPool\GameObjectPool.cpp">
-      <Filter>MyGame\Raiden\GameObjectPool</Filter>
+      <Filter>MyGame\Raiden\Tool\GameObjectPool</Filter>
     </ClCompile>
     <ClCompile Include="Source\Game\Raiden\Bullet\Bullet.cpp">
-      <Filter>MyGame\Raiden\Bullet</Filter>
+      <Filter>MyGame\Raiden\Interactive Object\Bullet</Filter>
     </ClCompile>
     <ClCompile Include="Source\Game\Raiden\Xml\tinyxml2.cpp">
-      <Filter>MyGame\Raiden\Xml</Filter>
+      <Filter>MyGame\Raiden\Tool\Xml</Filter>
     </ClCompile>
     <ClCompile Include="Source\Game\Raiden\Xml\XmlReader.cpp">
-      <Filter>MyGame\Raiden\Xml</Filter>
+      <Filter>MyGame\Raiden\Tool\Xml</Filter>
     </ClCompile>
     <ClCompile Include="Source\Game\Raiden\Collidable\Collidable.cpp">
-      <Filter>MyGame\Raiden\Collidable</Filter>
+      <Filter>MyGame\Raiden\Interactive Object\Collidable</Filter>
     </ClCompile>
     <ClCompile Include="Source\Game\Raiden\RunningState\RunningState.cpp">
-      <Filter>MyGame\Raiden\RunningState</Filter>
+      <Filter>MyGame\Raiden\GameLoop\RunningState</Filter>
     </ClCompile>
     <ClCompile Include="Source\Game\Raiden\SelectControlState\SelectControlState.cpp">
-      <Filter>MyGame\Raiden\SelectControlState</Filter>
+      <Filter>MyGame\Raiden\GameLoop\SelectControlState</Filter>
     </ClCompile>
     <ClCompile Include="Source\Game\Raiden\StateManager\StateManager.cpp">
-      <Filter>MyGame\Raiden\StateManager</Filter>
+      <Filter>MyGame\Raiden\State\StateManager</Filter>
     </ClCompile>
     <ClCompile Include="Source\Game\Raiden\State\State.cpp">
       <Filter>MyGame\Raiden\State</Filter>
     </ClCompile>
     <ClCompile Include="Source\Game\Raiden\Item\Item.cpp">
-      <Filter>MyGame\Raiden\Item</Filter>
+      <Filter>MyGame\Raiden\Interactive Object\Item</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -249,79 +258,79 @@
       <Filter>MyGame</Filter>
     </ClInclude>
     <ClInclude Include="Source\Game\Raiden\Background\Background.h">
-      <Filter>MyGame\Raiden\Background</Filter>
+      <Filter>MyGame\Raiden\Stage\Background</Filter>
     </ClInclude>
     <ClInclude Include="Source\Game\Raiden\BossBrazil\BossBrazil.h">
-      <Filter>MyGame\Raiden\BossBrazil</Filter>
+      <Filter>MyGame\Raiden\Interactive Object\Boss\BossBrazil</Filter>
     </ClInclude>
     <ClInclude Include="Source\Game\Raiden\BossJapan\BossJapan.h">
-      <Filter>MyGame\Raiden\BossJapan</Filter>
+      <Filter>MyGame\Raiden\Interactive Object\Boss\BossJapan</Filter>
     </ClInclude>
     <ClInclude Include="Source\Game\Raiden\BossUSA\BossUSA.h">
-      <Filter>MyGame\Raiden\BossUSA</Filter>
+      <Filter>MyGame\Raiden\Interactive Object\Boss\BossUSA</Filter>
     </ClInclude>
     <ClInclude Include="Source\Game\Raiden\Fighter\Fighter.h">
-      <Filter>MyGame\Raiden\Fighter</Filter>
+      <Filter>MyGame\Raiden\Interactive Object\Fighter</Filter>
     </ClInclude>
     <ClInclude Include="Source\Game\Raiden\StatusPanel\StatusPanel.h">
-      <Filter>MyGame\Raiden\StatusPanel</Filter>
+      <Filter>MyGame\Raiden\Tool\StatusPanel</Filter>
     </ClInclude>
     <ClInclude Include="Source\Game\Raiden\StageUSA\StageUSA.h">
-      <Filter>MyGame\Raiden\StageUSA</Filter>
+      <Filter>MyGame\Raiden\Stage\StageUSA</Filter>
     </ClInclude>
     <ClInclude Include="Source\Game\Raiden\StageJapan\StageJapan.h">
-      <Filter>MyGame\Raiden\StageJapan</Filter>
+      <Filter>MyGame\Raiden\Stage\StageJapan</Filter>
     </ClInclude>
     <ClInclude Include="Source\Game\Raiden\StageBrazil\StageBrazil.h">
-      <Filter>MyGame\Raiden\StageBrazil</Filter>
+      <Filter>MyGame\Raiden\Stage\StageBrazil</Filter>
     </ClInclude>
     <ClInclude Include="Source\Game\Raiden\Stage\Stage.h">
       <Filter>MyGame\Raiden\Stage</Filter>
     </ClInclude>
     <ClInclude Include="Source\Game\Raiden\Player\Player.h">
-      <Filter>MyGame\Raiden\Player</Filter>
+      <Filter>MyGame\Raiden\Interactive Object\Player</Filter>
     </ClInclude>
     <ClInclude Include="Source\Game\Raiden\Key\Key.h">
-      <Filter>MyGame\Raiden\Key</Filter>
+      <Filter>MyGame\Raiden\GameLoop\Key</Filter>
     </ClInclude>
     <ClInclude Include="Source\Game\Raiden\Boss\Boss.h">
-      <Filter>MyGame\Raiden\Boss</Filter>
+      <Filter>MyGame\Raiden\Interactive Object\Boss</Filter>
     </ClInclude>
     <ClInclude Include="Source\Game\Raiden\StageManager\StageManager.h">
-      <Filter>MyGame\Raiden\StageManager</Filter>
+      <Filter>MyGame\Raiden\Stage\StageManager</Filter>
     </ClInclude>
     <ClInclude Include="Source\Game\Raiden\TextGraphics\TextGraphics.h">
-      <Filter>MyGame\Raiden\TextGraphics</Filter>
+      <Filter>MyGame\Raiden\Tool\TextGraphics</Filter>
     </ClInclude>
     <ClInclude Include="Source\Game\Raiden\CollisionBox\CollisionBox.h">
-      <Filter>MyGame\Raiden\CollisionBox</Filter>
+      <Filter>MyGame\Raiden\Interactive Object\CollisionBox</Filter>
     </ClInclude>
     <ClInclude Include="Source\Game\Raiden\Bullet\Bullet.h">
-      <Filter>MyGame\Raiden\Bullet</Filter>
+      <Filter>MyGame\Raiden\Interactive Object\Bullet</Filter>
     </ClInclude>
     <ClInclude Include="Source\Game\Raiden\Xml\tinyxml2.h">
-      <Filter>MyGame\Raiden\Xml</Filter>
+      <Filter>MyGame\Raiden\Tool\Xml</Filter>
     </ClInclude>
     <ClInclude Include="Source\Game\Raiden\Xml\XmlReader.h">
-      <Filter>MyGame\Raiden\Xml</Filter>
+      <Filter>MyGame\Raiden\Tool\Xml</Filter>
     </ClInclude>
     <ClInclude Include="Source\Game\Raiden\Collidable\Collidable.h">
-      <Filter>MyGame\Raiden\Collidable</Filter>
+      <Filter>MyGame\Raiden\Interactive Object\Collidable</Filter>
     </ClInclude>
     <ClInclude Include="Source\Game\Raiden\Control\Control.h">
-      <Filter>MyGame\Raiden\Control</Filter>
+      <Filter>MyGame\Raiden\Tool\Control</Filter>
     </ClInclude>
     <ClInclude Include="Source\Game\Raiden\State\State.h">
       <Filter>MyGame\Raiden\State</Filter>
     </ClInclude>
     <ClInclude Include="Source\Game\Raiden\RunningState\RunningState.h">
-      <Filter>MyGame\Raiden\RunningState</Filter>
+      <Filter>MyGame\Raiden\GameLoop\RunningState</Filter>
     </ClInclude>
     <ClInclude Include="Source\Game\Raiden\SelectControlState\SelectControlState.h">
-      <Filter>MyGame\Raiden\SelectControlState</Filter>
+      <Filter>MyGame\Raiden\GameLoop\SelectControlState</Filter>
     </ClInclude>
     <ClInclude Include="Source\Game\Raiden\StateManager\StateManager.h">
-      <Filter>MyGame\Raiden\StateManager</Filter>
+      <Filter>MyGame\Raiden\State\StateManager</Filter>
     </ClInclude>
     <ClInclude Include="Source\Game\Raiden\Data\PlayerData.h">
       <Filter>MyGame\Raiden\Data</Filter>
@@ -345,10 +354,10 @@
       <Filter>MyGame\Raiden\Data</Filter>
     </ClInclude>
     <ClInclude Include="Source\Game\Raiden\GameObjectPool\GameObjectPool.h">
-      <Filter>MyGame\Raiden\GameObjectPool</Filter>
+      <Filter>MyGame\Raiden\Tool\GameObjectPool</Filter>
     </ClInclude>
     <ClInclude Include="Source\Game\Raiden\Item\Item.h">
-      <Filter>MyGame\Raiden\Item</Filter>
+      <Filter>MyGame\Raiden\Interactive Object\Item</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

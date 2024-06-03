@@ -107,6 +107,9 @@
     <Filter Include="MyGame\Raiden\Interactive Object\Fighter">
       <UniqueIdentifier>{74d2d912-8ce9-463e-a579-ba17955e510c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MyGame\Raiden\Interactive Object\TurretGroup">
+      <UniqueIdentifier>{e5953128-5234-4caa-8ea8-1ce30272f7b5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="RES\GAME.RC2">

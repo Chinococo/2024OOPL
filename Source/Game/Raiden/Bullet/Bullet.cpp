@@ -103,13 +103,17 @@ namespace Raiden
 			int dy = player_pos.y - bullet_y;
 			double distance = std::sqrt(dx * dx + dy * dy);
 
-			if (distance != 0 && dy>0) {
-				// Normalize the vector and scale by 3
+			const double max_tracking_range = 200.0;  // 定義追蹤範圍
+			const double min_tracking_range = 100.0;  // 定義追蹤範圍
+			const double bullet_speed = 3.0f;      // 子彈速度
+
+			if (distance > 0 && distance >= min_tracking_range && distance <= max_tracking_range && dx>0 && dy>0) {
+				// Normalize the vector and scale by bullet speed
 				double unit_dx = dx / distance;
 				double unit_dy = dy / distance;
 
-				int force_x = static_cast<int>(unit_dx * 5);
-				int force_y = static_cast<int>(unit_dy * 5);
+				int force_x = static_cast<int>(unit_dx * bullet_speed);
+				int force_y = static_cast<int>(unit_dy * bullet_speed);
 
 				this->ApplyForce(CPoint(force_x, force_y));
 			}

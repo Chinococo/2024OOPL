@@ -6,15 +6,13 @@
 namespace Raiden{
 	class Turret {
 	public:
-		float x, y; // 砲塔的位置
+		CPoint position;
 		float bulletSpeed; // 子彈的速度
 		CPoint bulletDirection; // 子彈的方向
-		GameObjectPool<Bullet> bullets; // 砲塔發射的子彈
 		time_t time = clock();
 		time_t per_time = 200;
-		Turret(float x, float y, CPoint bulletDirection, float bulletSpeed)
-			: x(x), y(y), bulletDirection(bulletDirection), bulletSpeed(bulletSpeed) {
-			time = clock();
-		}
+		std::shared_ptr<Raiden::GameObjectPool<Raiden::Bullet>> bullets;
+		Turret(CPoint position, CPoint bulletDirection, float bulletSpeed, std::shared_ptr<Raiden::GameObjectPool<Raiden::Bullet>>& bullet);
+		void update();
 	};
 }

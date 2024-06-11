@@ -231,7 +231,9 @@
     <ClCompile Include="Source\Game\Raiden\TurretGroup\TurretGroup.cpp">
       <Filter>MyGame\Raiden\Interactive Object\TurretGroup</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Game\Raiden\Turret\Turret.cpp" />
+    <ClCompile Include="Source\Game\Raiden\Turret\Turret.cpp">
+      <Filter>MyGame\Raiden\Interactive Object\Turret</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Library\audio.h">
@@ -372,7 +374,9 @@
     <ClInclude Include="Source\Game\Raiden\TurretGroup\TurretGroup.h">
       <Filter>MyGame\Raiden\Interactive Object\TurretGroup</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Game\Raiden\Turret\Turret.h" />
+    <ClInclude Include="Source\Game\Raiden\Turret\Turret.h">
+      <Filter>MyGame\Raiden\Interactive Object\Turret</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Source\Core\game.rc">

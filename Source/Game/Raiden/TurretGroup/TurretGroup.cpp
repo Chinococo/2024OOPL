@@ -23,9 +23,9 @@ namespace Raiden {
 			// 處理讀取 XML 文件錯誤
 		}
 	}
-	void TurretGroup::update() {
+	void TurretGroup::update(CPoint now) {
 		for (auto& turret : turrets) {
-			turret.update();
+			turret.update(std::move(now));
 		}
 	}
 

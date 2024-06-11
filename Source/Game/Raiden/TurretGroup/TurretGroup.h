@@ -9,7 +9,7 @@ namespace Raiden{
 	public:
 		TurretGroup(std::shared_ptr<Raiden::GameObjectPool<Raiden::Bullet>>& bullets);
 		void LoadFromXML(const std::string& filename);
-		void update();
+		void update(CPoint now);
 
 	private:
 		std::vector<Turret> turrets;

@@ -101,7 +101,7 @@ namespace Raiden
 	void Boss::Update(const Player &player)
 	{
 		Move();
-		turretGroup->update();
+		turretGroup->update({ this->sprite.GetLeft(), this->sprite.GetTop() });
 		if (clock() - bullet_interval > 1000) {
 			//Attack(player);
 			

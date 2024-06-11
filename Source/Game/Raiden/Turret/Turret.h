@@ -13,6 +13,6 @@ namespace Raiden{
 		time_t per_time = 200;
 		std::shared_ptr<Raiden::GameObjectPool<Raiden::Bullet>> bullets;
 		Turret(CPoint position, int angle, float bulletSpeed, std::shared_ptr<Raiden::GameObjectPool<Raiden::Bullet>>& bullet);
-		void update();
+		void update(CPoint now);
 	};
 }

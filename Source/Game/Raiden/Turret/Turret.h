@@ -8,11 +8,11 @@ namespace Raiden{
 	public:
 		CPoint position;
 		float bulletSpeed; // 子彈的速度
-		CPoint bulletDirection; // 子彈的方向
+		int angle; // 子彈的方向
 		time_t time = clock();
 		time_t per_time = 200;
 		std::shared_ptr<Raiden::GameObjectPool<Raiden::Bullet>> bullets;
-		Turret(CPoint position, CPoint bulletDirection, float bulletSpeed, std::shared_ptr<Raiden::GameObjectPool<Raiden::Bullet>>& bullet);
+		Turret(CPoint position, int angle, float bulletSpeed, std::shared_ptr<Raiden::GameObjectPool<Raiden::Bullet>>& bullet);
 		void update();
 	};
 }

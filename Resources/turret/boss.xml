@@ -1,0 +1,4 @@
+<Turrets>
+    <Turret x="100" y="200" bulletSpeed="5" angle="270" />
+    <Turret x="150" y="250" bulletSpeed="5" angle="270"/>
+</Turrets>

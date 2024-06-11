@@ -12,12 +12,11 @@ namespace Raiden {
 				int x = elem->IntAttribute("x");  // 使用 IntAttribute 獲取 int 類型值
 				int y = elem->IntAttribute("y");  // 使用 IntAttribute 獲取 int 類型值
 				float bulletSpeed = elem->FloatAttribute("bulletSpeed");
-				int directionX = elem->IntAttribute("directionX");  // 使用 IntAttribute 獲取 int 類型值
-				int directionY = elem->IntAttribute("directionY");  // 使用 IntAttribute 獲取 int 類型值
+				int angle = elem->IntAttribute("directionX");  // 使用 IntAttribute 獲取 int 類型值
+			
 
 				CPoint position = { x, y };
-				CPoint direction = { directionX, directionY };
-				turrets.emplace_back(position, direction, bulletSpeed, bullets);
+				turrets.emplace_back(position, angle, bulletSpeed, bullets);
 			}
 		}
 		else {

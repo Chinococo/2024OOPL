@@ -5,14 +5,17 @@ namespace Raiden {
 		:position(position), angle(angle), bulletSpeed(bulletSpeed), time(clock()), bullets(bullet), per_time(200) {
 	}
 	void Turret::update() {
-		for (int i = 0; i < (clock() - time) / per_time; i++) {
-			int index = bullets->AddElement();
-			bullets->operator[](index)->Init(false, straight_bullet);
-			bullets->operator[](index)->SetTopLeft(std::move(position));
-			// 計算力
-			CPoint force = { static_cast<int>(std::cos(angle) * bulletSpeed), static_cast<int>(std::sin(angle) * bulletSpeed) };
-			bullets->operator[](index)->ApplyForce(std::move(force));
+		if ((clock() - time) / per_time > 0) {
+				for (int i = 0; i < (clock() - time) / per_time; i++) {
+					int index = bullets->AddElement();
+					bullets->operator[](index)->Init(false, straight_bullet);
+					bullets->operator[](index)->SetTopLeft(std::move(position));
+					// 計算力
+					CPoint force = { static_cast<int>(std::cos(angle) * bulletSpeed), static_cast<int>(std::sin(angle) * bulletSpeed) };
+					bullets->operator[](index)->ApplyForce(std::move(force));
+				}
+				time = clock();
 		}
-		time = clock();
+		
 	}
 }

@@ -23,6 +23,8 @@ namespace Raiden
 		// Setting initial health value
 		health = 200;
 		bullets = bullet;
+		turretGroup = new TurretGroup(bullets);
+		turretGroup->LoadFromXML("Resources/turret/boss.xml");
 	}
 
 	void Boss::Show()
@@ -99,9 +101,11 @@ namespace Raiden
 	void Boss::Update(const Player &player)
 	{
 		Move();
+		turretGroup->update();
 		if (clock() - bullet_interval > 1000) {
-			Attack(player);
-			bullet_interval = clock();
+			//Attack(player);
+			
+			//bullet_interval = clock();
 		}
 			
 	}

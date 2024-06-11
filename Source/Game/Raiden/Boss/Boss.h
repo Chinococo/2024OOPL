@@ -3,6 +3,7 @@
 #include "../Player/Player.h"
 #include "../Data/BossData.h"
 #include "../Collidable/Collidable.h"
+#include "../TurretGroup/TurretGroup.h"
 #include <ctime>
 
 namespace Raiden
@@ -31,5 +32,6 @@ namespace Raiden
 		int move_interval_milli = 1000;
 		time_t bullet_interval = clock();
 		std::shared_ptr<Raiden::GameObjectPool<Raiden::Bullet>> bullets;
+		TurretGroup* turretGroup;
 	};
 }

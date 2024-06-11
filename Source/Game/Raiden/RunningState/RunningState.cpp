@@ -68,20 +68,20 @@ namespace Raiden {
 			player.Update(control);
 			stage_manager.Update(player);
 			boss = stage_manager.GetBoss();
-			bullets->Update();
 			for (size_t i = 0; i < bullets->GetSize(); i++) {
 				auto test = *bullets;
 				auto enemy = fighters->GetPoolVecPos();
-				/*
-				if (boss->IsAlive()) {
-					enemy.push_back(boss->GetTopLeft());
+				if ( bullets->operator[](i)->GetLeft() < 0 || SIZE_X <bullets->operator[](i)->GetLeft()  ||
+					bullets->operator[](i)->GetLeft() < 0 || SIZE_Y < bullets->operator[](i)->GetLeft()) {
+					bullets->operator[](i)->Destroy();
+					continue;
 				}
-				*/
 				test[i]->Update(player.GetTopLeft(), enemy);
 			}
-			for (size_t i = 0; i < items.size();i++) {
+			for (size_t i = 0; i < items.size(); i++) {
 				items[i]->Update();
 			}
+			bullets->Update();
 			CollisionEvent();
 			this->UpdateStatusPanel();
 		}

@@ -43,6 +43,7 @@ namespace Raiden {
 
 					if (item_CollisionBox.IsCollisionBoxOverlap(player_collision_boxfighters)) {
 						items.erase(items.begin() + i);
+						player.Upgrage();
 					}
 					i++;
 				}

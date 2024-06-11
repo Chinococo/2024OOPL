@@ -21,6 +21,7 @@ namespace Raiden
 		int GetLifeCount() const;
 		int GetBombCount() const;
 		void Damage();
+		void Upgrage();
 		CPoint GetTopLeft();
 	private:
 		void UpdateByKeyboard(const std::set<Key> &keys);
@@ -32,6 +33,7 @@ namespace Raiden
 		int high_score = 0;
 		int life_count = 3;
 		int bomb_count = 3;
+		int level = 1;
 		std::shared_ptr<Raiden::GameObjectPool<Raiden::Bullet>> bullets;
 		std::clock_t fire_cooldown_clock;
 	};

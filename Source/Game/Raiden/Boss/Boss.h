@@ -30,9 +30,12 @@ namespace Raiden
 		std::vector<CPoint> positions;
 		std::size_t position_index = 0;
 		std::clock_t start_move_time;
+		std::clock_t move_time=clock();
 		int move_interval_milli = 1000;
 		time_t bullet_interval = clock();
 		std::shared_ptr<Raiden::GameObjectPool<Raiden::Bullet>> bullets;
 		TurretGroup* turretGroup;
+		int last_position_X, last_position_Y;  // ¤¤¤ßÂI
+		float angle = 0.0f;
 	};
 }

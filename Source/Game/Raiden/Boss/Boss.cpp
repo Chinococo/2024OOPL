@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Boss.h"
 #include "../Player/Player.h"
-
+#define M_PI 3.1415926
 namespace Raiden
 {
 	void Boss::Init(BossData boss_data,std::shared_ptr<Raiden::GameObjectPool<Raiden::Bullet>>& bullet)
@@ -72,7 +72,24 @@ namespace Raiden
 	{
 		// Check if the boss has reached the last position
 		if (position_index > positions.size() - 2)
-			return; // If so, stop moving
+		{
+			if (clock() - move_time > 10) {
+				if (std::rand() % 1000 < 1) {  // 1%的機率停下來10秒
+					move_time += 10 * CLOCKS_PER_SEC;
+					return;
+				}
+				angle += 1.0f;
+				if (angle >= 360.0f) {
+					angle -= 360.0f;
+				}
+				double radians = angle * (M_PI / 180.0f);
+				int newX = static_cast<int>(last_position_X + 100 * std::cos(radians) - 100);
+				int newY = static_cast<int>(last_position_Y + 100 * std::sin(radians));
+				MoveTo(newX, newY);
+				move_time = clock();
+			}
+			return;
+		}
 
 		// Calculate the elapsed time since the last movement in milliseconds
 		double elapsed_time_milli = static_cast<double>(std::clock() - start_move_time) / CLOCKS_PER_SEC * 1000;
@@ -86,7 +103,7 @@ namespace Raiden
 
 		// Move the boss and update its collision box to the computed position
 		MoveTo(left, top);
-
+		last_position_X = left, last_position_Y = top;
 		// Check if the movement is not yet complete
 		if (completeness < 1)
 			return; // If not, wait for the next update cycle before proceeding

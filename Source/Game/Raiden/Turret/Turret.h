@@ -10,7 +10,7 @@ namespace Raiden{
 		float bulletSpeed; // 子彈的速度
 		int angle; // 子彈的方向
 		time_t time = clock();
-		time_t per_time = 200;
+		time_t per_time;
 		std::shared_ptr<Raiden::GameObjectPool<Raiden::Bullet>> bullets;
 		Turret(CPoint position, int angle, float bulletSpeed, std::shared_ptr<Raiden::GameObjectPool<Raiden::Bullet>>& bullet);
 		void update(CPoint now);

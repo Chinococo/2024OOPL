@@ -3,10 +3,10 @@
 #define M_PI 3.141596
 namespace Raiden {
 	Turret::Turret(CPoint position, int angle, float bulletSpeed,std::shared_ptr<Raiden::GameObjectPool<Raiden::Bullet>>& bullet)
-		:position(position), angle(angle), bulletSpeed(bulletSpeed), time(clock()), bullets(bullet), per_time(200) {
+		:position(position), angle(angle), bulletSpeed(bulletSpeed), time(clock()), bullets(bullet), per_time(400) {
 	}
 	void Turret::update(CPoint now) {
-		if ((clock() - time) / per_time > 0) {
+		if ((clock() - time)-per_time>0) {
 			int index = bullets->AddElement();
 			bullets->operator[](index)->Init(false, straight_bullet);
 			bullets->operator[](index)->SetTopLeft(std::move(now+position));

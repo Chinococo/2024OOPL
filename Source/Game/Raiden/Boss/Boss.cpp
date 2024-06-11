@@ -29,6 +29,7 @@ namespace Raiden
 
 	void Boss::Show()
 	{
+		is_appear = true;
 		sprite.ShowBitmap();
 		this->ShowCollisionBox();
 	}
@@ -45,7 +46,7 @@ namespace Raiden
 
 	bool Boss::IsAppear() const
 	{
-		return position_index <= positions.size() - 2;
+		return is_appear;
 	}
 
 	bool Boss::Dead() const

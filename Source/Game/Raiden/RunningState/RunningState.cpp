@@ -20,7 +20,7 @@ namespace Raiden {
 						break;
 					}
 				}
-				if (this->boss != nullptr) {
+				if (this->boss != nullptr&&this->boss->IsAppear()) {
 					auto boss_collision_boxfighters = this->boss->GetCollisionBox();
 					if (bullets->operator[](i)->IsCollisionBoxOverlap(boss_collision_boxfighters)) {
 						bullets->operator[](i)->Destroy();
@@ -78,10 +78,23 @@ namespace Raiden {
 				}
 				test[i]->Update(player.GetTopLeft(), enemy);
 			}
+			for (std::size_t i = 0; i < fighters->GetSize(); i++)
+			{
+				if (fighters->operator[](i)->GetLeft() < 0 || fighters->operator[](i)->GetLeft() >= RESOLUTION_X) {
+					fighters->operator[](i)->Destroy();
+					continue;
+				}
+
+				if (fighters->operator[](i)->GetTop() < 0 || fighters->operator[](i)->GetTop() >= RESOLUTION_Y) {
+					fighters->operator[](i)->Destroy();
+					continue;
+				}
+			}
 			for (size_t i = 0; i < items.size(); i++) {
 				items[i]->Update();
 			}
 			bullets->Update();
+			fighters->Update();
 			CollisionEvent();
 			this->UpdateStatusPanel();
 		}

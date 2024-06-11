@@ -21,6 +21,7 @@ namespace Raiden
 		bool Dead() const;
 		CPoint GetTopLeft();
 	protected:
+		bool is_appear = false;
 		void MoveTo(int left, int top);
 		void Move();
 		virtual void Attack(const Player &player) = 0;

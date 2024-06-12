@@ -113,6 +113,9 @@
     <Filter Include="MyGame\Raiden\Interactive Object\Turret">
       <UniqueIdentifier>{e285f5c3-fc19-43dd-bd41-b1615c2b8c0b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MyGame\Raiden\Tool\sound">
+      <UniqueIdentifier>{c01cd654-ca81-47e1-b3dd-f48d5f37c38d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="RES\GAME.RC2">
@@ -233,6 +236,9 @@
     </ClCompile>
     <ClCompile Include="Source\Game\Raiden\Turret\Turret.cpp">
       <Filter>MyGame\Raiden\Interactive Object\Turret</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Game\Raiden\PlayAudio\AudioPlayer.cpp">
+      <Filter>MyGame\Raiden\Tool\sound</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -376,6 +382,9 @@
     </ClInclude>
     <ClInclude Include="Source\Game\Raiden\Turret\Turret.h">
       <Filter>MyGame\Raiden\Interactive Object\Turret</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Game\Raiden\PlayAudio\AudioPlayer.h">
+      <Filter>MyGame\Raiden\Tool\sound</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

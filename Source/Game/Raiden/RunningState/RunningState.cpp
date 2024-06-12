@@ -58,6 +58,7 @@ namespace Raiden {
 		player.Init(xml_reader.ParsePlayer(), bullets);
 		status_panel.InitializeStatus();
 		death_message_id = text_graphics.RegisterText({ SIZE_X / 2 - 100 , SIZE_Y / 2 }, ""); // ¥¢±Ñ
+		play_audio.PlayAudio("Resources/audio/Opening.mp3");
 	}
 
 	void RunningState::KeyUp(Control &control) {

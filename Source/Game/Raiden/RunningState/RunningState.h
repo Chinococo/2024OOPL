@@ -12,6 +12,7 @@
 #include "../Boss/Boss.h"
 #include "../Item/Item.h"
 #include "../BossJapan/BossJapan.h"
+#include "../PlayAudio/AudioPlayer.h"
 namespace Raiden
 {
 	class RunningState : public State
@@ -35,5 +36,6 @@ namespace Raiden
 		std::shared_ptr<Boss> boss;
 		std::size_t death_message_id;
 		std::vector<Item*> items;
+		AudioPlayer play_audio;
 	}; 
 }

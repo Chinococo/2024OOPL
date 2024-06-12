@@ -107,7 +107,7 @@ namespace Raiden
 				double radians = angle * (M_PI / 180.0f);
 				int index = bullets->AddElement();
 				auto test = *bullets;
-				test[index]->Init(true, bullet_type::straight_bullet);
+				test[index]->Init(true, bullet_type::track_bullet);
 				test[index]->SetTopLeft({ left + this->sprite.GetWidth() / 2-10+ static_cast<int>(50 * std::cos(radians)),top });
 				test[index]->ApplyForce({ static_cast<int>(std::cos(radians) * 3), static_cast<int>(-std::sin(radians) * 3)});
 			}

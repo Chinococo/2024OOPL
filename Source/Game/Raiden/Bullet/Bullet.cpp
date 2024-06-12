@@ -68,7 +68,8 @@ namespace Raiden
 				int dy = fighter.y - bullet_y;
 				double distance = std::sqrt(dx * dx + dy * dy);
 
-				if (distance < min_distance) {
+				// 檢查敵人是否在200x200範圍內
+				if (distance < min_distance && std::abs(dx) <= 150 && std::abs(dy) <= 150) {
 					min_distance = distance;
 					nearest_fighter = &fighter;
 				}
@@ -90,6 +91,7 @@ namespace Raiden
 				}
 			}
 		}
+
 		
 	}
 

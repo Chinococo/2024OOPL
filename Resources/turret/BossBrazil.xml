@@ -1,23 +1,37 @@
-<Turrets>
-    <!-- Top Turrets -->
-    <Turret x="50" y="0" bulletSpeed="3" angle="90" />
-    <Turret x="257" y="0" bulletSpeed="3" angle="90" />
-    
-    <!-- Bottom Turrets -->
-    <Turret x="50" y="320" bulletSpeed="3" angle="270" />
-    <Turret x="257" y="320" bulletSpeed="3" angle="270" />
-    
-    <!-- Left Turrets -->
-    <Turret x="0" y="80" bulletSpeed="3" angle="180" />
-    <Turret x="0" y="240" bulletSpeed="3" angle="180" />
-    
-    <!-- Right Turrets -->
-    <Turret x="307" y="80" bulletSpeed="3" angle="0" />
-    <Turret x="307" y="240" bulletSpeed="3" angle="0" />
-    
-    <!-- Corner Turrets -->
-    <Turret x="0" y="0" bulletSpeed="3" angle="135" />       <!-- Top-left corner -->
-    <Turret x="307" y="0" bulletSpeed="3" angle="45" />      <!-- Top-right corner -->
-    <Turret x="0" y="320" bulletSpeed="3" angle="225" />     <!-- Bottom-left corner -->
-    <Turret x="307" y="320" bulletSpeed="3" angle="315" />   <!-- Bottom-right corner -->
-</Turrets>
+<Configurations>
+    <Configuration name="Setup1">
+        <Turrets>
+            <!-- Top Turrets -->
+            <Turret x="50" y="0" bulletSpeed="5" angle="90" />
+            <Turret x="257" y="0" bulletSpeed="5" angle="90" />
+            
+            <!-- Bottom Turrets -->
+            <Turret x="50" y="320" bulletSpeed="5" angle="270" />
+            <Turret x="257" y="320" bulletSpeed="5" angle="270" />
+            
+            <!-- Left Turrets -->
+            <Turret x="0" y="80" bulletSpeed="5" angle="180" />
+            <Turret x="0" y="240" bulletSpeed="5" angle="180" />
+            
+            <!-- Right Turrets -->
+            <Turret x="307" y="80" bulletSpeed="5" angle="0" />
+            <Turret x="307" y="240" bulletSpeed="5" angle="0" />
+            
+            <!-- Corner Turrets -->
+            <Turret x="0" y="0" bulletSpeed="5" angle="135" />       <!-- Top-left corner -->
+            <Turret x="307" y="0" bulletSpeed="5" angle="45" />      <!-- Top-right corner -->
+            <Turret x="0" y="320" bulletSpeed="5" angle="225" />     <!-- Bottom-left corner -->
+            <Turret x="307" y="320" bulletSpeed="5" angle="315" />   <!-- Bottom-right corner -->
+        </Turrets>
+    </Configuration>
+
+    <Configuration name="Setup2">
+        <Turrets>
+            <!-- Bottom Turrets -->
+            <Turret x="60" y="330" bulletSpeed="10" angle="315" />
+			<Turret x="120" y="330" bulletSpeed="10" angle="315" />
+            <Turret x="180" y="330" bulletSpeed="10" angle="225" />
+			<Turret x="240" y="330" bulletSpeed="10" angle="225" />
+        </Turrets>
+    </Configuration>
+</Configurations>

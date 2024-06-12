@@ -36,8 +36,9 @@ namespace Raiden
 		int move_interval_milli = 1000;
 		time_t bullet_interval = clock();
 		std::shared_ptr<Raiden::GameObjectPool<Raiden::Bullet>> bullets;
-		TurretGroup* turretGroup;
+		vector<TurretGroup*> turretGroups;
 		int last_position_X, last_position_Y;  // ¤¤¤ßÂI
 		float angle = 0.0f;
+		int turret_groups_index = 0;
 	};
 }

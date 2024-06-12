@@ -4,23 +4,29 @@
 namespace Raiden {
 	TurretGroup::TurretGroup(std::shared_ptr<Raiden::GameObjectPool<Raiden::Bullet>>& bullets)
 		: bullets(bullets) {}
-	void TurretGroup::LoadFromXML(const std::string& filename) {
+	void TurretGroup::LoadFromXML(const std::string& filename, string name) {
 		tinyxml2::XMLDocument doc;
 		if (doc.LoadFile(filename.c_str()) == tinyxml2::XML_SUCCESS) {
-			tinyxml2::XMLElement* root = doc.RootElement();
-			for (tinyxml2::XMLElement* elem = root->FirstChildElement("Turret"); elem != nullptr; elem = elem->NextSiblingElement("Turret")) {
-				int x = elem->IntAttribute("x");  // 使用 IntAttribute 獲取 int 類型值
-				int y = elem->IntAttribute("y");  // 使用 IntAttribute 獲取 int 類型值
-				float bulletSpeed = elem->FloatAttribute("bulletSpeed");
-				int angle = elem->IntAttribute("angle");  // 使用 IntAttribute 獲取 int 類型值
-			
+			tinyxml2::XMLElement* configurationsElem = doc.RootElement();
 
-				CPoint position = { x, y };
-				turrets.emplace_back(position, angle, bulletSpeed, bullets);
+			if (configurationsElem) {
+				for (tinyxml2::XMLElement* configElem = configurationsElem->FirstChildElement("Configuration"); configElem != nullptr; configElem = configElem->NextSiblingElement("Configuration")) {
+					const char* configName = configElem->Attribute("name");
+					if (configName && name == configName) {
+						tinyxml2::XMLElement* turretsElem = configElem->FirstChildElement("Turrets");
+						for (tinyxml2::XMLElement* elem = turretsElem->FirstChildElement("Turret"); elem != nullptr; elem = elem->NextSiblingElement("Turret")) {
+							int x = elem->IntAttribute("x");
+							int y = elem->IntAttribute("y");
+							float bulletSpeed = elem->FloatAttribute("bulletSpeed");
+							int angle = elem->IntAttribute("angle");
+
+							CPoint position = { x, y };
+							turrets.emplace_back(position, angle, bulletSpeed, bullets);
+						}
+						break;  // 找到並加載特定配置後退出循環
+					}
+				}
 			}
-		}
-		else {
-			// 處理讀取 XML 文件錯誤
 		}
 	}
 	void TurretGroup::update(CPoint now) {

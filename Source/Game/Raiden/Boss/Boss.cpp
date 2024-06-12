@@ -74,8 +74,9 @@ namespace Raiden
 		if (position_index > positions.size() - 2)
 		{
 			if (clock() - move_time > 10) {
-				if (std::rand() % 1000 < 1) {  // 1%的機率停下來10秒
-					move_time += 10 * CLOCKS_PER_SEC;
+				if (std::rand() % 1000 < 1) {  // 1%的機率停下來10秒					move_time += 3 * CLOCKS_PER_SEC;
+					if (turretGroups.size() != 0)
+						turret_groups_index = (turret_groups_index + 1) % turretGroups.size();
 					return;
 				}
 				angle += 1.0f;
@@ -119,7 +120,7 @@ namespace Raiden
 	void Boss::Update(const Player &player)
 	{
 		Move();
-		turretGroup->update({ this->sprite.GetLeft(), this->sprite.GetTop() });
+		turretGroups[turret_groups_index]->update({ this->sprite.GetLeft(), this->sprite.GetTop() });
 		if (clock() - bullet_interval > 1000) {
 			//Attack(player);
 			

@@ -5,8 +5,10 @@ namespace Raiden
 {
 	void BossUSA::LoadTurretGroup()
 	{
-		turretGroup = new TurretGroup(bullets);
-		turretGroup->LoadFromXML("Resources/turret/BossUSA.xml");
+		turretGroups.push_back(new TurretGroup(bullets));
+		turretGroups[turretGroups.size() - 1]->LoadFromXML("Resources/turret/BossUSA.xml", "Setup1");
+		turretGroups.push_back(new TurretGroup(bullets));
+		turretGroups[turretGroups.size() - 1]->LoadFromXML("Resources/turret/BossUSA.xml", "Setup2");
 	}
 	void BossUSA::Attack(const Player &player)
 	{

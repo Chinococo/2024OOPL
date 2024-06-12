@@ -8,7 +8,7 @@ namespace Raiden{
 	class TurretGroup {
 	public:
 		TurretGroup(std::shared_ptr<Raiden::GameObjectPool<Raiden::Bullet>>& bullets);
-		void LoadFromXML(const std::string& filename);
+		void LoadFromXML(const std::string& filename, string name);
 		void update(CPoint now);
 
 	private:

@@ -5,8 +5,10 @@ namespace Raiden
 {
 	void BossJapan::LoadTurretGroup()
 	{
-		turretGroup = new TurretGroup(bullets);
-		turretGroup->LoadFromXML("Resources/turret/BossJapan.xml");
+		turretGroups.push_back(new TurretGroup(bullets));
+		turretGroups[turretGroups.size() - 1]->LoadFromXML("Resources/turret/BossJapan.xml", "Setup1");
+		turretGroups.push_back(new TurretGroup(bullets));
+		turretGroups[turretGroups.size() - 1]->LoadFromXML("Resources/turret/BossJapan.xml", "Setup2");
 	}
 	void BossJapan::Attack(const Player &player)
 	{

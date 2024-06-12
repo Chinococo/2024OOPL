@@ -23,6 +23,7 @@ namespace Raiden
 		void Damage();
 		void Upgrage();
 		CPoint GetTopLeft();
+		bool IsInvincible();
 	private:
 		void UpdateByKeyboard(const std::set<Key> &keys);
 		void UpdateByMouse(CPoint point);
@@ -36,5 +37,7 @@ namespace Raiden
 		int level = 1;
 		std::shared_ptr<Raiden::GameObjectPool<Raiden::Bullet>> bullets;
 		std::clock_t fire_cooldown_clock;
+		bool invincible = false;
+		std::clock_t invincible_time;
 	};
 }

@@ -34,7 +34,7 @@ namespace Raiden {
 				if (player.GetLifeCount() <= 0) {
 					break;
 				}
-				if (bullets->operator[](i)->IsCollisionBoxOverlap(player_collision_boxfighters)) {
+				if (!player.IsInvincible()&&bullets->operator[](i)->IsCollisionBoxOverlap(player_collision_boxfighters)) {
 					bullets->operator[](i)->Destroy();
 					//player.Damage();
 					text_graphics.RegisterText(death_message_id, player.GetLifeCount() > 0 ? "" : "YOU ARE DEAD");

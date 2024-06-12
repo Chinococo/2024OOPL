@@ -25,6 +25,9 @@ namespace Raiden
 
 	void Player::Update(const Control &control)
 	{
+		if (invincible&&invincible_time - clock() > 3) {
+			invincible = false;
+		}
 		if (control.mode == ControlMode::KEYBOARD)
 			UpdateByKeyboard(control.keys);
 		else
@@ -34,7 +37,13 @@ namespace Raiden
 	void Player::Show()
 	{
 		if (life_count > 0) {
-			sprite.SetFrameIndexOfBitmap(sprite_index);
+			if (invincible) {
+				sprite.SetFrameIndexOfBitmap(sprite_index);
+			}
+			else {
+				sprite.SetFrameIndexOfBitmap(sprite_index);
+			}
+			
 			sprite.ShowBitmap();
 			ShowCollisionBox();
 		}
@@ -63,6 +72,8 @@ namespace Raiden
 	void Player::Damage()
 	{
 		life_count -= 1;
+		invincible = true;
+		invincible_time = clock();
 	}
 
 	void Player::Upgrage()
@@ -73,6 +84,11 @@ namespace Raiden
 	CPoint Player::GetTopLeft()
 	{
 		return CPoint(this->sprite.GetLeft(), this->sprite.GetTop());
+	}
+
+	bool Player::IsInvincible()
+	{
+		return invincible;
 	}
 
 	void Player::UpdateByKeyboard(const std::set<Key> &keys)

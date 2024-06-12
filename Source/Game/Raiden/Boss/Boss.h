@@ -19,12 +19,14 @@ namespace Raiden
 		bool IsAlive() const;
 		bool IsAppear() const;
 		bool Dead() const;
+		
 		CPoint GetTopLeft();
 	protected:
 		bool is_appear = false;
 		void MoveTo(int left, int top);
 		void Move();
 		virtual void Attack(const Player &player) = 0;
+		virtual void LoadTurretGroup()=0;
 		game_framework::CMovingBitmap sprite;
 		int health = 1000;
 		std::vector<CPoint> positions;

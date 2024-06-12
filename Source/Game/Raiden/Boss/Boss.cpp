@@ -23,8 +23,7 @@ namespace Raiden
 		// Setting initial health value
 		health = 200;
 		bullets = bullet;
-		turretGroup = new TurretGroup(bullets);
-		turretGroup->LoadFromXML("Resources/turret/boss.xml");
+		this->LoadTurretGroup();
 	}
 
 	void Boss::Show()
@@ -56,6 +55,7 @@ namespace Raiden
 		OutputDebugStringW(health_str.c_str());
 		return health == 0;
 	}
+
 
 	CPoint Boss::GetTopLeft()
 	{

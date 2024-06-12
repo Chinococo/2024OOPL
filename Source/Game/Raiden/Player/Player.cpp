@@ -18,7 +18,7 @@ namespace Raiden
 		sprite.LoadBitmapByString(player_data.sprites, RGB(color_mask_red, color_mask_green, color_mask_blue));
 		sprite.SetFrameIndexOfBitmap(sprite_index);
 		sprite.SetTopLeft(player_data.init_position.x, player_data.init_position.y);
-		InitCollisionBox(sprite.GetWidth(), sprite.GetHeight());
+		InitCollisionBox(sprite.GetWidth()/2, sprite.GetHeight()/2);
 	}
 
 	
@@ -98,7 +98,7 @@ namespace Raiden
 		top = min(SIZE_Y - static_cast<int>(sprite.GetHeight() * OFFSET), top);
 
 		sprite.SetTopLeft(left, top);
-		UpdateCollisionBox(left, top);
+		UpdateCollisionBox(left+this->sprite.GetWidth()/4, top + this->sprite.GetHeight() / 4);
 
 		int fire_cooldown_milli = static_cast<int>(static_cast<double>(std::clock() - fire_cooldown_clock) / CLOCKS_PER_SEC * 1000);
 		if (keys.count(Key::FIRE) && fire_cooldown_milli >= 300) {

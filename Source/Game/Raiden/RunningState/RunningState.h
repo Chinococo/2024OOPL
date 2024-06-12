@@ -13,6 +13,7 @@
 #include "../Item/Item.h"
 #include "../BossJapan/BossJapan.h"
 #include "../PlayAudio/AudioPlayer.h"
+#include "../Bomb/Bomb.h"
 namespace Raiden
 {
 	class RunningState : public State
@@ -37,5 +38,6 @@ namespace Raiden
 		std::size_t death_message_id;
 		std::vector<Item*> items;
 		AudioPlayer play_audio;
+		Bomb bomb;
 	}; 
 }

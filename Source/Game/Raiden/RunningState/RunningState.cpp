@@ -54,6 +54,7 @@ namespace Raiden {
 	}
 
 	void RunningState::InitDerived() {
+		bomb.Init();
 		stage_manager.Init(xml_reader.ParseStages(), fighters, bullets, boss);
 		player.Init(xml_reader.ParsePlayer(), bullets);
 		status_panel.InitializeStatus();
@@ -66,7 +67,13 @@ namespace Raiden {
 	}
 
 	void RunningState::Update(Control &control) {
+		bomb.update();
 		if (player.GetLifeCount() > 0) {
+			if (control.mode == ControlMode::KEYBOARD) {
+				if (control.keys.count(Key::RESET)) {
+					bomb.Start();
+				}
+			}
 			player.Update(control);
 			stage_manager.Update(player);
 			boss = stage_manager.GetBoss();
@@ -103,6 +110,7 @@ namespace Raiden {
 		else {
 			if (control.mode == ControlMode::KEYBOARD) {
 				if (control.keys.count(Key::RESET)) {
+					
 					player.Init(xml_reader.ParsePlayer(), bullets);
 					text_graphics.ChangeText(death_message_id, "");
 					//fighters->Clear();
@@ -135,6 +143,7 @@ namespace Raiden {
 		for (size_t i = 0; i < items.size(); i++) {
 			items[i]->Show();
 		}
+		bomb.Show();
 	}
 
 	bool RunningState::Over() {

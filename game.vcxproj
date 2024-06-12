@@ -235,6 +235,7 @@
     <None Include="RES\GAME.RC2" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Bomb.cpp" />
     <ClCompile Include="Source\Core\game.cpp" />
     <ClCompile Include="Source\Core\gameDoc.cpp" />
     <ClCompile Include="Source\Core\gameView.cpp" />
@@ -287,6 +288,7 @@
     <ClInclude Include="Source\Game\config.h" />
     <ClInclude Include="Source\Game\mygame.h" />
     <ClInclude Include="Source\Game\Raiden\Background\Background.h" />
+    <ClInclude Include="Source\Game\Raiden\Bomb\Bomb.h" />
     <ClInclude Include="Source\Game\Raiden\BossBrazil\BossBrazil.h" />
     <ClInclude Include="Source\Game\Raiden\BossJapan\BossJapan.h" />
     <ClInclude Include="Source\Game\Raiden\BossUSA\BossUSA.h" />

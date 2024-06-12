@@ -116,6 +116,9 @@
     <Filter Include="MyGame\Raiden\Tool\sound">
       <UniqueIdentifier>{c01cd654-ca81-47e1-b3dd-f48d5f37c38d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MyGame\Raiden\Interactive Object\Bomb">
+      <UniqueIdentifier>{d2039415-5074-4a43-8f9e-cd7720d4cbe9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="RES\GAME.RC2">
@@ -239,6 +242,9 @@
     </ClCompile>
     <ClCompile Include="Source\Game\Raiden\PlayAudio\AudioPlayer.cpp">
       <Filter>MyGame\Raiden\Tool\sound</Filter>
+    </ClCompile>
+    <ClCompile Include="Bomb.cpp">
+      <Filter>MyGame\Raiden\Interactive Object\Bomb</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -385,6 +391,9 @@
     </ClInclude>
     <ClInclude Include="Source\Game\Raiden\PlayAudio\AudioPlayer.h">
       <Filter>MyGame\Raiden\Tool\sound</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Game\Raiden\Bomb\Bomb.h">
+      <Filter>MyGame\Raiden\Interactive Object\Bomb</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

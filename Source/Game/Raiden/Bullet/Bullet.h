@@ -49,6 +49,7 @@ namespace Raiden
 		int delta_top = 0;
 		bool friendly;
 		int type=0;
+		int bullet_speed;
 		time_t last_track_time = clock();
 	};
 }

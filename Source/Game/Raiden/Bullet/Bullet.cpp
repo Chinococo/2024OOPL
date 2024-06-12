@@ -27,6 +27,7 @@ namespace Raiden
 	{
 		delta_left = std::move(force.x);
 		delta_top = std::move(force.y);
+		bullet_speed = static_cast<int>(std::round(std::sqrt(delta_left* delta_left + delta_top * delta_top)));
 	}
 	void Bullet::Update()
 	{
@@ -107,15 +108,11 @@ namespace Raiden
 
 			const double max_tracking_range = 200.0;  // 定義追蹤範圍
 			const double min_tracking_range = 100.0;  // 定義追蹤範圍
-			const double bullet_speed = 3.0f;      // 子彈速度
 
 			if (distance > 0 && distance >= min_tracking_range && distance <= max_tracking_range && dx>0 && dy>0) {
 				// Normalize the vector and scale by bullet speed
-				double unit_dx = dx / distance;
-				double unit_dy = dy / distance;
-
-				int force_x = static_cast<int>(unit_dx * bullet_speed);
-				int force_y = static_cast<int>(unit_dy * bullet_speed);
+				int force_x = static_cast<int>(bullet_speed * bullet_speed);
+				int force_y = static_cast<int>(bullet_speed * bullet_speed);
 
 				this->ApplyForce(CPoint(force_x, force_y));
 			}

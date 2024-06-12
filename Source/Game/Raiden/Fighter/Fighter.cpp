@@ -10,7 +10,7 @@ namespace Raiden
 		int color_mask_red = std::get<0>(fighter_data.color_mask);
 		int color_mask_green = std::get<1>(fighter_data.color_mask);
 		int color_mask_blue = std::get<2>(fighter_data.color_mask);
-
+		this->position_index = 0;
 		sprite.LoadBitmapByString(fighter_data.sprites, RGB(color_mask_red, color_mask_green, color_mask_blue));
 		InitCollisionBox(sprite.GetWidth(), sprite.GetHeight());
 		positions = fighter_data.positions;

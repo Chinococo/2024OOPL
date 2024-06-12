@@ -24,7 +24,7 @@ namespace Raiden {
 					auto boss_collision_boxfighters = this->boss->GetCollisionBox();
 					if (bullets->operator[](i)->IsCollisionBoxOverlap(boss_collision_boxfighters)) {
 						bullets->operator[](i)->Destroy();
-						this->boss->Damage(1);
+						this->boss->Damage(10);
 						break;
 					}
 				}

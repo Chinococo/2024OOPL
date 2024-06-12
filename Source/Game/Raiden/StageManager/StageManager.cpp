@@ -14,8 +14,9 @@ namespace Raiden
 		this->bullets = bullets;
 		this->boss = boss;
 		stages.clear();
-		stages.push_back(std::make_unique<StageBrazil>());
 		stages.push_back(std::make_unique<StageJapan>());
+		stages.push_back(std::make_unique<StageBrazil>());
+		
 		stages.push_back(std::make_unique<StageUSA>());
 		this->stages_data = stages_data;
 		ChangeStage(0);

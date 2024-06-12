@@ -6,7 +6,7 @@ namespace Raiden {
 	void Bomb::Init()
 	{
 		std::vector<std::string> bitmapPaths;
-		for (int i = 1; i <= 24; ++i) {
+		for (int i = 1; i <= 24; i+=3) {
 			bitmapPaths.push_back("Resources\\Bomb\\" + std::to_string(i) + ".bmp");
 		}
 		sprite.LoadBitmapByString(bitmapPaths, RGB(0, 0, 0));
@@ -33,7 +33,7 @@ namespace Raiden {
 		else {
 			if (!sprite.IsAnimation()) {
 				sprite.SetTopLeft(sprite.GetLeft(), sprite.GetTop()-50);
-				sprite.SetAnimation(10, true);
+				sprite.SetAnimation(0, true);
 				sprite.ToggleAnimation();
 				this->UpdateCollisionBox(sprite.GetLeft(), sprite.GetTop());
 			}
@@ -46,6 +46,10 @@ namespace Raiden {
 			this->sprite.ShowBitmap();
 			this->ShowCollisionBox();
 		}
+	}
+	bool Bomb::IsComplte()
+	{
+		return complte;
 	}
 }
 

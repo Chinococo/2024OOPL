@@ -9,6 +9,7 @@ namespace Raiden
 		bool Start();
 		void update();
 		void Show();
+		bool IsComplte();
 	private:
 		game_framework::CMovingBitmap sprite;
 		bool complte = true;

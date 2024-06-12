@@ -19,6 +19,7 @@ namespace Raiden {
 						fighters->operator[](j)->Destroy();
 						break;
 					}
+					
 				}
 				if (this->boss != nullptr&&this->boss->IsAppear()) {
 					auto boss_collision_boxfighters = this->boss->GetCollisionBox();
@@ -46,6 +47,15 @@ namespace Raiden {
 						player.Upgrage();
 					}
 					i++;
+				}
+				if (!this->bomb.IsComplte()) {
+					for (size_t j = 0; j < fighters->GetSize(); j++) {
+						auto bomb_collision_boxfighters = this->bomb.GetCollisionBox();
+						if (bullets->operator[](i)->IsCollisionBoxOverlap(bomb_collision_boxfighters)) {
+							fighters->operator[](j)->Destroy();
+							continue;
+						}
+					}
 				}
 
 				

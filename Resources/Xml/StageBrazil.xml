@@ -13,25 +13,25 @@
 			<Green>24</Green>
 			<Blue>8</Blue>
 		</ColorMask>
-		<Sprites>
-			<Sprite>0.bmp</Sprite>
-			<Sprite>1.bmp</Sprite>
-			<Sprite>2.bmp</Sprite>
-			<Sprite>3.bmp</Sprite>
-			<Sprite>4.bmp</Sprite>
-			<Sprite>5.bmp</Sprite>
-			<Sprite>6.bmp</Sprite>
-			<Sprite>7.bmp</Sprite>
-			<Sprite>8.bmp</Sprite>
-			<Sprite>9.bmp</Sprite>
-			<Sprite>10.bmp</Sprite>
-			<Sprite>11.bmp</Sprite>
-			<Sprite>12.bmp</Sprite>
-			<Sprite>13.bmp</Sprite>
-			<Sprite>14.bmp</Sprite>
-			<Sprite>15.bmp</Sprite>
-		</Sprites>
 		<Fighter>
+			<Sprites>
+				<Sprite>0.bmp</Sprite>
+				<Sprite>1.bmp</Sprite>
+				<Sprite>2.bmp</Sprite>
+				<Sprite>3.bmp</Sprite>
+				<Sprite>4.bmp</Sprite>
+				<Sprite>5.bmp</Sprite>
+				<Sprite>6.bmp</Sprite>
+				<Sprite>7.bmp</Sprite>
+				<Sprite>8.bmp</Sprite>
+				<Sprite>9.bmp</Sprite>
+				<Sprite>10.bmp</Sprite>
+				<Sprite>11.bmp</Sprite>
+				<Sprite>12.bmp</Sprite>
+				<Sprite>13.bmp</Sprite>
+				<Sprite>14.bmp</Sprite>
+				<Sprite>15.bmp</Sprite>
+			</Sprites>
 			<AppearDistance>200</AppearDistance>
 			<MoveIntervalMilli>1000</MoveIntervalMilli>
 			<BulletType>0</BulletType>
@@ -61,6 +61,24 @@
 			</Positions>
 		</Fighter>
 		<Fighter>
+			<Sprites>
+				<Sprite>0.bmp</Sprite>
+				<Sprite>1.bmp</Sprite>
+				<Sprite>2.bmp</Sprite>
+				<Sprite>3.bmp</Sprite>
+				<Sprite>4.bmp</Sprite>
+				<Sprite>5.bmp</Sprite>
+				<Sprite>6.bmp</Sprite>
+				<Sprite>7.bmp</Sprite>
+				<Sprite>8.bmp</Sprite>
+				<Sprite>9.bmp</Sprite>
+				<Sprite>10.bmp</Sprite>
+				<Sprite>11.bmp</Sprite>
+				<Sprite>12.bmp</Sprite>
+				<Sprite>13.bmp</Sprite>
+				<Sprite>14.bmp</Sprite>
+				<Sprite>15.bmp</Sprite>
+			</Sprites>
 			<AppearDistance>200</AppearDistance>
 			<MoveIntervalMilli>1000</MoveIntervalMilli>
 			<BulletType>0</BulletType>

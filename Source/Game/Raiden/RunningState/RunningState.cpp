@@ -11,10 +11,13 @@ namespace Raiden {
 					if (!fighters->operator[](j)->IsAlive()) {
 						continue;
 					}
+					std::srand(std::time(0)); // 使用時間作為隨機數種子
 					auto fighter_collision_boxfighters = fighters->operator[](j)->GetCollisionBox();
 					if (bullets->operator[](i)->IsCollisionBoxOverlap(fighter_collision_boxfighters)) {
-						items.push_back(new Item());
-						items[items.size() - 1]->Init(CPoint(fighters->operator[](j)->GetLeft(), fighters->operator[](j)->GetTop() ));
+						if (std::rand() % 100 < 1) {
+							items.push_back(new Item());
+							items[items.size() - 1]->Init(CPoint(fighters->operator[](j)->GetLeft(), fighters->operator[](j)->GetTop()));
+						}
 						bullets->operator[](i)->Destroy();
 						fighters->operator[](j)->Destroy();
 						break;

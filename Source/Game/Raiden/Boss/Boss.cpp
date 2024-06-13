@@ -75,7 +75,7 @@ namespace Raiden
 		{
 			position_index = 0;
 			turret_groups_index = (turret_groups_index + 1) % turretGroups.size();
-			start_move_time = clock() + 3000;
+			start_move_time = clock();
 			return;
 		}
 

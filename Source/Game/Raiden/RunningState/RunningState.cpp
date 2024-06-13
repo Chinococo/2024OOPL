@@ -11,7 +11,6 @@ namespace Raiden {
 					if (!fighters->operator[](j)->IsAlive()) {
 						continue;
 					}
-					std::srand(std::time(0)); // 使用時間作為隨機數種子
 					auto fighter_collision_boxfighters = fighters->operator[](j)->GetCollisionBox();
 					if (bullets->operator[](i)->IsCollisionBoxOverlap(fighter_collision_boxfighters)) {
 						if (std::rand() % 100 < 1) {

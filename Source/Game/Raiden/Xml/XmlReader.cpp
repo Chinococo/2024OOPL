@@ -172,11 +172,17 @@ namespace Raiden
 		{
 			auto appear_distance_elem = ParseXmlChild(fighter_elem, "AppearDistance");
 			auto move_interval_milli_elem = ParseXmlChild(fighter_elem, "MoveIntervalMilli");
+			auto bullet_type_elem = ParseXmlChild(fighter_elem, "BulletType");
+			auto bullet_speed_elem = ParseXmlChild(fighter_elem, "BulletSpeed");
+			auto bullet_angle_elem = ParseXmlChild(fighter_elem, "BulletAngle");
 			auto position_elems = ParseXmlList(ParseXmlChild(fighter_elem, "Positions"), "Position");
 
 			FighterData fighter_data;
 			fighter_data.appear_distance = ParseXmlInt(appear_distance_elem);
 			fighter_data.move_interval_milli = ParseXmlInt(move_interval_milli_elem);
+			fighter_data.bullet_type = ParseXmlInt(bullet_type_elem);
+			fighter_data.bullet_speed = ParseXmlInt(bullet_speed_elem);
+			fighter_data.bullet_angle = ParseXmlInt(bullet_angle_elem);
 			fighter_data.color_mask = color_mask;
 			fighter_data.sprites = sprites;
 			fighter_data.positions = ParsePositionElems(position_elems);

@@ -3,6 +3,14 @@
 #include <random>
 namespace Raiden
 {
+
+	void BossBrazil::LoadTurretGroup()
+	{
+		turretGroups.push_back(new TurretGroup(bullets));
+		turretGroups[turretGroups.size()-1]->LoadFromXML("Resources/turret/BossBrazil.xml", "Setup1");
+		turretGroups.push_back(new TurretGroup(bullets));
+		turretGroups[turretGroups.size() - 1]->LoadFromXML("Resources/turret/BossBrazil.xml", "Setup2");
+	}
 	void BossBrazil::Attack(const Player &player)
 	{
 		std::random_device rd;

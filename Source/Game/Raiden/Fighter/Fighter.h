@@ -32,9 +32,12 @@ namespace Raiden
 		std::clock_t move_clock;
 		std::clock_t move_interval_milli = 1000;
 		std::clock_t shoot_clock= std::clock();
+		int bullet_speed;
+		int bullet_type;
+		int bullet_angle;
 		int appear_distance = 0;
 		std::vector<bool> attack_positions;
-		const float M_PI = 3.1415926f;
+		const double M_PI = 3.14159265358979323846;
 		int last_distance = 0;
 		bool IsAppear = false;
 

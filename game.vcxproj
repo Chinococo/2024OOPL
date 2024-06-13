@@ -235,6 +235,7 @@
     <None Include="RES\GAME.RC2" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Bomb.cpp" />
     <ClCompile Include="Source\Core\game.cpp" />
     <ClCompile Include="Source\Core\gameDoc.cpp" />
     <ClCompile Include="Source\Core\gameView.cpp" />
@@ -254,6 +255,7 @@
     <ClCompile Include="Source\Game\Raiden\Collidable\Collidable.cpp" />
     <ClCompile Include="Source\Game\Raiden\Fighter\Fighter.cpp" />
     <ClCompile Include="Source\Game\Raiden\Item\Item.cpp" />
+    <ClCompile Include="Source\Game\Raiden\PlayAudio\AudioPlayer.cpp" />
     <ClCompile Include="Source\Game\Raiden\Player\Player.cpp" />
     <ClCompile Include="Source\Game\Raiden\RunningState\RunningState.cpp" />
     <ClCompile Include="Source\Game\Raiden\SelectControlState\SelectControlState.cpp" />
@@ -268,6 +270,8 @@
     <ClCompile Include="Source\Game\Raiden\TextGraphics\TextGraphics.cpp" />
     <ClCompile Include="Source\Game\Raiden\CollisionBox\CollisionBox.cpp" />
     <ClCompile Include="Source\Game\Raiden\GameObjectPool\GameObjectPool.cpp" />
+    <ClCompile Include="Source\Game\Raiden\TurretGroup\TurretGroup.cpp" />
+    <ClCompile Include="Source\Game\Raiden\Turret\Turret.cpp" />
     <ClCompile Include="Source\Game\Raiden\Xml\tinyxml2.cpp" />
     <ClCompile Include="Source\Game\Raiden\Xml\XmlReader.cpp" />
     <ClCompile Include="Source\Library\audio.cpp" />
@@ -284,6 +288,7 @@
     <ClInclude Include="Source\Game\config.h" />
     <ClInclude Include="Source\Game\mygame.h" />
     <ClInclude Include="Source\Game\Raiden\Background\Background.h" />
+    <ClInclude Include="Source\Game\Raiden\Bomb\Bomb.h" />
     <ClInclude Include="Source\Game\Raiden\BossBrazil\BossBrazil.h" />
     <ClInclude Include="Source\Game\Raiden\BossJapan\BossJapan.h" />
     <ClInclude Include="Source\Game\Raiden\BossUSA\BossUSA.h" />
@@ -301,6 +306,7 @@
     <ClInclude Include="Source\Game\Raiden\Fighter\Fighter.h" />
     <ClInclude Include="Source\Game\Raiden\Item\Item.h" />
     <ClInclude Include="Source\Game\Raiden\Key\Key.h" />
+    <ClInclude Include="Source\Game\Raiden\PlayAudio\AudioPlayer.h" />
     <ClInclude Include="Source\Game\Raiden\Player\Player.h" />
     <ClInclude Include="Source\Game\Raiden\RunningState\RunningState.h" />
     <ClInclude Include="Source\Game\Raiden\SelectControlState\SelectControlState.h" />
@@ -315,6 +321,8 @@
     <ClInclude Include="Source\Game\Raiden\TextGraphics\TextGraphics.h" />
     <ClInclude Include="Source\Game\Raiden\CollisionBox\CollisionBox.h" />
     <ClInclude Include="Source\Game\Raiden\GameObjectPool\GameObjectPool.h" />
+    <ClInclude Include="Source\Game\Raiden\TurretGroup\TurretGroup.h" />
+    <ClInclude Include="Source\Game\Raiden\Turret\Turret.h" />
     <ClInclude Include="Source\Game\Raiden\Xml\tinyxml2.h" />
     <ClInclude Include="Source\Game\Raiden\Xml\XmlReader.h" />
     <ClInclude Include="Source\Library\audio.h" />

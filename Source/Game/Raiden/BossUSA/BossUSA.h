@@ -7,5 +7,6 @@ namespace Raiden
 	{
 	public:
 		void Attack(const Player &player) override;
+		void LoadTurretGroup() override;
 	};
 }

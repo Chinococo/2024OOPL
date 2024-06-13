@@ -10,8 +10,12 @@ namespace Raiden
 		int color_mask_red = std::get<0>(fighter_data.color_mask);
 		int color_mask_green = std::get<1>(fighter_data.color_mask);
 		int color_mask_blue = std::get<2>(fighter_data.color_mask);
-
-		sprite.LoadBitmapByString(fighter_data.sprites, RGB(color_mask_red, color_mask_green, color_mask_blue));
+		bullet_speed = fighter_data.bullet_speed;
+		bullet_type= fighter_data.bullet_type;
+		bullet_angle= fighter_data.bullet_angle;
+		this->position_index = 0;
+		auto temp = fighter_data.sprites;
+		sprite.LoadBitmapByString(temp, RGB(color_mask_red, color_mask_green, color_mask_blue));
 		InitCollisionBox(sprite.GetWidth(), sprite.GetHeight());
 		positions = fighter_data.positions;
 		attack_positions = std::vector<bool>(fighter_data.positions.size(), false);
@@ -40,15 +44,15 @@ namespace Raiden
 		double angle = atan2(-(positions[position_index + 1].y - positions[position_index].y),
 			positions[position_index + 1].x - positions[position_index].x);
 		double angleInDegrees = angle * (180.0 / M_PI);
+		double bulletAngleInRadians = bullet_angle * (M_PI/180.0);
 		if (std::clock() - shoot_clock > 1000)
 		{
 			int index = bullets->AddElement();
-			bullets->operator[](index)->Init(false, bullet_type::track_bullet);
+			bullets->operator[](index)->Init(false, bullet_type);
 			bullets->operator[](index)->SetTopLeft({ sprite.GetLeft(),sprite.GetTop()});
-			if(position_index == positions.size() - 2 && completeness == 1)
-				bullets->operator[](index)->ApplyForce({ 0,3 });
-			else
-				bullets->operator[](index)->ApplyForce({ static_cast<int>(3 * cos(angleInDegrees)),static_cast<int>(-3 * sin(angleInDegrees)) });
+			double bulletSpeedX = cos(bulletAngleInRadians);
+			double bulletSpeedY = sin(bulletAngleInRadians);
+			bullets->operator[](index)->ApplyForce({ static_cast<int>(bullet_speed * cos(bulletAngleInRadians)),static_cast<int>(-bullet_speed * sin(bulletAngleInRadians)) });
 			shoot_clock = std::clock();
 		}
 		// Stay at the last position.

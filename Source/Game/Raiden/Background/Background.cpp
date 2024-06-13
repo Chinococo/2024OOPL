@@ -17,7 +17,7 @@ namespace Raiden
 		part1.LoadBitmapByString({ background_data.sprites[0] });
 		part2.LoadBitmapByString({ background_data.sprites[1] });
 
-		const int INIT_TOP = 3000;
+		const int INIT_TOP = 1000;
 
 		part1.SetTopLeft(BACKGROUND_MARGIN, SIZE_Y - part1.GetHeight() + INIT_TOP);
 		part2.SetTopLeft(BACKGROUND_MARGIN, part1.GetTop() - part2.GetHeight() + INIT_TOP);

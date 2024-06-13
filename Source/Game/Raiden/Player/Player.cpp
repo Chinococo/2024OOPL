@@ -5,7 +5,7 @@
 #include <vector>
 #include <string>
 #include <tuple>
-
+#define M_PI 3.1415926
 namespace Raiden
 {
 	void Player::Init(PlayerData && player_data, std::shared_ptr<Raiden::GameObjectPool<Raiden::Bullet>>& bullet)
@@ -18,13 +18,16 @@ namespace Raiden
 		sprite.LoadBitmapByString(player_data.sprites, RGB(color_mask_red, color_mask_green, color_mask_blue));
 		sprite.SetFrameIndexOfBitmap(sprite_index);
 		sprite.SetTopLeft(player_data.init_position.x, player_data.init_position.y);
-		InitCollisionBox(sprite.GetWidth(), sprite.GetHeight());
+		InitCollisionBox(sprite.GetWidth()/2, sprite.GetHeight()/2);
 	}
 
 	
 
 	void Player::Update(const Control &control)
 	{
+		if (invincible&&invincible_time - clock() > 3) {
+			invincible = false;
+		}
 		if (control.mode == ControlMode::KEYBOARD)
 			UpdateByKeyboard(control.keys);
 		else
@@ -34,7 +37,13 @@ namespace Raiden
 	void Player::Show()
 	{
 		if (life_count > 0) {
-			sprite.SetFrameIndexOfBitmap(sprite_index);
+			if (invincible) {
+				sprite.SetFrameIndexOfBitmap(sprite_index);
+			}
+			else {
+				sprite.SetFrameIndexOfBitmap(sprite_index);
+			}
+			
 			sprite.ShowBitmap();
 			ShowCollisionBox();
 		}
@@ -63,11 +72,23 @@ namespace Raiden
 	void Player::Damage()
 	{
 		life_count -= 1;
+		invincible = true;
+		invincible_time = clock();
+	}
+
+	void Player::Upgrage()
+	{
+		level = min((level + 1),5);
 	}
 
 	CPoint Player::GetTopLeft()
 	{
 		return CPoint(this->sprite.GetLeft(), this->sprite.GetTop());
+	}
+
+	bool Player::IsInvincible()
+	{
+		return invincible;
 	}
 
 	void Player::UpdateByKeyboard(const std::set<Key> &keys)
@@ -93,15 +114,19 @@ namespace Raiden
 		top = min(SIZE_Y - static_cast<int>(sprite.GetHeight() * OFFSET), top);
 
 		sprite.SetTopLeft(left, top);
-		UpdateCollisionBox(left, top);
+		UpdateCollisionBox(left+this->sprite.GetWidth()/4, top + this->sprite.GetHeight() / 4);
 
 		int fire_cooldown_milli = static_cast<int>(static_cast<double>(std::clock() - fire_cooldown_clock) / CLOCKS_PER_SEC * 1000);
-		if (keys.count(Key::FIRE) && fire_cooldown_milli >= 100) {
-			int index = bullets->AddElement();
-			auto test = *bullets;
-			test[index]->Init(true,bullet_type::track_bullet);
-			test[index]->SetTopLeft({ left,top });
-			test[index]->ApplyForce({ 0,-3 });
+		if (keys.count(Key::FIRE) && fire_cooldown_milli >= 300) {
+			for (int i = 1; i <= level; ++i) {
+				double angle = 0 + (180.0f/(level+1)) * i;
+				double radians = angle * (M_PI / 180.0f);
+				int index = bullets->AddElement();
+				auto test = *bullets;
+				test[index]->Init(true, bullet_type::track_bullet);
+				test[index]->SetTopLeft({ left + this->sprite.GetWidth() / 2-10+ static_cast<int>(50 * std::cos(radians)),top });
+				test[index]->ApplyForce({ static_cast<int>(std::cos(radians) * 3), static_cast<int>(-std::sin(radians) * 3)});
+			}
 			fire_cooldown_clock = std::clock();
 		}
 	}

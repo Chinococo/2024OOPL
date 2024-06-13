@@ -34,6 +34,9 @@
 		<Fighter>
 			<AppearDistance>200</AppearDistance>
 			<MoveIntervalMilli>1000</MoveIntervalMilli>
+			<BulletType>1</BulletType>
+			<BulletSpeed>5</BulletSpeed>
+			<BulletAngle>90</BulletAngle>
 			<Positions>
 				<Position>
 					<Left>10</Left>
@@ -60,6 +63,9 @@
 		<Fighter>
 			<AppearDistance>200</AppearDistance>
 			<MoveIntervalMilli>1000</MoveIntervalMilli>
+			<BulletType>1</BulletType>
+			<BulletSpeed>5</BulletSpeed>
+			<BulletAngle>300</BulletAngle>
 			<Positions>
 				<Position>
 					<Left>50</Left>

@@ -27,6 +27,7 @@ namespace Raiden
 	{
 		delta_left = std::move(force.x);
 		delta_top = std::move(force.y);
+		bullet_speed = static_cast<int>(std::round(std::sqrt(delta_left* delta_left + delta_top * delta_top)));
 	}
 	void Bullet::Update()
 	{
@@ -68,7 +69,8 @@ namespace Raiden
 				int dy = fighter.y - bullet_y;
 				double distance = std::sqrt(dx * dx + dy * dy);
 
-				if (distance < min_distance) {
+				// 檢查敵人是否在200x200範圍內
+				if (distance < min_distance && std::abs(dx) <= 150 && std::abs(dy) <= 150) {
 					min_distance = distance;
 					nearest_fighter = &fighter;
 				}
@@ -90,6 +92,7 @@ namespace Raiden
 				}
 			}
 		}
+
 		
 	}
 
@@ -103,13 +106,13 @@ namespace Raiden
 			int dy = player_pos.y - bullet_y;
 			double distance = std::sqrt(dx * dx + dy * dy);
 
-			if (distance != 0 && dy>0) {
-				// Normalize the vector and scale by 3
-				double unit_dx = dx / distance;
-				double unit_dy = dy / distance;
+			const double max_tracking_range = 200.0;  // 定義追蹤範圍
+			const double min_tracking_range = 100.0;  // 定義追蹤範圍
 
-				int force_x = static_cast<int>(unit_dx * 5);
-				int force_y = static_cast<int>(unit_dy * 5);
+			if (distance > 0 && distance >= min_tracking_range && distance <= max_tracking_range && dx>0 && dy>0) {
+				// Normalize the vector and scale by bullet speed
+				int force_x = static_cast<int>(bullet_speed * bullet_speed);
+				int force_y = static_cast<int>(bullet_speed * bullet_speed);
 
 				this->ApplyForce(CPoint(force_x, force_y));
 			}

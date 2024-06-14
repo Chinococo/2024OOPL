@@ -23,6 +23,7 @@ namespace Raiden
 		move_interval_milli = fighter_data.move_interval_milli;
 		alive = true;
 		IsAppear = false;
+		sprite.SetTopLeft(50, 50);
 	}
 
 	void Fighter::Update(const Player &player, int scrolled_distance)

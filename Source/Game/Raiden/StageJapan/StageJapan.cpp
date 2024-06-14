@@ -21,9 +21,8 @@ namespace Raiden
 	void StageJapan::UpdateDerived(const Player &player)
 	{
 		// TODO: perform stage logic here.
-		fighter_pool->Update();
-		bullet_pool->Update();
-
+		//fighter_pool->Update();
+		//fighter_pool->operator[](0)->Update(player, background.GetScrolledDistance());
 		for (std::size_t i = 0; i < fighter_pool->GetSize(); i++)
 		{
 			fighter_pool->operator[](i)->Update(player, background.GetScrolledDistance());

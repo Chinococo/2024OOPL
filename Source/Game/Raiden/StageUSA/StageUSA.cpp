@@ -20,25 +20,15 @@ namespace Raiden
 
 	void StageUSA::UpdateDerived(const Player &player)
 	{
-		// TODO: perform stage logic here.
-		fighter_pool->Update();
-		//fighter_pool->operator[](0)->Update(player, background.GetScrolledDistance());
 		for (std::size_t i = 0; i < fighter_pool->GetSize(); i++)
 		{
-			if (!fighter_pool->operator[](i)->IsAlive())
+			fighter_pool->operator[](i)->Update(player, background.GetScrolledDistance());
+
+			if (fighter_pool->operator[](i)->IsAttacking())
 			{
-				fighter_pool->operator[](i)->Destroy();
-				continue;
-			}
-
-			if (fighter_pool->operator[](i)->GetLeft() < 0 || fighter_pool->operator[](i)->GetLeft() >= RESOLUTION_X) {
-				fighter_pool->operator[](i)->Destroy();
-				continue;
-			}
-
-			if (fighter_pool->operator[](i)->GetTop() < 0 || fighter_pool->operator[](i)->GetTop() >= RESOLUTION_Y) {
-				fighter_pool->operator[](i)->Destroy();
-				continue;
+				int bullet_index = bullet_pool->AddElement();
+				bullet_pool->operator[](bullet_index)->SetTopLeft({ fighter_pool->operator[](i)->GetLeft(), fighter_pool->operator[](i)->GetTop() });
+				bullet_pool->operator[](bullet_index)->ApplyForce({ 0, 1 });
 			}
 		}
 	}

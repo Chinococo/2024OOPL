@@ -22,8 +22,11 @@ namespace Raiden
 		int GetBombCount() const;
 		void Damage();
 		void Upgrage();
+		void IncreaseScore(int amount);
+		void fdajklgasjklsra();
 		CPoint GetTopLeft();
 		bool IsInvincible();
+		bool IsAttacking() const;
 	private:
 		void UpdateByKeyboard(const std::set<Key> &keys);
 		void UpdateByMouse(CPoint point);
@@ -39,5 +42,6 @@ namespace Raiden
 		std::clock_t fire_cooldown_clock;
 		bool invincible = false;
 		std::clock_t invincible_time;
+		bool attacking = false;
 	};
 }

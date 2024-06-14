@@ -28,6 +28,7 @@ namespace Raiden
 
 	private:
 		void UpdateStatusPanel();
+		void UpdateDeathMessage();
 		StageManager stage_manager;
 		Player player;
 		StatusPanel status_panel;
@@ -37,7 +38,10 @@ namespace Raiden
 		std::shared_ptr<Boss> boss;
 		std::size_t death_message_id;
 		std::vector<Item*> items;
-		AudioPlayer play_audio;
+		AudioPlayer opening = AudioPlayer("Resources/audio/Opening.mp3", true);
+		AudioPlayer laser = AudioPlayer("Resources/audio/laser.mp3", false);
+		AudioPlayer explosion = AudioPlayer("Resources/audio/explosion.mp3", false);
+		AudioPlayer reload = AudioPlayer("Resources/audio/reload.mp3", false);
 		Bomb bomb;
 	}; 
 }

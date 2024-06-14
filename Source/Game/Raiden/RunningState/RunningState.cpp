@@ -13,12 +13,13 @@ namespace Raiden {
 					}
 					auto fighter_collision_boxfighters = fighters->operator[](j)->GetCollisionBox();
 					if (bullets->operator[](i)->IsCollisionBoxOverlap(fighter_collision_boxfighters)) {
-						if (std::rand() % 100 < 1) {
+						if (std::rand() % 100 < 100) {
 							items.push_back(new Item());
 							items[items.size() - 1]->Init(CPoint(fighters->operator[](j)->GetLeft(), fighters->operator[](j)->GetTop()));
 						}
 						bullets->operator[](i)->Destroy();
 						fighters->operator[](j)->Destroy();
+						player.IncreaseScore(100);
 						break;
 					}
 					
@@ -38,8 +39,7 @@ namespace Raiden {
 				}
 				if (!player.IsInvincible()&&bullets->operator[](i)->IsCollisionBoxOverlap(player_collision_boxfighters)) {
 					bullets->operator[](i)->Destroy();
-					//player.Damage();
-					text_graphics.RegisterText(death_message_id, player.GetLifeCount() > 0 ? "" : "YOU ARE DEAD");
+					player.Damage();
 				}
 				for (size_t i = 0; i < items.size();) {
 					CollisionBox& item_CollisionBox = items[i]->GetCollisionBox();
@@ -47,6 +47,7 @@ namespace Raiden {
 					if (item_CollisionBox.IsCollisionBoxOverlap(player_collision_boxfighters)) {
 						items.erase(items.begin() + i);
 						player.Upgrage();
+						reload.PlayAudio();
 					}
 					i++;
 				}
@@ -70,9 +71,9 @@ namespace Raiden {
 		bomb.Init();
 		stage_manager.Init(xml_reader.ParseStages(), fighters, bullets, boss);
 		player.Init(xml_reader.ParsePlayer(), bullets);
-		status_panel.InitializeStatus();
-		death_message_id = text_graphics.RegisterText({ SIZE_X / 2 - 100 , SIZE_Y / 2 }, ""); // ¥¢±Ñ
-		play_audio.PlayAudio("Resources/audio/Opening.mp3");
+		status_panel.Init();
+		opening.PlayAudio();
+		death_message_id = -1;
 	}
 
 	void RunningState::KeyUp(Control &control) {
@@ -81,24 +82,32 @@ namespace Raiden {
 
 	void RunningState::Update(Control &control) {
 		bomb.update();
+		this->UpdateDeathMessage();
 		if (player.GetLifeCount() > 0) {
 			if (control.mode == ControlMode::KEYBOARD) {
 				if (control.keys.count(Key::RESET)) {
-					bomb.Start();
+					int a = player.GetBombCount();
+					if (a > 0 && bomb.Start()) {
+						explosion.PlayAudio();
+						player.fdajklgasjklsra();
+					}
+
 				}
 			}
 			player.Update(control);
+			if (player.IsAttacking()) {
+				laser.PlayAudio();
+			}
 			stage_manager.Update(player);
 			boss = stage_manager.GetBoss();
 			for (size_t i = 0; i < bullets->GetSize(); i++) {
-				auto test = *bullets;
 				auto enemy = fighters->GetPoolVecPos();
 				if ( bullets->operator[](i)->GetLeft() < 0 || SIZE_X <bullets->operator[](i)->GetLeft()  ||
 					bullets->operator[](i)->GetLeft() < 0 || SIZE_Y < bullets->operator[](i)->GetLeft()) {
 					bullets->operator[](i)->Destroy();
 					continue;
 				}
-				test[i]->Update(player.GetTopLeft(), enemy);
+				bullets->operator[](i)->Update(player.GetTopLeft(), enemy);
 			}
 			for (std::size_t i = 0; i < fighters->GetSize(); i++)
 			{
@@ -125,7 +134,6 @@ namespace Raiden {
 				if (control.keys.count(Key::RESET)) {
 					
 					player.Init(xml_reader.ParsePlayer(), bullets);
-					text_graphics.ChangeText(death_message_id, "");
 					//fighters->Clear();
 					//bullets->Clear();
 					//text_graphics.Clear();
@@ -140,9 +148,15 @@ namespace Raiden {
 	}
 
 	void RunningState::UpdateStatusPanel() {
-		status_panel.SetStatusCount(StatusType::LIFE, player.GetLifeCount());
-		status_panel.SetStatusCount(StatusType::SCORE, player.GetScore());
-		status_panel.SetStatusCount(StatusType::BOMB_COUNT, player.GetBombCount());
+		status_panel.SetHealth(player.GetLifeCount());
+		status_panel.SetScore(player.GetScore());
+		status_panel.SetBombCount(player.GetBombCount());
+	}
+
+	void RunningState::UpdateDeathMessage() {
+		CPoint position = { SIZE_X / 2 - 100 , SIZE_Y / 2 };
+		std::string death_message = player.GetLifeCount() > 0 ? "" : "YOU ARE DEAD";
+		death_message_id = text_graphics.RegisterText(death_message_id, position, death_message);
 	}
 
 	void RunningState::Show() {
@@ -150,7 +164,7 @@ namespace Raiden {
 		player.Show();
 		bullets->Show();
 		fighters->Show();
-		status_panel.ShowStatus(text_graphics);
+		status_panel.Show(text_graphics);
 		text_graphics.ShowTexts();
 		text_graphics.ClearTextData();
 		for (size_t i = 0; i < items.size(); i++) {

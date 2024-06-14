@@ -7,15 +7,15 @@
 namespace Raiden {
 	TextGraphics::TextDatum::TextDatum(const CPoint position, const std::string text)
 		: position(position), text(text) {}
-	std::size_t TextGraphics::RegisterText(const CPoint position, const std::string text) {
-		this->text_data.push_back({ position, text });
-		return this->text_data.size() - 1;
-	}
-	void TextGraphics::ChangePosition(const std::size_t index, const CPoint position) {
-		this->text_data.at(index).position = position;
-	}
-	void TextGraphics::ChangeText(const std::size_t index, const std::string text) {
-		this->text_data.at(index).text = text;
+	std::size_t TextGraphics::RegisterText(std::size_t index, CPoint position, const std::string text) {
+		if (index < 0 || index >= this->text_data.size()) {
+			this->text_data.push_back({ position, text });
+			return this->text_data.size() - 1;
+		}
+		else {
+			this->text_data.at(index) = { position, text };
+			return index;
+		}
 	}
 	void TextGraphics::ShowTexts() const {
 		CDC* const cdc = game_framework::CDDraw::GetBackCDC();

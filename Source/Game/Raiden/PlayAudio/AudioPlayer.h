@@ -2,13 +2,16 @@
 namespace Raiden {
 	class AudioPlayer {
 	public:
-		AudioPlayer();
+		AudioPlayer(const char*, bool);
 		~AudioPlayer();
-		void PlayAudio(const char* fileName);
+		void PlayAudio();
 
 	private:
+		static unsigned audioIDCounter;
 		bool isAudioOpen;
+		const char* fileName;
 		unsigned audioID;
+		bool repeat;
 		void StopAudio();
 	};
 }

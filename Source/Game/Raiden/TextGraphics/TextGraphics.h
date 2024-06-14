@@ -5,9 +5,7 @@
 namespace Raiden {
 	class TextGraphics {
 	public:
-		std::size_t RegisterText(const CPoint, const std::string = "");
-		void ChangePosition(const std::size_t, const CPoint);
-		void ChangeText(const std::size_t, const std::string);
+		std::size_t RegisterText(std::size_t, CPoint, const std::string = "");
 		void ShowTexts() const;
 		void ClearTextData();
 		int GetTextSize() const;

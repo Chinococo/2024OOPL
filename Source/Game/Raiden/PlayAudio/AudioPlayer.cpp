@@ -2,8 +2,19 @@
 #include "AudioPlayer.h"
 #include "../../../Library/audio.h"
 namespace Raiden {
-	AudioPlayer::AudioPlayer() {
+
+	unsigned AudioPlayer::audioIDCounter = 0;
+
+	AudioPlayer::AudioPlayer(const char* fileName, bool repeat) {
 		isAudioOpen = false;
+		this->fileName = fileName;
+		this->audioID = audioIDCounter++;
+		this->repeat = repeat;
+
+		if (!game_framework::CAudio::Instance()->Load(audioID, const_cast<char*>(fileName))) {
+			printf("Failed to load audio file: %s\n", fileName);
+			return;
+		}
 	}
 
 	AudioPlayer::~AudioPlayer() {
@@ -18,17 +29,12 @@ namespace Raiden {
 		}
 	}
 
-	void AudioPlayer::PlayAudio(const char* fileName) {
+	void AudioPlayer::PlayAudio() {
 		
 		if (isAudioOpen) {
 			StopAudio(); // 停止之前的音效
 		}
 
-		if (!game_framework::CAudio::Instance()->Load(audioID, const_cast<char*>(fileName))) {
-			printf("Failed to load audio file: %s\n", fileName);
-			return;
-		}
-
-		game_framework::CAudio::Instance()->Play(audioID, true); // 重複播放
+		game_framework::CAudio::Instance()->Play(audioID, repeat); // 重複播放
 	}
 }

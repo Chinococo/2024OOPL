@@ -58,6 +58,7 @@
 			<Sprite>Player8.bmp</Sprite>
 			<Sprite>Player9.bmp</Sprite>
 			<Sprite>Player10.bmp</Sprite>
+			<Sprite>Player11.bmp</Sprite>
 		</Sprites>
 		<InitPosition>
 			<Left>300</Left>

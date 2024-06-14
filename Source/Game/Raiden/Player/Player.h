@@ -43,5 +43,6 @@ namespace Raiden
 		bool invincible = false;
 		std::clock_t invincible_time;
 		bool attacking = false;
+		int last_sprite_index = 11;
 	};
 }

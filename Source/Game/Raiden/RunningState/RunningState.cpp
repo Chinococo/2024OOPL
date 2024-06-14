@@ -35,6 +35,8 @@ namespace Raiden {
 			}
 			else {//¼Ä¤è¤l¼u
 				if (player.GetLifeCount() <= 0) {
+					death.PlayAudio();
+					
 					break;
 				}
 				if (!player.IsInvincible()&&bullets->operator[](i)->IsCollisionBoxOverlap(player_collision_boxfighters)) {
@@ -71,9 +73,9 @@ namespace Raiden {
 		bomb.Init();
 		stage_manager.Init(xml_reader.ParseStages(), fighters, bullets, boss);
 		player.Init(xml_reader.ParsePlayer(), bullets);
-		status_panel.Init();
+		status_panel.Init(text_graphics);
 		opening.PlayAudio();
-		death_message_id = -1;
+		death_message_id = text_graphics.RegisterText(-1, { 0, 0 }, "");
 	}
 
 	void RunningState::KeyUp(Control &control) {
@@ -85,7 +87,7 @@ namespace Raiden {
 		this->UpdateDeathMessage();
 		if (player.GetLifeCount() > 0) {
 			if (control.mode == ControlMode::KEYBOARD) {
-				if (control.keys.count(Key::RESET)) {
+				if (control.keys.count(Key::BOMB)) {
 					int a = player.GetBombCount();
 					if (a > 0 && bomb.Start()) {
 						explosion.PlayAudio();
@@ -156,7 +158,7 @@ namespace Raiden {
 	void RunningState::UpdateDeathMessage() {
 		CPoint position = { SIZE_X / 2 - 100 , SIZE_Y / 2 };
 		std::string death_message = player.GetLifeCount() > 0 ? "" : "YOU ARE DEAD";
-		death_message_id = text_graphics.RegisterText(death_message_id, position, death_message);
+		text_graphics.RegisterText(death_message_id, position, death_message);
 	}
 
 	void RunningState::Show() {

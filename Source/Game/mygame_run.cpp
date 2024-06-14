@@ -38,6 +38,7 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	key_map[VK_LEFT] = Raiden::Key::LEFT;
 	key_map[VK_RIGHT] = Raiden::Key::RIGHT;
 	key_map[0x5A] = Raiden::Key::FIRE;
+	key_map[0x46] = Raiden::Key::BOMB;
 	key_map[0x52] = Raiden::Key::RESET;
 }
 

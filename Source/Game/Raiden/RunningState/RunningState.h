@@ -39,6 +39,7 @@ namespace Raiden
 		std::size_t death_message_id;
 		std::vector<Item*> items;
 		AudioPlayer opening = AudioPlayer("Resources/audio/Opening.mp3", true);
+		AudioPlayer death = AudioPlayer("Resources/audio/death.mp3", false);
 		AudioPlayer laser = AudioPlayer("Resources/audio/laser.mp3", false);
 		AudioPlayer explosion = AudioPlayer("Resources/audio/explosion.mp3", false);
 		AudioPlayer reload = AudioPlayer("Resources/audio/reload.mp3", false);

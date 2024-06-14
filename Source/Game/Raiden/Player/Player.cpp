@@ -10,7 +10,10 @@ namespace Raiden
 {
 	void Player::Init(PlayerData && player_data, std::shared_ptr<Raiden::GameObjectPool<Raiden::Bullet>>& bullet)
 	{
+		this->score = 0;
 		this->life_count = 3;
+		this->bomb_count = 3;
+		this->level = 1;
 		int color_mask_red = std::get<0>(player_data.color_mask);
 		int color_mask_green = std::get<1>(player_data.color_mask);
 		int color_mask_blue = std::get<2>(player_data.color_mask);
@@ -20,8 +23,6 @@ namespace Raiden
 		sprite.SetTopLeft(player_data.init_position.x, player_data.init_position.y);
 		InitCollisionBox(sprite.GetWidth()/2, sprite.GetHeight()/2);
 	}
-
-	
 
 	void Player::Update(const Control &control)
 	{

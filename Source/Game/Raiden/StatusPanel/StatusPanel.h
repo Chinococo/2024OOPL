@@ -5,7 +5,7 @@
 namespace Raiden {
 	class StatusPanel {
 	public:
-		void Init();
+		void Init(TextGraphics&);
 		void SetHealth(int);
 		void SetScore(int);
 		void SetBombCount(int);

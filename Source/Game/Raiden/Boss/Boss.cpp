@@ -24,6 +24,11 @@ namespace Raiden
 		health = 200;
 		bullets = bullet;
 		this->LoadTurretGroup();
+		std::vector<std::string> bitmapPaths;
+		for (int i = 0; i <= 7; ++i) {
+			bitmapPaths.push_back("Resources/fx/" + std::to_string(i) + ".bmp");
+		}
+		fx.LoadBitmapByString(bitmapPaths, RGB(255, 255, 255));
 	}
 
 	void Boss::Show()
@@ -31,10 +36,19 @@ namespace Raiden
 		is_appear = true;
 		sprite.ShowBitmap();
 		this->ShowCollisionBox();
+		if (fx_toggle) {
+			this->fx.ShowBitmap();
+		}
+		
 	}
 
 	void Boss::Damage(int damage)
 	{
+		if (health / 30 != (health - damage) / 30) {
+			fx.SetAnimation(10, true);
+			fx.ToggleAnimation();
+			fx_toggle = true;
+		} 
 		health -= damage;
 	}
 
@@ -65,6 +79,8 @@ namespace Raiden
 	void Boss::MoveTo(int left, int top)
 	{
 		sprite.SetTopLeft(left, top);
+		if(!this->fx_toggle)
+			fx.SetTopLeft(left+std::rand()%(sprite.GetWidth()-50), top + std::rand() % (sprite.GetHeight()-50));
 		UpdateCollisionBox(left, top);
 	}
 
@@ -106,6 +122,9 @@ namespace Raiden
 
 	void Boss::Update(const Player &player)
 	{
+		if (this->fx.IsAnimationDone()) {
+			this->fx_toggle = false;
+		}
 		Move();
 		turretGroups[turret_groups_index]->update({ this->sprite.GetLeft(), this->sprite.GetTop() });
 		if (clock() - bullet_interval > 1000) {

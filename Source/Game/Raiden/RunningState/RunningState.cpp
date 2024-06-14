@@ -4,21 +4,19 @@
 
 namespace Raiden {
 	void RunningState::CollisionEvent() {
+		/*ª«Åé¸I¼²*/
 		auto player_collision_boxfighters = player.GetCollisionBox();
 		for (size_t j = 0; j < fighters->GetSize(); j++) {
-			if (!fighters->operator[](j)->IsAlive()) {
-				continue;
+			if (!player.IsInvincible() && fighters->operator[](j)->IsCollisionBoxOverlap(player)) {
+				player.Damage();
+				playdamage.PlayAudio();
+				return;
 			}
-			if (fighters->operator[](j)->IsCollisionBoxOverlap(player.GetCollisionBox())){
-				if (std::rand() % 100 < 100) {
-					items.push_back(new Item());
-					items[items.size() - 1]->Init(CPoint(fighters->operator[](j)->GetLeft(), fighters->operator[](j)->GetTop()));
-				}
-				bullets->operator[](i)->Destroy();
-				fighters->operator[](j)->Destroy();
-				player.IncreaseScore(100);
-				break;
-			}
+		}
+		if (!player.IsInvincible() && boss->IsCollisionBoxOverlap(player)) {
+			player.Damage();
+			playdamage.PlayAudio();
+			return;
 		}
 
 		for (size_t i = 0; i < bullets->GetSize(); i++) {

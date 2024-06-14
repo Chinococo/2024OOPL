@@ -41,6 +41,7 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	key_map[0x46] = Raiden::Key::BOMB;
 	key_map[0x52] = Raiden::Key::RESET;
 	key_map[0x44] = Raiden::Key::dDEBUG;
+	key_map[0x49] = Raiden::Key::INVINCIBLE;
 }
 
 void CGameStateRun::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)

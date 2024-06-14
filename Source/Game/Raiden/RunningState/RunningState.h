@@ -47,5 +47,7 @@ namespace Raiden
 		Bomb bomb;
 		bool debug = false;
 		std::clock_t debug_timer = std::clock();
+		bool invincible = false;
+		std::clock_t invincible_timer = std::clock();
 	}; 
 }

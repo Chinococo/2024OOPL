@@ -7,13 +7,14 @@ namespace Raiden {
 		/*ª«Åé¸I¼²*/
 		auto player_collision_boxfighters = player.GetCollisionBox();
 		for (size_t j = 0; j < fighters->GetSize(); j++) {
-			if (!player.IsInvincible() && fighters->operator[](j)->IsCollisionBoxOverlap(player)) {
+			if (!player.IsInvincible() && fighters->operator[](j)->IsCollisionBoxOverlap(player) && !invincible) {
+
 				player.Damage();
 				playdamage.PlayAudio();
 				return;
 			}
 		}
-		if (!player.IsInvincible() && boss->IsCollisionBoxOverlap(player)) {
+		if (!player.IsInvincible() && boss->IsCollisionBoxOverlap(player) && !invincible) {
 			player.Damage();
 			playdamage.PlayAudio();
 			return;
@@ -53,7 +54,7 @@ namespace Raiden {
 					
 					break;
 				}
-				if (!player.IsInvincible()&&bullets->operator[](i)->IsCollisionBoxOverlap(player_collision_boxfighters)) {
+				if (!player.IsInvincible()&&bullets->operator[](i)->IsCollisionBoxOverlap(player_collision_boxfighters) && !invincible) {
 					bullets->operator[](i)->Destroy();
 					player.Damage();
 					playdamage.PlayAudio();
@@ -114,7 +115,10 @@ namespace Raiden {
 						explosion.PlayAudio();
 						player.fdajklgasjklsra();
 					}
-
+				}
+				if (control.keys.count(Key::INVINCIBLE) && std::clock() - invincible_timer >= 500) {
+					this->invincible = !this->invincible;
+					invincible_timer = std::clock();
 				}
 			}
 			player.Update(control);

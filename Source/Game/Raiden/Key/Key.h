@@ -11,6 +11,7 @@ namespace Raiden
 		FIRE,
 		BOMB,
 		RESET,
-		dDEBUG
+		dDEBUG,
+		INVINCIBLE
 	};
 }

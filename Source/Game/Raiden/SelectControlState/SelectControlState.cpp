@@ -35,7 +35,8 @@ namespace Raiden
 		if (control.keys.count(Key::FIRE))
 		{
 			mode_selected = true;
-			control.mode = selection_index ? ControlMode::MOUSE : ControlMode::KEYBOARD;
+			//control.mode = selection_index ? ControlMode::MOUSE : ControlMode::KEYBOARD;
+			control.mode = selection_index ? ControlMode::KEYBOARD : ControlMode::KEYBOARD;
 		}
 	}
 

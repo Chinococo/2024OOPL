@@ -28,7 +28,7 @@ namespace Raiden {
 					}
 					auto fighter_collision_boxfighters = fighters->operator[](j)->GetCollisionBox();
 					if (bullets->operator[](i)->IsCollisionBoxOverlap(fighter_collision_boxfighters)) {
-						if (std::rand() % 100 < 100) {
+						if (std::rand() % 100 < 3) {
 							items.push_back(new Item());
 							items[items.size() - 1]->Init(CPoint(fighters->operator[](j)->GetLeft(), fighters->operator[](j)->GetTop()));
 						}

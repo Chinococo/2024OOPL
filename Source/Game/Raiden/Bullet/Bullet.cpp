@@ -7,7 +7,7 @@ namespace Raiden
 	void Bullet::Init(bool friendly)
 	{
 		this->friendly = friendly;
-		sprite.LoadBitmapByString({ "Resources/1.bmp" });
+		sprite.LoadBitmapByString({ "Resources/1.bmp" }, RGB(0, 0, 0));
 		collisionBox.Init({ { 0, 0, sprite.GetWidth(), sprite.GetWidth() } });
 		alive = true;
 	}

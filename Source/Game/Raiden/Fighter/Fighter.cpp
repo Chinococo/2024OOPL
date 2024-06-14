@@ -58,7 +58,7 @@ namespace Raiden
 		// Stay at the last position.
 		if (position_index == positions.size() - 2 && completeness == 1) {
 			sprite.SetFrameIndexOfBitmap(12);
-			Move(sprite.GetLeft(), sprite.GetTop() + (scrolled_distance-last_distance)+3);
+			Move(sprite.GetLeft()+ offset_x, sprite.GetTop() + (scrolled_distance-last_distance)+3);
 			last_distance = scrolled_distance;
 			return;
 		}

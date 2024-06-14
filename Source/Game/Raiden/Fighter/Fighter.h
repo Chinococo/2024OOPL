@@ -40,6 +40,7 @@ namespace Raiden
 		const double M_PI = 3.14159265358979323846;
 		int last_distance = 0;
 		bool IsAppear = false;
+		int offset_x = (-3 + (std::rand() % 6));
 
 	};
 }

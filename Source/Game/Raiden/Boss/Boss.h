@@ -14,7 +14,7 @@ namespace Raiden
 		virtual ~Boss() = default;
 		void Init(BossData boss_data,std::shared_ptr<Raiden::GameObjectPool<Raiden::Bullet>>& bullet);
 		void Update(const Player &player);
-		void Show();
+		void Show(bool debug);
 		void Damage(int);
 		bool IsAlive() const;
 		bool IsAppear() const;

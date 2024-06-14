@@ -37,7 +37,7 @@ namespace Raiden
 			UpdateByMouse(control.point);
 	}
 
-	void Player::Show()
+	void Player::Show(bool debug)
 	{
 		if (life_count > 0) {
 			if (invincible) {
@@ -48,7 +48,11 @@ namespace Raiden
 			}
 			
 			sprite.ShowBitmap();
-			ShowCollisionBox();
+
+			if (debug) {
+				ShowCollisionBox();
+			}
+			
 		}
 	}
 

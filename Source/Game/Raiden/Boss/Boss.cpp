@@ -31,11 +31,15 @@ namespace Raiden
 		fx.LoadBitmapByString(bitmapPaths, RGB(255, 255, 255));
 	}
 
-	void Boss::Show()
+	void Boss::Show(bool debug)
 	{
 		is_appear = true;
 		sprite.ShowBitmap();
-		this->ShowCollisionBox();
+
+		if (debug) {
+			this->ShowCollisionBox();
+		}
+		
 		if (fx_toggle) {
 			this->fx.ShowBitmap();
 		}

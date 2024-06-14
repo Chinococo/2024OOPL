@@ -75,11 +75,14 @@ namespace Raiden
 		position_index = position_index < positions.size() - 2 ? position_index + 1 : position_index;
 	}
 
-	void Fighter::Show()
+	void Fighter::Show(bool debug)
 	{
 		if (IsAppear) {
 			sprite.ShowBitmap(2);
-			ShowCollisionBox();
+
+			if (debug) {
+				ShowCollisionBox();
+			}
 		}
 	}
 

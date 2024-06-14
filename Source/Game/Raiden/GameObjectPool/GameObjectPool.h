@@ -17,7 +17,7 @@ namespace Raiden
 	public:
 		int AddElement();
 		void Update();
-		void Show();
+		void Show(bool debug);
 		std::size_t GetSize() const;
 		std::shared_ptr<T> operator[](std::size_t index);
 		void Clear();

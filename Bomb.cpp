@@ -40,11 +40,14 @@ namespace Raiden {
 			
 		}
 	}
-	void Bomb::Show()
+	void Bomb::Show(bool debug)
 	{
 		if (!complte) {
 			this->sprite.ShowBitmap();
-			this->ShowCollisionBox();
+			
+			if (debug) {
+				this->ShowCollisionBox();
+			}
 		}
 	}
 	bool Bomb::IsComplte()

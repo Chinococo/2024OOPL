@@ -30,9 +30,9 @@ namespace Raiden
 		stages[stage_index]->Update(player);
 	}
 
-	void StageManager::Show()
+	void StageManager::Show(bool debug)
 	{
-		stages[stage_index]->Show();
+		stages[stage_index]->Show(debug);
 	}
 
 	bool StageManager::Over() const

@@ -10,6 +10,7 @@ namespace Raiden
 		RIGHT,
 		FIRE,
 		BOMB,
-		RESET
+		RESET,
+		dDEBUG
 	};
 }

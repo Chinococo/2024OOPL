@@ -15,7 +15,7 @@ namespace Raiden
 	public:
 		void Init(PlayerData&& player_data, std::shared_ptr<Raiden::GameObjectPool<Raiden::Bullet>>& bullet);
 		void Update(const Control &control);
-		void Show();
+		void Show(bool debug);
 		int GetScore() const;
 		int GetHighScore() const;
 		int GetLifeCount() const;

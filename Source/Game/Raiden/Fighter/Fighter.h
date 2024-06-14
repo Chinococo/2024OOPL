@@ -13,7 +13,7 @@ namespace Raiden
 	public:
 		void Init(FighterData &&fighter_data, std::shared_ptr<Raiden::GameObjectPool<Raiden::Bullet>> bullets);
 		void Update(const Player &player, int scrolled_distance);
-		void Show();
+		void Show(bool debug);
 		void Destroy();
 		bool IsAlive() const;
 		bool IsAttacking() const;

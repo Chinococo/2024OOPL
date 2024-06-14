@@ -18,11 +18,11 @@ namespace Raiden
 		UpdateDerived(player);
 	}
 
-	void Stage::Show()
+	void Stage::Show(bool debug)
 	{
 		background.Show();
 		if (background.Over())
-			boss->Show();
+			boss->Show(debug);
 	}
 
 	bool Stage::Over() const

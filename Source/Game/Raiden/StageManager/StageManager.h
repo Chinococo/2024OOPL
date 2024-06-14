@@ -13,7 +13,7 @@ namespace Raiden
 	public:
 		void Init(std::vector<StageData>&& stages_data, std::shared_ptr<GameObjectPool<Fighter>> fighters, std::shared_ptr<GameObjectPool<Bullet>> bullets, std::shared_ptr<Boss> boss);
 		void Update(const Player &player);
-		void Show();
+		void Show(bool debug);
 		bool Over() const;
 		std::shared_ptr<Boss> GetBoss();
 	private:

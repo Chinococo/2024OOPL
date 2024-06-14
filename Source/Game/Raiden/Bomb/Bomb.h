@@ -8,7 +8,7 @@ namespace Raiden
 		void Init();
 		bool Start();
 		void update();
-		void Show();
+		void Show(bool debug);
 		bool IsComplte();
 	private:
 		game_framework::CMovingBitmap sprite;

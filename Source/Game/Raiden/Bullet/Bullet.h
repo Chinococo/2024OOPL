@@ -32,7 +32,7 @@ namespace Raiden
 		void Update(CPoint &&player_pos,vector<CPoint>& enemy);
 		void UpdatePlayerBullet(vector<CPoint>& enemy);
 		void UpdateFighterBullet(CPoint &player_pos);
-		void Show();
+		void Show(bool debug);
 		CollisionBox &GetCollisionBox();
 		bool IsCollisionBoxOverlap(CollisionBox& other);
 		void Destroy();

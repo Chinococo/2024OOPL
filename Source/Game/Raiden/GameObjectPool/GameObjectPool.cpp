@@ -42,10 +42,10 @@ namespace Raiden
 	}
 
 	template<typename T>
-	void GameObjectPool<T>::Show()
+	void GameObjectPool<T>::Show(bool debug)
 	{
 		for (std::size_t i = 0; i < pool.size(); i++)
-			pool[i]->Show();
+			pool[i]->Show(debug);
 	}
 
 	template<typename T>

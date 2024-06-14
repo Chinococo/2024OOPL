@@ -100,6 +100,12 @@ namespace Raiden {
 	void RunningState::Update(Control &control) {
 		bomb.update();
 		this->UpdateDeathMessage();
+		if (control.mode == ControlMode::KEYBOARD) {
+			if (control.keys.count(Key::dDEBUG) && std::clock() - debug_timer >= 500) {
+				this->debug = !this->debug;
+				debug_timer = std::clock();
+			}
+		}
 		if (player.GetLifeCount() > 0) {
 			if (control.mode == ControlMode::KEYBOARD) {
 				if (control.keys.count(Key::BOMB)) {
@@ -177,17 +183,17 @@ namespace Raiden {
 	}
 
 	void RunningState::Show() {
-		stage_manager.Show();
-		player.Show();
-		bullets->Show();
-		fighters->Show();
+		stage_manager.Show(debug);
+		player.Show(debug);
+		bullets->Show(debug);
+		fighters->Show(debug);
 		status_panel.Show(text_graphics);
 		text_graphics.ShowTexts();
 		text_graphics.ClearTextData();
 		for (size_t i = 0; i < items.size(); i++) {
 			items[i]->Show();
 		}
-		bomb.Show();
+		bomb.Show(debug);
 	}
 
 	bool RunningState::Over() {

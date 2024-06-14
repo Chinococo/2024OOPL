@@ -15,7 +15,7 @@ namespace Raiden
 		virtual ~Stage() = default;
 		void Init(StageData &&stage_data, shared_ptr<GameObjectPool<Fighter>>fighters, shared_ptr<GameObjectPool<Bullet>>bullets);
 		void Update(const Player &player);
-		void Show();
+		void Show(bool debug);
 		bool Over() const;
 		std::shared_ptr<Boss> GetBoss();
 	protected:

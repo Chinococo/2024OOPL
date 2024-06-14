@@ -45,5 +45,7 @@ namespace Raiden
 		AudioPlayer reload = AudioPlayer("Resources/audio/reload.mp3", false);
 		AudioPlayer playdamage = AudioPlayer("Resources/audio/playdamage.mp3", false);
 		Bomb bomb;
+		bool debug = false;
+		std::clock_t debug_timer = std::clock();
 	}; 
 }

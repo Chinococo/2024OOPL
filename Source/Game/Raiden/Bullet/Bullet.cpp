@@ -129,10 +129,13 @@ namespace Raiden
 		sprite.SetTopLeft(top_left.first, top_left.second);
 	}*/
 
-	void Bullet::Show()
+	void Bullet::Show(bool debug)
 	{
 		sprite.ShowBitmap();
-		collisionBox.Show();
+		
+		if (debug) {
+			collisionBox.Show();
+		}
 	}
 
 	CollisionBox &Bullet::GetCollisionBox()

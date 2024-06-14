@@ -4,7 +4,21 @@
 
 namespace Raiden {
 	void RunningState::CollisionEvent() {
+		/*物體碰撞*/
 		auto player_collision_boxfighters = player.GetCollisionBox();
+		for (size_t j = 0; j < fighters->GetSize(); j++) {
+			if (!player.IsInvincible() && fighters->operator[](j)->IsCollisionBoxOverlap(player)) {
+				player.Damage();
+				playdamage.PlayAudio();
+				return;
+			}
+		}
+		if (!player.IsInvincible() && boss->IsCollisionBoxOverlap(player)) {
+			player.Damage();
+			playdamage.PlayAudio();
+			return;
+		}
+
 		for (size_t i = 0; i < bullets->GetSize(); i++) {
 			if (bullets->operator[](i)->IsFriendly()) {//我方子彈
 				for (size_t j = 0; j < fighters->GetSize(); j++) {

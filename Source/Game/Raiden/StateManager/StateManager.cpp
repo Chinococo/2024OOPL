@@ -40,7 +40,12 @@ namespace Raiden
 
 	void StateManager::ChangeState(std::size_t state_index)
 	{
-		this->state_index = state_index;
-		states[state_index]->Init();
+		if (state_index >= this->states.size()) {
+			this->state_index = 0;
+		}
+		else {
+			this->state_index = state_index;
+		}
+		this->states[this->state_index]->Init();
 	}
 }

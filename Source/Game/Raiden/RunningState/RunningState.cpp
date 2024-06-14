@@ -5,6 +5,22 @@
 namespace Raiden {
 	void RunningState::CollisionEvent() {
 		auto player_collision_boxfighters = player.GetCollisionBox();
+		for (size_t j = 0; j < fighters->GetSize(); j++) {
+			if (!fighters->operator[](j)->IsAlive()) {
+				continue;
+			}
+			if (fighters->operator[](j)->IsCollisionBoxOverlap(player.GetCollisionBox())){
+				if (std::rand() % 100 < 100) {
+					items.push_back(new Item());
+					items[items.size() - 1]->Init(CPoint(fighters->operator[](j)->GetLeft(), fighters->operator[](j)->GetTop()));
+				}
+				bullets->operator[](i)->Destroy();
+				fighters->operator[](j)->Destroy();
+				player.IncreaseScore(100);
+				break;
+			}
+		}
+
 		for (size_t i = 0; i < bullets->GetSize(); i++) {
 			if (bullets->operator[](i)->IsFriendly()) {//§Ú¤è¤l¼u
 				for (size_t j = 0; j < fighters->GetSize(); j++) {

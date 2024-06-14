@@ -42,6 +42,7 @@ namespace Raiden {
 				if (!player.IsInvincible()&&bullets->operator[](i)->IsCollisionBoxOverlap(player_collision_boxfighters)) {
 					bullets->operator[](i)->Destroy();
 					player.Damage();
+					playdamage.PlayAudio();
 				}
 				for (size_t i = 0; i < items.size();) {
 					CollisionBox& item_CollisionBox = items[i]->GetCollisionBox();

@@ -43,6 +43,7 @@ namespace Raiden
 		AudioPlayer laser = AudioPlayer("Resources/audio/laser.mp3", false);
 		AudioPlayer explosion = AudioPlayer("Resources/audio/explosion.mp3", false);
 		AudioPlayer reload = AudioPlayer("Resources/audio/reload.mp3", false);
+		AudioPlayer playdamage = AudioPlayer("Resources/audio/playdamage.mp3", false);
 		Bomb bomb;
 	}; 
 }

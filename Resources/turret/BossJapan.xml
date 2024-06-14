@@ -6,8 +6,8 @@
             <Turret x="257" y="0" bulletSpeed="3" angle="90" />
             
             <!-- Bottom Turrets -->
-            <Turret x="50" y="320" bulletSpeed="3" angle="270" />
-            <Turret x="257" y="320" bulletSpeed="3" angle="270" />
+            <Turret x="50" y="146" bulletSpeed="3" angle="270" />
+            <Turret x="257" y="146" bulletSpeed="3" angle="270" />
             
             <!-- Left Turrets -->
             <Turret x="0" y="80" bulletSpeed="3" angle="180" />
@@ -20,8 +20,8 @@
             <!-- Corner Turrets -->
             <Turret x="0" y="0" bulletSpeed="3" angle="135" />       <!-- Top-left corner -->
             <Turret x="307" y="0" bulletSpeed="3" angle="45" />      <!-- Top-right corner -->
-            <Turret x="0" y="320" bulletSpeed="3" angle="225" />     <!-- Bottom-left corner -->
-            <Turret x="307" y="320" bulletSpeed="3" angle="315" />   <!-- Bottom-right corner -->
+            <Turret x="0" y="146" bulletSpeed="3" angle="225" />     <!-- Bottom-left corner -->
+            <Turret x="307" y="146" bulletSpeed="3" angle="315" />   <!-- Bottom-right corner -->
         </Turrets>
     </Configuration>
 
@@ -32,8 +32,8 @@
             <Turret x="247" y="0" bulletSpeed="4" angle="90" />
             
             <!-- Bottom Turrets -->
-            <Turret x="60" y="330" bulletSpeed="4" angle="270" />
-            <Turret x="247" y="330" bulletSpeed="4" angle="270" />
+            <Turret x="60" y="146" bulletSpeed="4" angle="270" />
+            <Turret x="247" y="146" bulletSpeed="4" angle="270" />
             
             <!-- Left Turrets -->
             <Turret x="10" y="90" bulletSpeed="4" angle="180" />
@@ -46,8 +46,8 @@
             <!-- Corner Turrets -->
             <Turret x="10" y="10" bulletSpeed="4" angle="135" />       <!-- Top-left corner -->
             <Turret x="297" y="10" bulletSpeed="4" angle="45" />      <!-- Top-right corner -->
-            <Turret x="10" y="330" bulletSpeed="4" angle="225" />     <!-- Bottom-left corner -->
-            <Turret x="297" y="330" bulletSpeed="4" angle="315" />   <!-- Bottom-right corner -->
+            <Turret x="10" y="146" bulletSpeed="4" angle="225" />     <!-- Bottom-left corner -->
+            <Turret x="297" y="146" bulletSpeed="4" angle="315" />   <!-- Bottom-right corner -->
         </Turrets>
     </Configuration>
 </Configurations>

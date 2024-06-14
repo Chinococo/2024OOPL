@@ -22,6 +22,7 @@ namespace Raiden
 		appear_distance = fighter_data.appear_distance;
 		move_interval_milli = fighter_data.move_interval_milli;
 		alive = true;
+		IsAppear = false;
 	}
 
 	void Fighter::Update(const Player &player, int scrolled_distance)

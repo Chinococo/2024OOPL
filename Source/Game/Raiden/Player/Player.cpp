@@ -13,7 +13,7 @@ namespace Raiden
 		this->score = 0;
 		this->life_count = 3;
 		this->bomb_count = 3;
-		this->level = 1;
+		this->level = 2;
 		int color_mask_red = std::get<0>(player_data.color_mask);
 		int color_mask_green = std::get<1>(player_data.color_mask);
 		int color_mask_blue = std::get<2>(player_data.color_mask);
@@ -153,9 +153,9 @@ namespace Raiden
 				double radians = angle * (M_PI / 180.0f);
 				int index = bullets->AddElement();
 				auto test = *bullets;
-				test[index]->Init(true, bullet_type::track_bullet);
+				test[index]->Init(true, bullet_type::straight_bullet);
 				test[index]->SetTopLeft({ left + this->sprite.GetWidth() / 2-10+ static_cast<int>(50 * std::cos(radians)),top });
-				test[index]->ApplyForce({ static_cast<int>(std::cos(radians) * 3), static_cast<int>(-std::sin(radians) * 3)-10});
+				test[index]->ApplyForce({ static_cast<int>(std::cos(radians) * 7), static_cast<int>(-std::sin(radians) * 7)-10});
 			}
 			fire_cooldown_clock = std::clock();
 			attacking = true;

@@ -32,7 +32,7 @@ namespace Raiden
 			{
 				int bullet_index = bullet_pool->AddElement();
 				bullet_pool->operator[](bullet_index)->SetTopLeft({ fighter_pool->operator[](i)->GetLeft(), fighter_pool->operator[](i)->GetTop() });
-				bullet_pool->operator[](bullet_index)->ApplyForce({ 0, 1 });
+				bullet_pool->operator[](bullet_index)->ApplyForce({ 0, 10 });
 			}
 		}
 		

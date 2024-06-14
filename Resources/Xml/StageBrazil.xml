@@ -107,6 +107,55 @@
 				</Position>
 			</Positions>
 		</Fighter>
+		<Fighter>
+			<Sprites>
+				<Sprite>16.bmp</Sprite>
+				<Sprite>17.bmp</Sprite>
+				<Sprite>18.bmp</Sprite>
+				<Sprite>19.bmp</Sprite>
+				<Sprite>20.bmp</Sprite>
+				<Sprite>21.bmp</Sprite>
+				<Sprite>22.bmp</Sprite>
+				<Sprite>23.bmp</Sprite>
+				<Sprite>24.bmp</Sprite>
+				<Sprite>25.bmp</Sprite>
+				<Sprite>26.bmp</Sprite>
+				<Sprite>27.bmp</Sprite>
+				<Sprite>28.bmp</Sprite>
+				<Sprite>29.bmp</Sprite>
+				<Sprite>30.bmp</Sprite>
+				<Sprite>31.bmp</Sprite>
+			</Sprites>
+			<AppearDistance>500</AppearDistance>
+			<MoveIntervalMilli>1000</MoveIntervalMilli>
+			<BulletType>0</BulletType>
+			<BulletSpeed>5</BulletSpeed>
+			<BulletAngle>300</BulletAngle>
+			<Positions>
+				<Position>
+					<Left>10</Left>
+					<Top>10</Top>
+				</Position>
+				<Position>
+					<Left>20</Left>
+					<Top>20</Top>
+				</Position>
+				<Position>
+					<Left>30</Left>
+					<Top>30</Top>
+				</Position>
+				<Position>
+					<Left>40</Left>
+					<Top>40</Top>
+				</Position>
+				<Position>
+					<Left>50</Left>
+					<Top>50</Top>
+				</Position>
+			</Positions>
+		</Fighter>
+
+		
 	</Fighters>
 	<Boss>
 		<Path>Boss/</Path>

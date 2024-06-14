@@ -45,7 +45,7 @@ namespace Raiden
 			positions[position_index + 1].x - positions[position_index].x);
 		double angleInDegrees = angle * (180.0 / M_PI);
 		double bulletAngleInRadians = bullet_angle * (M_PI/180.0);
-		if (std::clock() - shoot_clock > 1000)
+		if (std::clock() - shoot_clock > 700)
 		{
 			int index = bullets->AddElement();
 			bullets->operator[](index)->Init(false, bullet_type);

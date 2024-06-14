@@ -28,6 +28,7 @@ namespace Raiden
 		virtual void Attack(const Player &player) = 0;
 		virtual void LoadTurretGroup()=0;
 		game_framework::CMovingBitmap sprite;
+		game_framework::CMovingBitmap fx;
 		int health = 1000;
 		std::vector<CPoint> positions;
 		std::size_t position_index = 0;
@@ -40,5 +41,6 @@ namespace Raiden
 		int last_position_X, last_position_Y;  // ¤¤¤ßÂI
 		float angle = 0.0f;
 		int turret_groups_index = 0;
+		bool fx_toggle = false;
 	};
 }

@@ -9,6 +9,7 @@ namespace Raiden
 		LEFT,
 		RIGHT,
 		FIRE,
+		BOMB,
 		RESET
 	};
 }

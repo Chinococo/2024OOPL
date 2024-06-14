@@ -73,22 +73,9 @@ namespace Raiden
 		// Check if the boss has reached the last position
 		if (position_index > positions.size() - 2)
 		{
-			if (clock() - move_time > 10) {
-				if (std::rand() % 1000 < 1) {  // 1%的機率停下來10秒					move_time += 3 * CLOCKS_PER_SEC;
-					if (turretGroups.size() != 0)
-						turret_groups_index = (turret_groups_index + 1) % turretGroups.size();
-					return;
-				}
-				angle += 1.0f;
-				if (angle >= 360.0f) {
-					angle -= 360.0f;
-				}
-				double radians = angle * (M_PI / 180.0f);
-				int newX = static_cast<int>(last_position_X + 100 * std::cos(radians) - 100);
-				int newY = static_cast<int>(last_position_Y + 100 * std::sin(radians));
-				MoveTo(newX, newY);
-				move_time = clock();
-			}
+			position_index = 0;
+			turret_groups_index = (turret_groups_index + 1) % turretGroups.size();
+			start_move_time = clock();
 			return;
 		}
 

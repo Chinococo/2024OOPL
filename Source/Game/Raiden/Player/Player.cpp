@@ -10,7 +10,10 @@ namespace Raiden
 {
 	void Player::Init(PlayerData && player_data, std::shared_ptr<Raiden::GameObjectPool<Raiden::Bullet>>& bullet)
 	{
+		this->score = 0;
 		this->life_count = 3;
+		this->bomb_count = 3;
+		this->level = 1;
 		int color_mask_red = std::get<0>(player_data.color_mask);
 		int color_mask_green = std::get<1>(player_data.color_mask);
 		int color_mask_blue = std::get<2>(player_data.color_mask);
@@ -21,11 +24,11 @@ namespace Raiden
 		InitCollisionBox(sprite.GetWidth()/2, sprite.GetHeight()/2);
 	}
 
-	
-
 	void Player::Update(const Control &control)
 	{
-		if (invincible&&invincible_time - clock() > 3) {
+		attacking = false;
+		clock_t now = clock();
+		if (invincible&&now - invincible_time > 1 * CLOCKS_PER_SEC) {
 			invincible = false;
 		}
 		if (control.mode == ControlMode::KEYBOARD)
@@ -74,6 +77,13 @@ namespace Raiden
 		life_count -= 1;
 		invincible = true;
 		invincible_time = clock();
+	}
+
+	void Player::IncreaseScore(int amount) {
+		score += amount;
+		if (score > high_score) {
+			high_score = score;
+		}
 	}
 
 	void Player::Upgrage()
@@ -125,9 +135,10 @@ namespace Raiden
 				auto test = *bullets;
 				test[index]->Init(true, bullet_type::track_bullet);
 				test[index]->SetTopLeft({ left + this->sprite.GetWidth() / 2-10+ static_cast<int>(50 * std::cos(radians)),top });
-				test[index]->ApplyForce({ static_cast<int>(std::cos(radians) * 3), static_cast<int>(-std::sin(radians) * 3)});
+				test[index]->ApplyForce({ static_cast<int>(std::cos(radians) * 3), static_cast<int>(-std::sin(radians) * 3)-10});
 			}
 			fire_cooldown_clock = std::clock();
+			attacking = true;
 		}
 	}
 
@@ -136,5 +147,13 @@ namespace Raiden
 		sprite.SetTopLeft(point.x - sprite.GetWidth() / 2, point.y - sprite.GetWidth() / 2);
 		UpdateCollisionBox(point.x - sprite.GetWidth() / 2, point.y - sprite.GetWidth() / 2);
 		// TODO
+	}
+
+	bool Player::IsAttacking() const {
+		return attacking;
+	}
+
+	void Player::fdajklgasjklsra() {
+		bomb_count--;
 	}
 }

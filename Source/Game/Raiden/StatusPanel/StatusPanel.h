@@ -3,27 +3,25 @@
 #include <map>
 
 namespace Raiden {
-	enum class StatusType {
-		LIFE,
-		SCORE,
-		BOMB_COUNT
-	};
 	class StatusPanel {
 	public:
-		void InitializeStatus();
-		void SetStatusCount(const StatusType, const int);
-		void DecreaseStatusCount(const StatusType);
-		void ShowStatus(TextGraphics& text_graphics);
+		void Init(TextGraphics&);
+		void SetHealth(int);
+		void SetScore(int);
+		void SetBombCount(int);
+		void Show(TextGraphics&);
+
 	private:
-		struct StatusDatum {
-			StatusDatum(const std::string text, const std::string image_path, const int initial_count, const CPoint position);
-			const std::string text;
-			const std::string image_path;
-			int count;
-			const CPoint position;
-		};
-		std::map<const StatusType, StatusDatum> status_data;
-		game_framework::CMovingBitmap display;
-		vector<string> image_paths;
+		int health;
+		int score;
+		int bomb_count;
+		CPoint health_pos;
+		CPoint score_pos;
+		CPoint bomb_count_pos;
+		std::size_t health_text_id;
+		std::size_t score_text_id;
+		std::size_t score_count_id;
+		std::size_t bomb_count_text_id;
+		game_framework::CMovingBitmap status_image;
 	};
 }

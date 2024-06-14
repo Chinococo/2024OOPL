@@ -13,30 +13,30 @@
 			<Green>24</Green>
 			<Blue>8</Blue>
 		</ColorMask>
-		<Sprites>
-			<Sprite>0.bmp</Sprite>
-			<Sprite>1.bmp</Sprite>
-			<Sprite>2.bmp</Sprite>
-			<Sprite>3.bmp</Sprite>
-			<Sprite>4.bmp</Sprite>
-			<Sprite>5.bmp</Sprite>
-			<Sprite>6.bmp</Sprite>
-			<Sprite>7.bmp</Sprite>
-			<Sprite>8.bmp</Sprite>
-			<Sprite>9.bmp</Sprite>
-			<Sprite>10.bmp</Sprite>
-			<Sprite>11.bmp</Sprite>
-			<Sprite>12.bmp</Sprite>
-			<Sprite>13.bmp</Sprite>
-			<Sprite>14.bmp</Sprite>
-			<Sprite>15.bmp</Sprite>
-		</Sprites>
 		<Fighter>
+			<Sprites>
+				<Sprite>16.bmp</Sprite>
+				<Sprite>17.bmp</Sprite>
+				<Sprite>18.bmp</Sprite>
+				<Sprite>19.bmp</Sprite>
+				<Sprite>20.bmp</Sprite>
+				<Sprite>21.bmp</Sprite>
+				<Sprite>22.bmp</Sprite>
+				<Sprite>23.bmp</Sprite>
+				<Sprite>24.bmp</Sprite>
+				<Sprite>25.bmp</Sprite>
+				<Sprite>26.bmp</Sprite>
+				<Sprite>27.bmp</Sprite>
+				<Sprite>28.bmp</Sprite>
+				<Sprite>29.bmp</Sprite>
+				<Sprite>30.bmp</Sprite>
+				<Sprite>31.bmp</Sprite>
+			</Sprites>
 			<AppearDistance>200</AppearDistance>
 			<MoveIntervalMilli>1000</MoveIntervalMilli>
-			<BulletType>1</BulletType>
+			<BulletType>0</BulletType>
 			<BulletSpeed>5</BulletSpeed>
-			<BulletAngle>90</BulletAngle>
+			<BulletAngle>300</BulletAngle>
 			<Positions>
 				<Position>
 					<Left>10</Left>
@@ -61,9 +61,27 @@
 			</Positions>
 		</Fighter>
 		<Fighter>
+			<Sprites>
+				<Sprite>0.bmp</Sprite>
+				<Sprite>1.bmp</Sprite>
+				<Sprite>2.bmp</Sprite>
+				<Sprite>3.bmp</Sprite>
+				<Sprite>4.bmp</Sprite>
+				<Sprite>5.bmp</Sprite>
+				<Sprite>6.bmp</Sprite>
+				<Sprite>7.bmp</Sprite>
+				<Sprite>8.bmp</Sprite>
+				<Sprite>9.bmp</Sprite>
+				<Sprite>10.bmp</Sprite>
+				<Sprite>11.bmp</Sprite>
+				<Sprite>12.bmp</Sprite>
+				<Sprite>13.bmp</Sprite>
+				<Sprite>14.bmp</Sprite>
+				<Sprite>15.bmp</Sprite>
+			</Sprites>
 			<AppearDistance>200</AppearDistance>
 			<MoveIntervalMilli>1000</MoveIntervalMilli>
-			<BulletType>1</BulletType>
+			<BulletType>0</BulletType>
 			<BulletSpeed>5</BulletSpeed>
 			<BulletAngle>300</BulletAngle>
 			<Positions>
@@ -106,22 +124,83 @@
 				<Top>0</Top>
 			</Position>
 			<Position>
-				<Left>200</Left>
+				<Left>230</Left>
 				<Top>30</Top>
 			</Position>
 			<Position>
+				<Left>260</Left>
+				<Top>60</Top>
+			</Position>
+			<Position>
+				<Left>290</Left>
+				<Top>90</Top>
+			</Position>
+			<Position>
+				<Left>320</Left>
+				<Top>120</Top>
+			</Position>
+			<Position>
+				<Left>350</Left>
+				<Top>150</Top>
+			</Position>
+			<Position>
+				<Left>320</Left>
+				<Top>180</Top>
+			</Position>
+			<Position>
+				<Left>290</Left>
+				<Top>210</Top>
+			</Position>
+			<Position>
+				<Left>260</Left>
+				<Top>240</Top>
+			</Position>
+			<Position>
+				<Left>230</Left>
+				<Top>270</Top>
+			</Position>
+			<Position>
 				<Left>200</Left>
+				<Top>300</Top>
+			</Position>
+			<Position>
+				<Left>170</Left>
+				<Top>270</Top>
+			</Position>
+			<Position>
+				<Left>140</Left>
+				<Top>240</Top>
+			</Position>
+			<Position>
+				<Left>110</Left>
+				<Top>210</Top>
+			</Position>
+			<Position>
+				<Left>80</Left>
+				<Top>180</Top>
+			</Position>
+			<Position>
+				<Left>50</Left>
+				<Top>150</Top>
+			</Position>
+			<Position>
+				<Left>80</Left>
+				<Top>120</Top>
+			</Position>
+			<Position>
+				<Left>110</Left>
+				<Top>90</Top>
+			</Position>
+			<Position>
+				<Left>140</Left>
 				<Top>60</Top>
 			</Position>
 			<Position>
 				<Left>200</Left>
-				<Top>90</Top>
-			</Position>
-			<Position>
-				<Left>200</Left>
-				<Top>120</Top>
+				<Top>0</Top>
 			</Position>
 		</Positions>
+
 		<AttackPeriods>
 			<AttackPeriod>
 				<BulletType>Straight</BulletType>

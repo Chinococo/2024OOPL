@@ -160,16 +160,18 @@ namespace Raiden
 	{
 		auto path_elem = ParseXmlDown(stage_elems[stage], { "Fighters", "Path" });
 		auto color_mask_elem = ParseXmlDown(stage_elems[stage], { "Fighters", "ColorMask" });
-		auto sprite_elems = ParseXmlList(ParseXmlDown(stage_elems[stage], { "Fighters", "Sprites" }), "Sprite");
+		
 		auto fighter_elems = ParseXmlList(ParseXmlChild(stage_elems[stage], "Fighters"), "Fighter");
 
 		auto color_mask = ParseColorMaskElem(color_mask_elem);
-		auto sprites = ParseSpriteElems(ParsePathElem(path_elem), sprite_elems);
+		
 
 		std::vector<FighterData> fighters_data;
 
 		for (const auto &fighter_elem : fighter_elems)
 		{
+			auto sprite_elems = ParseXmlList(ParseXmlDown(fighter_elem, { "Sprites" }), "Sprite");
+			auto sprites = ParseSpriteElems(ParsePathElem(path_elem), sprite_elems);
 			auto appear_distance_elem = ParseXmlChild(fighter_elem, "AppearDistance");
 			auto move_interval_milli_elem = ParseXmlChild(fighter_elem, "MoveIntervalMilli");
 			auto bullet_type_elem = ParseXmlChild(fighter_elem, "BulletType");

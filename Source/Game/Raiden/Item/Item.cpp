@@ -13,11 +13,11 @@ namespace Raiden
 		this->sprite.LoadBitmapByString({ "Resources/Item/0.bmp" },RGB(0,0,0));
 		this->sprite.SetTopLeft(now.x, now.y);
 		InitCollisionBox(sprite.GetWidth(), sprite.GetHeight());
-		// 生成 0 到 RAND_MAX 之間的隨機整數
 		int rand_num = rand();
+		double random_fraction = static_cast<double>(rand_num) / RAND_MAX;
 
-		// 將隨機整數轉換成浮點數，並映射到 0 到 2*pi 之間的角度範圍內
-		double angle = static_cast<double>(rand_num) / RAND_MAX * 2 * M_PI;
+		// 將 0 到 1 之間的隨機數映射到 30 度到 150 度（即 π/6 到 5π/6 弧度）之間
+		double angle = (random_fraction * (5.0 / 6.0 * M_PI - M_PI / 6.0)) + M_PI / 6.0;
 
 		del_x = static_cast<int>(cos(angle) * 5);
 		del_y = static_cast<int>(sin(angle) * 5);

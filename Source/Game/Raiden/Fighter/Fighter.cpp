@@ -24,6 +24,7 @@ namespace Raiden
 		alive = true;
 		IsAppear = false;
 		sprite.SetTopLeft(50, 50);
+		sprite.SetFrameIndexOfBitmap(12);
 	}
 
 	void Fighter::Update(const Player &player, int scrolled_distance)
@@ -69,7 +70,7 @@ namespace Raiden
 		// Stay at the current position index.
 		if (completeness < 1)
 			return;
-		sprite.SetFrameIndexOfBitmap((static_cast<int>((angleInDegrees + 360) / 22.5) % 16));
+		sprite.SetFrameIndexOfBitmap((static_cast<int>((angle + 360) / 30) % 16));
 
 		start_move_time = std::clock();
 

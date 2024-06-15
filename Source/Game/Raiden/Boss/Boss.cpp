@@ -71,7 +71,7 @@ namespace Raiden
 		std::wstring health_str = std::to_wstring(health);
 		health_str += L"\n";
 		OutputDebugStringW(health_str.c_str());
-		return health == 0;
+		return health <= 0;
 	}
 
 
